@@ -1,3 +1,4 @@
+<meta charset="utf-8">
 <title>Ailecek Oyun Gecesi</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Ailece oynanan, gülerek İslami değerler öğreten oyun gecesi.">
@@ -598,26 +599,127 @@ const speechText = t => plain(String(t).replace(SOURCE_PAREN, ""))
   .replace(/\bHz\./g, "Hazreti").replace(/\bs\.a\.v\.?/gi, "sallallahu aleyhi ve sellem")
   .replace(/…/g, ".").replace(/\s*·\s*/g, ", ").replace(/\s+/g, " ").trim();
 const sentences = t => t.split(/(?<=[!?])\s+|(?<=[^\d\s]\.)\s+/).map(s => s.trim()).filter(Boolean);
-const plain = t => String(t).replace(/[\p{Extended_Pictographic}‍️]/gu, "").replace(/[“”"]/g, "").replace(/\s+/g, " ").trim();
+const plain = t => String(t).replace(/[\p{Extended_Pictographic}\u200d\uFE0F]/gu, "").replace(/[“”"]/g, "").replace(/\s+/g, " ").trim();
 const setTalking = on => document.querySelectorAll(".ak-bird").forEach(b => b.classList.toggle("is-talking", on));
-function say(text) {
-  if (!voiceOn || !tts.ok || !text) return;
-  try {
-    speechSynthesis.cancel();
-    if (!tts.voice) pickVoice();
-    const st = VOICE_STYLES[voiceStyle] || VOICE_STYLES.kiz, id = ++tts.seq;
-    const parts = sentences(speechText(text));
-    parts.forEach((s, i) => {
-      const u = new SpeechSynthesisUtterance(s);
-      u.lang = "tr-TR"; if (tts.voice) u.voice = tts.voice;
-      u.pitch = st.pitch; u.rate = st.rate; u.volume = 1;
-      if (i === 0) u.onstart = () => { if (id === tts.seq) setTalking(true); };
-      if (i === parts.length - 1) u.onend = u.onerror = () => { if (id === tts.seq) setTalking(false); };
-      speechSynthesis.speak(u);
-    });
-  } catch (e) {}
+/* say(x): x bir metin, bir parça listesi ya da { text, ai } olabilir.
+   text: cihaz sesinin okuyacağı tam metin (isimler dahil).
+   ai: yapay zekâ sesinde sırayla çalınacak, önceden üretilmiş sabit parçalar (isim ve sayı içermez). */
+function normSay(x) {
+  if (x == null) return null;
+  if (typeof x === "string") return { text: x, ai: [x] };
+  if (Array.isArray(x)) { const a = x.filter(Boolean); return { text: a.join(" "), ai: a }; }
+  return { text: x.text, ai: (x.ai || [x.text]).filter(Boolean) };
 }
-function hush() { try { tts.ok && speechSynthesis.cancel(); } catch (e) {} setTalking(false); }
+let lastSay = null;
+function say(x) {
+  const n = normSay(x);
+  if (!voiceOn || !n || !n.text) return;
+  lastSay = x; hush();
+  const id = ++tts.seq;
+  if (useAI()) { sayAI(n.ai, id); return; }
+  if (tts.ok) deviceSpeak(n.text, id);
+}
+function deviceSpeak(text, id) {
+  return new Promise(done => {
+    try {
+      speechSynthesis.cancel();
+      if (!tts.voice) pickVoice();
+      const st = VOICE_STYLES[voiceStyle] || VOICE_STYLES.kiz;
+      const parts = sentences(speechText(text));
+      if (!parts.length) return done();
+      parts.forEach((s, i) => {
+        const u = new SpeechSynthesisUtterance(s);
+        u.lang = "tr-TR"; if (tts.voice) u.voice = tts.voice;
+        u.pitch = st.pitch; u.rate = st.rate; u.volume = 1;
+        if (i === 0) u.onstart = () => { if (id === tts.seq) setTalking(true); };
+        if (i === parts.length - 1) u.onend = u.onerror = () => { if (id === tts.seq) setTalking(false); done(); };
+        speechSynthesis.speak(u);
+      });
+    } catch (e) { done(); }
+  });
+}
+function hush() { tts.seq++; stopAI(); try { tts.ok && speechSynthesis.cancel(); } catch (e) {} setTalking(false); }
+
+/* ============ YAPAY ZEKÂ SESİ ============
+   Sesler ses/uret.mjs ile bir kez üretilir ve ses/ altında paketler hâlinde gelir.
+   ses/ses.json: { default, voices: { <id>: { id, label, provider, packs: { ad: dosya }, clips: { anahtar: [paket, başlangıç, uzunluk] } } } } */
+let voiceSource = store.get("voiceSource", "ai");
+let aiVoiceId = store.get("aiVoice", null);
+let aiFallback = store.get("aiFallback", false);
+const AI = { manifest: null, packs: {}, buffers: {}, src: null, missing: [] };
+const aiReady = fetch("ses/ses.json").then(r => r.ok ? r.json() : null).then(m => { if (m && m.voices && Object.keys(m.voices).length) AI.manifest = m; }).catch(() => {});
+function aiVoice() {
+  const v = AI.manifest && AI.manifest.voices; if (!v) return null;
+  return v[aiVoiceId] || v[AI.manifest.default] || v[Object.keys(v)[0]];
+}
+const useAI = () => voiceSource === "ai" && !!aiVoice();
+/* Parça anahtarı: okunacak metnin FNV-1a özeti. Üretici betik aynı fonksiyonu sayfadan çağırır. */
+function sesKey(t) {
+  const s = speechText(t); let h = 0x811c9dc5;
+  for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193); }
+  return (h >>> 0).toString(16).padStart(8, "0");
+}
+function loadPack(v, name) {
+  const k = v.id + "/" + name;
+  if (!AI.packs[k]) AI.packs[k] = fetch("ses/" + v.packs[name]).then(r => { if (!r.ok) throw new Error("paket"); return r.arrayBuffer(); });
+  return AI.packs[k];
+}
+async function clipBuffer(v, key) {
+  const c = v.clips[key]; if (!c) return null;
+  const bk = v.id + "/" + key; if (AI.buffers[bk]) return AI.buffers[bk];
+  const ab = await loadPack(v, c[0]);
+  const buf = await new Promise((res, rej) => audio().decodeAudioData(ab.slice(c[1], c[1] + c[2]), res, rej));
+  AI.buffers[bk] = buf; return buf;
+}
+function stopAI() { try { AI.src && AI.src.stop(); } catch (e) {} AI.src = null; }
+async function sayAI(segs, id) {
+  const v = aiVoice(); audio();
+  for (const seg of segs) {
+    if (id !== tts.seq) return;
+    let buf = null; try { buf = await clipBuffer(v, sesKey(seg)); } catch (e) {}
+    if (id !== tts.seq) return;
+    if (!buf) {
+      AI.missing.push(seg);
+      if (aiFallback && tts.ok) await deviceSpeak(seg, id);
+      continue;
+    }
+    await new Promise(res => {
+      const src = ac.createBufferSource(); src.buffer = buf; src.connect(ac.destination);
+      src.onended = res; AI.src = src; setTalking(true); src.start();
+    });
+    await new Promise(r => setTimeout(r, 140));
+  }
+  if (id === tts.seq) setTalking(false);
+}
+/* Üretici betik (ses/uret.mjs) için: yapay zekâ sesinde çalınabilecek tüm sabit parçalar.
+   Yeni bir say(...) parçası eklediğinizde buraya da ekleyin; testler eksik parçaları raporlar. */
+function allSpeechLines() {
+  const out = new Map();
+  const add = (pack, ...ts) => ts.flat().forEach(t => { if (!t) return; const key = sesKey(t); if (!out.has(key)) out.set(key, { key, pack, text: speechText(t) }); });
+  add("genel", SAMPLE_LINE, "Sesli anlatım açık.", "Açılış Töreni zamanı geldi! Gizli dostlarınızı merak ediyorum.", "İyilik Haftası devam ediyor!", IPUCLARI,
+    "Bu gece hangi tema?", "Sıra sende! Çarkı çevir!", "Telefonu sırası gelene verin, diğerleri bakmasın!", Object.values(GROUP_LINES),
+    Object.values(GAMES).map(g => `${g.name}! ${g.short}`),
+    "Maşallah!", "Maşallah, doğru!", "Olsun! Doğru cevap:", "Doğru cevap:", "Sen olsan ne yapardın?", "Hadi başla!",
+    "Hedef tamam! Harikasınız!", "Süre bitti! Yarıyı geçtiniz, bir fidan kazandınız.", "Süre bitti! Bir dahaki sefere daha hızlı olacağız!",
+    "Doğru!", "Yanlış!", "Harika! Ailece fidan kazandınız.", "Bir dahaki turda daha dikkatli zıplayacağız!",
+    "Dur! Heykel ol!", "Harika heykellerdiniz! Ailece iki fidan kazandınız.",
+    "Çocuklar! Şimdi bazı hatalar yapılacak. Her hatada Yakaladım diye bağırın!", "Doğrusu nasıl?",
+    "Aferin! Hocamız da çok güzel sordu.", "Hocamız kazandı!",
+    "Bu gece bahçemize fidanlar diktik! Şimdi telefonu bırakıp biraz sohbet edelim.", "Maşallah, ne güzel bir geceydi!");
+  Object.values(THEMES).forEach(t => add("tema", `Bu gece ${t.name}! Hazır mısınız?`, t.ayet.text, "Peygamberimiz buyurdu: " + t.hadis.text, t.soru, t.gorev));
+  add("gizli", DEAL_LINE, "Telefonu sırası gelene verin. Kimse bakmasın!", "Zarflar mühürlendi! Bir hafta boyunca gizli dostunuza iyilik yapın. Yedinci gün Açılış Töreni var.",
+    "Telefonu kartın sahibine verin. Sadece o baksın!", CER_LINE, "Bu hafta sana kim gizli iyilik yaptı?", "Önce fark ettiğin iyilikleri anlat, sonra tahminini seç!",
+    "Tebrikler dedektif! Doğru bildin!", "Çok gizliymiş! Gizli dost ustaca saklanmış!", "Şimdi teşekkürünü seç.", TESEKKUR.map(t => t.s),
+    "Tören bitti! Nar ağacımız büyüdü. Allah hepinizden razı olsun!", "Nar ağacımızdaki her nar, gizlice yapılmış bir iyilik!", EMPTY_DEFTER);
+  add("kart", PANDOMIM.concat(SESLER).map(x => `${x.w}. ${x.info}`), HAYVANLAR.map(x => `Hepimiz ${x.w} olduk! ${x.m}`));
+  [0, 1, 2, 3].forEach(l => BILGI[l].forEach(x => add("bilgi", x.q, x.o.map(optText), x.info)));
+  Object.values(SENOLSAN).flat().forEach(x => add("durum", x.s, x.i));
+  add("oyun", Object.values(HIZLI).flat().map(x => x.p), KALKOTUR.map(x => [x.s, x.i]), SASKIN.map(x => x.h));
+  return [...out.values()];
+}
+/* Arka planda paketleri önceden indir (ilk dokunuştan sonra) */
+function preloadAI() { const v = aiVoice(); if (v) Object.keys(v.packs).forEach((n, i) => setTimeout(() => loadPack(v, n).catch(() => {}), 400 * i)); }
+
 
 /* ============ EFEKTLER ============ */
 function floatText(t) { const el = document.createElement("div"); el.className = "float"; el.textContent = t; document.body.appendChild(el); setTimeout(() => el.remove(), 1300); }
@@ -697,7 +799,9 @@ function render(html, speak) {
 function screenHome() {
   G = null;
   const day = weekDay();
-  const greet = week ? (day >= 7 ? "Açılış Töreni zamanı geldi! Gizli dostlarınızı merak ediyorum." : `İyilik Haftası'nın ${day}. günü. ${IPUCLARI[(day - 1) % IPUCLARI.length]}`) : "Selâmün aleyküm! Ben Hüdhüd. Bu akşam ailecek oynayalım mı?";
+  const tipNow = IPUCLARI[(Math.max(day, 1) - 1) % IPUCLARI.length];
+  const greet = week ? (day >= 7 ? "Açılış Töreni zamanı geldi! Gizli dostlarınızı merak ediyorum." : `İyilik Haftası'nın ${day}. günü. ${tipNow}`) : "Selâmün aleyküm! Ben Hüdhüd. Bu akşam ailecek oynayalım mı?";
+  const greetSay = week && day < 7 ? { text: greet, ai: ["İyilik Haftası devam ediyor!", tipNow] } : greet;
   render(`
     <section class="hero ak-on-night">
       <span class="eyebrow">Ailece oyun gecesi</span>
@@ -727,7 +831,7 @@ function screenHome() {
         <li>Pandomimde peygamberler ve sahabeler canlandırılmaz; sadece hayvanlar, nesneler ve davranışlar.</li>
         <li>Veriler yalnızca bu cihazda saklanır. Ayarlardan sesleri kapatabilir, verileri sıfırlayabilirsiniz.</li>
       </ul>
-    </details>`, greet);
+    </details>`, greetSay);
 }
 
 function weekPanel() {
@@ -752,8 +856,8 @@ function openSettings(confirmReset) {
   <div class="sheet-bg" data-act="close-sheet">
     <div class="sheet ak" role="dialog" aria-modal="true" aria-label="Ayarlar">
       <div style="display:flex;justify-content:space-between;align-items:center"><h2>Ayarlar</h2><button class="icon-btn" data-act="close-sheet" aria-label="Kapat">✕</button></div>
-      <div class="setting"><div><b>Sesli anlatım</b><small>${tts.ok ? "Hüdhüd soruları yüksek sesle okur." : "Bu cihaz sesli anlatımı desteklemiyor."}</small></div><button class="switch" role="switch" aria-checked="${voiceOn && tts.ok}" aria-label="Sesli anlatım" data-act="voice" ${tts.ok ? "" : "disabled"}></button></div>
-      ${tts.ok ? voiceSettings() : ""}
+      <div class="setting"><div><b>Sesli anlatım</b><small>Hüdhüd soruları ve durumları yüksek sesle okur.</small></div><button class="switch" role="switch" aria-checked="${voiceOn}" aria-label="Sesli anlatım" data-act="voice"></button></div>
+      ${voiceSettings()}
       <div class="setting"><div><b>Efekt sesleri</b><small>Tık, mühür ve davul sesleri.</small></div><button class="switch" role="switch" aria-checked="${soundOn}" aria-label="Efekt sesleri" data-act="sound"></button></div>
       <div class="setting"><div><b>Aile</b><small>${family.map(p => p.av + " " + esc(p.name)).join(" · ")}</small></div><button class="mini gold" data-act="setup">Düzenle</button></div>
       <div class="setting"><div><b>İyilik Defteri</b><small>${defter.length} hafta, ${fruitTotal()} gizli iyilik</small></div><button class="mini gold" data-act="defter">Aç</button></div>
@@ -765,13 +869,31 @@ function openSettings(confirmReset) {
   </div>`;
 }
 function voiceSettings() {
+  const vs = AI.manifest ? Object.values(AI.manifest.voices) : [], cur = aiVoice();
+  const src = useAI() ? "ai" : voiceSource === "ai" && !vs.length ? "ai-yok" : "cihaz";
+  return `<div class="setting" style="display:block">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><div><b>Hüdhüd'ün sesi</b><small>${src === "ai" ? "Yapay zekâ sesi · " + esc(cur.label) : src === "ai-yok" ? "Yapay zekâ sesi henüz üretilmedi" : "Cihazın kendi sesi"}</small></div><button class="mini gold" data-act="voice-test">▶ Dinle</button></div>
+      <div class="ak-chips" style="justify-content:flex-start;margin-top:12px">
+        <button class="ak-chip ak-chip--select" aria-pressed="${voiceSource === "ai"}" data-act="vsource" data-arg="ai">✨ Yapay zekâ sesi</button>
+        <button class="ak-chip ak-chip--select" aria-pressed="${voiceSource === "cihaz"}" data-act="vsource" data-arg="cihaz">📱 Cihaz sesi</button>
+      </div>
+      ${voiceSource === "ai"
+        ? (vs.length
+          ? `${vs.length > 1 ? `<div class="ak-chips" style="justify-content:flex-start;margin-top:10px">${vs.map(v => `<button class="ak-chip ak-chip--select" aria-pressed="${cur && v.id === cur.id}" data-act="aivoice" data-arg="${esc(v.id)}">${esc(v.label)}</button>`).join("")}</div>` : ""}
+             <p class="small muted" style="margin-top:8px;font-weight:600">${Object.keys(cur.clips).length} cümle hazır. İsim içeren cümlelerde Hüdhüd ismi söylemez, ekranda görünür.</p>
+             ${tts.ok ? `<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:8px"><small class="muted" style="font-weight:600">Hazır olmayan cümlelerde cihaz sesini kullan</small><button class="switch" role="switch" aria-checked="${aiFallback}" aria-label="Eksik cümlelerde cihaz sesi" data-act="aifallback"></button></div>` : ""}`
+          : `<p class="small muted" style="margin-top:8px;font-weight:600">Yapay zekâ sesleri bir kez üretilip oyuna eklenir. Üretilene kadar Hüdhüd sessiz kalır; isterseniz cihaz sesine geçebilirsiniz.</p>`)
+        : (tts.ok ? deviceVoiceSettings() : `<p class="small muted" style="margin-top:8px">Bu cihaz sesli anlatımı desteklemiyor.</p>`)}
+    </div>`;
+}
+function deviceVoiceSettings() {
   pickVoice();
   const best = tts.voices.length ? scoreVoice(tts.voices[0]) : -1, cur = tts.voice;
   const tip = !tts.voices.length
     ? "Bu cihazda Türkçe ses bulunamadı. Aşağıdaki adımlarla Türkçe ses indirebilirsiniz."
     : best < 40 ? "Daha doğal bir ses için cihazınıza gelişmiş Türkçe ses indirebilirsiniz." : "";
-  return `<div class="setting" style="display:block">
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><div><b>Hüdhüd'ün sesi</b><small>${cur ? esc(cur.name.replace(/^(Microsoft|Google)\s*/, "")) : "Cihazın varsayılan sesi"}</small></div><button class="mini gold" data-act="voice-test">▶ Dinle</button></div>
+  return `<div style="margin-top:12px">
+      <b style="font-size:15px;font-family:var(--font-display)">Cihaz sesi · ${cur ? esc(cur.name.replace(/^(Microsoft|Google)\s*/, "")) : "varsayılan"}</b>
       <div class="ak-chips" style="justify-content:flex-start;margin-top:12px">${Object.entries(VOICE_STYLES).map(([k, v]) => `<button class="ak-chip ak-chip--select" aria-pressed="${k === voiceStyle}" data-act="vstyle" data-arg="${k}">${v.e} ${v.name}</button>`).join("")}</div>
       ${tts.voices.length > 1 ? `<label class="small bold muted" for="voice-sel" style="display:block;margin-top:12px">Ses seçimi</label><select id="voice-sel" style="width:100%;min-height:46px;margin-top:6px;padding:8px 10px;border-radius:var(--radius-sm);border:2px solid var(--line);background:var(--surface-200);font-weight:700">${tts.voices.map(v => `<option value="${esc(v.name)}" ${cur && v.name === cur.name ? "selected" : ""}>${esc(v.name)}${scoreVoice(v) >= 40 ? " ★" : ""}</option>`).join("")}</select>` : ""}
       ${tip ? `<details style="margin-top:12px"><summary class="small bold" style="color:var(--cini);cursor:pointer">${tip}</summary><ul class="small" style="margin:8px 0 0;padding-left:1.2em;display:grid;gap:4px;font-weight:600;color:var(--ink-muted)">
@@ -874,7 +996,7 @@ function screenTurn() {
   const t = G.plan[G.i];
   if (t.group) return screenGroupIntro(t);
   t.type = t.type || chooseType(t.player);
-  const p = t.player, line = `Sıra ${ek(p.name, "de")}! Çarkı çevir!`;
+  const p = t.player, line = { text: `Sıra ${ek(p.name, "de")}! Çarkı çevir!`, ai: ["Sıra sende! Çarkı çevir!"] };
   render(card("bilgi", `
     <div class="stack center">
       ${avatar(p, "ak-avatar--lg")}
@@ -900,14 +1022,18 @@ function landed(t) {
     <p class="q-text" style="font-size:20px">${esc(g.short)}</p>
     ${secret ? `<span class="ak-chip ak-chip--tint" style="--c:var(--nar)">🤫 Telefonu ${esc(ek(p.name, "e"))} verin. Diğerleri bakmasın!</span>` : ""}
     <button class="ak-btn ak-btn--lg" data-act="play">Hazırım</button>`;
-  say(`${g.name}! ${g.short}${secret ? ` Telefonu ${ek(p.name, "e")} verin, diğerleri bakmasın!` : ""}`);
+  say({ text: `${g.name}! ${g.short}${secret ? ` Telefonu ${ek(p.name, "e")} verin, diğerleri bakmasın!` : ""}`, ai: [`${g.name}! ${g.short}`, secret && "Telefonu sırası gelene verin, diğerleri bakmasın!"] });
 }
+const GROUP_LINES = {
+  hayvan: "Herkes ayağa kalksın! Hayvan gibi yürüyeceğiz. Ben DUR deyince heykel olun!",
+  kalkotur: "Herkes ayağa kalksın! Cümle doğruysa zıplayın, yanlışsa yere çömelin!",
+  hizli: "Hızlı tur! Otuz saniyede hep birlikte bağırarak sayacağız!"
+};
+const DEAL_LINE = "Şimdi herkes gizli bir dost alacak. Bir hafta boyunca ona kimseye belli etmeden iyilik yapacaksınız!";
+const CER_LINE = "Açılış Töreni başlıyor! Bu hafta kim kime gizli iyilik yaptı, şimdi öğreneceğiz.";
+const EMPTY_DEFTER = "Defter henüz boş. İlk gizli iyilik haftası oyun gecesinin sonunda başlar.";
 function screenGroupIntro(t) {
-  const lines = {
-    hayvan: "Herkes ayağa kalksın! Hayvan gibi yürüyeceğiz. Ben DUR deyince heykel olun!",
-    kalkotur: "Herkes ayağa kalksın! Cümle doğruysa zıplayın, yanlışsa yere çömelin!",
-    hizli: "Hızlı tur! Otuz saniyede hep birlikte bağırarak sayacağız!"
-  };
+  const lines = GROUP_LINES;
   render(card(t.type, `
     <div class="stack center">
       <span class="mega bounce">${GAMES[t.type].ico}</span>
@@ -969,7 +1095,7 @@ function actDone(ok) {
   document.getElementById("flip").classList.add("is-open"); sfx.flip();
   if (ok) { grow(1); confetti(); } else sfx.no();
   document.getElementById("act-stage").innerHTML = `${guide(x.info)}${doneBtn()}`;
-  later(() => say((ok ? "Maşallah! " : "") + x.w + ". " + x.info), 500);
+  later(() => say([ok && "Maşallah!", `${x.w}. ${x.info}`]), 500);
 }
 
 /* ---- Bil Bakalım ---- */
@@ -985,7 +1111,7 @@ function playBilgi(t) {
         ? `<button class="ak-option" data-act="answer" data-arg="${i}"><span class="ak-option__pic">${it.o[1]}</span>${esc(it.o[0])}<span class="ak-option__mark"></span></button>`
         : `<button class="ak-option" data-act="answer" data-arg="${i}"><span class="ak-option__key">${L[i]}</span>${esc(it.o)}<span class="ak-option__mark"></span></button>`).join("")}
     </div>
-    <div id="after" class="stack"></div>`), x.q + " " + opts.map((it, i) => (pics ? "" : L[i] + ": ") + optText(it.o)).join(". "));
+    <div id="after" class="stack"></div>`), [x.q, ...opts.map(it => optText(it.o))]);
 }
 function answer(i) {
   const { x, opts } = G.cur, btns = document.querySelectorAll("#opts .ak-option");
@@ -995,7 +1121,7 @@ function answer(i) {
   if (ok) { grow(1); confetti(14); } else { btns[i].classList.add("is-wrong"); btns[i].querySelector(".ak-option__mark").textContent = "✗ Yanlış"; sfx.no(); }
   const msg = (ok ? `Maşallah, doğru! ${x.info || ""}` : `Olsun! Doğru cevap: ${right}. ${x.info || ""}`).trim();
   document.getElementById("after").innerHTML = `${guide(msg)}${doneBtn()}`;
-  later(() => say(msg), 300);
+  later(() => say(ok ? ["Maşallah, doğru!", x.info] : ["Olsun! Doğru cevap:", right, x.info]), 300);
 }
 
 /* ---- Sen Olsan? ---- */
@@ -1010,7 +1136,7 @@ function playSenOlsan(t) {
     <div id="after" class="stack center">
       <h3 style="font:600 19px/1.2 var(--font-display)">${judge ? `Hakem ${judge.av} ${esc(judge.name)}: En güzel cevap kimin?` : "En güzel cevap kimin?"}</h3>
       <div class="ak-chips">${G.players.map((p, i) => `<button class="ak-chip ak-chip--select" data-act="best" data-arg="${i}">${p.av} ${esc(p.name)}</button>`).join("")}<button class="ak-chip ak-chip--select" data-act="best" data-arg="-1">💚 Hepsi</button></div>
-    </div>`), `${t.player.name}, sen olsan ne yapardın? ${x.s}`);
+    </div>`), { text: `${t.player.name}, sen olsan ne yapardın? ${x.s}`, ai: ["Sen olsan ne yapardın?", x.s] });
 }
 function best(i) {
   const x = G.cur, who = i >= 0 ? G.players[i] : null;
@@ -1027,7 +1153,7 @@ function playHizli() {
     <p class="q-text">${esc(x.p)}</p>
     <div class="ak-timer" id="timer" style="--c:var(--kandil)"><b>30</b></div>
     <button class="counter ak-on-kandil" style="--c:var(--kandil)" id="ctr" data-act="count-up"><b id="ctrn">0</b>/ ${x.t} · her cevapta dokun</button>
-    <div id="after" class="stack"></div>`), x.p + " Hadi başla!");
+    <div id="after" class="stack"></div>`), [x.p, "Hadi başla!"]);
   later(() => runTimer(30, () => hizliEnd(false)), 2200);
 }
 function countUp() { const c = G.cur; if (c.done) return; c.count++; sfx.pop(); document.getElementById("ctrn").textContent = c.count; if (c.count >= c.x.t) hizliEnd(true); }
@@ -1038,7 +1164,7 @@ function hizliEnd(win) {
   if (win) { grow(2); confetti(26); } else if (half) grow(1); else sfx.no();
   const msg = win ? "Hedef tamam! Harikasınız!" : half ? `Süre bitti! ${c.count} tane saydınız, bir fidan kazandınız.` : "Süre bitti! Bir dahaki sefere daha hızlı olacağız!";
   document.getElementById("after").innerHTML = `${guide(msg)}${doneBtn()}`;
-  later(() => say(msg), 300);
+  later(() => say(half && !win ? { text: msg, ai: ["Süre bitti! Yarıyı geçtiniz, bir fidan kazandınız."] } : msg), 300);
 }
 
 /* ---- Kalk-Otur ---- */
@@ -1054,7 +1180,7 @@ function kalkStep(shown) {
          <div class="btn-row"><button class="ak-btn ak-btn--kandil" data-act="kalk-next" data-arg="1">Herkes bildi</button><button class="ak-btn ak-btn--ghost" data-act="kalk-next" data-arg="0">${last ? "Bitir" : "Sonraki"}</button></div>`
       : `<div class="duo"><div><span class="mega bounce">🙌</span>Doğruysa zıpla</div><div class="ak-timer ak-timer--sm" id="timer"><b>5</b></div><div><span class="mega wiggle">🧎</span>Yanlışsa çömel</div></div>
          <button class="ak-btn ak-btn--ghost ak-btn--lg" data-act="kalk-show">Cevabı göster</button>`}`;
-  if (shown) { render(card("kalkotur", body)); (x.d ? sfx.win : sfx.no)(); later(() => say((x.d ? "Doğru! " : "Yanlış! ") + (x.i || "")), 250); }
+  if (shown) { render(card("kalkotur", body)); (x.d ? sfx.win : sfx.no)(); later(() => say([x.d ? "Doğru!" : "Yanlış!", x.i]), 250); }
   else { render(card("kalkotur", body), x.s); later(() => runTimer(5, () => kalkStep(true)), 1800); }
 }
 function kalkNext(ok) {
@@ -1062,7 +1188,7 @@ function kalkNext(ok) {
   c.k++; if (c.k < c.items.length) return kalkStep(false);
   const f = c.ok >= 4 ? 2 : c.ok >= 2 ? 1 : 0;
   const msg = f ? `${c.ok} cümlede herkes bildi! Ailece ${f} fidan kazandınız.` : "Bir dahaki turda daha dikkatli zıplayacağız!";
-  render(card("kalkotur", `<div class="stack center"><span class="mega bounce">${f === 2 ? "🏆" : "🙋"}</span>${guide(msg, { noSpeak: true })}${doneBtn()}</div>`), msg);
+  render(card("kalkotur", `<div class="stack center"><span class="mega bounce">${f === 2 ? "🏆" : "🙋"}</span>${guide(msg, { noSpeak: true })}${doneBtn()}</div>`), f ? { text: msg, ai: ["Harika! Ailece fidan kazandınız."] } : msg);
   if (f) { grow(f); confetti(22); } else sfx.no();
 }
 
@@ -1111,12 +1237,12 @@ function sasGo() {
     <span class="mega wiggle">🕵️</span>
     <p class="q-text">Hataları yakala!</p>
     <button class="counter" style="--c:var(--lale)" data-act="caught"><b id="cn">0</b>hata yakalandı</button>
-    <button class="ak-btn ak-btn--ghost ak-btn--lg" data-act="sas-done">Gösteri bitti</button>`), `Çocuklar! ${G.cur.who.name} bir şeyler yapacak ama hatalar yapacak. Her hatada Yakaladım diye bağırın!`);
+    <button class="ak-btn ak-btn--ghost ak-btn--lg" data-act="sas-done">Gösteri bitti</button>`), { text: `Çocuklar! ${G.cur.who.name} bir şeyler yapacak ama hatalar yapacak. Her hatada Yakaladım diye bağırın!`, ai: ["Çocuklar! Şimdi bazı hatalar yapılacak. Her hatada Yakaladım diye bağırın!"] });
 }
 function caught() { const c = G.cur; if (c.caught >= c.x.h.length + 2) return; c.caught++; sfx.pop(); floatText("🔍"); document.getElementById("cn").textContent = c.caught; }
 function sasDone() {
   const c = G.cur, n = Math.min(c.caught, c.x.h.length);
-  render(card("saskin", `<p class="q-text">Doğrusu nasıl?</p><ul class="checks">${c.x.h.map(h => `<li><span>✓</span><span>${esc(h)}</span></li>`).join("")}</ul>${doneBtn()}`), "Doğrusu nasıl? " + c.x.h.join(" "));
+  render(card("saskin", `<p class="q-text">Doğrusu nasıl?</p><ul class="checks">${c.x.h.map(h => `<li><span>✓</span><span>${esc(h)}</span></li>`).join("")}</ul>${doneBtn()}`), ["Doğrusu nasıl?", ...c.x.h]);
   if (n) { grow(n); confetti(16); } else sfx.no();
 }
 
@@ -1136,7 +1262,7 @@ function hoca(ok) {
   const { x, who } = G.cur; grow(1); confetti(ok ? 10 : 24);
   const msg = (ok ? `Aferin! Hocamız da çok güzel sordu. ${x.info || ""}` : `Hoca ${who.name} kazandı! Doğru cevap: ${optText(x.o[0])}. ${x.info || ""}`).trim();
   document.getElementById("after").innerHTML = `${guide(msg)}${doneBtn()}`;
-  later(() => say(msg), 300);
+  later(() => say({ text: msg, ai: ok ? ["Aferin! Hocamız da çok güzel sordu.", x.info] : ["Hocamız kazandı!", "Doğru cevap:", optText(x.o[0]), x.info] }), 300);
 }
 
 /* ============ DERİNLİK ANI ============ */
@@ -1162,7 +1288,7 @@ function screenDeep(step) {
       <span class="ak-label">${s.title}</span>
       ${s.body}
       ${nextBtn}
-    </section>`, (step === 0 ? intro + " " : "") + s.say);
+    </section>`, step === 0 ? { text: intro + " " + s.say, ai: ["Bu gece bahçemize fidanlar diktik! Şimdi telefonu bırakıp biraz sohbet edelim.", s.say] } : s.say);
 }
 
 /* ============ GİZLİ İYİLİK: ZARF DAĞITIMI ============ */
@@ -1177,7 +1303,7 @@ function deedOptions(lvl, used) {
 function dealIntro() {
   const ps = G.players, to = derange(ps.length);
   G.deal = { cards: ps.map((p, i) => ({ from: p.name, fav: p.av, fage: p.age, to: ps[to[i]].name, tav: ps[to[i]].av, deed: null, done: false, feel: null })), used: new Set() };
-  const line = "Şimdi herkes gizli bir dost alacak. Bir hafta boyunca ona kimseye belli etmeden iyilik yapacaksınız!";
+  const line = DEAL_LINE;
   render(`
     <section class="ak-deed">
       <span class="ak-deed__eyebrow">Gizli İyilik Haftası</span>
@@ -1189,7 +1315,7 @@ function dealIntro() {
     </section>`, line);
 }
 function dealHand(i) {
-  const c = G.deal.cards[i], line = `Telefonu ${ek(c.from, "e")} verin. Kimse bakmasın!`;
+  const c = G.deal.cards[i], line = `Telefonu ${ek(c.from, "e")} verin. Kimse bakmasın!`, lineSay = { text: line, ai: ["Telefonu sırası gelene verin. Kimse bakmasın!"] };
   render(`
     <section class="ak-deed">
       <span class="ak-deed__eyebrow">Zarf ${i + 1} / ${G.deal.cards.length}</span>
@@ -1197,7 +1323,7 @@ function dealHand(i) {
       <h2 style="font:700 28px/32px var(--font-display)">${esc(line)}</h2>
       <p class="ak-deed__quote">Sadece ${esc(c.from)} baksın. Diğerleri gözlerini kapatsın ya da arkasını dönsün.</p>
       <button class="ak-btn ak-btn--kandil ak-btn--lg" data-act="deal-open" data-arg="${i}">Ben ${esc(c.from)}, zarfımı aç</button>
-    </section>`, line);
+    </section>`, lineSay);
 }
 function dealOpen(i) {
   const c = G.deal.cards[i], lvl = ageOf(c.fage).lvl;
@@ -1244,7 +1370,7 @@ function dealNext(i) {
   if (i + 1 < G.deal.cards.length) return dealHand(i + 1);
   week = { id: Date.now(), start: Date.now(), theme: G.theme, cards: G.deal.cards.map(({ fage, ...c }) => c) };
   saveWeek();
-  const line = `${week.cards.length} zarf mühürlendi! Bir hafta boyunca gizli dostunuza iyilik yapın. Yedinci gün Açılış Töreni var.`;
+  const line = { text: `${week.cards.length} zarf mühürlendi! Bir hafta boyunca gizli dostunuza iyilik yapın. Yedinci gün Açılış Töreni var.`, ai: ["Zarflar mühürlendi! Bir hafta boyunca gizli dostunuza iyilik yapın. Yedinci gün Açılış Töreni var."] };
   render(`
     <section class="ak-deed">
       <span class="ak-deed__eyebrow">İyilik Haftası başladı</span>
@@ -1284,14 +1410,14 @@ function screenWeek(confirmCancel) {
       : `<button class="link muted" data-act="week-cancel-ask">Haftayı iptal et</button>`}</div>`, tip);
 }
 function privHand(i, mode) {
-  const c = week.cards[i], line = `Telefonu ${ek(c.from, "e")} verin. Sadece o baksın!`;
+  const c = week.cards[i], line = `Telefonu ${ek(c.from, "e")} verin. Sadece o baksın!`, lineSay = { text: line, ai: ["Telefonu kartın sahibine verin. Sadece o baksın!"] };
   render(`
     <section class="ak-deed">
       <span class="ak-deed__eyebrow">${mode === "done" ? "İyiliğimi yaptım" : "Kartıma bak"}</span>
       ${avatar({ name: c.from, av: c.fav }, "ak-avatar--lg")}
       <h2 style="font:700 28px/32px var(--font-display)">${esc(line)}</h2>
       <div class="btn-row" style="width:100%"><button class="ak-btn ak-btn--night" data-act="week">Vazgeç</button><button class="ak-btn ak-btn--kandil" data-act="priv-open" data-arg="${i}:${mode}">Ben ${esc(c.from)}</button></div>
-    </section>`, line);
+    </section>`, lineSay);
 }
 function privOpen(i, mode) {
   const c = week.cards[i];
@@ -1326,7 +1452,7 @@ function cerIntro() {
   if (!week) return screenHome();
   G = null;
   week.cer = { order: shuffle(week.cards.map((_, i) => i)), k: 0, right: 0, thanks: {} };
-  const line = "Açılış Töreni başlıyor! Bu hafta kim kime gizli iyilik yaptı, şimdi öğreneceğiz.";
+  const line = CER_LINE;
   render(`
     <section class="ak-deed">
       <span class="ak-deed__eyebrow">Açılış Töreni</span>
@@ -1341,7 +1467,7 @@ function cerGuess() {
   const cer = week.cer, c = week.cards[cer.order[cer.k]];
   cer.guess = null;
   const others = week.cards.filter(x => x.from !== c.to);
-  const q = `${c.to}, bu hafta sana kim gizli iyilik yaptı?`;
+  const q = `${c.to}, bu hafta sana kim gizli iyilik yaptı?`, qSay = { text: q, ai: ["Bu hafta sana kim gizli iyilik yaptı?", "Önce fark ettiğin iyilikleri anlat, sonra tahminini seç!"] };
   render(`
     <section class="ak-deed">
       <span class="ak-deed__eyebrow">Tahmin ${cer.k + 1} / ${week.cards.length}</span>
@@ -1350,7 +1476,7 @@ function cerGuess() {
       <p class="ak-deed__quote">Önce fark ettiğin iyilikleri anlat, sonra tahminini seç!</p>
       <div class="ak-chips" id="guess">${others.map(x => `<button class="ak-chip ak-chip--select" aria-pressed="false" data-act="cer-pick" data-arg="${esc(x.from)}">${x.fav} ${esc(x.from)}</button>`).join("")}<button class="ak-chip ak-chip--select" aria-pressed="false" data-act="cer-pick" data-arg="?">🤷 Hiç fikrim yok</button></div>
       <button class="ak-btn ak-btn--kandil ak-btn--lg" id="reveal-btn" data-act="cer-reveal" disabled>Mührü Aç</button>
-    </section>`, q);
+    </section>`, qSay);
 }
 function cerPick(name, el) {
   week.cer.guess = name;
@@ -1374,7 +1500,7 @@ function cerReveal() {
       <span class="ak-deed__eyebrow" style="margin-top:4px">${esc(c.to)}, teşekkürünü seç</span>
       <div class="feel">${TESEKKUR.map((t, k) => `<button data-act="cer-thank" data-arg="${k}"><span>${t.e}</span>${t.w}</button>`).join("")}</div>
     </section>`);
-  later(() => { confetti(right ? 30 : 16); sfx.win(); if (right) grow(1); say(`${c.from}! ${verdict}`); }, 1100);
+  later(() => { confetti(right ? 30 : 16); sfx.win(); if (right) grow(1); say({ text: `${c.from}! ${verdict}`, ai: [right ? "Tebrikler dedektif! Doğru bildin!" : "Çok gizliymiş! Gizli dost ustaca saklanmış!", "Şimdi teşekkürünü seç."] }); }, 1100);
 }
 function cerThank(k) {
   const cer = week.cer, c = week.cards[cer.order[cer.k]], t = TESEKKUR[k];
@@ -1397,7 +1523,7 @@ function cerNext() {
   store.set("defter", defter);
   const right = cer.right, tot = week.cards.length;
   week = null; store.set("week", null);
-  const line = `Tören bitti! Bu hafta ${done} gizli iyilik yapıldı ve nar ağacımız büyüdü.`;
+  const line = { text: `Tören bitti! Bu hafta ${done} gizli iyilik yapıldı ve nar ağacımız büyüdü.`, ai: ["Tören bitti! Nar ağacımız büyüdü. Allah hepinizden razı olsun!"] };
   render(`
     <section class="ak-card center">
       <span class="ak-label">İyilik Haftası tamamlandı</span>
@@ -1419,14 +1545,15 @@ function screenDefter() {
       <div class="section-head" style="padding:0"><h2 style="font-size:19px">${dateTR(w.start)} haftası</h2><span class="muted small bold">${w.theme && THEMES[w.theme] ? THEMES[w.theme].ico + " " + THEMES[w.theme].name.replace(" Gecesi", "") : ""}</span></div>
       ${w.cards.map(c => `<div class="log-row">${avatar({ name: c.from, av: c.fav }, "ak-avatar--sm")}<div style="min-width:0"><div class="who">${esc(c.from)} → ${esc(c.to)} ${c.tav}</div><div class="what">${esc(c.deed)}</div></div><span class="ty" title="${c.done ? "Yapıldı" : "Yapılmadı"}">${c.done ? (c.thanks || "✓") : "🌱"}</span></div>`).join("")}
     </section>`).join("");
-  const line = total ? `Ailenizin nar ağacında ${total} nar var. Her biri gizlice yapılmış bir iyilik!` : "Defter henüz boş. İlk gizli iyilik haftası oyun gecesinin sonunda başlar.";
+  const lineText = total ? `Ailenizin nar ağacında ${total} nar var. Her biri gizlice yapılmış bir iyilik!` : EMPTY_DEFTER;
+  const line = total ? { text: lineText, ai: ["Nar ağacımızdaki her nar, gizlice yapılmış bir iyilik!"] } : lineText;
   render(`
     <section class="ak-card center">
       <span class="ak-label">İyilik Defteri</span>
       <div style="width:200px">${treeSVG(total)}</div>
       <span class="tree-num" style="font-size:52px">${total}</span>
       <p class="bold">gizli iyilik · ${defter.length} hafta</p>
-      ${guide(line, { soft: true })}
+      ${guide(lineText, { soft: true })}
     </section>
     ${week ? `<button class="ak-btn ak-btn--kandil ak-btn--lg" data-act="week">Devam eden haftayı aç</button>` : ""}
     ${weeks}`, line);
@@ -1442,7 +1569,7 @@ function screenEnd() {
       ${week ? `<p class="small bold muted">İyilik Haftası ana sayfada sizi bekliyor. Yaptığınız iyilikleri oradan işaretleyin.</p>` : ""}
       <button class="ak-btn ak-btn--lg" data-act="home">Ana sayfa</button>
     </section>
-    ${gardenHTML()}`, msg);
+    ${gardenHTML()}`, { text: msg, ai: ["Maşallah, ne güzel bir geceydi!"] });
   confetti(34); sfx.win(); later(happy, 300);
   G = null;
 }
@@ -1454,8 +1581,11 @@ const actions = {
   setup: screenSetup,
   settings: () => openSettings(false),
   "close-sheet": closeSheet,
-  say: t => say(t),
+  say: t => say(lastSay || t),
   sound() { soundOn = !soundOn; store.set("sound", soundOn); if (!soundOn) stopDrum(); openSettings(false); },
+  vsource(k) { voiceSource = k; store.set("voiceSource", k); voiceOn = true; store.set("voice", true); openSettings(false); say(SAMPLE_LINE); },
+  aivoice(k) { aiVoiceId = k; store.set("aiVoice", k); openSettings(false); say(SAMPLE_LINE); },
+  aifallback() { aiFallback = !aiFallback; store.set("aiFallback", aiFallback); openSettings(false); },
   "voice-test": () => { voiceOn = true; store.set("voice", true); say(SAMPLE_LINE); },
   vstyle(k) { voiceStyle = k; store.set("voiceStyle", k); openSettings(false); voiceOn = true; store.set("voice", true); say(SAMPLE_LINE); },
   voice() { voiceOn = !voiceOn; store.set("voice", voiceOn); if (!voiceOn) hush(); else say("Sesli anlatım açık."); openSettings(false); },
@@ -1483,6 +1613,7 @@ document.addEventListener("click", e => {
   if (!b || b.disabled) return;
   if (b.classList.contains("sheet-bg") && e.target !== b) return;
   audio();
+  if (!AI.preloaded && useAI()) { AI.preloaded = true; preloadAI(); }
   const fn = actions[b.dataset.act];
   if (fn) fn(b.dataset.arg, b);
 });

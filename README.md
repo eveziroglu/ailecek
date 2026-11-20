@@ -30,6 +30,25 @@ Hüdhüd'ün sesi varsayılan olarak tatlı bir **küçük kız** tonundadır. U
 | 🧑‍🏫 Küçük Hoca | Çocuk öğretmen olur ve büyüklere soru sorar. Cevap sadece çocukta. Büyükler bilemezse hoca kazanır. |
 | 🙋 Kalk-Otur | Herkes ayakta: cümle doğruysa zıplanır, yanlışsa çömelinir. 5 cümlelik hareketli grup turu. |
 
+## Yapay zekâ sesi
+
+Hüdhüd'ün sesi, cihaz seslerinin yerine **yapay zekâ ile üretilmiş, neşeli küçük kız tonunda** bir sesle çalınabilir. Sesler bir kez üretilir ve `ses/` klasöründe paketler hâlinde oyuna eklenir; oyun oynarken internet ya da ek ücret gerekmez.
+
+- Oyunun söyleyebileceği tüm sabit cümleler (yaklaşık 525 cümle, 25.500 karakter) sayfanın kendi `allSpeechLines()` fonksiyonundan alınır; ekrandaki metinle ses her zaman eşleşir.
+- İsim ve sayı içeren cümleler önceden üretilemez. Yapay zekâ sesinde bunların isimsiz karşılığı okunur ("Sıra Zeynep'te!" yerine "Sıra sende!"); isim ekranda görünür.
+- Ayarlardan **Yapay zekâ sesi** ile **Cihaz sesi** arasında geçiş yapılabilir. Yapay zekâ sesi henüz üretilmemişse Hüdhüd sessiz kalır.
+
+Üretmek için (Node 18+, ffmpeg ve playwright gerekir):
+
+```
+node ses/uret.mjs liste                                  # cümle listesi ve karakter sayısı
+node ses/uret.mjs ornek                                  # iki servisle örnek sesler (ses/ornek.html ile dinlenir)
+node ses/uret.mjs uret --saglayici openai --varsayilan   # OpenAI gpt-4o-mini-tts, "coral" sesi + küçük kız talimatı
+node ses/uret.mjs uret --saglayici elevenlabs --ses <voice_id> --varsayilan
+```
+
+Anahtarlar: Claude Code bulut ortamında ortamın **Network secrets** bölümüne (`api.openai.com` için `Authorization: Bearer …`, `api.elevenlabs.io` için `xi-api-key`), kendi bilgisayarınızda `OPENAI_API_KEY` / `ELEVENLABS_API_KEY` ortam değişkenlerine. Yeni cümle eklendiğinde komutu tekrar çalıştırmak yeterli; daha önce üretilenler önbellekten (`ses/onbellek/`) gelir.
+
 ## Gizli İyilik Haftası
 
 İhlası yaşayarak öğretmek için tasarlanmış, bir hafta süren gizli iyilik oyunu.
