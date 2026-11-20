@@ -47,6 +47,7 @@ Palet İznik çinilerinden gelir. Zemin serin beyaz, metin derin lacivert, vurgu
 ## Ses ve sesli anlatım
 
 - Hüdhüd soruları, seçenekleri, durumları ve ayet/hadisleri sesli okur. **Gizli kartlar asla okunmaz:** pandomim kelimesi, Şaşkın Ebeveyn senaryosu, Küçük Hoca cevabı, gizli iyilik görevi.
+- Hüdhüd'ün varsayılan sesi **Küçük kız** tonudur: cihazdaki en doğal Türkçe kadın sesi (Emel Doğal, Yelda Gelişmiş, Google Türkçe sırasıyla) 1.4 perde ve 1.03 hızla okunur. Diğer tonlar **Abla** (1.15 / 1.0) ve **Masalcı** (1.0 / 0.88). Metin cümle cümle okunur; “Hz.” “Hazreti” diye açılır, parantez içindeki kaynaklar okunmaz.
 - Efekt sesleri kısadır (tık, pop, mühür, davul). Ayrı bir anahtarla kapatılabilirler; davul ritmini istemeyen aileler için sesli anlatım açık kalabilir.
 
 ## İkonografi ve görseller

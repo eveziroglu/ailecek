@@ -6,6 +6,8 @@ Masaya tek telefon konur, sırası gelene uzatılır. Asıl oyun ekranın dış�
 
 Oyunun rehberi, Kur'an'da Hz. Süleyman'a haber getiren **Hüdhüd kuşu**dur. Hareketli bir karakter olarak soruları ve durumları **sesli okur**, böylece okuma bilmeyen çocuklar da oyuna katılır. Gizli kartlar (pandomim kelimesi, gizli iyilik, hoca cevabı) asla sesli okunmaz.
 
+Hüdhüd'ün sesi varsayılan olarak tatlı bir **küçük kız** tonundadır. Uygulama cihazdaki en doğal Türkçe kadın sesini kendiliğinden seçer (Edge'de Emel Doğal, iPhone'da Yelda Gelişmiş, Android'de Google Türkçe). Ayarlardan **Küçük kız**, **Abla** ya da **Masalcı** tonu ve cihazdaki başka bir ses seçilebilir.
+
 ## Nasıl oynanır?
 
 1. **Aile kurulumu:** Kaç kişi oynanacağı, isimler ve yaş aralıkları (3-5, 6-8, 9-12, 13-17, yetişkin) girilir.

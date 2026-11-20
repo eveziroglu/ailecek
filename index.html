@@ -562,19 +562,59 @@ let drumId = null;
 function startDrum() { stopDrum(); let n = 0; drumId = setInterval(() => { thump(0, n % 2 ? 90 : 130, n % 2 ? .3 : .55); n++; }, 380); }
 function stopDrum() { if (drumId) { clearInterval(drumId); drumId = null; } }
 
-const tts = { ok: "speechSynthesis" in window, voice: null };
-function pickVoice() { try { tts.voice = speechSynthesis.getVoices().find(v => /^tr/i.test(v.lang)) || null; } catch (e) {} }
+/* Sesli anlatım: cihazdaki en doğal Türkçe kadın sesini seçer, tonu "küçük kız"a ayarlar,
+   cümleleri tek tek okur. Gerçek çocuk sesi tarayıcılarda yok; ton ve hızla yaklaşılır. */
+const VOICE_STYLES = {
+  kiz: { name: "Küçük kız", e: "👧", pitch: 1.4, rate: 1.03, desc: "Tatlı ve neşeli" },
+  abla: { name: "Abla", e: "👩", pitch: 1.15, rate: 1.0, desc: "Sıcak ve sakin" },
+  masal: { name: "Masalcı", e: "📖", pitch: 1.0, rate: 0.88, desc: "Yavaş ve tane tane" }
+};
+const SAMPLE_LINE = "Selâmün aleyküm! Ben Hüdhüd. Bu akşam ailecek oynayalım mı?";
+let voiceStyle = store.get("voiceStyle", "kiz");
+let voiceName = store.get("voiceName", null);
+const tts = { ok: "speechSynthesis" in window, voice: null, voices: [], seq: 0 };
+const FEMALE_V = /yelda|emel|seda|filiz|zeynep|elif|ayşe|google|female|kadın/i;
+const MALE_V = /\b(ahmet|tolga|cem|male|erkek)\b/i;
+function scoreVoice(v) {
+  const n = v.name; let s = 0;
+  if (/natural|neural|doğal/i.test(n)) s += 60;
+  if (/premium|enhanced|gelişmiş|yüksek kalite/i.test(n)) s += 45;
+  if (/online/i.test(n)) s += 20;
+  if (/google/i.test(n)) s += 30;
+  if (FEMALE_V.test(n)) s += 20;
+  if (MALE_V.test(n) && !/female/i.test(n)) s -= 40;
+  return s;
+}
+function pickVoice() {
+  try {
+    tts.voices = speechSynthesis.getVoices().filter(v => /^tr/i.test(v.lang)).sort((a, b) => scoreVoice(b) - scoreVoice(a));
+    tts.voice = tts.voices.find(v => v.name === voiceName) || tts.voices[0] || null;
+  } catch (e) {}
+}
 if (tts.ok) { pickVoice(); try { speechSynthesis.onvoiceschanged = pickVoice; } catch (e) {} }
+/* Okunacak metni doğallaştır: kısaltmaları aç, parantez içindeki kaynakları okuma */
+const SOURCE_PAREN = /\s*\((?:[^()]*?(?:Buhârî|Müslim|Tirmizî|Ebû Dâvûd|Ahmed|Mâce|Nesâî|Edeb)[^()]*|[A-ZÂÎÛÇŞÖÜİ][^()]*?,\s*\d+(?:-\d+)?)\)/g;
+const speechText = t => plain(String(t).replace(SOURCE_PAREN, ""))
+  .replace(/\bHz\./g, "Hazreti").replace(/\bs\.a\.v\.?/gi, "sallallahu aleyhi ve sellem")
+  .replace(/…/g, ".").replace(/\s*·\s*/g, ", ").replace(/\s+/g, " ").trim();
+const sentences = t => t.split(/(?<=[!?])\s+|(?<=[^\d\s]\.)\s+/).map(s => s.trim()).filter(Boolean);
 const plain = t => String(t).replace(/[\p{Extended_Pictographic}‍️]/gu, "").replace(/[“”"]/g, "").replace(/\s+/g, " ").trim();
 const setTalking = on => document.querySelectorAll(".ak-bird").forEach(b => b.classList.toggle("is-talking", on));
 function say(text) {
   if (!voiceOn || !tts.ok || !text) return;
   try {
     speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(plain(text));
-    u.lang = "tr-TR"; if (tts.voice) u.voice = tts.voice; u.rate = 0.95; u.pitch = 1.12;
-    u.onstart = () => setTalking(true); u.onend = u.onerror = () => setTalking(false);
-    speechSynthesis.speak(u);
+    if (!tts.voice) pickVoice();
+    const st = VOICE_STYLES[voiceStyle] || VOICE_STYLES.kiz, id = ++tts.seq;
+    const parts = sentences(speechText(text));
+    parts.forEach((s, i) => {
+      const u = new SpeechSynthesisUtterance(s);
+      u.lang = "tr-TR"; if (tts.voice) u.voice = tts.voice;
+      u.pitch = st.pitch; u.rate = st.rate; u.volume = 1;
+      if (i === 0) u.onstart = () => { if (id === tts.seq) setTalking(true); };
+      if (i === parts.length - 1) u.onend = u.onerror = () => { if (id === tts.seq) setTalking(false); };
+      speechSynthesis.speak(u);
+    });
   } catch (e) {}
 }
 function hush() { try { tts.ok && speechSynthesis.cancel(); } catch (e) {} setTalking(false); }
@@ -713,6 +753,7 @@ function openSettings(confirmReset) {
     <div class="sheet ak" role="dialog" aria-modal="true" aria-label="Ayarlar">
       <div style="display:flex;justify-content:space-between;align-items:center"><h2>Ayarlar</h2><button class="icon-btn" data-act="close-sheet" aria-label="Kapat">✕</button></div>
       <div class="setting"><div><b>Sesli anlatım</b><small>${tts.ok ? "Hüdhüd soruları yüksek sesle okur." : "Bu cihaz sesli anlatımı desteklemiyor."}</small></div><button class="switch" role="switch" aria-checked="${voiceOn && tts.ok}" aria-label="Sesli anlatım" data-act="voice" ${tts.ok ? "" : "disabled"}></button></div>
+      ${tts.ok ? voiceSettings() : ""}
       <div class="setting"><div><b>Efekt sesleri</b><small>Tık, mühür ve davul sesleri.</small></div><button class="switch" role="switch" aria-checked="${soundOn}" aria-label="Efekt sesleri" data-act="sound"></button></div>
       <div class="setting"><div><b>Aile</b><small>${family.map(p => p.av + " " + esc(p.name)).join(" · ")}</small></div><button class="mini gold" data-act="setup">Düzenle</button></div>
       <div class="setting"><div><b>İyilik Defteri</b><small>${defter.length} hafta, ${fruitTotal()} gizli iyilik</small></div><button class="mini gold" data-act="defter">Aç</button></div>
@@ -722,6 +763,23 @@ function openSettings(confirmReset) {
       </div>
     </div>
   </div>`;
+}
+function voiceSettings() {
+  pickVoice();
+  const best = tts.voices.length ? scoreVoice(tts.voices[0]) : -1, cur = tts.voice;
+  const tip = !tts.voices.length
+    ? "Bu cihazda Türkçe ses bulunamadı. Aşağıdaki adımlarla Türkçe ses indirebilirsiniz."
+    : best < 40 ? "Daha doğal bir ses için cihazınıza gelişmiş Türkçe ses indirebilirsiniz." : "";
+  return `<div class="setting" style="display:block">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><div><b>Hüdhüd'ün sesi</b><small>${cur ? esc(cur.name.replace(/^(Microsoft|Google)\s*/, "")) : "Cihazın varsayılan sesi"}</small></div><button class="mini gold" data-act="voice-test">▶ Dinle</button></div>
+      <div class="ak-chips" style="justify-content:flex-start;margin-top:12px">${Object.entries(VOICE_STYLES).map(([k, v]) => `<button class="ak-chip ak-chip--select" aria-pressed="${k === voiceStyle}" data-act="vstyle" data-arg="${k}">${v.e} ${v.name}</button>`).join("")}</div>
+      ${tts.voices.length > 1 ? `<label class="small bold muted" for="voice-sel" style="display:block;margin-top:12px">Ses seçimi</label><select id="voice-sel" style="width:100%;min-height:46px;margin-top:6px;padding:8px 10px;border-radius:var(--radius-sm);border:2px solid var(--line);background:var(--surface-200);font-weight:700">${tts.voices.map(v => `<option value="${esc(v.name)}" ${cur && v.name === cur.name ? "selected" : ""}>${esc(v.name)}${scoreVoice(v) >= 40 ? " ★" : ""}</option>`).join("")}</select>` : ""}
+      ${tip ? `<details style="margin-top:12px"><summary class="small bold" style="color:var(--cini);cursor:pointer">${tip}</summary><ul class="small" style="margin:8px 0 0;padding-left:1.2em;display:grid;gap:4px;font-weight:600;color:var(--ink-muted)">
+        <li><b>iPhone / iPad:</b> Ayarlar › Erişilebilirlik › Seslendirilen İçerik › Sesler › Türkçe › “Yelda (Gelişmiş)” indirin.</li>
+        <li><b>Android:</b> Ayarlar › Erişilebilirlik › Metin okuma › Google Konuşma Hizmetleri › Türkçe ses verisini yükleyin.</li>
+        <li><b>Bilgisayar:</b> Microsoft Edge tarayıcısı “Emel (Doğal)” sesini hazır sunar; oyunu Edge'de açın.</li>
+      </ul></details>` : ""}
+    </div>`;
 }
 const closeSheet = () => { document.getElementById("sheet-root").innerHTML = ""; };
 
@@ -1398,6 +1456,8 @@ const actions = {
   "close-sheet": closeSheet,
   say: t => say(t),
   sound() { soundOn = !soundOn; store.set("sound", soundOn); if (!soundOn) stopDrum(); openSettings(false); },
+  "voice-test": () => { voiceOn = true; store.set("voice", true); say(SAMPLE_LINE); },
+  vstyle(k) { voiceStyle = k; store.set("voiceStyle", k); openSettings(false); voiceOn = true; store.set("voice", true); say(SAMPLE_LINE); },
   voice() { voiceOn = !voiceOn; store.set("voice", voiceOn); if (!voiceOn) hush(); else say("Sesli anlatım açık."); openSettings(false); },
   "reset-ask": () => openSettings(true),
   reset() { ["family", "garden", "week", "defter", "secrets"].forEach(k => store.set(k, null)); family = DEFAULT_FAMILY.map(p => ({ ...p })); gardenTotal = 0; week = null; defter = []; lastPlantCount = 0; lastFruitCount = 0; closeSheet(); screenHome(); },
@@ -1425,6 +1485,11 @@ document.addEventListener("click", e => {
   audio();
   const fn = actions[b.dataset.act];
   if (fn) fn(b.dataset.arg, b);
+});
+document.addEventListener("change", e => {
+  if (e.target.id !== "voice-sel") return;
+  voiceName = e.target.value; store.set("voiceName", voiceName); pickVoice(); say(SAMPLE_LINE);
+  const sm = e.target.closest(".setting").querySelector("small"); if (sm && tts.voice) sm.textContent = tts.voice.name.replace(/^(Microsoft|Google)\s*/, "");
 });
 document.addEventListener("input", e => {
   const el = e.target;
