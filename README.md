@@ -7,7 +7,7 @@ Masaya tek telefon konur, sırası gelene uzatılır. Asıl oyun ekranın dış�
 ## Nasıl oynanır?
 
 1. **Aile kurulumu:** Kaç kişi oynanacağı, isimler ve yaş aralıkları (3-5, 6-8, 9-12, 13-17, yetişkin) girilir.
-2. **Tema seçimi:** Şükür, Sabır ya da Merhamet gecesi.
+2. **Tema seçimi:** Şükür, Sabır, Merhamet, Doğruluk, Paylaşmak, Anne Baba, Temizlik ya da rastgele bir tema seçen Sürpriz Gece.
 3. **Turlar:** Telefon sırayla dolaşır. Herkese yaşına uygun bir kart çıkar. Doğru cevaplar ve güzel davranışlar ailenin ortak **bahçesine fidan** diker. Rekabet yoktur, aile tek takımdır.
 4. **Derinlik anı:** Temayla ilgili bir ayet ve hadis, bir sohbet sorusu ve haftalık aile görevi.
 5. **Gizli iyilik:** Herkes gizlice bir aile üyesine yapacağı bir iyilik kartı çeker. Bir sonraki oyun gecesinde "Bana kim iyilik yaptı?" diye tahmin edilir. Böylece ihlas yaşayarak öğrenilir.
@@ -18,9 +18,11 @@ Masaya tek telefon konur, sırası gelene uzatılır. Asıl oyun ekranın dış�
 |---|---|
 | 🎭 Kıssa Pandomimi | Kıssalardaki hayvanlar, nesneler ve davranışlar canlandırılır (60 sn). Peygamberler ve sahabeler canlandırılmaz. |
 | 💡 Bil Bakalım | Yaşa göre 4 seviyede soru. Küçükler için resimli. |
-| 🤔 Sen Olsan? | Komik ama düşündüren durumlar. En güzel cevabı aile seçer. |
+| 🤔 Sen Olsan? | Komik ama düşündüren durumlar. Hakem en küçük çocuktur, en güzel cevabı o seçer. |
 | ⚡ Hızlı Tur | Herkes birlikte, 30 saniyede hedef sayıya ulaşmaya çalışır. |
 | 🙃 Şaşkın Ebeveyn | Yetişkin bilerek hata yapar (abdest, sofra adabı…), çocuklar yakalar. |
+| 🧑‍🏫 Küçük Hoca | Çocuk öğretmen olur ve büyüklere soru sorar. Cevap sadece çocukta. Büyükler bilemezse hoca kazanır. |
+| 🙋 Kalk-Otur | Herkes ayakta: cümle doğruysa zıplanır, yanlışsa çömelinir. 5 cümlelik hareketli grup turu. |
 
 ## Çalıştırma
 

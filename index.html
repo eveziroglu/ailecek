@@ -362,6 +362,207 @@ const IYILIK = [
   { d: "{X:in} sevdiği bir yemeği ya da tatlıyı hazırla.", min: 3 }
 ];
 
+
+/* ============ EK İÇERİK: yeni temalar ve kartlar ============ */
+Object.assign(THEMES, {
+  dogruluk: {
+    name: "Doğruluk Gecesi", ico: "🌟", color: "--leaf",
+    desc: "Doğru sözlü ve güvenilir olmak",
+    ayet: { text: "Ey iman edenler! Allah'a karşı gelmekten sakının ve doğrularla beraber olun.", ref: "Tevbe Suresi, 119. ayet" },
+    hadis: { text: "Doğruluk iyiliğe, iyilik de cennete götürür.", ref: "Buhârî, Edeb 69; Müslim, Birr 103" },
+    soru: "Doğruyu söylemenin zor geldiği bir an oldu mu? Sonunda ne hissettin?",
+    gorev: "Bu hafta bir hata yapan onu kendisi söylerse kızmak yok, sarılmak var! Buna “doğruluk ödülü” diyoruz."
+  },
+  paylasmak: {
+    name: "Paylaşma Gecesi", ico: "🎁", color: "--plum",
+    desc: "Cömert olmak, sevdiğimizi paylaşmak",
+    ayet: { text: "Sevdiğiniz şeylerden (Allah yolunda) harcamadıkça iyiliğe asla erişemezsiniz.", ref: "Âl-i İmrân Suresi, 92. ayet" },
+    hadis: { text: "Sizden biriniz, kendisi için istediğini kardeşi için de istemedikçe (gerçek anlamda) iman etmiş olmaz.", ref: "Buhârî, Îmân 7; Müslim, Îmân 71" },
+    soru: "Sahip olduğun şeylerden hangisini paylaşmak sana en zor gelir? Neden?",
+    gorev: "Ailece bir “paylaşma kutusu” hazırlayın. Herkes iyi durumdaki bir eşyasını koysun ve hafta sonu ihtiyacı olana verin."
+  },
+  annebaba: {
+    name: "Anne Baba Gecesi", ico: "🏡", color: "--berry",
+    desc: "Anne babaya iyilik, çocuğa şefkat",
+    ayet: { text: "Rabbin, yalnız kendisine kulluk etmenizi ve anne babaya iyilik etmenizi emretti… Onlara “öf” bile deme, onları azarlama; onlara güzel söz söyle.", ref: "İsrâ Suresi, 23. ayet" },
+    hadis: { text: "Allah'ın rızası anne babanın rızasındadır.", ref: "Tirmizî, Birr 3" },
+    soru: "Çocuklar: anne babanızı en çok ne mutlu eder? Anne baba: çocuklarınızın hangi davranışı sizi en çok sevindiriyor?",
+    gorev: "Bu hafta çocuklar anne babalarına sorulmadan bir iş yapsın. Anne babalar da her çocuğa ona özel 15 dakika ayırsın."
+  },
+  temizlik: {
+    name: "Temizlik Gecesi", ico: "🫧", color: "--sky",
+    desc: "Bedenimizi, evimizi ve çevremizi temiz tutmak",
+    ayet: { text: "Şüphesiz Allah çok tövbe edenleri sever, temizlenenleri sever.", ref: "Bakara Suresi, 222. ayet" },
+    hadis: { text: "Temizlik imanın yarısıdır.", ref: "Müslim, Tahâret 1" },
+    soru: "Evimizde temizliğe en çok kim emek veriyor? Biz ona nasıl yardım edebiliriz?",
+    gorev: "Bu hafta her akşam 5 dakikalık “ailece toparlanma yarışı” yapın ve bitince hep birlikte “Elhamdülillah” deyin."
+  }
+});
+
+Object.assign(GAMES, {
+  kalkotur: { name: "Kalk-Otur", color: "--sky", ico: "🙋" },
+  hoca: { name: "Küçük Hoca", color: "--leaf", ico: "🧑‍🏫" }
+});
+
+PANDOMIM.push(
+  { w: "Bal yapan arı", e: "🐝", kolay: true, info: "Nahl (Arı) Suresi: Allah arıya dağlarda ve ağaçlarda yuva yapmasını ilham etti. Karınlarından insanlara şifa olan bal çıkar. (Nahl, 68-69)" },
+  { w: "Kurbağa", e: "🐸", kolay: true, info: "Firavun ve kavmi inat edince Allah onlara tufan, çekirge, haşere, kurbağa ve kan gönderdi. (A'râf, 133)" },
+  { w: "Çekirge", e: "🦗", kolay: true, info: "Firavun'un kavmine gönderilen uyarılardan biri de çekirge sürüleriydi. (A'râf, 133)" },
+  { w: "Sivrisinek", e: "🦟", kolay: true, info: "Bakara Suresi'nde Allah, sivrisineği bile örnek vermekten çekinmeyeceğini bildirir. (Bakara, 26)" },
+  { w: "Zürafa gemiye biniyor", e: "🦒", kolay: true, info: "Allah Hz. Nuh'a her canlıdan birer çifti gemiye almasını emretti. (Hûd, 40)" },
+  { w: "Koyun gütmek", e: "🐑", kolay: true, info: "Peygamberimiz gençliğinde çobanlık yaptı ve gönderilen her peygamberin çobanlık yaptığını söyledi. (Buhârî)" },
+  { w: "Kuyudan kova ile su çekmek", e: "🪣", kolay: false, info: "Bir kervan, su almak için Hz. Yusuf'un bulunduğu kuyuya kova sarkıttı ve onu buldu. (Yûsuf, 19)" },
+  { w: "Yıldızları ve ayı izlemek", e: "🌙", kolay: false, info: "Hz. Yusuf rüyasında on bir yıldızın, güneşin ve ayın kendisine secde ettiğini gördü. (Yûsuf, 4)" },
+  { w: "Hurma ile iftar açmak", e: "🌴", kolay: false, info: "Peygamberimiz orucunu genellikle taze ya da kuru hurma ile, bulamazsa su ile açardı. (Ebû Dâvûd, Tirmizî)" },
+  { w: "Misafire yemek ikram etmek", e: "🍲", kolay: false, info: "Hz. İbrahim misafirleri gelince hemen semiz bir buzağı kızartıp ikram etti. (Zâriyât, 24-27)" },
+  { w: "Esen rüzgâr", e: "🌬️", kolay: true, info: "Allah rüzgârı Hz. Süleyman'ın emrine verdi. (Sebe, 12)" },
+  { w: "Misvakla diş fırçalamak", e: "🪥", kolay: true, info: "Peygamberimiz misvakı çok severdi ve sık sık kullanırdı. (Buhârî)" },
+  { w: "Fidan dikmek", e: "🌳", kolay: true, info: "Peygamberimiz, kıyamet kopacağı sırada bile elinde bir fidan olanın onu dikmesini tavsiye etti. (Ahmed b. Hanbel)" },
+  { w: "Bayramda el öpmek", e: "🍬", kolay: true, info: "Bayramlarda büyükleri ziyaret etmek, el öpmek ve küçükleri sevindirmek güzel bir gelenektir." },
+  { w: "Yoldaki taşı kaldırmak", e: "🪨", kolay: true, info: "Peygamberimiz yoldan insanlara eziyet veren bir şeyi kaldırmanın sadaka olduğunu söyledi. (Buhârî, Müslim)" }
+);
+
+BILGI[0].push(
+  { q: "Namaz kılmadan önce ne yaparız?", o: [["Abdest alırız", "💧"], ["Dondurma yeriz", "🍦"], ["Dans ederiz", "💃"]] },
+  { q: "Gökyüzündeki güneşi kim yarattı?", o: [["Allah", "☀️"], ["Bir robot", "🤖"], ["Bir kedi", "🐱"]] },
+  { q: "Kardeşin ağlarsa ne yaparız?", o: [["Sarılırız", "🤗"], ["Güleriz", "😂"], ["Kaçarız", "🏃"]] },
+  { q: "Bayramda büyüklerimizin neyini öperiz?", o: [["Elini", "✋"], ["Ayağını", "🦶"], ["Kulağını", "👂"]] },
+  { q: "Yerde çöp görürsek ne yaparız?", o: [["Çöp kutusuna atarız", "🗑️"], ["Tekmeleriz", "⚽"], ["Üstüne basarız", "👟"]] },
+  { q: "Hz. Yunus'u kim yuttu?", o: [["Büyük balık", "🐋"], ["Kedi", "🐱"], ["Kuş", "🐦"]] },
+  { q: "Bal yapan hayvan hangisi? Kur'an'da onun adını taşıyan bir sure var!", o: [["Arı", "🐝"], ["Kelebek", "🦋"], ["Uğur böceği", "🐞"]] }
+);
+BILGI[1].push(
+  { q: "İlk insan ve ilk peygamber kimdir?", o: ["Hz. Âdem", "Hz. Nuh", "Hz. Musa"] },
+  { q: "Kâbe hangi şehirdedir?", o: ["Mekke", "Medine", "İstanbul"] },
+  { q: "Peygamberimize indirilen kitap hangisidir?", o: ["Kur'an-ı Kerim", "Tevrat", "Zebur"] },
+  { q: "Oruçlu biri iftarı ne zaman açar?", o: ["Akşam ezanı okununca", "Öğle vakti", "Sabah kalkınca"] },
+  { q: "Peygamberimizin kızlarından biri kimdir?", o: ["Hz. Fâtıma", "Hz. Meryem", "Hz. Havva"] },
+  { q: "Hangi hayvanın adı bir sureye verilmiştir?", o: ["Arı (Nahl)", "Aslan", "Kaplan"] }
+);
+BILGI[2].push(
+  { q: "Hz. Musa'ya indirilen kitap hangisidir?", o: ["Tevrat", "İncil", "Zebur"] },
+  { q: "Hz. Davud'a indirilen kitap hangisidir?", o: ["Zebur", "Tevrat", "İncil"] },
+  { q: "Peygamberimizin ilk eşi kimdir?", o: ["Hz. Hatice", "Hz. Âişe", "Hz. Fâtıma"] },
+  { q: "Ezanı ilk okuyan sahabi kimdir?", o: ["Hz. Bilâl", "Hz. Ömer", "Hz. Ali"] },
+  { q: "Kur'an'ın indirilmeye başladığı mübarek gece hangisidir?", o: ["Kadir Gecesi", "Berat Kandili", "Mevlid Kandili"] },
+  { q: "Hac ibadeti hangi şehirde yapılır?", o: ["Mekke", "Medine", "Kudüs"] }
+);
+BILGI[3].push(
+  { q: "Kur'an'ın en kısa suresi hangisidir?", o: ["Kevser", "İhlâs", "Fâtiha"], info: "Kevser Suresi üç ayettir." },
+  { q: "“Kalpler ancak Allah'ı anmakla huzur bulur” ayeti hangi surededir?", o: ["Ra'd", "Bakara", "Yâsîn"], info: "Ra'd Suresi, 28. ayet." },
+  { q: "Hz. Musa çocukken kimin sarayında büyüdü?", o: ["Firavun'un", "Nemrut'un", "Ebrehe'nin"] },
+  { q: "İlk dört halifeden ikincisi kimdir?", o: ["Hz. Ömer", "Hz. Osman", "Hz. Ali"] },
+  { q: "Peygamberimiz hangi şehirde vefat etti?", o: ["Medine", "Mekke", "Tâif"] },
+  { q: "Peygamberimize peygamberlikten önce de verilen “güvenilir” anlamındaki lakap nedir?", o: ["el-Emîn", "el-Fârûk", "es-Sıddîk"] }
+);
+
+SENOLSAN.sukur.push(
+  { s: "Elektrikler kesildi; tablet yok, televizyon yok, mum ışığında oturuyorsunuz. 🕯️ Ne yaparsınız?", i: "Bazen bir nimetin değerini o nimet gidince anlarız. Bu, ailece sohbet etmek için güzel bir fırsat olabilir." },
+  { s: "Ninen sana kendi ördüğü kocaman, rengârenk bir kazak gönderdi. Biraz kaşındırıyor! 🧶 Ninene ne dersin?", i: "Emeğe teşekkür etmek çok kıymetlidir. Hediyenin arkasındaki sevgiyi görmek de şükürdür." }
+);
+SENOLSAN.sabir.push(
+  { s: "Bütün gün yağmur yağdı ve dışarı çıkamıyorsun. Çok sıkıldın! 🌧️ Ne yaparsın?", i: "Sabır, sıkıldığımızda bile güzel bir şeyler bulabilmektir." },
+  { s: "Uzun bir araba yolculuğundasınız ve kardeşin 30 saniyede bir “Geldik mi?” diye soruyor. 🚗 Ne yaparsın?", i: "Kardeşine sabır göstermek, ona bir oyun önermek ya da ilahi söylemek yolculuğu güzelleştirir." }
+);
+SENOLSAN.merhamet.push(
+  { s: "Bahçede kanadı kırık bir kuş buldun. 🐦 Ne yaparsın?", i: "Peygamberimiz yavrusu alınan bir kuşun telaşını görünce “Yavrusunu ona geri verin” buyurdu. (Ebû Dâvûd)" },
+  { s: "Mahallede yaşlı bir teyze ağır alışveriş poşetleriyle yürüyor. 🛍️ Ne yaparsın?", i: "Büyüklere yardım etmek, merhametin en güzel hâllerinden biridir." }
+);
+SENOLSAN.dogruluk = [
+  { s: "Topla oynarken vazoyu kırdın ve kimse görmedi. Annen “Bunu kim kırdı?” diye soruyor. 🏺 Ne dersin?", i: "Doğruluk iyiliğe, iyilik de cennete götürür. (Buhârî, Müslim) Hatanı söylemek cesaret ister!" },
+  { s: "Bakkal sana yanlışlıkla fazla para üstü verdi. Kimsenin haberi yok! 💰 Ne yaparsın?", i: "Peygamberimize daha peygamber olmadan önce bile “el-Emîn”, yani güvenilir denirdi." },
+  { s: "Arkadaşın yaptığı resmi gösterip “Güzel mi?” diye soruyor. Pek beğenmedin. 🎨 Ne dersin?", i: "Doğruyu söylemek kırıcı olmayı gerektirmez. Beğendiğin bir yanını güzel bir dille söyleyebilirsin." },
+  { s: "Ödevini yapmadın. Öğretmen sorunca “Köpeğim yedi!” demek aklına geldi. 🐶📄 Ne yaparsın?", i: "Peygamberimiz şaka yapardı, ama şakasında bile doğrudan başka bir şey söylemezdi. (Tirmizî)" },
+  { s: "Oyunda kimse görmeden puanını biraz artırabilirsin. 🎮 Ne yaparsın?", i: "Allah her şeyi görür. Kimse görmese de dürüst olmak gerçek doğruluktur." },
+  { s: "Kardeşin bir şeyi kırdı ve senden “Söyleme ne olur!” diye rica ediyor. 🤐 Ne yaparsın?", i: "Kardeşini gizlice suçlamak yerine, onu doğruyu kendisinin söylemesi için cesaretlendirebilirsin." }
+];
+SENOLSAN.paylasmak = [
+  { s: "Elinde tek bir çikolata var ve kardeşin de çok istiyor. 🍫 Ne yaparsın?", i: "Kendin için istediğini kardeşin için de istemek imanın güzelliğidir. (Buhârî, Müslim)" },
+  { s: "Arkadaşın yeni boyalarını ödünç istiyor ama biraz dağınık biridir. 🖍️ Ne yaparsın?", i: "Paylaşırken eşyaya özen göstermesini nazikçe rica edebilirsin. Paylaşmak ve dikkatli olmak birlikte olabilir." },
+  { s: "Harçlığını oyuncak almak için biriktiriyordun. Camide ihtiyaç sahipleri için yardım toplanıyor. 🪙 Ne yaparsın?", i: "Peygamberimiz “Yarım hurma ile de olsa ateşten korunun” buyurdu. (Buhârî, Müslim) Az da olsa vermek değerlidir." },
+  { s: "Misafir çocuk senin en sevdiğin oyuncakla oynamak istiyor. 🧸 Ne yaparsın?", i: "Misafire ikram sadece yemekle olmaz; oyuncağımızı paylaşmak da bir ikramdır." },
+  { s: "Okulda beslenmesini unutan bir arkadaşın var ve aç. 🥪 Ne yaparsın?", i: "Peygamberimiz “İki kişilik yemek üç kişiye, üç kişilik yemek dört kişiye yeter” buyurdu. (Buhârî, Müslim)" },
+  { s: "Pizzadan son dilim kaldı ve herkes ona bakıyor! 🍕 Ne yaparsın?", i: "Başkasını kendine tercih etmeye “îsâr” denir. Kur'an'da Medineli Ensar bu güzel ahlakla övülür. (Haşr, 9)" }
+];
+SENOLSAN.annebaba = [
+  { s: "Annen yorgun gelmiş, sen de çizgi film izliyorsun. Seni sofrayı kurmaya çağırıyor. 🍽️ Ne yaparsın?", i: "Kur'an, anne babaya “öf” bile denmemesini öğütler. (İsrâ, 23)" },
+  { s: "Baban aynı hikâyeyi sana üçüncü kez anlatıyor. 📖 Ne yaparsın?", i: "Anne babamızı sabırla dinlemek, onlara iyiliğin bir parçasıdır." },
+  { s: "Yetişkinler cevaplasın! Çocuğun bir hata yaptı ve gelip sana itiraf etti. 🙈 Ne yaparsın?", i: "Hz. Enes, Peygamberimize on yıl hizmet ettiğini ve ondan bir kez bile “öf” duymadığını anlatır. (Buhârî, Müslim)" },
+  { s: "Annenin doğum günü yarın ve hiç paran yok. 🎂 Ne yaparsın?", i: "En güzel hediye bir dua, sıcak bir sarılma ya da senin emek verdiğin bir iştir." },
+  { s: "Dedenle ninen telefonla arıyor, sen de oyunun en heyecanlı yerindesin. 📞 Ne yaparsın?", i: "Peygamberimiz rızkının bol ve ömrünün bereketli olmasını isteyenin akrabasını gözetmesini öğütledi. (Buhârî, Müslim)" },
+  { s: "Yetişkinler cevaplasın! Çocuğun sana en sevdiği oyunu anlatmak istiyor ama sen telefonla meşgulsün. 📱 Ne yaparsın?", i: "Peygamberimiz çocuklarla ilgilenir, torunlarını sırtına alıp onlarla oynardı." }
+];
+SENOLSAN.temizlik = [
+  { s: "Parkta oynadın, ellerin çamur içinde ve çok acıktın. 🍔 Ne yaparsın?", i: "Yemekten önce ve sonra elleri yıkamak hem sağlık hem de güzel bir adaptır." },
+  { s: "Odan o kadar dağınık ki terliğini bulamıyorsun. 🧦 Ne yaparsın?", i: "Temizlik imanın yarısıdır. (Müslim) Düzenli bir oda, temiz bir kalbe yakışır." },
+  { s: "Piknik bitti ve diğerleri çöplerini çimlere bırakıp gidiyor. 🧺 Ne yaparsın?", i: "Peygamberimiz yoldan insanlara eziyet veren bir şeyi kaldırmanın sadaka olduğunu söyledi. (Buhârî, Müslim)" },
+  { s: "Sabah çok uykulusun ve dişlerini fırçalamadan çıkmak istiyorsun. 🪥 Ne yaparsın?", i: "Peygamberimiz misvakı çok sever ve sık sık kullanırdı. (Buhârî)" },
+  { s: "Kardeşin abdest alırken musluğu sonuna kadar açmış, su şırıl şırıl akıyor. 🚿 Ne dersin?", i: "Peygamberimiz çok az bir suyla abdest alırdı. (Buhârî, Müslim) Suyu israf etmemek de temizliğin parçasıdır." },
+  { s: "Okulda tuvaletler çok kirli ve kimse bir şey yapmıyor. 🚻 Ne yaparsın?", i: "Ortak alanları temiz tutmak hepimizin görevidir. Öğretmene güzel bir dille haber vermek de bir çözümdür." }
+];
+
+HIZLI.sukur.push({ p: "Meyve ve sebze nimetlerini sayın!", t: 12 });
+HIZLI.dogruluk = [
+  { p: "Güvenilir bir insanın özelliklerini sayın!", t: 6 },
+  { p: "Bize emanet edilen şeyleri sayın! (gözlerimiz, ödünç kitap…)", t: 6 }
+];
+HIZLI.paylasmak = [
+  { p: "Paylaşabileceğimiz şeyleri sayın!", t: 10 },
+  { p: "Sadaka sayılan iyilikleri sayın! (gülümsemek…)", t: 6 }
+];
+HIZLI.annebaba = [
+  { p: "Anne babamızın bizim için yaptıklarını sayın!", t: 10 },
+  { p: "Anne babamızı mutlu edecek şeyleri sayın!", t: 8 }
+];
+HIZLI.temizlik = [
+  { p: "Temiz tutmamız gereken şeyleri sayın!", t: 8 },
+  { p: "Abdestte yıkanan ve mesh edilen yerleri sayın!", t: 6 }
+];
+HIZLI.genel.push({ p: "Kur'an'da adı geçen hayvanları sayın!", t: 5 }, { p: "Hz. Muhammed'in (s.a.v.) aile fertlerinin isimlerini sayın!", t: 4 });
+
+SASKIN.push(
+  { s: "Biri sana hediye veriyormuş gibi yap. Ama: teşekkür etme, “Bu ne ya?” de ve hediyeyi kenara fırlat.", h: ["Hediye verene teşekkür edilir.", "Hediye ayıplanmaz; güzel bir söz söylenir.", "Peygamberimiz “Hediyeleşin, birbirinizi sevin” buyurdu. (Buhârî, el-Edebü'l-Müfred)"] },
+  { s: "Su içiyormuş gibi yap. Ama: ayakta, sol elinle, tek nefeste iç ve sonunda hiçbir şey deme.", h: ["Su sağ elle içilir.", "Oturarak ve üç nefeste içmek sünnettir.", "Başlarken “Bismillah”, bitince “Elhamdülillah” denir."] },
+  { s: "Telefonla konuşuyormuş gibi yap. Ama: selam verme, karşındakinin sözünü sürekli kes ve bağırarak konuş.", h: ["Konuşmaya selamla başlanır.", "Karşımızdakini sözünü kesmeden dinleriz.", "Sesimizi yumuşak tutarız. (Lokmân, 19)"] },
+  { s: "Camiye giriyormuş gibi yap. Ama: sol ayağınla gir, koşarak ve yüksek sesle konuşarak içeri dal.", h: ["Camiye sağ ayakla girilir.", "Camide sessiz ve sakin olunur.", "Girerken dua edilir; vakit uygunsa iki rekât “tahiyyetü'l-mescid” namazı kılınır."] }
+);
+
+IYILIK.push(
+  { d: "{X:e} gün içinde üç kez gülümse ve bir kez “Seni seviyorum” de.", min: 0 },
+  { d: "{X:in} su bardağını dolu tut; boşaldıkça sessizce doldur.", min: 1 },
+  { d: "{X:in} terliklerini o kalkmadan yatağının yanına koy.", min: 0 },
+  { d: "{X:e} el yapımı küçük bir hediye hazırla ve kimden geldiğini söyleme.", min: 1 },
+  { d: "{X:in} yapması gereken sıkıcı bir işe gizlice yardım et.", min: 2 }
+);
+
+/* Kalk-Otur: d = doğru mu? */
+const KALKOTUR = [
+  { s: "Kur'an-ı Kerim'de 114 sure vardır.", d: true },
+  { s: "Hz. Yunus'u bir kedi yuttu.", d: false, i: "Hz. Yunus'u büyük bir balık yuttu." },
+  { s: "Günde 5 vakit namaz kılınır.", d: true },
+  { s: "Ramazan Bayramı'ndan önce bir ay oruç tutulur.", d: true },
+  { s: "Peygamberimiz Medine'de doğdu.", d: false, i: "Peygamberimiz Mekke'de doğdu, Medine'ye hicret etti." },
+  { s: "Hapşırınca “Elhamdülillah” denir.", d: true },
+  { s: "Yemeğe sol elle başlanır.", d: false, i: "Yemek sağ elle yenir." },
+  { s: "Kâbe Medine'dedir.", d: false, i: "Kâbe Mekke'dedir." },
+  { s: "Hz. Musa'nın asası yılana dönüştü.", d: true },
+  { s: "Temizlik imanın yarısıdır.", d: true },
+  { s: "Kur'an'ın ilk suresi İhlâs'tır.", d: false, i: "İlk sure Fâtiha'dır." },
+  { s: "Gülümsemek de sadakadır.", d: true },
+  { s: "Hz. İbrahim'i ateş yaktı.", d: false, i: "Allah'ın emriyle ateş ona serin ve esenlik oldu." },
+  { s: "Kur'an'da adı karınca olan bir sure vardır.", d: true, i: "Neml Suresi, “karınca” demektir." },
+  { s: "Hüdhüd bir balıktır.", d: false, i: "Hüdhüd, Hz. Süleyman'a haber getiren bir kuştur." },
+  { s: "Hz. Meryem'in adı Kur'an'da geçer.", d: true },
+  { s: "Akşam ezanı okununca iftar açılır.", d: true },
+  { s: "Komşuya iyilik yapmak önemli değildir.", d: false, i: "Peygamberimiz komşu hakkı üzerinde çok durmuştur." },
+  { s: "Peygamberimizin ilk eşi Hz. Hatice'dir.", d: true },
+  { s: "Hz. Nuh büyük bir gemi yaptı.", d: true },
+  { s: "Abdestte ayaklar en başta yıkanır.", d: false, i: "Ayaklar en son yıkanır." },
+  { s: "Bir hayvana su vermek sevaptır.", d: true },
+  { s: "Ezanı ilk okuyan sahabi Hz. Bilâl'dir.", d: true },
+  { s: "Ramazan ayı yılda iki kez gelir.", d: false, i: "Ramazan yılda bir kez gelir." }
+];
+
 /* ============ DURUM ============ */
 const store = {
   get(k, d) { try { const v = localStorage.getItem("ailecek:" + k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
@@ -479,7 +680,7 @@ function screenHome() {
     <h3>Nasıl oynanır?</h3>
     <ol class="steps">
       <li><span>Ailenizi ekleyin: kaç kişisiniz, kim kaç yaşında?</span></li>
-      <li><span>Bu gecenin temasını seçin: Şükür, Sabır ya da Merhamet.</span></li>
+      <li><span>Bu gecenin temasını seçin: Şükür, Sabır, Merhamet, Doğruluk, Paylaşmak, Anne Baba ya da Temizlik.</span></li>
       <li><span>Telefon sırayla dolaşır. Her kişiye yaşına uygun bir kart çıkar. Bildikçe bahçemize fidan dikilir.</span></li>
       <li><span>Gece, kısa bir ayet ve hadisle, bir sohbet sorusuyla biter.</span></li>
       <li><span>Herkes gizli bir iyilik görevi alır. Bir sonraki oyun gecesinde “Bana kim iyilik yaptı?” diye tahmin edilir.</span></li>
@@ -489,9 +690,11 @@ function screenHome() {
       <ul class="list small" style="margin-top:8px">
         <li><b>Kıssa Pandomimi:</b> Kıssalardaki hayvanları ve nesneleri canlandırın. Konuşmak yasak, ses çıkarmak serbest!</li>
         <li><b>Bil Bakalım:</b> Herkese yaşına göre soru. Küçükler resimli soru alır, büyükler zor soru.</li>
-        <li><b>Sen Olsan?</b> Komik ama düşündüren durumlar. En güzel cevabı aile seçer.</li>
+        <li><b>Sen Olsan?</b> Komik ama düşündüren durumlar. En güzel cevabı en küçük çocuk seçer!</li>
         <li><b>Hızlı Tur:</b> 30 saniyede hep birlikte bağırarak sayın.</li>
         <li><b>Şaşkın Ebeveyn:</b> Anne ya da baba bilerek hata yapar, çocuklar yakalar.</li>
+        <li><b>Küçük Hoca:</b> Çocuk öğretmen olur, soruyu büyüklere o sorar. Büyükler bilemezse hoca kazanır!</li>
+        <li><b>Kalk-Otur:</b> Herkes ayakta! Cümle doğruysa zıplayın, yanlışsa çömelin.</li>
       </ul>
     </details>
   </section>`);
@@ -534,17 +737,22 @@ function screenThemes() {
         <span class="ico">${t.ico}</span>
         <span><h3>${t.name}</h3><span class="muted small">${t.desc}</span></span>
       </button>`).join("")}
+    <button class="theme-card" style="--c:var(--sun)" data-act="start" data-arg="random">
+      <span class="ico">🎲</span>
+      <span><h3>Sürpriz Gece</h3><span class="muted small">Temayı oyun seçsin!</span></span>
+    </button>
   </section>`);
 }
 
 /* ---- Oyun akışı ---- */
 function startGame(themeKey) {
+  if (themeKey === "random") themeKey = rnd(Object.keys(THEMES));
   const players = family.map(p => ({ ...p }));
   const n = players.length;
   const total = Math.max(6, Math.min(12, n * 2 + 2));
-  const plan = []; let p = 0;
+  const plan = []; let p = 0, g = 0;
   for (let t = 0; t < total; t++) {
-    if ((t + 1) % 4 === 0) plan.push({ group: true });
+    if ((t + 1) % 4 === 0) plan.push({ group: true, gtype: g++ % 2 ? "kalkotur" : "hizli" });
     else plan.push({ player: players[p++ % n] });
   }
   G = { theme: themeKey, players, plan, i: 0, fidan: 0, used: {}, lastType: null, saskinCount: 0 };
@@ -556,6 +764,7 @@ function chooseType(player) {
   const adult = player.age === "y";
   const hasKid = G.players.some(p => p.age !== "y");
   if (adult && hasKid && G.lastType !== "saskin" && G.saskinCount < 2 && Math.random() < 0.4) return "saskin";
+  if (!adult && ageOf(player.age).lvl >= 1 && G.players.length > 1 && G.lastType !== "hoca" && Math.random() < 0.35) return "hoca";
   const opts = ["pandomim", "bilgi", "senolsan"].filter(t => t !== G.lastType);
   return rnd(opts);
 }
@@ -571,19 +780,22 @@ const card = (type, inner) => `<section class="card game" style="--c:var(${GAMES
 function screenHandoff() {
   const t = G.plan[G.i];
   if (t.group) {
-    t.type = "hizli";
-    render(card("hizli", `
+    t.type = t.gtype || "hizli";
+    const kalk = t.type === "kalkotur";
+    render(card(t.type, `
       <div class="stack handoff">
-        <div class="face">🙌</div>
+        <div class="face">${kalk ? "🙋" : "🙌"}</div>
         <h2>Herkes katılıyor!</h2>
-        <p class="muted">Telefonu ortaya koyun. 30 saniyeniz var, hep birlikte bağırarak sayacaksınız.</p>
+        <p class="muted">${kalk
+          ? "Herkes ayağa kalksın! Telefonu bir büyük tutsun ve cümleleri yüksek sesle okusun. Doğruysa zıplayın, yanlışsa yere çömelin!"
+          : "Telefonu ortaya koyun. 30 saniyeniz var, hep birlikte bağırarak sayacaksınız."}</p>
         <button class="btn big" data-act="play">Hazırız!</button>
       </div>`));
     return;
   }
   t.type = t.type || chooseType(t.player);
   const p = t.player;
-  const secret = t.type === "pandomim" || t.type === "saskin";
+  const secret = t.type === "pandomim" || t.type === "saskin" || t.type === "hoca";
   render(card(t.type, `
     <div class="stack handoff">
       <div class="face">${p.av}</div>
@@ -596,7 +808,7 @@ function screenHandoff() {
 function play() {
   const t = G.plan[G.i];
   G.lastType = t.type;
-  ({ pandomim: playPandomim, bilgi: playBilgi, senolsan: playSenOlsan, hizli: playHizli, saskin: playSaskin })[t.type](t);
+  ({ pandomim: playPandomim, bilgi: playBilgi, senolsan: playSenOlsan, hizli: playHizli, saskin: playSaskin, kalkotur: playKalkOtur, hoca: playHoca })[t.type](t);
 }
 
 function nextTurn() {
@@ -688,6 +900,7 @@ function playSenOlsan(t) {
     <p class="muted small">Önce ${esc(t.player.name)} cevaplasın, sonra herkes kendi fikrini söylesin. Komik cevaplar da serbest!</p>
     <div id="after" class="stack">
       <h3>En güzel cevabı kim verdi?</h3>
+      ${(() => { const kids = G.players.filter(p => p.age !== "y"); if (!kids.length) return ""; const j = kids.reduce((a, b) => ageOf(b.age).lvl < ageOf(a.age).lvl ? b : a); return `<p class="muted small">Hakem: ${j.av} <b>${esc(j.name)}</b>! Kararı o versin.</p>`; })()}
       <div class="chips">
         ${G.players.map((p, i) => `<button class="chip" data-act="best" data-arg="${i}">${p.av} ${esc(p.name)}</button>`).join("")}
         <button class="chip" data-act="best" data-arg="-1">💚 Hepsi çok güzeldi</button>
@@ -762,6 +975,72 @@ function sasDone() {
   if (n) { grow(n); confetti(16); } else sfx.no();
   document.getElementById("sas-stage").innerHTML = `
     <div class="note"><b>Doğrusu nasıl?</b><ul class="list">${c.x.h.map(h => `<li>${esc(h)}</li>`).join("")}</ul></div>
+    <button class="btn big" data-act="next">Devam</button>`;
+}
+
+
+/* Kalk-Otur (grup, hareketli doğru/yanlış) */
+function playKalkOtur() {
+  G.cur = { items: [0, 1, 2, 3, 4].map(() => pick(KALKOTUR, "kalk")), k: 0, ok: 0 };
+  kalkStep(false);
+}
+function kalkStep(shown) {
+  const c = G.cur, x = c.items[c.k], last = c.k === c.items.length - 1;
+  render(card("kalkotur", `
+    <p class="muted">Cümle ${c.k + 1}/${c.items.length}. Doğruysa <b>zıplayın</b> 🙌, yanlışsa <b>yere çömelin</b> 🧎</p>
+    <p class="secret-word" style="font-size:1.6rem">${esc(x.s)}</p>
+    ${shown
+      ? `<div class="note"><b>${x.d ? "DOĞRU! Zıplayanlar kazandı 🙌" : "YANLIŞ! Çömelenler kazandı 🧎"}</b>${x.i ? esc(x.i) : ""}</div>
+         <p class="muted small">Hep birlikte doğru yaptıysanız düğmeye basın:</p>
+         <div class="btn-row">
+           <button class="btn" data-act="kalk-next" data-arg="1">Herkes bildi! ⭐</button>
+           <button class="btn ghost" data-act="kalk-next" data-arg="0">${last ? "Bitir" : "Sonraki"}</button>
+         </div>`
+      : `<div class="timer" id="timer"><b>5</b></div>
+         <button class="btn big ghost" data-act="kalk-show">Cevabı göster</button>`}`));
+  if (!shown) runTimer(5, () => kalkStep(true));
+}
+function kalkNext(ok) {
+  const c = G.cur;
+  if (ok) { c.ok++; sfx.tap(); floatText("⭐"); }
+  c.k++;
+  if (c.k < c.items.length) return kalkStep(false);
+  const f = c.ok >= 4 ? 2 : c.ok >= 2 ? 1 : 0;
+  render(card("kalkotur", `
+    <div class="stack handoff">
+      <div class="face">${f === 2 ? "🏆" : "🙋"}</div>
+      <h2>${c.ok}/${c.items.length} cümlede herkes bildi!</h2>
+      <p class="muted">${f ? `Ailece ${f} fidan kazandınız. Biraz soluklanın!` : "Bir dahaki turda daha dikkatli zıplayacağız!"}</p>
+      <button class="btn big" data-act="next">Devam</button>
+    </div>`));
+  if (f) { grow(f); confetti(20); } else sfx.no();
+}
+
+/* Küçük Hoca: çocuk büyüklere soru sorar */
+function playHoca(t) {
+  const lvl = Math.min(3, ageOf(t.player.age).lvl + 1);
+  const x = pick(BILGI[lvl], "bil" + lvl);
+  G.cur = { x, who: t.player };
+  const opts = shuffle(x.o.map(o => Array.isArray(o) ? o[0] : o));
+  render(card("hoca", `
+    <p class="muted">Bu turda öğretmen sensin, <b>${t.player.av} ${esc(t.player.name)}</b>! Soruyu ailene sen soracaksın. Cevabı kimseye gösterme 🤫</p>
+    <p class="question">${esc(x.q)}</p>
+    <p class="muted small">Seçenekleri de oku:</p>
+    <ul class="list">${opts.map(o => `<li>${esc(o)}</li>`).join("")}</ul>
+    <div class="note"><b>Doğru cevap (sadece sende)</b>${esc(Array.isArray(x.o[0]) ? x.o[0][0] : x.o[0])}</div>
+    <div id="after" class="stack">
+      <h3>Ailen bildi mi?</h3>
+      <div class="btn-row">
+        <button class="btn" data-act="hoca" data-arg="1">Bildiler 👏</button>
+        <button class="btn warn" data-act="hoca" data-arg="0">Bilemediler! 😄</button>
+      </div>
+    </div>`));
+}
+function hoca(ok) {
+  const { x, who } = G.cur;
+  grow(1); confetti(ok ? 10 : 20);
+  document.getElementById("after").innerHTML = `
+    <div class="note"><b>${ok ? "Aferin ailene! Hocamız da çok güzel sordu." : `Hoca ${esc(who.name)} kazandı! 🎓`}</b>${ok ? "" : "Şimdi doğru cevabı ailene sen anlat. "}${x.info ? esc(x.info) : ""}</div>
     <button class="btn big" data-act="next">Devam</button>`;
 }
 
@@ -876,6 +1155,9 @@ const actions = {
     store.set("family", family); screenThemes();
   },
   start: startGame,
+  "kalk-show": () => kalkStep(true),
+  "kalk-next": a => kalkNext(a === "1"),
+  hoca: a => hoca(a === "1"),
   play,
   next: nextTurn,
   finish: screenDeep,
