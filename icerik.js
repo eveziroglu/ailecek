@@ -14,20 +14,20 @@ const AGES = [
 const AVATARS = ["🦁","🐻","🦊","🐰","🐼","🐯","🐨","🦉","🐢","🐬","🐝","🦄"];
 
 const GAMES = {
-  pandomim: { name: "Kıssa Pandomimi", color: "--berry", ico: "🎭", short: "Canlandır, ailen bilsin!" },
-  bilgi: { name: "Bil Bakalım", color: "--sky", ico: "💡", short: "Doğru cevabı bul!" },
-  ses: { name: "Ses Taklidi", color: "--sun", ico: "🔊", short: "Herkes gözünü kapatsın, sadece ses!" },
-  senolsan: { name: "Sen Olsan?", color: "--leaf", ico: "🤔", short: "Sen olsan ne yapardın?" },
-  hoca: { name: "Küçük Hoca", color: "--coral", ico: "🧑‍🏫", short: "Öğretmen sensin, soruyu sen sor!" },
-  saskin: { name: "Şaşkın Ebeveyn", color: "--plum", ico: "🙃", short: "Hatalar yapacak, sen yakala!" },
-  hizli: { name: "Hızlı Tur", color: "--sun", ico: "⚡", short: "30 saniyede hep birlikte sayın!" },
-  kalkotur: { name: "Kalk-Otur", color: "--sky", ico: "🙋", short: "Doğruysa zıpla, yanlışsa çömel!" },
-  hayvan: { name: "Hayvan Yürüyüşü", color: "--leaf", ico: "🐾", short: "Hayvan gibi yürü, DUR deyince don!" }
+  pandomim: { name: "Kıssa Pandomimi", color: "--nar", ico: "🎭", short: "Canlandır, ailen bilsin!" },
+  bilgi: { name: "Bil Bakalım", color: "--cini", ico: "💡", short: "Doğru cevabı bul!" },
+  ses: { name: "Ses Taklidi", color: "--kandil", ico: "🔊", short: "Herkes gözünü kapatsın, sadece ses!" },
+  senolsan: { name: "Sen Olsan?", color: "--zumrut", ico: "🤔", short: "Sen olsan ne yapardın?" },
+  hoca: { name: "Küçük Hoca", color: "--firuze", ico: "🧑‍🏫", short: "Öğretmen sensin, soruyu sen sor!" },
+  saskin: { name: "Şaşkın Ebeveyn", color: "--lale", ico: "🙃", short: "Hatalar yapacak, sen yakala!" },
+  hizli: { name: "Hızlı Tur", color: "--kandil", ico: "⚡", short: "30 saniyede hep birlikte sayın!" },
+  kalkotur: { name: "Kalk-Otur", color: "--cini", ico: "🙋", short: "Doğruysa zıpla, yanlışsa çömel!" },
+  hayvan: { name: "Hayvan Yürüyüşü", color: "--zumrut", ico: "🐾", short: "Hayvan gibi yürü, DUR deyince don!" }
 };
 
 const THEMES = {
   sukur: {
-    name: "Şükür Gecesi", ico: "🤲", color: "--sun",
+    name: "Şükür Gecesi", ico: "🤲", color: "--kandil",
     desc: "Nimetleri fark etmek ve teşekkür etmek",
     ayet: { text: "Eğer şükrederseniz, elbette size (nimetimi) artırırım.", ref: "İbrâhîm Suresi, 7. ayet" },
     hadis: { text: "İnsanlara teşekkür etmeyen, Allah'a şükretmiş olmaz.", ref: "Ebû Dâvûd, Edeb 11; Tirmizî, Birr 35" },
@@ -35,7 +35,7 @@ const THEMES = {
     gorev: "Bu hafta her akşam yemeğinde herkes o gün fark ettiği bir nimeti söylesin."
   },
   sabir: {
-    name: "Sabır Gecesi", ico: "🌊", color: "--sky",
+    name: "Sabır Gecesi", ico: "🌊", color: "--cini",
     desc: "Öfkeye hâkim olmak, beklemeyi bilmek",
     ayet: { text: "Ey iman edenler! Sabır ve namazla Allah'tan yardım isteyin. Şüphesiz Allah sabredenlerle beraberdir.", ref: "Bakara Suresi, 153. ayet" },
     hadis: { text: "Pehlivan, güreşte rakibini yenen değildir. Asıl pehlivan, öfkelendiği zaman kendine hâkim olandır.", ref: "Buhârî, Edeb 76; Müslim, Birr 107" },
@@ -43,7 +43,7 @@ const THEMES = {
     gorev: "Aile şifremiz: “Pehlivan!” Bu hafta biri sinirlenince şifreyi söyleyin ve hep birlikte üç derin nefes alın."
   },
   merhamet: {
-    name: "Merhamet Gecesi", ico: "💚", color: "--berry",
+    name: "Merhamet Gecesi", ico: "💚", color: "--nar",
     desc: "İnsanlara ve hayvanlara şefkat göstermek",
     ayet: { text: "Biz seni ancak âlemlere rahmet olarak gönderdik.", ref: "Enbiyâ Suresi, 107. ayet" },
     hadis: { text: "Merhamet etmeyene merhamet olunmaz.", ref: "Buhârî, Edeb 18" },
@@ -51,7 +51,7 @@ const THEMES = {
     gorev: "Bu hafta ailece bir canlıya iyilik yapın: kuşlara yem, sokak hayvanlarına su ya da yalnız bir komşuya ziyaret."
   },
   dogruluk: {
-    name: "Doğruluk Gecesi", ico: "🌟", color: "--leaf",
+    name: "Doğruluk Gecesi", ico: "🌟", color: "--zumrut",
     desc: "Doğru sözlü ve güvenilir olmak",
     ayet: { text: "Ey iman edenler! Allah'a karşı gelmekten sakının ve doğrularla beraber olun.", ref: "Tevbe Suresi, 119. ayet" },
     hadis: { text: "Doğruluk iyiliğe, iyilik de cennete götürür.", ref: "Buhârî, Edeb 69; Müslim, Birr 103" },
@@ -59,7 +59,7 @@ const THEMES = {
     gorev: "Bu hafta bir hata yapan onu kendisi söylerse kızmak yok, sarılmak var! Buna “doğruluk ödülü” diyoruz."
   },
   paylasmak: {
-    name: "Paylaşma Gecesi", ico: "🎁", color: "--plum",
+    name: "Paylaşma Gecesi", ico: "🎁", color: "--lale",
     desc: "Cömert olmak, sevdiğimizi paylaşmak",
     ayet: { text: "Sevdiğiniz şeylerden (Allah yolunda) harcamadıkça iyiliğe asla erişemezsiniz.", ref: "Âl-i İmrân Suresi, 92. ayet" },
     hadis: { text: "Sizden biriniz, kendisi için istediğini kardeşi için de istemedikçe (gerçek anlamda) iman etmiş olmaz.", ref: "Buhârî, Îmân 7; Müslim, Îmân 71" },
@@ -67,7 +67,7 @@ const THEMES = {
     gorev: "Ailece bir “paylaşma kutusu” hazırlayın. Herkes iyi durumdaki bir eşyasını koysun ve hafta sonu ihtiyacı olana verin."
   },
   annebaba: {
-    name: "Anne Baba Gecesi", ico: "🏡", color: "--berry",
+    name: "Anne Baba Gecesi", ico: "🏡", color: "--firuze",
     desc: "Anne babaya iyilik, çocuğa şefkat",
     ayet: { text: "Rabbin, yalnız kendisine kulluk etmenizi ve anne babaya iyilik etmenizi emretti… Onlara “öf” bile deme, onları azarlama; onlara güzel söz söyle.", ref: "İsrâ Suresi, 23. ayet" },
     hadis: { text: "Allah'ın rızası anne babanın rızasındadır.", ref: "Tirmizî, Birr 3" },
@@ -75,7 +75,7 @@ const THEMES = {
     gorev: "Bu hafta çocuklar anne babalarına sorulmadan bir iş yapsın. Anne babalar da her çocuğa ona özel 15 dakika ayırsın."
   },
   temizlik: {
-    name: "Temizlik Gecesi", ico: "🫧", color: "--sky",
+    name: "Temizlik Gecesi", ico: "🫧", color: "--cini",
     desc: "Bedenimizi, evimizi ve çevremizi temiz tutmak",
     ayet: { text: "Şüphesiz Allah çok tövbe edenleri sever, temizlenenleri sever.", ref: "Bakara Suresi, 222. ayet" },
     hadis: { text: "Temizlik imanın yarısıdır.", ref: "Müslim, Tahâret 1" },
@@ -311,25 +311,58 @@ const SASKIN = [
   { s: "Camiye giriyormuş gibi yap. Ama: sol ayağınla gir, koşarak ve yüksek sesle konuşarak içeri dal.", h: ["Camiye sağ ayakla girilir.","Camide sessiz ve sakin olunur.","Girerken dua edilir; vakit uygunsa iki rekât “tahiyyetü'l-mescid” namazı kılınır."] }
 ];
 
-/* Gizli iyilik: {X} isim, {X:e} "Ali'ye", {X:in} "Ali'nin". min = en küçük yaş seviyesi */
+/* Gizli iyilik görevleri.
+   {X} isim, {X:e} "Ali'ye", {X:in} "Ali'nin". min = en küçük yaş seviyesi (0: 3-5, 1: 6-8, 2: 9-12, 3: 13+).
+   tur: yardim | sevindir | dua | hizmet | soz. Görev seçerken her türden bir tane önerilir. */
 const IYILIK = [
-  { d: "{X} için kimseye söylemeden dua et.", min: 0 },
-  { d: "{X} için güzel bir resim çiz ve fark ettirmeden yastığının altına koy.", min: 0 },
-  { d: "{X:in} ayakkabılarını kapının önünde güzelce diz.", min: 0 },
-  { d: "{X:e} sebepsiz yere kocaman sarıl.", min: 0 },
-  { d: "{X:e} güzel bir not yaz ve bulacağı bir yere sakla.", min: 1 },
-  { d: "{X:in} bir işini, o fark etmeden sen yap.", min: 1 },
-  { d: "{X:e} en sevdiği içeceği hazırla.", min: 1 },
-  { d: "{X:in} dağınık bir köşesini gizlice topla.", min: 1 },
-  { d: "{X:in} sevdiği bir atıştırmalığı çantasına ya da cebine gizlice koy.", min: 2 },
-  { d: "{X:e} içten bir iltifat et, ama bunun görev olduğunu belli etme.", min: 2 },
-  { d: "{X:in} sevdiği bir yemeği ya da tatlıyı hazırla.", min: 3 },
-  { d: "{X:e} gün içinde üç kez gülümse ve bir kez “Seni seviyorum” de.", min: 0 },
-  { d: "{X:in} su bardağını dolu tut; boşaldıkça sessizce doldur.", min: 1 },
-  { d: "{X:in} terliklerini o kalkmadan yatağının yanına koy.", min: 0 },
-  { d: "{X:e} el yapımı küçük bir hediye hazırla ve kimden geldiğini söyleme.", min: 1 },
-  { d: "{X:in} yapması gereken sıkıcı bir işe gizlice yardım et.", min: 2 }
+  { d: "{X} için her gün kimseye söylemeden dua et.", min: 0, tur: "dua" },
+  { d: "{X} için sabah namazından ya da yatmadan önce gizlice bir dua et ve “Allah'ım onu mutlu et” de.", min: 1, tur: "dua" },
+  { d: "{X} için güzel bir resim çiz ve fark ettirmeden yastığının altına koy.", min: 0, tur: "sevindir" },
+  { d: "{X:in} ayakkabılarını kapının önünde güzelce diz.", min: 0, tur: "hizmet" },
+  { d: "{X:e} sebepsiz yere kocaman sarıl.", min: 0, tur: "sevindir" },
+  { d: "{X:in} terliklerini o kalkmadan yatağının yanına koy.", min: 0, tur: "hizmet" },
+  { d: "{X:e} gün içinde üç kez gülümse ve bir kez “Seni seviyorum” de.", min: 0, tur: "soz" },
+  { d: "{X:e} güzel bir not yaz, imzasız olarak bulacağı bir yere sakla.", min: 1, tur: "sevindir" },
+  { d: "{X:in} bir işini, o fark etmeden sen yap.", min: 1, tur: "yardim" },
+  { d: "{X:e} en sevdiği içeceği hazırla ve masasına bırak.", min: 1, tur: "hizmet" },
+  { d: "{X:in} dağınık bir köşesini gizlice topla.", min: 1, tur: "yardim" },
+  { d: "{X:in} su bardağını dolu tut; boşaldıkça sessizce doldur.", min: 1, tur: "hizmet" },
+  { d: "{X:e} el yapımı küçük bir hediye hazırla, kimden geldiğini söyleme.", min: 1, tur: "sevindir" },
+  { d: "{X} hakkında başkalarına güzel bir şey söyle; ona ulaşsın ama senden geldiğini bilmesin.", min: 2, tur: "soz" },
+  { d: "{X:in} sevdiği bir atıştırmalığı çantasına ya da cebine gizlice koy.", min: 2, tur: "sevindir" },
+  { d: "{X:e} içten bir iltifat et, ama bunun görev olduğunu belli etme.", min: 2, tur: "soz" },
+  { d: "{X:in} yapması gereken sıkıcı bir işe gizlice yardım et.", min: 2, tur: "yardim" },
+  { d: "{X:in} telefonunu, tabletini ya da kitabını o fark etmeden şarj et, sil, düzenle.", min: 2, tur: "yardim" },
+  { d: "{X:in} sevdiği bir yemeği ya da tatlıyı hazırla.", min: 3, tur: "hizmet" },
+  { d: "{X} ile ilgili güzel bir anıyı kâğıda yaz ve hafta sonu bulacağı bir yere bırak.", min: 3, tur: "sevindir" },
+  { d: "{X:in} bu hafta en çok yorulduğu bir işi üstlen, ama bunu senin yaptığını söyleme.", min: 3, tur: "yardim" },
+  { d: "{X} için her gün bir iyilik niyetiyle sadaka ver (bir kumbaraya atmak yeter).", min: 2, tur: "dua" },
+  { d: "{X:e} bir sabah kahvaltısını hazırla ya da sofrasını kur.", min: 2, tur: "hizmet" },
+  { d: "{X:e} her gün “Allah razı olsun” demek için bir sebep bul.", min: 1, tur: "soz" }
 ];
+
+/* Gizli kalma ipuçları: İyilik Haftası boyunca Hüdhüd her gün birini söyler */
+const IPUCLARI = [
+  "Herkes uyurken ya da başka bir odadayken yap. Gece ile sabah arası en gizli zamandır!",
+  "İz bırakma: yazdığın notu imzalama, el yazını biraz değiştirebilirsin.",
+  "Herkese biraz iyilik yaparsan, asıl gizli dostunun kim olduğu anlaşılmaz.",
+  "Gizli iyilik niyetle başlar: “Allah rızası için” de ve başla.",
+  "Kimse görmediğinde yapılan iyiliği Allah görür. Gizli dost olmak buna en güzel alıştırmadır.",
+  "Bugün iyiliğini yapmadıysan sorun değil; yarın yapabilirsin. Önemli olan vazgeçmemek.",
+  "Açılış Töreni yaklaşıyor! Gizli dostun seni tahmin edebilir mi?"
+];
+
+/* Açılış Töreni'nde teşekkür kartları */
+const TESEKKUR = [
+  { e: "🤗", w: "Sarılma", s: "Şimdi gizli dostuna kocaman sarıl!" },
+  { e: "🤲", w: "Dua", s: "Gizli dostun için “Allah senden razı olsun” de." },
+  { e: "⭐", w: "Yıldız", s: "Gizli dostuna bu haftanın yıldızı olduğunu söyle!" },
+  { e: "💐", w: "Çiçek", s: "Gizli dostuna hayalî bir buket uzat ve teşekkür et." }
+];
+
+/* Gizli iyiliğin anlamı: hafta başında ve törende gösterilir */
+const GIZLI_AYET = { text: "Sadakaları açıktan verirseniz ne güzel! Eğer onları gizler de ihtiyaç sahiplerine verirseniz, bu sizin için daha hayırlıdır.", ref: "Bakara Suresi, 271. ayet" };
+const GIZLI_HADIS = { text: "Yedi kişi vardır ki Allah onları kendi gölgesinden başka gölgenin bulunmadığı günde gölgelendirir… Biri de sağ elinin verdiğini sol eli bilmeyecek kadar gizli sadaka verendir.", ref: "Buhârî, Ezan 36; Müslim, Zekât 91" };
 
 /* Kalk-Otur: d = doğru mu? */
 const KALKOTUR = [

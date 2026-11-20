@@ -1,0 +1,148 @@
+/* Ailecek bileşenleri. tokens.css'ten sonra yüklenir; tüm renkler token'lardan gelir. */
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Figtree:wght@500;600;700;800&display=swap");
+
+:root {
+  /* Sekiz köşeli yıldız karosu: renkli dolguların üzerine saydam desen */
+  --ak-tile: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.2' stroke-width='2'%3E%3Crect x='15' y='15' width='18' height='18'/%3E%3Crect x='15' y='15' width='18' height='18' transform='rotate(45 24 24)'/%3E%3C/g%3E%3C/svg%3E");
+  --ak-stars: radial-gradient(1.6px 1.6px at 12% 18%, var(--yildiz), transparent), radial-gradient(1.2px 1.2px at 32% 62%, var(--yildiz), transparent), radial-gradient(2px 2px at 58% 24%, var(--yildiz), transparent), radial-gradient(1.2px 1.2px at 78% 70%, var(--yildiz), transparent), radial-gradient(1.6px 1.6px at 90% 30%, var(--yildiz), transparent), radial-gradient(1.2px 1.2px at 46% 88%, var(--yildiz), transparent), radial-gradient(1.4px 1.4px at 8% 82%, var(--yildiz), transparent);
+}
+
+.ak { font-family: var(--font-body); color: var(--ink); -webkit-font-smoothing: antialiased; }
+.ak *, .ak *::before, .ak *::after { box-sizing: border-box; }
+.ak :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+
+/* ---------- Etiket ---------- */
+.ak-label { font: 800 13px/16px var(--font-body); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); }
+
+/* ---------- Button ---------- */
+.ak-btn {
+  --c: var(--cini); --on: var(--on-accent);
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  border: 0; border-radius: var(--radius-md); padding: 14px 22px; min-height: 56px;
+  font: 600 20px/1.1 var(--font-display); letter-spacing: .01em;
+  background: var(--c); color: var(--on);
+  box-shadow: 0 5px 0 color-mix(in srgb, var(--c) 60%, #000);
+  cursor: pointer; transition: transform .08s ease, box-shadow .08s ease; -webkit-tap-highlight-color: transparent;
+}
+.ak-btn:active { transform: translateY(4px); box-shadow: 0 1px 0 color-mix(in srgb, var(--c) 60%, #000); }
+.ak-btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.ak-btn--lg { width: 100%; min-height: 66px; font-size: 23px; border-radius: var(--radius-lg); }
+.ak-btn--kandil { --c: var(--kandil); --on: var(--on-kandil); }
+.ak-btn--zumrut { --c: var(--zumrut); }
+.ak-btn--nar { --c: var(--nar); }
+.ak-btn--firuze { --c: var(--firuze); }
+.ak-btn--lale { --c: var(--lale); }
+.ak-btn--ghost { --c: var(--surface-300); --on: var(--ink); box-shadow: 0 5px 0 var(--line); }
+.ak-btn--ghost:active { box-shadow: 0 1px 0 var(--line); }
+.ak-btn--night { --c: var(--surface-200); --on: var(--ink); box-shadow: 0 5px 0 color-mix(in srgb, var(--gece) 70%, #000); }
+.ak-btn[disabled] { opacity: .45; pointer-events: none; }
+.ak-btn--pulse { animation: ak-pulse 1.6s ease-in-out infinite; }
+
+/* ---------- Chip ---------- */
+.ak-chip { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: var(--radius-pill); border: 0; background: var(--surface-300); color: var(--ink); font: 700 15px/1.2 var(--font-body); }
+.ak-chip--tint { background: color-mix(in srgb, var(--c, var(--cini)) 14%, var(--surface-200)); }
+.ak-chip--select { min-height: 48px; padding: 10px 16px; box-shadow: 0 3px 0 var(--line); cursor: pointer; }
+.ak-chip--select[aria-pressed="true"] { background: var(--cini); color: var(--on-accent); box-shadow: 0 3px 0 color-mix(in srgb, var(--cini) 60%, #000); }
+.ak-chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+
+/* ---------- Avatar ---------- */
+.ak-avatar { --c: var(--cini); position: relative; display: inline-grid; place-items: center; width: 56px; height: 56px; border-radius: var(--radius-pill); background: color-mix(in srgb, var(--c) 16%, var(--surface-200)); box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--c) 55%, var(--surface-200)); font-size: 30px; line-height: 1; flex: none; }
+.ak-avatar--lg { width: 96px; height: 96px; font-size: 52px; }
+.ak-avatar--sm { width: 40px; height: 40px; font-size: 22px; }
+.ak-avatar__badge { position: absolute; right: -4px; bottom: -4px; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; font: 800 13px/1 var(--font-body); background: var(--zumrut); color: var(--on-accent); box-shadow: 0 0 0 3px var(--surface-200); }
+
+/* ---------- Hüdhüd rehber ---------- */
+.ak-guide { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 8px; align-items: end; text-align: left; width: 100%; }
+.ak-guide--lg { grid-template-columns: 120px minmax(0, 1fr); }
+.ak-bird { display: block; width: 100%; height: auto; overflow: visible; animation: ak-hop 2.6s ease-in-out infinite; transform-origin: 50% 100%; }
+.ak-bird .crest { transform-origin: 74px 34px; animation: ak-crest 3.4s ease-in-out infinite; }
+.ak-bird .lid { transform-origin: 79px 44px; transform: scaleY(0); animation: ak-blink 4.6s infinite; }
+.ak-bird .wing { transform-origin: 46px 64px; }
+.ak-bird.is-happy .wing { animation: ak-flap .25s ease-in-out 6; }
+.ak-bird .jaw { transform-origin: 92px 50px; }
+.ak-bird.is-talking .jaw { animation: ak-talk .22s ease-in-out infinite; }
+.ak-bubble { position: relative; min-width: 0; margin-bottom: 18px; padding: 12px 16px; display: flex; gap: 10px; align-items: flex-start; justify-content: space-between; background: var(--surface-200); color: var(--ink); border-radius: var(--radius-md) var(--radius-md) var(--radius-md) 6px; font: 600 18px/24px var(--font-display); box-shadow: 0 4px 0 var(--line); }
+.ak-bubble::before { content: ""; position: absolute; left: -9px; bottom: 6px; border: 9px solid transparent; border-right-color: var(--surface-200); border-left: 0; }
+.ak-bubble__say { flex: none; width: 34px; height: 34px; border-radius: 50%; border: 0; background: var(--surface-300); color: var(--ink); font-size: 15px; cursor: pointer; }
+.ak-card .ak-bubble, .ak-bubble--soft { background: var(--surface-300); box-shadow: none; }
+.ak-card .ak-bubble::before, .ak-bubble--soft::before { border-right-color: var(--surface-300); }
+.ak-card .ak-bubble .ak-bubble__say, .ak-bubble--soft .ak-bubble__say { background: var(--surface-200); }
+.ak-on-night .ak-bubble { background: var(--surface-200); }
+.ak-on-night .ak-bubble::before { border-right-color: var(--surface-200); }
+
+/* ---------- Oyun kartı ---------- */
+.ak-on-kandil { --on: var(--on-kandil); }
+.ak-card { position: relative; display: flex; flex-direction: column; gap: 16px; padding: 22px 20px; background: var(--surface-200); color: var(--ink); border-radius: var(--radius-lg); box-shadow: 0 6px 0 var(--line), var(--shadow-lift); }
+.ak-card--game { --c: var(--cini); --on: var(--on-accent); padding-top: 0; overflow: hidden; }
+.ak-card__head { align-self: stretch; margin: 0 -20px; padding: 12px 16px 12px 12px; display: flex; align-items: center; justify-content: space-between; gap: 10px; background: var(--c) var(--ak-tile); color: var(--on); }
+.ak-card__title { display: flex; align-items: center; gap: 10px; font: 600 18px/1 var(--font-display); white-space: nowrap; }
+.ak-card__ico { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; font-size: 21px; background: color-mix(in srgb, var(--on) 22%, transparent); }
+.ak-steps { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; min-width: 0; }
+.ak-steps i { width: 8px; height: 8px; border-radius: 4px; background: color-mix(in srgb, var(--on, var(--on-accent)) 35%, transparent); }
+.ak-steps i.is-done { background: var(--on, var(--on-accent)); }
+.ak-steps i.is-now { width: 20px; background: var(--on, var(--on-accent)); animation: ak-pulse 1.2s infinite; }
+
+/* ---------- Seçenek kutusu ---------- */
+.ak-options { display: grid; gap: 12px; }
+.ak-options--pics { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.ak-option { --c: var(--cini); position: relative; display: flex; align-items: center; gap: 14px; width: 100%; min-height: 64px; padding: 12px 14px; text-align: left; border: 2px solid var(--line); border-radius: var(--radius-md); background: var(--surface-200); color: var(--ink); font: 600 19px/1.25 var(--font-display); box-shadow: 0 4px 0 var(--line); cursor: pointer; }
+.ak-option:nth-child(1) { --c: var(--nar); } .ak-option:nth-child(2) { --c: var(--cini); } .ak-option:nth-child(3) { --c: var(--zumrut); }
+.ak-option__key { flex: none; width: 40px; height: 40px; border-radius: var(--radius-sm); display: grid; place-items: center; background: var(--c); color: var(--on-accent); font: 700 18px/1 var(--font-display); }
+.ak-option__mark { margin-left: auto; font: 800 14px/1 var(--font-body); white-space: nowrap; }
+.ak-options--pics .ak-option { flex-direction: column; justify-content: center; gap: 4px; padding: 12px 6px; text-align: center; font-size: 15px; }
+.ak-options--pics .ak-option__mark { margin: 0; }
+.ak-option__pic { font-size: 46px; line-height: 1.1; }
+.ak-option.is-correct { border-color: var(--zumrut); background: color-mix(in srgb, var(--zumrut) 14%, var(--surface-200)); box-shadow: 0 4px 0 var(--zumrut); animation: ak-pop .4s; }
+.ak-option.is-correct .ak-option__mark { color: var(--zumrut); }
+.ak-option.is-wrong { border-color: var(--nar); background: color-mix(in srgb, var(--nar) 12%, var(--surface-200)); box-shadow: 0 4px 0 var(--nar); animation: ak-shake .3s 2; }
+.ak-option.is-wrong .ak-option__mark { color: var(--nar); }
+.ak-option.is-dim { opacity: .45; }
+
+/* ---------- Zamanlayıcı ---------- */
+.ak-timer { --p: 1; --c: var(--cini); flex: none; width: 144px; height: 144px; margin: 0 auto; border-radius: 50%; display: grid; place-items: center; background: conic-gradient(var(--c) calc(var(--p) * 360deg), var(--surface-300) 0); }
+.ak-timer b { width: 78%; height: 78%; border-radius: 50%; display: grid; place-items: center; background: var(--surface-200); color: var(--ink); font: 700 44px/1 var(--font-display); font-variant-numeric: tabular-nums; }
+.ak-timer--sm { width: 100px; height: 100px; }
+.ak-timer--sm b { font-size: 32px; }
+.ak-timer.is-low { animation: ak-shake .4s infinite; }
+.ak-timer.is-low b { color: var(--nar); }
+
+/* ---------- Çevrilen kart (mihrap kemeri) ---------- */
+.ak-flip { --c: var(--cini); --on: var(--on-accent); perspective: 1200px; width: 100%; }
+.ak-flip__inner { position: relative; min-height: 280px; transform-style: preserve-3d; transition: transform .7s cubic-bezier(.3, 1.3, .5, 1); }
+.ak-flip.is-open .ak-flip__inner { transform: rotateY(180deg); }
+.ak-flip__face { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 36px 18px 22px; text-align: center; border-radius: var(--radius-arch) var(--radius-arch) var(--radius-lg) var(--radius-lg); backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.ak-flip__front { width: 100%; border: 0; cursor: pointer; background: var(--c) var(--ak-tile); color: var(--on); box-shadow: inset 0 0 0 8px var(--c), inset 0 0 0 10px color-mix(in srgb, var(--on) 45%, transparent); }
+.ak-flip__glyph { font: 700 84px/1 var(--font-display); animation: ak-wiggle 1.6s ease-in-out infinite; }
+.ak-flip__hint { padding: 8px 18px; border-radius: var(--radius-pill); background: color-mix(in srgb, var(--on) 18%, transparent); font: 600 20px/1.1 var(--font-display); }
+.ak-flip__note { font: 700 14px/1.2 var(--font-body); opacity: .9; }
+.ak-flip__back { transform: rotateY(180deg); background: color-mix(in srgb, var(--c) 10%, var(--surface-200)); box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--c) 45%, var(--surface-200)); color: var(--ink); }
+.ak-flip__pic { font-size: 92px; line-height: 1; animation: ak-bounce 1s cubic-bezier(.3, 1.8, .5, 1) infinite alternate; }
+.ak-flip__word { font: 700 36px/40px var(--font-display); }
+
+/* ---------- Mühür ---------- */
+.ak-stamp { --c: var(--zumrut); align-self: center; display: inline-block; padding: 4px 18px; border: 5px solid var(--c); border-radius: var(--radius-sm); color: var(--c); font: 700 32px/1.15 var(--font-display); text-align: center; transform: rotate(-5deg); animation: ak-stamp .45s cubic-bezier(.3, 1.6, .5, 1); }
+
+/* ---------- Gizli iyilik kartı (gece) ---------- */
+.ak-deed { position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 28px 22px 24px; text-align: center; background: var(--ak-stars), var(--gece); color: var(--on-gece); border-radius: var(--radius-arch) var(--radius-arch) var(--radius-lg) var(--radius-lg); box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--yildiz) 45%, transparent), var(--shadow-lift); }
+.ak-deed__eyebrow { font: 800 12px/1 var(--font-body); letter-spacing: .14em; text-transform: uppercase; color: var(--yildiz); }
+.ak-deed__to { display: grid; place-items: center; width: 92px; height: 92px; border-radius: 50%; font-size: 50px; background: color-mix(in srgb, var(--yildiz) 16%, transparent); box-shadow: inset 0 0 0 2px var(--yildiz); }
+.ak-deed__name { font: 700 26px/1.1 var(--font-display); }
+.ak-deed__text { font: 600 22px/1.3 var(--font-display); text-wrap: balance; }
+.ak-deed__seal { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; background: var(--kandil); color: var(--on-kandil); font-size: 30px; box-shadow: 0 0 0 4px color-mix(in srgb, var(--kandil) 35%, transparent); animation: ak-stamp .5s cubic-bezier(.3, 1.6, .5, 1); }
+.ak-deed__quote { font: 500 14px/1.45 var(--font-body); opacity: .88; max-width: 34ch; }
+
+/* ---------- Hareket ---------- */
+@keyframes ak-hop { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px) rotate(-2deg); } }
+@keyframes ak-crest { 0%, 70%, 100% { transform: rotate(0); } 80% { transform: rotate(-14deg); } 90% { transform: rotate(6deg); } }
+@keyframes ak-blink { 0%, 94%, 100% { transform: scaleY(0); } 97% { transform: scaleY(1); } }
+@keyframes ak-flap { 50% { transform: rotate(-28deg); } }
+@keyframes ak-talk { 50% { transform: rotate(12deg); } }
+@keyframes ak-pulse { 50% { transform: scale(1.035); } }
+@keyframes ak-pop { 40% { transform: scale(1.05); } }
+@keyframes ak-shake { 25% { transform: rotate(-3deg); } 75% { transform: rotate(3deg); } }
+@keyframes ak-wiggle { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-8deg); } 75% { transform: rotate(8deg); } }
+@keyframes ak-bounce { from { transform: translateY(0) scale(1, 1); } to { transform: translateY(-14px) scale(1.03, .97); } }
+@keyframes ak-stamp { from { transform: rotate(-5deg) scale(2.6); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .ak *, .ak *::before, .ak *::after, .ak-bird, .ak-bird * { animation: none !important; transition: none !important; }
+}
