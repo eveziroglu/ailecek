@@ -1,0 +1,918 @@
+<title>Ailecek Oyun Gecesi</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Ailece oynanan, gülerek İslami değerler öğreten oyun gecesi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;700;800&display=swap">
+<style>
+/* Düzen: tek sütun "oyun masası"; üstte bahçe sayacı, ortada büyük oyun kartı, altta ailenin büyüyen bahçesi */
+:root {
+  --bg: #EEF5EC;
+  --surface: #FFFFFF;
+  --surface-2: #F6FAF4;
+  --ink: #1D2A24;
+  --muted: #5A6B62;
+  --line: #D5E3D6;
+  --leaf: #2C8656;
+  --on-leaf: #FFFFFF;
+  --sun: #E89A0C;
+  --sky: #2F6FC9;
+  --berry: #C93A6E;
+  --plum: #7448BF;
+  --ok: #2C8656;
+  --bad: #C2453A;
+  --font-display: "Baloo 2", "Nunito", system-ui, sans-serif;
+  --font-body: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --radius: 22px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1915; --surface: #17251F; --surface-2: #1D2E27; --ink: #E8F1EC; --muted: #9EB2A8; --line: #2A3D35;
+    --leaf: #5CC48D; --on-leaf: #0E1915; --sun: #FFC24D; --sky: #77A9F2; --berry: #F27EA7; --plum: #AE90EE;
+    --ok: #5CC48D; --bad: #F08A80; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1915; --surface: #17251F; --surface-2: #1D2E27; --ink: #E8F1EC; --muted: #9EB2A8; --line: #2A3D35;
+  --leaf: #5CC48D; --on-leaf: #0E1915; --sun: #FFC24D; --sky: #77A9F2; --berry: #F27EA7; --plum: #AE90EE;
+  --ok: #5CC48D; --bad: #F08A80; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { min-height: 100%; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 17px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 12px 24px;
+}
+.shell { max-width: 560px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; margin: 0; text-wrap: balance; }
+h1 { font-size: 2.3rem; font-weight: 800; }
+h2 { font-size: 1.7rem; font-weight: 800; }
+h3 { font-size: 1.2rem; font-weight: 600; }
+p { margin: 0; }
+button, input, select { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 3px solid var(--sky); outline-offset: 2px; }
+
+/* Üst bar */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.logo { font-family: var(--font-display); font-weight: 800; font-size: 1.6rem; color: var(--leaf); letter-spacing: -0.01em; background: none; border: 0; padding: 0; }
+.logo span { color: var(--sun); }
+.top-right { display: flex; gap: 8px; align-items: center; }
+.pill { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font-weight: 800; font-variant-numeric: tabular-nums; }
+.icon-btn { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); font-size: 1.1rem; }
+
+/* Kart */
+.card { background: var(--surface); border-radius: var(--radius); padding: 22px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 1px 0 var(--line), 0 10px 30px -18px rgba(20, 60, 40, .35); }
+.card.game { border-top: 8px solid var(--c, var(--leaf)); }
+.stack { display: flex; flex-direction: column; gap: 12px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.muted { color: var(--muted); }
+.small { font-size: .9rem; }
+.badge { align-self: flex-start; white-space: nowrap; display: inline-flex; gap: 6px; align-items: center; padding: 5px 12px; border-radius: 999px; font-weight: 800; font-size: .82rem; letter-spacing: .06em; text-transform: uppercase; background: color-mix(in srgb, var(--c, var(--leaf)) 16%, var(--surface)); color: var(--ink); }
+.turnline { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.dots { display: flex; gap: 5px; flex-wrap: wrap; justify-content: flex-end; min-width: 0; }
+.dots i { width: 9px; height: 9px; border-radius: 50%; background: var(--line); }
+.dots i.on { background: var(--leaf); }
+.dots i.now { background: var(--sun); transform: scale(1.3); }
+
+/* Butonlar */
+.btn { border: 0; border-radius: 16px; padding: 14px 20px; font-weight: 800; font-size: 1.05rem; background: var(--leaf); color: var(--on-leaf); min-height: 52px; transition: transform .08s ease; }
+.btn:active { transform: scale(.97); }
+.btn.big { font-size: 1.25rem; padding: 18px 22px; min-height: 64px; width: 100%; font-family: var(--font-display); }
+.btn.ghost { background: var(--surface-2); color: var(--ink); border: 1px solid var(--line); }
+.btn.warn { background: var(--sun); color: #1D2A24; }
+.btn[disabled] { opacity: .5; cursor: default; }
+.btn-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.link { background: none; border: 0; color: var(--muted); text-decoration: underline; padding: 8px; font-weight: 700; }
+
+/* Ana sayfa */
+.hero { display: flex; flex-direction: column; gap: 14px; padding: 8px 2px; }
+.hero h1 em { font-style: normal; color: var(--leaf); }
+.lead { font-size: 1.1rem; color: var(--muted); max-width: 32em; }
+.steps { display: grid; gap: 10px; counter-reset: s; padding: 0; margin: 0; list-style: none; }
+.steps li { display: grid; grid-template-columns: 34px 1fr; gap: 10px; align-items: start; }
+.steps li::before { counter-increment: s; content: counter(s); width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-display); font-weight: 800; background: color-mix(in srgb, var(--sun) 28%, var(--surface)); }
+details summary { cursor: pointer; font-weight: 800; }
+
+/* Kurulum */
+.stepper { display: flex; align-items: center; gap: 14px; }
+.stepper b { font-family: var(--font-display); font-size: 2rem; min-width: 2ch; text-align: center; font-variant-numeric: tabular-nums; }
+.stepper button { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface-2); font-size: 1.5rem; font-weight: 800; }
+.player-row { display: grid; grid-template-columns: 52px 1fr; gap: 10px; align-items: center; padding: 10px; border-radius: 16px; background: var(--surface-2); }
+.player-row .fields { display: grid; grid-template-columns: 1fr 120px; gap: 8px; min-width: 0; }
+.avatar-btn { width: 52px; height: 52px; border-radius: 50%; border: 2px dashed var(--line); background: var(--surface); font-size: 1.7rem; }
+.player-row input, .player-row select { width: 100%; min-width: 0; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); min-height: 46px; }
+@media (max-width: 380px) { .player-row .fields { grid-template-columns: 1fr; } }
+
+/* Tema */
+.theme-card { text-align: left; border: 2px solid var(--line); background: var(--surface); border-radius: var(--radius); padding: 18px; display: grid; grid-template-columns: 56px 1fr; gap: 14px; align-items: center; }
+.theme-card .ico { font-size: 2.2rem; width: 56px; height: 56px; border-radius: 16px; display: grid; place-items: center; background: color-mix(in srgb, var(--c) 18%, var(--surface)); }
+.theme-card:hover { border-color: var(--c); }
+
+/* Sıra ekranı */
+.handoff { align-items: center; text-align: center; padding-block: 34px; }
+.handoff .face { font-size: 5rem; line-height: 1; animation: bob 1.6s ease-in-out infinite; }
+@keyframes bob { 50% { transform: translateY(-8px) rotate(-4deg); } }
+
+/* Oyun içeriği */
+.secret-word { font-family: var(--font-display); font-size: 2.4rem; font-weight: 800; text-align: center; padding: 18px; border-radius: 18px; background: color-mix(in srgb, var(--c) 12%, var(--surface)); }
+.secret-word .em { display: block; font-size: 3.4rem; }
+.question { font-size: 1.35rem; font-weight: 800; }
+.opts { display: grid; gap: 10px; }
+.opt { text-align: left; padding: 14px 16px; border-radius: 16px; border: 2px solid var(--line); background: var(--surface-2); font-weight: 700; font-size: 1.08rem; min-height: 56px; display: flex; gap: 12px; align-items: center; }
+.opt .em { font-size: 1.8rem; }
+.opts.pics { grid-template-columns: repeat(3, 1fr); }
+.opts.pics .opt { flex-direction: column; text-align: center; justify-content: center; gap: 4px; font-size: .95rem; }
+.opts.pics .opt .em { font-size: 2.6rem; }
+.opt.correct { border-color: var(--ok); background: color-mix(in srgb, var(--ok) 16%, var(--surface)); }
+.opt.wrong { border-color: var(--bad); background: color-mix(in srgb, var(--bad) 12%, var(--surface)); }
+.note { padding: 14px 16px; border-radius: 16px; background: color-mix(in srgb, var(--sun) 14%, var(--surface)); border-left: 5px solid var(--sun); }
+.note b { display: block; margin-bottom: 2px; }
+.rule { font-size: .92rem; color: var(--muted); }
+.timer { --p: 1; width: 132px; height: 132px; border-radius: 50%; margin: 4px auto; display: grid; place-items: center; background: conic-gradient(var(--c, var(--leaf)) calc(var(--p) * 360deg), var(--line) 0); }
+.timer b { width: 104px; height: 104px; border-radius: 50%; background: var(--surface); display: grid; place-items: center; font-family: var(--font-display); font-size: 2.6rem; font-variant-numeric: tabular-nums; }
+.timer.low b { color: var(--bad); }
+.counter { width: 100%; padding: 22px; border-radius: 22px; border: 0; background: var(--c); color: var(--on-leaf); font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; }
+.counter b { display: block; font-size: 3rem; line-height: 1; font-variant-numeric: tabular-nums; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { border: 1px solid var(--line); background: var(--surface-2); border-radius: 999px; padding: 10px 14px; font-weight: 800; min-height: 46px; }
+.list { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; }
+blockquote { margin: 0; padding: 16px 18px; border-radius: 18px; background: var(--surface-2); font-size: 1.1rem; }
+blockquote cite { display: block; margin-top: 6px; font-style: normal; color: var(--muted); font-size: .88rem; font-weight: 700; }
+
+/* Bahçe */
+.garden { background: var(--surface); border-radius: var(--radius); padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; }
+.garden-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.garden-plants { display: flex; flex-wrap: wrap; gap: 2px; font-size: 1.5rem; min-height: 36px; align-items: flex-end; }
+.garden-plants .new { animation: sprout .6s cubic-bezier(.3, 1.6, .5, 1); }
+@keyframes sprout { from { transform: scale(0) translateY(10px); } to { transform: none; } }
+.garden-ground { height: 6px; border-radius: 6px; background: color-mix(in srgb, var(--sun) 40%, var(--leaf)); opacity: .5; }
+
+.float { position: fixed; left: 50%; top: 45%; font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; color: var(--leaf); pointer-events: none; animation: up 1.1s ease-out forwards; z-index: 20; }
+@keyframes up { from { transform: translate(-50%, 0) scale(.6); opacity: 0; } 20% { opacity: 1; transform: translate(-50%, -10px) scale(1.1); } to { transform: translate(-50%, -110px); opacity: 0; } }
+.confetti { position: fixed; top: -40px; font-size: 1.6rem; pointer-events: none; z-index: 19; animation: fall 1.6s ease-in forwards; }
+@keyframes fall { to { transform: translateY(110vh) rotate(540deg); } }
+.foot { text-align: center; font-size: .82rem; color: var(--muted); }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .float, .confetti { display: none; }
+}
+</style>
+
+<div class="shell">
+  <header class="top">
+    <button class="logo" data-act="home" aria-label="Ana sayfa">Aile<span>cek</span></button>
+    <div class="top-right">
+      <span class="pill" title="Bahçemizdeki fidanlar">🌱 <span id="gcount">0</span></span>
+      <button class="icon-btn" id="snd" data-act="sound" aria-label="Sesi aç/kapat">🔊</button>
+    </div>
+  </header>
+  <main id="app" aria-live="polite"></main>
+  <section class="garden" aria-label="Aile bahçesi">
+    <div class="garden-head"><h3>Aile Bahçemiz</h3><span class="muted small" id="gnote"></span></div>
+    <div class="garden-plants" id="plants"></div>
+    <div class="garden-ground"></div>
+  </section>
+  <p class="foot">Prototip sürüm. Ayet ve hadisler yayından önce bir hoca tarafından kontrol edilmelidir.</p>
+</div>
+
+<script>
+/* ============ İÇERİK ============ */
+const AGES = [
+  { id: "k", label: "3-5 yaş", lvl: 0 },
+  { id: "c", label: "6-8 yaş", lvl: 1 },
+  { id: "o", label: "9-12 yaş", lvl: 2 },
+  { id: "g", label: "13-17 yaş", lvl: 3 },
+  { id: "y", label: "Yetişkin", lvl: 3 }
+];
+const AVATARS = ["🦁", "🐻", "🦊", "🐰", "🐼", "🐯", "🐨", "🦉", "🐢", "🐬", "🐝", "🦄"];
+
+const THEMES = {
+  sukur: {
+    name: "Şükür Gecesi", ico: "🤲", color: "--sun",
+    desc: "Nimetleri fark etmek ve teşekkür etmek",
+    ayet: { text: "Eğer şükrederseniz, elbette size (nimetimi) artırırım.", ref: "İbrâhîm Suresi, 7. ayet" },
+    hadis: { text: "İnsanlara teşekkür etmeyen, Allah'a şükretmiş olmaz.", ref: "Ebû Dâvûd, Edeb 11; Tirmizî, Birr 35" },
+    soru: "Bugün kime ve hangi nimete teşekkür etmek istersin? Herkes bir tane söylesin.",
+    gorev: "Bu hafta her akşam yemeğinde herkes o gün fark ettiği bir nimeti söylesin."
+  },
+  sabir: {
+    name: "Sabır Gecesi", ico: "🌊", color: "--sky",
+    desc: "Öfkeye hâkim olmak, beklemeyi bilmek",
+    ayet: { text: "Ey iman edenler! Sabır ve namazla Allah'tan yardım isteyin. Şüphesiz Allah sabredenlerle beraberdir.", ref: "Bakara Suresi, 153. ayet" },
+    hadis: { text: "Pehlivan, güreşte rakibini yenen değildir. Asıl pehlivan, öfkelendiği zaman kendine hâkim olandır.", ref: "Buhârî, Edeb 76; Müslim, Birr 107" },
+    soru: "En son ne zaman çok sinirlendin? Şimdi düşününce ne yapabilirdin?",
+    gorev: "Aile şifremiz: “Pehlivan!” Bu hafta biri sinirlenince şifreyi söyleyin ve hep birlikte üç derin nefes alın."
+  },
+  merhamet: {
+    name: "Merhamet Gecesi", ico: "💚", color: "--berry",
+    desc: "İnsanlara ve hayvanlara şefkat göstermek",
+    ayet: { text: "Biz seni ancak âlemlere rahmet olarak gönderdik.", ref: "Enbiyâ Suresi, 107. ayet" },
+    hadis: { text: "Merhamet etmeyene merhamet olunmaz.", ref: "Buhârî, Edeb 18" },
+    soru: "Evimizde, okulda ya da sokakta merhamete en çok kimin ihtiyacı var?",
+    gorev: "Bu hafta ailece bir canlıya iyilik yapın: kuşlara yem, sokak hayvanlarına su ya da yalnız bir komşuya ziyaret."
+  }
+};
+
+const GAMES = {
+  pandomim: { name: "Kıssa Pandomimi", color: "--berry", ico: "🎭" },
+  bilgi: { name: "Bil Bakalım", color: "--sky", ico: "💡" },
+  senolsan: { name: "Sen Olsan?", color: "--leaf", ico: "🤔" },
+  hizli: { name: "Hızlı Tur", color: "--sun", ico: "⚡" },
+  saskin: { name: "Şaşkın Ebeveyn", color: "--plum", ico: "🙃" }
+};
+
+const PANDOMIM = [
+  { w: "Fil", e: "🐘", kolay: true, info: "Fil Suresi: Ebrehe fillerden oluşan ordusuyla Kâbe'yi yıkmaya geldi, ama Allah Kâbe'yi korudu." },
+  { w: "Karınca", e: "🐜", kolay: true, info: "Neml Suresi: Hz. Süleyman'ın ordusu yaklaşırken bir karınca arkadaşlarını uyardı: “Yuvalarınıza girin!”" },
+  { w: "Hüdhüd kuşu", e: "🐦", kolay: true, info: "Neml Suresi: Hüdhüd kuşu, Hz. Süleyman'a Sebe ülkesinden haber getirdi." },
+  { w: "Büyük balık", e: "🐋", kolay: true, info: "Hz. Yunus'u büyük bir balık yuttu. O, balığın karnında “Lâ ilâhe illâ ente sübhâneke innî küntü mine'z-zâlimîn” diye dua etti. (Enbiyâ, 87)" },
+  { w: "Uyuyan köpek", e: "🐕", kolay: true, info: "Kehf Suresi: Mağaradaki gençlerin köpeği, ön ayaklarını uzatmış bekliyordu. Geleneğe göre adı Kıtmîr'dir." },
+  { w: "Deve", e: "🐪", kolay: true, info: "Peygamberimiz Medine'ye vardığında devesi Kasvâ'nın çöktüğü yere Mescid-i Nebevî yapıldı." },
+  { w: "İnek", e: "🐄", kolay: true, info: "Kur'an'ın en uzun suresinin adı Bakara'dır, yani “inek”." },
+  { w: "Yılan", e: "🐍", kolay: true, info: "Hz. Musa asasını yere attığında, Allah'ın izniyle asa yılana dönüştü." },
+  { w: "Koç", e: "🐏", kolay: true, info: "Allah, Hz. İbrahim'e oğlu Hz. İsmail'in yerine kurban etmesi için büyük bir kurbanlık gönderdi. (Sâffât, 107)" },
+  { w: "Kurt", e: "🐺", kolay: true, info: "Hz. Yusuf'un kardeşleri onu kuyuya attı ve babalarına “Onu kurt yedi” diye yalan söyledi." },
+  { w: "Ağ ören örümcek", e: "🕸️", kolay: false, info: "Hicret yolculuğunda Peygamberimiz ve Hz. Ebû Bekir Sevr Mağarası'na saklandı. Rivayete göre mağaranın ağzına bir örümcek ağ ördü." },
+  { w: "Gemi yapmak", e: "🔨", kolay: false, info: "Hz. Nuh, Allah'ın emriyle büyük bir gemi yaptı. İnsanlar onunla alay etti ama o sabırla devam etti. (Hûd, 38)" },
+  { w: "Taş taşıyan kuşlar", e: "🪨", kolay: false, info: "Fil Suresi: Allah, Ebrehe'nin ordusunun üzerine taş taşıyan kuş sürüleri (Ebâbil) gönderdi." },
+  { w: "Hurma ağacını sallamak", e: "🌴", kolay: false, info: "Meryem Suresi: Hz. Meryem'e hurma ağacını sallaması söylendi ve üzerine taze hurmalar döküldü." },
+  { w: "Sahura uykulu kalkmak", e: "😴", kolay: false, info: "Peygamberimiz “Sahur yapın, çünkü sahurda bereket vardır” buyurdu. (Buhârî, Müslim)" },
+  { w: "Hapşırıp Elhamdülillah demek", e: "🤧", kolay: true, info: "Hapşıran “Elhamdülillah” der, duyan “Yerhamükallah” der. (Buhârî, Edeb 126)" },
+  { w: "Susamış kediye su vermek", e: "🐱", kolay: true, info: "Peygamberimiz, susamış bir köpeğe kuyudan su çıkarıp içiren adamı Allah'ın bağışladığını anlattı. (Buhârî, Müslim)" },
+  { w: "Abdest almak", e: "💧", kolay: false, info: "Abdest, namazın anahtarıdır. Peygamberimiz abdest alırken suyu israf etmezdi." }
+];
+
+/* Bil Bakalım: ilk seçenek doğru cevaptır (oyunda karıştırılır). e = küçükler için resim */
+const BILGI = {
+  0: [
+    { q: "Yemeğe başlarken ne deriz?", o: [["Bismillah", "🍽️"], ["Günaydın", "☀️"], ["Hoşça kal", "👋"]] },
+    { q: "Yemek bitince ne deriz?", o: [["Elhamdülillah", "🤲"], ["Ayy, doydum!", "😮"], ["İyi geceler", "🌙"]] },
+    { q: "Biriyle karşılaşınca ne deriz?", o: [["Selâmün aleyküm", "🤝"], ["Bismillah", "🍽️"], ["Hiçbir şey", "😶"]] },
+    { q: "Hangisi Kâbe?", o: [["Kâbe", "🕋"], ["Şato", "🏰"], ["Kule", "🗼"]] },
+    { q: "Hapşırınca ne deriz?", o: [["Elhamdülillah", "🤧"], ["Günaydın", "☀️"], ["Miyav", "🐱"]] },
+    { q: "Ramazan'da ne yaparız?", o: [["Oruç tutarız", "🌙"], ["Kardan adam yaparız", "⛄"], ["Uçağa bineriz", "✈️"]] },
+    { q: "Hz. Nuh'un gemisine kimler bindi?", o: [["Hayvanlar", "🦒"], ["Arabalar", "🚗"], ["Robotlar", "🤖"]] },
+    { q: "Camiye ne için gideriz?", o: [["Namaz kılmak", "🕌"], ["Top oynamak", "⚽"], ["Uyumak", "🛏️"]] }
+  ],
+  1: [
+    { q: "Günde kaç vakit namaz kılınır?", o: ["5", "3", "7"] },
+    { q: "Kur'an-ı Kerim'in ilk suresi hangisidir?", o: ["Fâtiha", "İhlâs", "Bakara"] },
+    { q: "Peygamberimiz hangi şehirde doğdu?", o: ["Mekke", "Medine", "Kudüs"] },
+    { q: "Hz. Yunus'u ne yuttu?", o: ["Büyük bir balık", "Bir aslan", "Bir kartal"] },
+    { q: "Kur'an-ı Kerim'de kaç sure vardır?", o: ["114", "99", "40"] },
+    { q: "Abdeste başlarken önce neyi yıkarız?", o: ["Ellerimizi", "Ayaklarımızı", "Saçlarımızı"] },
+    { q: "Ramazan ayının sonunda hangi bayramı kutlarız?", o: ["Ramazan Bayramı", "Kurban Bayramı", "Yılbaşı"] },
+    { q: "Ezan günde kaç kez okunur?", o: ["5", "2", "10"] },
+    { q: "Hz. Nuh ne yaptı?", o: ["Büyük bir gemi", "Bir saray", "Bir köprü"] }
+  ],
+  2: [
+    { q: "Peygamberimizin annesinin adı nedir?", o: ["Hz. Âmine", "Hz. Hatice", "Hz. Fâtıma"] },
+    { q: "İlk vahiy nerede geldi?", o: ["Hira Mağarası", "Sevr Mağarası", "Uhud Dağı"] },
+    { q: "İlk inen ayet hangi emirle başlar?", o: ["Oku!", "Yaz!", "Koş!"] },
+    { q: "Peygamberimiz hangi şehre hicret etti?", o: ["Medine", "Tâif", "Şam"] },
+    { q: "Hz. Süleyman'a Sebe ülkesinden haber getiren kuş hangisidir?", o: ["Hüdhüd", "Güvercin", "Karga"] },
+    { q: "Allah'ın güzel isimlerine ne denir?", o: ["Esmâ-i Hüsnâ", "Kelime-i Tevhid", "Amentü"] },
+    { q: "Hangisi İslam'ın beş şartından biri DEĞİLDİR?", o: ["Kurban kesmek", "Zekât vermek", "Oruç tutmak"] },
+    { q: "“Er-Rahmân” ne demektir?", o: ["Çok merhametli", "Her şeyi bilen", "Çok güçlü"] },
+    { q: "Hz. İbrahim ateşe atıldığında ateş ne oldu?", o: ["Serin ve esenlik oldu", "Daha çok yandı", "Söndü ve duman oldu"], info: "Allah ateşe “Ey ateş! İbrahim'e karşı serin ve esenlik ol” dedi. (Enbiyâ, 69)" }
+  ],
+  3: [
+    { q: "Hz. İbrahim, Kâbe'yi hangi oğluyla birlikte inşa etti?", o: ["Hz. İsmail", "Hz. İshak", "Hz. Yakup"], info: "Bakara Suresi, 127. ayet." },
+    { q: "Kur'an'da adı geçen tek kadın kimdir?", o: ["Hz. Meryem", "Hz. Âsiye", "Hz. Hacer"] },
+    { q: "Besmele ile başlamayan sure hangisidir?", o: ["Tevbe", "Fâtiha", "Yâsîn"] },
+    { q: "Hz. Musa'nın kardeşi ve yardımcısı olan peygamber kimdir?", o: ["Hz. Hârûn", "Hz. Şuayb", "Hz. Lût"] },
+    { q: "Peygamberimizin süt annesi kimdir?", o: ["Hz. Halîme", "Hz. Ümmü Eymen", "Hz. Sevde"] },
+    { q: "Hicret hangi yılda gerçekleşti?", o: ["622", "571", "632"] },
+    { q: "Hz. Yusuf'u kuyuya kimler attı?", o: ["Kardeşleri", "Kervancılar", "Mısır askerleri"] },
+    { q: "Mağarada uzun yıllar uyuyan gençlerin kıssası hangi surededir?", o: ["Kehf", "Yûsuf", "Meryem"] },
+    { q: "Asr Suresi'ne göre ziyanda olmayanlar birbirlerine neyi tavsiye eder?", o: ["Hakkı ve sabrı", "Zenginliği", "Şöhreti"] }
+  ]
+};
+
+const SENOLSAN = {
+  sukur: [
+    { s: "Doğum gününde istediğin oyuncak yerine kocaman bir çorap paketi geldi! 🧦 Ne yaparsın, ne dersin?", i: "Hediyeyi verene teşekkür etmek de şükürdür. Peygamberimiz “İnsanlara teşekkür etmeyen Allah'a şükretmiş olmaz” buyurdu." },
+    { s: "Annen en sevmediğin yemeği yaptı: ıspanak! 🥬 Sofrada ne yaparsın?", i: "Peygamberimiz hiçbir yemeği ayıplamazdı. Canı isterse yer, istemezse sessizce bırakırdı. (Buhârî, Müslim)" },
+    { s: "Yağmur yağdı ve beklediğin piknik iptal oldu. ☔ Ne dersin?", i: "Yağmur da Allah'ın bir rahmetidir. İstediğimiz olmasa da “Elhamdülillah” diyebiliriz." },
+    { s: "Arkadaşının yepyeni bir telefonu var, seninki eski ve çizik. 📱 İçinden ne geçer?", i: "Peygamberimiz “Sizden aşağıda olana bakın, üstünüzde olana bakmayın. Bu, Allah'ın nimetlerini küçümsememeniz için daha uygundur” buyurdu. (Müslim)" },
+    { s: "Sabah uyandın: gözlerin görüyor, kulakların duyuyor, bacakların koşuyor. 🏃 Bunlardan hangisi olmasa en çok zorlanırdın?", i: "Her sabah uyandığımızda “Elhamdülillah” demek, bu nimetleri hatırlamanın en güzel yoludur." }
+  ],
+  sabir: [
+    { s: "Kardeşin, saatlerce yaptığın legodan kuleyi bir tekmede yıktı! 🧱 Ne yaparsın?", i: "Asıl pehlivan, öfkelendiği zaman kendine hâkim olandır. (Buhârî, Müslim)" },
+    { s: "Bayram sabahı herkes hazır, sadece senin tek ayakkabın kayıp ve herkes sana sesleniyor. 👟 Ne yaparsın?", i: "Sabır sadece beklemek değil, telaşlıyken de sakin kalabilmektir." },
+    { s: "Oruçlusun, iftara 10 dakika var ve en sevdiğin tatlı gözünün önünde duruyor. 🍰 Bu 10 dakikayı nasıl geçirirsin?", i: "İftar vakti dua vaktidir. Beklerken dua etmek sabrı tatlandırır." },
+    { s: "Oyunda üst üste kaybediyorsun ve kardeşin seninle dalga geçiyor. 🎲 Ne yaparsın?", i: "Kaybetmek de oyunun bir parçasıdır. Öfkelenince sakinleşmek için Peygamberimiz ayaktaysak oturmayı tavsiye etti. (Ebû Dâvûd)" },
+    { s: "Doktorda sıra çok uzun, bir saat bekleyeceksiniz. ⏳ Zamanı nasıl değerlendirirsin?", i: "Beklerken zikir yapmak, hikâye anlatmak ya da sohbet etmek zamanı bereketlendirir." }
+  ],
+  merhamet: [
+    { s: "Sınıfa yeni gelen bir öğrenci teneffüste tek başına duruyor. 🧍 Ne yaparsın?", i: "Güler yüz göstermek bile sadakadır. (Tirmizî)" },
+    { s: "Sokakta, susuzluktan dili dışarıda bir kedi gördün. 🐱 Ne yaparsın?", i: "Peygamberimiz, susamış bir köpeğe su veren adamı Allah'ın bağışladığını anlattı. (Buhârî, Müslim)" },
+    { s: "Kardeşin hasta ve bugün tablet onun sırasıydı. Sen alabilirsin, kimse bir şey demez. 🤒 Ne yaparsın?", i: "Hastayı sevindirmek ve ona hizmet etmek çok güzel bir iyiliktir." },
+    { s: "Arkadaşın sınavdan düşük aldı ve ağlıyor, bazıları da ona gülüyor. 😢 Ne yaparsın?", i: "Müslüman, müslümanın kardeşidir. Onu yalnız bırakmaz. (Buhârî, Müslim)" },
+    { s: "Deden telefonda aynı şeyi sana beşinci kez soruyor. 👴 Ne yaparsın?", i: "Peygamberimiz “Küçüklerimize merhamet etmeyen, büyüklerimize saygı göstermeyen bizden değildir” buyurdu. (Tirmizî)" }
+  ]
+};
+
+const HIZLI = {
+  sukur: [
+    { p: "Allah'ın bize verdiği nimetleri sayın!", t: 10 },
+    { p: "Vücudumuzdaki nimetleri sayın! (göz, kulak…)", t: 8 },
+    { p: "Şu an sofrada ya da mutfakta olan nimetleri sayın!", t: 8 }
+  ],
+  sabir: [
+    { p: "Sabır gerektiren durumları sayın! (sıra beklemek…)", t: 6 },
+    { p: "Sinirlenince sakinleşmek için yapabileceklerimizi sayın!", t: 5 }
+  ],
+  merhamet: [
+    { p: "Hayvanlara nasıl merhamet edebiliriz? Sayın!", t: 6 },
+    { p: "Bugün birine yapabileceğimiz iyilikleri sayın!", t: 8 }
+  ],
+  genel: [
+    { p: "Bildiğiniz peygamber isimlerini sayın!", t: 8 },
+    { p: "Bildiğiniz sure isimlerini sayın!", t: 6 },
+    { p: "Esmâ-i Hüsnâ'dan bildiğiniz isimleri sayın!", t: 6 }
+  ]
+};
+
+const SASKIN = [
+  { s: "Abdest alıyormuş gibi yap. Ama: ayaklarını yüzünden önce yıka, ağzını çalkalamayı unut ve başını mesh etmek yerine saçını tara. Abartmak serbest!", h: ["Ayaklar en son yıkanır.", "Ağız çalkalanır, burna su verilir.", "Baş, ıslak elle mesh edilir."] },
+  { s: "Sofraya otur ve yemeğe başla. Ama: Besmele çekme, sol elinle ye ve tabağının yarısını bırakıp “Doydum!” de.", h: ["Yemeğe “Bismillah” diyerek başlanır.", "Yemek sağ elle yenir.", "İsraf etmeyiz; tabağa yiyebileceğimiz kadar alırız."] },
+  { s: "Dışarı çıkıp eve gir. Ama: selam verme, ayakkabılarınla içeri yürü ve kapıyı çarp.", h: ["Eve girerken “Selâmün aleyküm” denir.", "Ayakkabılar kapıda çıkarılır, ev temiz tutulur.", "Kapı yavaşça kapatılır, kimse rahatsız edilmez."] },
+  { s: "Çok yüksek sesle hapşır ve hiçbir şey deme. Biri “Yerhamükallah” derse “Ne?” diye cevap ver.", h: ["Hapşıran “Elhamdülillah” der.", "Duyan “Yerhamükallah” der.", "Hapşıran da “Yehdîkümullah” diye karşılık verir."] },
+  { s: "Misafir karşılıyormuş gibi yap. Ama: yerinden kalkma, “Hoş geldin” deme ve telefonuna bakmaya devam et.", h: ["Misafir ayağa kalkılarak, güler yüzle karşılanır.", "“Hoş geldin” denir, hâli hatırı sorulur.", "Misafire ikram edilir. (Allah'a ve ahiret gününe iman eden misafirine ikram etsin. Buhârî, Müslim)"] },
+  { s: "Yatıp uyuyormuş gibi yap. Ama: dua etmeden, sol tarafına dönüp hemen horlamaya başla.", h: ["Uyumadan önce dua edilir: “Bismikellâhümme emûtü ve ahyâ.”", "Sünnet olan, sağ tarafa yatmaktır.", "Abdestli yatmak güzel bir sünnettir."] }
+];
+
+/* Gizli iyilik: {X} = iyilik yapılacak kişi. min = en küçük yaş seviyesi */
+const IYILIK = [
+  { d: "{X} için kimseye söylemeden dua et.", min: 0 },
+  { d: "{X} için güzel bir resim çiz ve fark ettirmeden yastığının altına koy.", min: 0 },
+  { d: "{X:in} ayakkabılarını kapının önünde güzelce diz.", min: 0 },
+  { d: "{X:e} sebepsiz yere kocaman sarıl.", min: 0 },
+  { d: "{X:e} güzel bir not yaz ve bulacağı bir yere sakla.", min: 1 },
+  { d: "{X:in} bir işini, o fark etmeden sen yap.", min: 1 },
+  { d: "{X:e} en sevdiği içeceği hazırla.", min: 1 },
+  { d: "{X:in} dağınık bir köşesini gizlice topla.", min: 1 },
+  { d: "{X:in} sevdiği bir atıştırmalığı çantasına ya da cebine gizlice koy.", min: 2 },
+  { d: "{X:e} içten bir iltifat et, ama bunun görev olduğunu belli etme.", min: 2 },
+  { d: "{X:in} sevdiği bir yemeği ya da tatlıyı hazırla.", min: 3 }
+];
+
+/* ============ DURUM ============ */
+const store = {
+  get(k, d) { try { const v = localStorage.getItem("ailecek:" + k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem("ailecek:" + k, JSON.stringify(v)); } catch (e) {} }
+};
+const DEFAULT_FAMILY = [
+  { name: "Anne", age: "y", av: "🦉" },
+  { name: "Baba", age: "y", av: "🐻" },
+  { name: "Zeynep", age: "o", av: "🦊" },
+  { name: "Ömer", age: "k", av: "🐰" }
+];
+let family = store.get("family", DEFAULT_FAMILY);
+let gardenTotal = store.get("garden", 0);
+let lastSecrets = store.get("secrets", null);
+let soundOn = store.get("sound", true);
+let G = null;
+let timerId = null;
+let lastPlantCount = gardenTotal;
+
+const $app = document.getElementById("app");
+const ageOf = id => AGES.find(a => a.id === id) || AGES[4];
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const rnd = arr => arr[Math.floor(Math.random() * arr.length)];
+/* Türkçe ekler: ünlü uyumu ve ünsüz benzeşmesi (Zeynep'te, Ömer'e, Anne'nin) */
+function lastVowel(w) { const m = w.toLocaleLowerCase("tr").match(/[aeıioöuü](?=[^aeıioöuü]*$)/); return m ? m[0] : "e"; }
+const endsVowel = w => /[aeıioöuü]$/i.test(w.toLocaleLowerCase("tr"));
+function ek(name, type) {
+  const v = lastVowel(name), back = "aıou".includes(v), n = String(name);
+  if (type === "de") { const hard = /[fstkçşhp]$/.test(n.toLocaleLowerCase("tr")); return n + "'" + (hard ? "t" : "d") + (back ? "a" : "e"); }
+  if (type === "e") return n + "'" + (endsVowel(n) ? "y" : "") + (back ? "a" : "e");
+  const four = { a: "ı", ı: "ı", e: "i", i: "i", o: "u", u: "u", ö: "ü", ü: "ü" }[v] || "i";
+  return n + "'" + (endsVowel(n) ? "n" : "") + four + "n";
+}
+const shuffle = arr => { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+
+function pick(pool, key) {
+  const used = G.used[key] || (G.used[key] = new Set());
+  let avail = pool.filter(x => !used.has(x));
+  if (!avail.length) { used.clear(); avail = pool; }
+  const x = rnd(avail); used.add(x); return x;
+}
+
+/* ============ SES & EFEKT ============ */
+let ac = null;
+function tone(f, d, type = "sine", when = 0) {
+  if (!soundOn) return;
+  try {
+    ac = ac || new (window.AudioContext || window.webkitAudioContext)();
+    const t = ac.currentTime + when, o = ac.createOscillator(), g = ac.createGain();
+    o.type = type; o.frequency.value = f;
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(0.18, t + 0.02);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + d);
+    o.connect(g).connect(ac.destination); o.start(t); o.stop(t + d + 0.05);
+  } catch (e) {}
+}
+const sfx = {
+  ok() { tone(660, .14); tone(880, .14, "sine", .1); tone(1175, .25, "sine", .2); },
+  no() { tone(260, .18, "triangle"); tone(200, .3, "triangle", .15); },
+  tick() { tone(1200, .05, "square"); },
+  end() { tone(523, .2, "triangle"); tone(392, .4, "triangle", .2); },
+  tap() { tone(520 + Math.random() * 300, .08, "sine"); }
+};
+function floatText(t) {
+  const el = document.createElement("div"); el.className = "float"; el.textContent = t;
+  document.body.appendChild(el); setTimeout(() => el.remove(), 1200);
+}
+function confetti(n = 18) {
+  const set = ["🌱", "🌸", "✨", "🌿", "⭐", "🌼"];
+  for (let i = 0; i < n; i++) {
+    const el = document.createElement("span"); el.className = "confetti"; el.textContent = rnd(set);
+    el.style.left = Math.random() * 100 + "vw"; el.style.animationDelay = Math.random() * .4 + "s";
+    document.body.appendChild(el); setTimeout(() => el.remove(), 2200);
+  }
+}
+function grow(n) {
+  if (n <= 0) return;
+  gardenTotal += n; if (G) G.fidan += n;
+  store.set("garden", gardenTotal);
+  floatText("+" + n + " 🌱"); sfx.ok();
+  renderGarden();
+}
+
+/* ============ BAHÇE ============ */
+const PLANTS = ["🌱", "🌿", "🌷", "🌱", "🌳", "🌻", "🌿", "🌸", "🌱", "🍀", "🌼", "🌲"];
+function renderGarden() {
+  document.getElementById("gcount").textContent = gardenTotal;
+  const show = Math.min(gardenTotal, 60), start = gardenTotal - show;
+  let html = "";
+  for (let i = start; i < gardenTotal; i++) {
+    html += `<span class="${i >= lastPlantCount ? "new" : ""}">${PLANTS[i % PLANTS.length]}</span>`;
+  }
+  document.getElementById("plants").innerHTML = html || `<span class="muted small">Bahçe henüz boş. İlk fidanı oyunda kazanacaksınız!</span>`;
+  document.getElementById("gnote").textContent = gardenTotal ? `${gardenTotal} fidan` : "";
+  lastPlantCount = gardenTotal;
+}
+
+/* ============ EKRANLAR ============ */
+function render(html) {
+  clearInterval(timerId); timerId = null;
+  $app.innerHTML = html;
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function screenHome() {
+  G = null;
+  render(`
+  <section class="hero">
+    <h1>Bu akşam <em>ailecek</em> oynuyoruz!</h1>
+    <p class="lead">Masaya tek telefon koyun, sırası gelene uzatın. Pandomim, bilgi yarışı, komik durumlar ve hep birlikte büyüyen bir bahçe sizi bekliyor.</p>
+    <button class="btn big" data-act="setup">Oyuna başla</button>
+    ${lastSecrets ? `<button class="btn big warn" data-act="guess" data-arg="0">Gizli iyilik tahmin turu 🕵️</button>` : ""}
+  </section>
+  <section class="card">
+    <h3>Nasıl oynanır?</h3>
+    <ol class="steps">
+      <li><span>Ailenizi ekleyin: kaç kişisiniz, kim kaç yaşında?</span></li>
+      <li><span>Bu gecenin temasını seçin: Şükür, Sabır ya da Merhamet.</span></li>
+      <li><span>Telefon sırayla dolaşır. Her kişiye yaşına uygun bir kart çıkar. Bildikçe bahçemize fidan dikilir.</span></li>
+      <li><span>Gece, kısa bir ayet ve hadisle, bir sohbet sorusuyla biter.</span></li>
+      <li><span>Herkes gizli bir iyilik görevi alır. Bir sonraki oyun gecesinde “Bana kim iyilik yaptı?” diye tahmin edilir.</span></li>
+    </ol>
+    <details>
+      <summary>Mini oyunlar</summary>
+      <ul class="list small" style="margin-top:8px">
+        <li><b>Kıssa Pandomimi:</b> Kıssalardaki hayvanları ve nesneleri canlandırın. Konuşmak yasak, ses çıkarmak serbest!</li>
+        <li><b>Bil Bakalım:</b> Herkese yaşına göre soru. Küçükler resimli soru alır, büyükler zor soru.</li>
+        <li><b>Sen Olsan?</b> Komik ama düşündüren durumlar. En güzel cevabı aile seçer.</li>
+        <li><b>Hızlı Tur:</b> 30 saniyede hep birlikte bağırarak sayın.</li>
+        <li><b>Şaşkın Ebeveyn:</b> Anne ya da baba bilerek hata yapar, çocuklar yakalar.</li>
+      </ul>
+    </details>
+  </section>`);
+}
+
+function screenSetup() {
+  const rows = family.map((p, i) => `
+    <div class="player-row">
+      <button class="avatar-btn" data-act="avatar" data-arg="${i}" aria-label="Simge değiştir">${p.av}</button>
+      <div class="fields">
+        <input id="name-${i}" data-field="name" data-i="${i}" value="${esc(p.name)}" placeholder="İsim" maxlength="16" aria-label="İsim">
+        <select id="age-${i}" data-field="age" data-i="${i}" aria-label="Yaş aralığı">
+          ${AGES.map(a => `<option value="${a.id}" ${a.id === p.age ? "selected" : ""}>${a.label}</option>`).join("")}
+        </select>
+      </div>
+    </div>`).join("");
+  render(`
+  <section class="card">
+    <h2>Ailemiz</h2>
+    <p class="muted">Kaç kişi oynuyorsunuz? İsimleri ve yaş aralıklarını girin. Simgeye dokunarak değiştirebilirsiniz.</p>
+    <div class="stepper">
+      <button data-act="count" data-arg="-1" aria-label="Bir kişi çıkar">−</button>
+      <b>${family.length}</b>
+      <button data-act="count" data-arg="1" aria-label="Bir kişi ekle">+</button>
+      <span class="muted">kişi</span>
+    </div>
+    <div class="stack">${rows}</div>
+    <p class="small muted" id="setup-err" hidden>Lütfen herkese bir isim verin.</p>
+    <button class="btn big" data-act="themes">Devam</button>
+  </section>`);
+}
+
+function screenThemes() {
+  render(`
+  <section class="stack">
+    <h2>Bu gecenin teması</h2>
+    <p class="muted">Tema; durum kartlarını, hızlı turu ve gece sonundaki sohbeti belirler.</p>
+    ${Object.entries(THEMES).map(([k, t]) => `
+      <button class="theme-card" style="--c:var(${t.color})" data-act="start" data-arg="${k}">
+        <span class="ico">${t.ico}</span>
+        <span><h3>${t.name}</h3><span class="muted small">${t.desc}</span></span>
+      </button>`).join("")}
+  </section>`);
+}
+
+/* ---- Oyun akışı ---- */
+function startGame(themeKey) {
+  const players = family.map(p => ({ ...p }));
+  const n = players.length;
+  const total = Math.max(6, Math.min(12, n * 2 + 2));
+  const plan = []; let p = 0;
+  for (let t = 0; t < total; t++) {
+    if ((t + 1) % 4 === 0) plan.push({ group: true });
+    else plan.push({ player: players[p++ % n] });
+  }
+  G = { theme: themeKey, players, plan, i: 0, fidan: 0, used: {}, lastType: null, saskinCount: 0 };
+  try { navigator.wakeLock && navigator.wakeLock.request("screen").catch(() => {}); } catch (e) {}
+  screenHandoff();
+}
+
+function chooseType(player) {
+  const adult = player.age === "y";
+  const hasKid = G.players.some(p => p.age !== "y");
+  if (adult && hasKid && G.lastType !== "saskin" && G.saskinCount < 2 && Math.random() < 0.4) return "saskin";
+  const opts = ["pandomim", "bilgi", "senolsan"].filter(t => t !== G.lastType);
+  return rnd(opts);
+}
+
+function header(type) {
+  const g = GAMES[type];
+  const dots = G.plan.map((_, i) => `<i class="${i < G.i ? "on" : i === G.i ? "now" : ""}"></i>`).join("");
+  return `<div class="turnline"><span class="badge">${g.ico} ${g.name}</span><div class="dots" aria-label="Tur ${G.i + 1} / ${G.plan.length}">${dots}</div></div>`;
+}
+const card = (type, inner) => `<section class="card game" style="--c:var(${GAMES[type].color})">${header(type)}${inner}</section>
+  <div class="row" style="justify-content:center"><button class="link" data-act="finish">Oyunu bitir ve sohbete geç</button></div>`;
+
+function screenHandoff() {
+  const t = G.plan[G.i];
+  if (t.group) {
+    t.type = "hizli";
+    render(card("hizli", `
+      <div class="stack handoff">
+        <div class="face">🙌</div>
+        <h2>Herkes katılıyor!</h2>
+        <p class="muted">Telefonu ortaya koyun. 30 saniyeniz var, hep birlikte bağırarak sayacaksınız.</p>
+        <button class="btn big" data-act="play">Hazırız!</button>
+      </div>`));
+    return;
+  }
+  t.type = t.type || chooseType(t.player);
+  const p = t.player;
+  const secret = t.type === "pandomim" || t.type === "saskin";
+  render(card(t.type, `
+    <div class="stack handoff">
+      <div class="face">${p.av}</div>
+      <h2>Sıra ${esc(ek(p.name, "de"))}!</h2>
+      <p class="muted">${secret ? `Telefonu ${esc(ek(p.name, "e"))} verin. <b>Diğerleri bakmasın!</b> 🤫` : `Telefonu ${esc(ek(p.name, "e"))} verin.`}${ageOf(p.age).lvl === 0 ? " Kartı bir büyük okusun." : ""}</p>
+      <button class="btn big" data-act="play">Hazırım!</button>
+    </div>`));
+}
+
+function play() {
+  const t = G.plan[G.i];
+  G.lastType = t.type;
+  ({ pandomim: playPandomim, bilgi: playBilgi, senolsan: playSenOlsan, hizli: playHizli, saskin: playSaskin })[t.type](t);
+}
+
+function nextTurn() {
+  G.i++;
+  if (G.i >= G.plan.length) screenDeep(); else screenHandoff();
+}
+
+function runTimer(sec, onEnd) {
+  const el = document.getElementById("timer"); let left = sec;
+  const draw = () => { if (!el) return; el.style.setProperty("--p", left / sec); el.querySelector("b").textContent = left; el.classList.toggle("low", left <= 5); };
+  draw(); clearInterval(timerId);
+  timerId = setInterval(() => {
+    left--; draw();
+    if (left <= 5 && left > 0) sfx.tick();
+    if (left <= 0) { clearInterval(timerId); timerId = null; sfx.end(); onEnd && onEnd(); }
+  }, 1000);
+}
+
+/* Kıssa Pandomimi */
+function playPandomim(t) {
+  const lvl = ageOf(t.player.age).lvl;
+  const pool = lvl === 0 ? PANDOMIM.filter(x => x.kolay) : PANDOMIM;
+  const x = pick(pool, "pan");
+  render(card("pandomim", `
+    <p class="muted">Sadece <b>${esc(t.player.name)}</b> baksın! Bunu canlandır:</p>
+    <div class="secret-word"><span class="em">${x.e}</span>${esc(x.w)}</div>
+    <p class="rule">Konuşmak yasak, ses çıkarmak serbest! Peygamberler ve sahabeler canlandırılmaz; sadece hayvanlar, nesneler ve davranışlar.</p>
+    <div id="pan-stage" class="stack">
+      <button class="btn big" data-act="pan-go">Gizle ve süreyi başlat (60 sn)</button>
+    </div>`));
+  G.cur = x;
+}
+function panGo() {
+  document.querySelector(".secret-word").innerHTML = `<span class="em">🤫</span>Canlandır!`;
+  document.getElementById("pan-stage").innerHTML = `
+    <div class="timer" id="timer"><b>60</b></div>
+    <div class="btn-row">
+      <button class="btn" data-act="pan-done" data-arg="1">Bildiler! 🎉</button>
+      <button class="btn ghost" data-act="pan-done" data-arg="0">Bilemediler</button>
+    </div>`;
+  runTimer(60, () => { const s = document.querySelector(".secret-word"); if (s) s.innerHTML = `<span class="em">⏰</span>Süre bitti!`; });
+}
+function panDone(ok) {
+  clearInterval(timerId);
+  const x = G.cur;
+  if (ok) { grow(1); confetti(); } else sfx.no();
+  document.querySelector(".secret-word").innerHTML = `<span class="em">${x.e}</span>${esc(x.w)}`;
+  document.getElementById("pan-stage").innerHTML = `
+    <div class="note"><b>Kıssayı biliyor musunuz?</b>${esc(x.info)}</div>
+    <button class="btn big" data-act="next">Devam</button>`;
+}
+
+/* Bil Bakalım */
+function playBilgi(t) {
+  const lvl = ageOf(t.player.age).lvl;
+  const x = pick(BILGI[lvl], "bil" + lvl);
+  const pics = lvl === 0;
+  const opts = shuffle(x.o.map((o, i) => ({ o, ok: i === 0 })));
+  G.cur = { x, opts };
+  render(card("bilgi", `
+    <p class="muted">${esc(t.player.name)} için ${ageOf(t.player.age).label} sorusu</p>
+    <p class="question">${esc(x.q)}</p>
+    <div class="opts ${pics ? "pics" : ""}" id="opts">
+      ${opts.map((it, i) => pics
+        ? `<button class="opt" data-act="answer" data-arg="${i}"><span class="em">${it.o[1]}</span>${esc(it.o[0])}</button>`
+        : `<button class="opt" data-act="answer" data-arg="${i}">${esc(it.o)}</button>`).join("")}
+    </div>
+    <div id="after" class="stack"></div>`));
+}
+function answer(i) {
+  const { x, opts } = G.cur;
+  const btns = document.querySelectorAll("#opts .opt");
+  if (btns[0].disabled) return;
+  btns.forEach((b, j) => { b.disabled = true; if (opts[j].ok) b.classList.add("correct"); });
+  const ok = opts[i].ok;
+  if (ok) { grow(1); confetti(12); } else { btns[i].classList.add("wrong"); sfx.no(); }
+  document.getElementById("after").innerHTML = `
+    <div class="note"><b>${ok ? "Maşallah, doğru!" : "Olsun, bir dahaki sefere!"}</b>${x.info ? esc(x.info) : ok ? "Bahçemize bir fidan dikildi." : "Doğru cevap yeşil olan."}</div>
+    <button class="btn big" data-act="next">Devam</button>`;
+}
+
+/* Sen Olsan? */
+function playSenOlsan(t) {
+  const x = pick(SENOLSAN[G.theme], "sen");
+  G.cur = x;
+  render(card("senolsan", `
+    <p class="question">${esc(t.player.name)}, sen olsan ne yapardın?</p>
+    <blockquote>${esc(x.s)}</blockquote>
+    <p class="muted small">Önce ${esc(t.player.name)} cevaplasın, sonra herkes kendi fikrini söylesin. Komik cevaplar da serbest!</p>
+    <div id="after" class="stack">
+      <h3>En güzel cevabı kim verdi?</h3>
+      <div class="chips">
+        ${G.players.map((p, i) => `<button class="chip" data-act="best" data-arg="${i}">${p.av} ${esc(p.name)}</button>`).join("")}
+        <button class="chip" data-act="best" data-arg="-1">💚 Hepsi çok güzeldi</button>
+      </div>
+    </div>`));
+}
+function best(i) {
+  const x = G.cur;
+  const who = i >= 0 ? G.players[i] : null;
+  grow(who ? 1 : 2); confetti(10);
+  document.getElementById("after").innerHTML = `
+    <p><b>${who ? `${who.av} ${esc(who.name)} bu turun yıldızı!` : "Bütün aile kazandı!"}</b></p>
+    <div class="note"><b>Güzel ahlak ipucu</b>${esc(x.i)}</div>
+    <button class="btn big" data-act="next">Devam</button>`;
+}
+
+/* Hızlı Tur */
+function playHizli() {
+  const x = pick(HIZLI[G.theme].concat(HIZLI.genel), "hiz");
+  G.cur = { x, count: 0, done: false };
+  render(card("hizli", `
+    <p class="question">${esc(x.p)}</p>
+    <p class="muted">Hedef: <b>${x.t}</b> cevap. Her doğru cevapta büyük düğmeye dokunun!</p>
+    <div class="timer" id="timer"><b>30</b></div>
+    <button class="counter" id="ctr" data-act="count-up"><b id="ctrn">0</b>/ ${x.t}</button>
+    <div id="after" class="stack"></div>`));
+  runTimer(30, () => hizliEnd(false));
+}
+function countUp() {
+  const c = G.cur; if (c.done) return;
+  c.count++; sfx.tap();
+  document.getElementById("ctrn").textContent = c.count;
+  if (c.count >= c.x.t) hizliEnd(true);
+}
+function hizliEnd(win) {
+  const c = G.cur; if (c.done) return; c.done = true;
+  clearInterval(timerId);
+  document.getElementById("ctr").disabled = true;
+  if (win) { grow(2); confetti(24); } else if (c.count >= Math.ceil(c.x.t / 2)) grow(1); else sfx.no();
+  document.getElementById("after").innerHTML = `
+    <div class="note"><b>${win ? "Hedef tamam! Harikasınız!" : `Süre bitti! ${c.count} tane saydınız.`}</b>${win ? "Ailece iki fidan kazandınız." : c.count >= Math.ceil(c.x.t / 2) ? "Yarıyı geçtiniz, bir fidan kazandınız." : "Bir dahaki turda daha hızlı olacağız!"}</div>
+    <button class="btn big" data-act="next">Devam</button>`;
+}
+
+/* Şaşkın Ebeveyn */
+function playSaskin(t) {
+  G.saskinCount++;
+  const x = pick(SASKIN, "sas");
+  G.cur = { x, caught: 0 };
+  render(card("saskin", `
+    <p class="muted">Sadece <b>${esc(t.player.name)}</b> okusun! Çocuklar bakmasın.</p>
+    <blockquote>${esc(x.s)}</blockquote>
+    <div id="sas-stage" class="stack">
+      <button class="btn big" data-act="sas-go">Okudum, başlıyorum</button>
+    </div>`));
+}
+function sasGo() {
+  const name = G.plan[G.i].player.name;
+  document.querySelector(".card.game blockquote").outerHTML = `<blockquote><b>Çocuklar!</b> ${esc(name)} şimdi bir şey yapacak ama bazı hatalar yapacak. Hataları yakalayın! Her yakaladığınızda “Yakaladım!” diye bağırın ve düğmeye basın.</blockquote>`;
+  document.querySelector(".card.game > p.muted").remove();
+  document.getElementById("sas-stage").innerHTML = `
+    <button class="counter" data-act="caught"><b id="cn">0</b>hata yakalandı</button>
+    <button class="btn big ghost" data-act="sas-done">Gösteri bitti</button>`;
+}
+function caught() {
+  const c = G.cur; if (c.caught >= c.x.h.length + 2) return;
+  c.caught++; sfx.tap(); document.getElementById("cn").textContent = c.caught;
+}
+function sasDone() {
+  const c = G.cur;
+  const n = Math.min(c.caught, c.x.h.length);
+  if (n) { grow(n); confetti(16); } else sfx.no();
+  document.getElementById("sas-stage").innerHTML = `
+    <div class="note"><b>Doğrusu nasıl?</b><ul class="list">${c.x.h.map(h => `<li>${esc(h)}</li>`).join("")}</ul></div>
+    <button class="btn big" data-act="next">Devam</button>`;
+}
+
+/* Derinlik anı */
+function screenDeep() {
+  const t = THEMES[G.theme];
+  render(`
+  <section class="card game" style="--c:var(${t.color})">
+    <span class="badge">${t.ico} Derinlik Anı</span>
+    <h2>${t.name} bitiyor</h2>
+    <p class="muted">Bu gece bahçemize <b>${G.fidan}</b> fidan diktik. Şimdi telefonu bırakıp birkaç dakika sohbet edelim.</p>
+    <blockquote>“${esc(t.ayet.text)}”<cite>${esc(t.ayet.ref)}</cite></blockquote>
+    <blockquote>Peygamberimiz buyurdu: “${esc(t.hadis.text)}”<cite>${esc(t.hadis.ref)}</cite></blockquote>
+    <div class="note"><b>Sohbet sorusu</b>${esc(t.soru)}</div>
+    <div class="note"><b>Bu haftanın aile görevi</b>${esc(t.gorev)}</div>
+    ${G.players.length >= 2
+      ? `<button class="btn big" data-act="secret-start">Gizli iyilik kartlarını dağıt</button>`
+      : `<button class="btn big" data-act="end">Geceyi bitir</button>`}
+  </section>`);
+}
+
+/* Gizli iyilik */
+function derange(n) {
+  let idx;
+  do { idx = shuffle([...Array(n).keys()]); } while (idx.some((v, i) => v === i));
+  return idx;
+}
+function secretStart() {
+  const ps = G.players, to = derange(ps.length);
+  G.secrets = ps.map((p, i) => {
+    const lvl = ageOf(p.age).lvl;
+    const deed = rnd(IYILIK.filter(d => d.min <= lvl));
+    return { from: p.name, fav: p.av, to: ps[to[i]].name, tav: ps[to[i]].av, deed: deed.d.replace(/\{X:in\}/g, ek(ps[to[i]].name, "in")).replace(/\{X:e\}/g, ek(ps[to[i]].name, "e")).replace(/\{X\}/g, ps[to[i]].name), lvl };
+  });
+  screenSecret(0, false);
+}
+function screenSecret(i, shown) {
+  const s = G.secrets[i];
+  if (!shown) {
+    render(`
+    <section class="card game handoff" style="--c:var(--plum)">
+      <span class="badge" style="align-self:center">🕵️ Gizli İyilik ${i + 1}/${G.secrets.length}</span>
+      <div class="face">${s.fav}</div>
+      <h2>Telefonu ${esc(ek(s.from, "e"))} verin</h2>
+      <p class="muted">Kimse bakmasın! Bu görevi bir hafta boyunca gizlice yapacaksın.${s.lvl === 0 ? " Görevi bir büyük kulağına fısıldasın." : ""}</p>
+      <button class="btn big" data-act="secret-show" data-arg="${i}">Kartımı göster</button>
+    </section>`);
+  } else {
+    render(`
+    <section class="card game" style="--c:var(--plum)">
+      <span class="badge">🕵️ Sadece ${esc(s.from)} baksın</span>
+      <div class="secret-word" style="font-size:1.5rem"><span class="em">${s.tav}</span>${esc(s.deed)}</div>
+      <p class="muted small">İyiliği gizli yapmak, onu sadece Allah rızası için yapmaktır. Fark ettirmemeye çalış!</p>
+      <button class="btn big" data-act="secret-hide" data-arg="${i}">Ezberledim, gizle</button>
+    </section>`);
+  }
+}
+function secretHide(i) {
+  if (i + 1 < G.secrets.length) screenSecret(i + 1, false);
+  else { lastSecrets = G.secrets; store.set("secrets", lastSecrets); screenEnd(); }
+}
+
+function screenEnd() {
+  const f = G ? G.fidan : 0;
+  confetti(30); sfx.ok();
+  render(`
+  <section class="card handoff">
+    <div class="face">🌳</div>
+    <h2>Maşallah, ne güzel bir geceydi!</h2>
+    <p class="muted">Bu gece <b>${f}</b> fidan diktiniz. Bahçenizde toplam <b>${gardenTotal}</b> fidan var.</p>
+    ${lastSecrets ? `<p class="small muted">Gizli iyilikler dağıtıldı. Bir sonraki oyun gecesinde ana sayfadan “Gizli iyilik tahmin turu”nu açın.</p>` : ""}
+    <button class="btn big" data-act="home">Ana sayfaya dön</button>
+  </section>`);
+  G = null;
+}
+
+/* Tahmin turu */
+function screenGuess(i, shown) {
+  const s = lastSecrets[i];
+  render(`
+  <section class="card game handoff" style="--c:var(--plum)">
+    <span class="badge" style="align-self:center">🕵️ Tahmin Turu ${i + 1}/${lastSecrets.length}</span>
+    <div class="face">${s.tav}</div>
+    <h2>${esc(s.to)}, bu hafta sana kim gizli iyilik yaptı?</h2>
+    ${shown
+      ? `<div class="note" style="text-align:left"><b>${s.fav} ${esc(s.from)}!</b>Görevi: ${esc(s.deed)}</div>
+         <p class="muted small">${esc(s.to)}, ona teşekkür etmeyi unutma! 🤗</p>
+         <button class="btn big" data-act="guess-next" data-arg="${i}">${i + 1 < lastSecrets.length ? "Sıradaki" : "Tahmin turu bitti"}</button>`
+      : `<p class="muted">Önce ${esc(s.to)} tahmin etsin, sonra herkes tahminini söylesin.</p>
+         <button class="btn big" data-act="guess-show" data-arg="${i}">Cevabı göster</button>`}
+  </section>`);
+}
+
+/* ============ OLAYLAR ============ */
+const actions = {
+  home: screenHome,
+  setup: screenSetup,
+  sound() { soundOn = !soundOn; store.set("sound", soundOn); updSnd(); },
+  count(d) {
+    d = +d;
+    if (d > 0 && family.length < 8) family.push({ name: "", age: "c", av: AVATARS[family.length % AVATARS.length] });
+    if (d < 0 && family.length > 1) family.pop();
+    store.set("family", family); screenSetup();
+  },
+  avatar(i, el) {
+    const p = family[+i]; p.av = AVATARS[(AVATARS.indexOf(p.av) + 1) % AVATARS.length];
+    el.textContent = p.av; store.set("family", family); sfx.tap();
+  },
+  themes() {
+    family.forEach(p => p.name = p.name.trim());
+    if (family.some(p => !p.name)) { document.getElementById("setup-err").hidden = false; return; }
+    store.set("family", family); screenThemes();
+  },
+  start: startGame,
+  play,
+  next: nextTurn,
+  finish: screenDeep,
+  "pan-go": panGo,
+  "pan-done": a => panDone(a === "1"),
+  answer: a => answer(+a),
+  best: a => best(+a),
+  "count-up": countUp,
+  "sas-go": sasGo,
+  caught,
+  "sas-done": sasDone,
+  "secret-start": secretStart,
+  "secret-show": a => screenSecret(+a, true),
+  "secret-hide": a => secretHide(+a),
+  end: screenEnd,
+  guess: a => screenGuess(+a, false),
+  "guess-show": a => screenGuess(+a, true),
+  "guess-next": a => {
+    a = +a;
+    if (a + 1 < lastSecrets.length) screenGuess(a + 1, false);
+    else { lastSecrets = null; store.set("secrets", null); confetti(); screenHome(); }
+  }
+};
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-act]");
+  if (!b || b.disabled) return;
+  const fn = actions[b.dataset.act];
+  if (fn) fn(b.dataset.arg, b);
+});
+$app.addEventListener("input", e => {
+  const el = e.target; if (!el.dataset.field) return;
+  family[+el.dataset.i][el.dataset.field] = el.value;
+  store.set("family", family);
+});
+function updSnd() { document.getElementById("snd").textContent = soundOn ? "🔊" : "🔇"; }
+
+updSnd();
+renderGarden();
+screenHome();
+</script>
