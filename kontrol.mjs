@@ -42,8 +42,14 @@ C.KALKOTUR.forEach(x => { if (!x.d && ALLAH.test(x.s)) ekle(hatalar, 4, `KALKOTU
 
 // Kuşların Yolculuğu
 if (fs.existsSync(path.join(kok, "icerik-kuslar.js"))) {
-  const K = oku("icerik-kuslar.js", "VADI_HIKAYELERI");
+  const K = oku("icerik-kuslar.js", "VADI_HIKAYELERI,KUSLAR,BAHANE_KARTLARI");
   K.VADI_HIKAYELERI.forEach(h => { if (KUTSAL.test(h.baslik)) ekle(hatalar, 2, `Vadi hikâyesi "${h.baslik}"`, "Başlıkta kutsal isim + resim"); });
+  const kusIds = new Set(K.KUSLAR.map(x => x.id));
+  K.BAHANE_KARTLARI.forEach((x, i) => {
+    if (!kusIds.has(x.k)) ekle(hatalar, 2, `Bahane kartı ${i + 1}`, `Bilinmeyen kuş: ${x.k}`);
+    if (ALLAH.test(x.b + x.y)) ekle(hatalar, 4, `Bahane kartı ${i + 1}`, "Canlandırılacak bahanede Allah hakkında ifade olmamalı");
+  });
+  K.KUSLAR.forEach(k => { const n = K.BAHANE_KARTLARI.filter(x => x.k === k.id).length; if (n !== 3) ekle(uyarilar, 2, `Kuş ${k.ad}`, `${n} kart var, 3 olmalı`); });
 }
 
 uyarilar.forEach(u => console.log("⚠ " + u));

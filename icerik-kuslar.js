@@ -107,3 +107,43 @@ const VADI_HIKAYELERI = [
     soru: "“Ben” yerine “biz” demek ne zaman zor geliyor?"
   }
 ];
+
+/* Sekiz kuş: sezon başında her aile üyesi birini seçer (aynı kuşu iki kişi seçemez). */
+const KUSLAR = [
+  { id: "bulbul", ad: "Bülbül", e: "🌹", karakter: "Romantik, duygulu, şarkıcı", bahane: "Gülüne âşıktır, onu bırakıp yola çıkamaz.", gorev: "Bu hafta en sevdiğin bir şeyden bir gün uzak dur ve onun yerine ailene vakit ayır." },
+  { id: "papagan", ad: "Papağan", e: "🦜", karakter: "Konuşkan, neşeli, gösterişli", bahane: "Ölümsüzlük suyunu arar, sonsuza dek yaşamak ister.", gorev: "Bu hafta oyunu kendi isteğinle zamanında bitir." },
+  { id: "tavus", ad: "Tavus", e: "🦚", karakter: "Güzel, özenli, biraz kendini beğenmiş", bahane: "Cennetteki eski yerine dönmekten başka bir şey düşünmez.", gorev: "Bu hafta karşılık beklemeden üç iyilik yap." },
+  { id: "keklik", ad: "Keklik", e: "💎", karakter: "Titiz, biriktirici", bahane: "Değerli taşlara, mücevherlere düşkündür.", gorev: "Bu hafta bir eşyanı kardeşinle ya da arkadaşınla paylaş." },
+  { id: "sahin", ad: "Şahin", e: "🦅", karakter: "Güçlü, gururlu", bahane: "Sultanın kolunda yaşamaktan vazgeçmez.", gorev: "Bu hafta evdeki en küçüğün bir isteğini sevinerek yerine getir." },
+  { id: "serce", ad: "Serçe", e: "🐦", karakter: "Minik, çekingen, sevimli", bahane: "“Ben çok küçük ve zayıfım, bu yol bana göre değil” der.", gorev: "Bu hafta daha önce hiç denemediğin bir işi dene." },
+  { id: "baykus", ad: "Baykuş", e: "🦉", karakter: "Sessiz, yalnız, meraklı", bahane: "Yıkıntılarda gizli hazine bekler, köşesinden çıkmaz.", gorev: "Bu hafta aileye bir oyun ya da etkinlik teklif et." },
+  { id: "huma", ad: "Hüma", e: "✨", karakter: "İhtişamlı, övgüye düşkün", bahane: "Gölgesinin düştüğü kişinin padişah olduğunu söyler, şöhretine güvenir.", gorev: "Bu hafta birinden yeni bir şey öğren ve ona teşekkür et." }
+];
+
+/* Bahane Avcısı: k = kuş id, b = canlandırılacak bahane, c = Hüdhüd'ün cevabı, h = hayattaki karşılığı, y = yetişkin sürümü */
+const BAHANE_KARTLARI = [
+  { k: "bulbul", b: "Gülümü bırakamam, onsuz şarkı söyleyemem!", c: "Gül bir mevsim açar, sonra solar. Bir mevsimlik güzellik için bütün yolu kaçırma.", h: "Ekrandan kalkıp aileyle vakit geçirmek", y: "Telefonumu bırakamam, bir mesaja daha bakayım!" },
+  { k: "bulbul", b: "Bu şarkı bitmeden kalkmam! Bir kere daha, bir kere daha!", c: "En güzel şarkı, sevdiklerinle birlikte söylenendir.", h: "Çağrılınca hemen gelmek", y: "Bir bölüm daha izleyeyim, sonra gelirim!" },
+  { k: "bulbul", b: "Bahçemden çıkarsam gülüm üzülür, ben burada kalayım!", c: "Gülün seni bekler, ama yol seni beklemez. Dönünce ona anlatacak güzel hikâyelerin olur.", h: "Yeni bir yere, yeni bir etkinliğe katılmak", y: "Evden çıkmayalım, burası çok rahat." },
+  { k: "papagan", b: "Eğlence hiç bitmesin, ben sonsuza kadar oynamak istiyorum!", c: "Her güzel şeyin bir zamanı vardır; zamanında bırakmayı bilen, yarın yine oynar.", h: "Yatma saatine uymak", y: "Gece yarısına kadar otursam ne olur ki?" },
+  { k: "papagan", b: "Ben konuşurum, konuşurum, siz de beni dinlersiniz!", c: "Dinlemeyi bilen kuş, yeni şarkılar öğrenir.", h: "Söz kesmeden dinlemek", y: "Ben anlatayım, sen sonra anlatırsın." },
+  { k: "papagan", b: "Bir şeker daha! Bir tane daha! Bir tane daha!", c: "Doymayı bilen midenin de kalbin de keyfi yerinde olur.", h: "Yeterince olanla yetinmek", y: "Bir dilim daha pasta alayım, son olsun." },
+  { k: "tavus", b: "Ödülü ne? Ödül yoksa ben kanat bile çırpmam!", c: "En güzel iyilik, karşılık beklemeden yapılandır.", h: "Karşılıksız yardım etmek", y: "Bunun bana ne faydası var ki?" },
+  { k: "tavus", b: "Önce tüylerimi düzelteyim, aynaya bakayım, sonra gelirim!", c: "Asıl güzellik tüylerde değil, kalptedir.", h: "Görünüşe fazla takılmamak", y: "Fotoğrafını çekmeden başlamayın!" },
+  { k: "tavus", b: "Herkes bana baksın, alkışlasın! Alkış yoksa yapmam!", c: "Kimse görmese de yapılan iyilik, en parlak tüyden güzeldir.", h: "Gösteriş için değil, gönülden yapmak", y: "Kimse fark etmeyecekse neden uğraşayım?" },
+  { k: "keklik", b: "Bu taşlar benim, hepsi benim, kimseye vermem!", c: "Taşların parlaklığı gider; paylaştığın sevinç hep kalır.", h: "Oyuncağını paylaşmak", y: "Bu benim, kimse dokunmasın!" },
+  { k: "keklik", b: "Kardeşim boyalarımı kullanırsa bozar, vermem!", c: "Ödünç verdiğin her şey arkadaşlığını büyütür. Nasıl kullanacağını güzelce anlatabilirsin.", h: "Eşyasını özenle ödünç vermek", y: "Arabamı kimseye vermem, çizerler!" },
+  { k: "keklik", b: "Bütün kurabiyeleri ben saklayayım, belki sonra yerim!", c: "Saklanan kurabiye bayatlar, paylaşılan kurabiye tatlanır.", h: "Sofrayı paylaşmak", y: "En güzel parça benim payım!" },
+  { k: "sahin", b: "Ben sultanın kuşuyum, sıraya girmem!", c: "Gerçek büyüklük, küçüklere yer açmaktır.", h: "Küçük kardeşe sıra vermek", y: "Ben büyüğüm, benim dediğim olur!" },
+  { k: "sahin", b: "Ben en hızlı uçarım, yavaşları beklemem!", c: "Sürü, en yavaş kuşuyla birlikte varır.", h: "Geride kalanı beklemek", y: "Yetişemeyen kalsın, işimiz var!" },
+  { k: "sahin", b: "O iş benim işim değil, onu başkası yapsın!", c: "Sultanın şahini de yuvasına çöp taşır; işin küçüğü yoktur.", h: "Ev işlerine yardım etmek", y: "Ben yorgunum, ev işlerini başkası halletsin." },
+  { k: "serce", b: "Ben çok minicikçim, bu yol bana göre değil!", c: "Küçük kanatlar da uçar; yeter ki sürüden ayrılma.", h: "Yeni bir şeyi denemek", y: "Bu yaştan sonra ben öğrenemem." },
+  { k: "serce", b: "Ya düşersem? Ya beceremezsem? Hiç denemeyeyim!", c: "Düşmekten korkan kuş uçmayı hiç öğrenemez.", h: "Hata yapmaktan korkmamak", y: "Ya yanlış yaparsam? Herkes güler." },
+  { k: "serce", b: "Herkes benden büyük, benim sözüm dinlenmez ki!", c: "Küçük kuşun sesi de duyulur; yeter ki güzel söylesin.", h: "Fikrini nazikçe söylemek", y: "Benim fikrim önemli değil, siz bilirsiniz." },
+  { k: "baykus", b: "Köşemden çıkmam, burada bir hazine var!", c: "Asıl hazine, birlikte uçtuğun dostlarındır.", h: "Odadan çıkıp aileye katılmak", y: "Çalışma odamdan çıkamam, işim var." },
+  { k: "baykus", b: "Ben kimseyle konuşmam, selam bile vermem!", c: "Selam veren kuşun dostu çok olur.", h: "Selam verip sohbet etmek", y: "Komşularla tanışmama gerek yok." },
+  { k: "baykus", b: "Kimse beni anlamıyor, ben tek başıma takılırım!", c: "Derdini paylaşan kuşun kanadı hafifler.", h: "Duygularını ailesiyle paylaşmak", y: "Kimseye dert anlatmam, kendim hallederim." },
+  { k: "huma", b: "Gölgem kimin üstüne düşerse o kral olur, ben zaten en iyisiyim!", c: "Kendini en iyi sanan yolda durur; öğrenmeye devam eden ileri gider.", h: "Öğrenmeye açık olmak", y: "Ben bunu zaten bilirim, anlatmana gerek yok." },
+  { k: "huma", b: "Ben hiç hata yapmam, hata hep başkasında!", c: "Hatasını kabul eden kuş daha yükseğe uçar.", h: "Özür dilemek", y: "Ben yanılmam, sen yanlış anladın." },
+  { k: "huma", b: "Kaybedersem oyunu bozarım, ben hep kazanmalıyım!", c: "Kazanmak güzeldir, ama birlikte oynamak daha güzeldir.", h: "Kaybetmeyi kabullenmek", y: "Tartışmada son sözü hep ben söylerim." }
+];
