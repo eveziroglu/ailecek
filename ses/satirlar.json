@@ -1375,9 +1375,9 @@
   "text": "Sahura uykulu kalkmak. Peygamberimiz Sahur yapın, çünkü sahurda bereket vardır buyurdu."
  },
  {
-  "key": "898a2dcd",
+  "key": "99a6014a",
   "pack": "kart",
-  "text": "Hapşırıp Elhamdülillah demek. Hapşıran Elhamdülillah der, duyan Yerhamükallah der."
+  "text": "Hapşırıp Elhamdülillah demek. Hapşıran Elhamdülillah der. Duyan Yerhamükellah (Allah sana rahmet etsin) der. Hapşıran da Yehdînâ ve yehdîkümullah (Allah bize ve size hidayet versin) diye karşılık verir."
  },
  {
   "key": "2e87d44a",
@@ -1550,9 +1550,9 @@
   "text": "Sahur davulu. Ramazan'da sahura kaldırmak için davul çalınması güzel bir gelenektir."
  },
  {
-  "key": "1c27241b",
+  "key": "eb9ba319",
   "pack": "kart",
-  "text": "Kocaman bir hapşırık. Hapşıran Elhamdülillah, duyan Yerhamükallah der."
+  "text": "Kocaman bir hapşırık. Hapşıran Elhamdülillah, duyan Yerhamükellah der; hapşıran da Yehdînâ ve yehdîkümullah diye karşılık verir."
  },
  {
   "key": "9b577b4c",
@@ -3175,6 +3175,426 @@
   "text": "Ortak alanları temiz tutmak hepimizin görevidir. Öğretmene güzel bir dille haber vermek de bir çözümdür."
  },
  {
+  "key": "d0881aba",
+  "pack": "durum",
+  "text": "Öğretmen bir konu anlattı ama hiç anlamadın. Sınıfta herkes anlamış gibi görünüyor. Ne yaparsın?"
+ },
+ {
+  "key": "8656df34",
+  "pack": "durum",
+  "text": "Sormak ayıp değil, öğrenmenin kapısıdır. Bilmediğini soran, bilgisini büyütür."
+ },
+ {
+  "key": "68d5ac5d",
+  "pack": "durum",
+  "text": "Dedenin eski bir kitabı var ama eski harflerle yazılmış, hiçbir şey anlamıyorsun. Ne yaparsın?"
+ },
+ {
+  "key": "90fb522b",
+  "pack": "durum",
+  "text": "Merak edip soran, büyüklerin hazinesine ulaşır. Dedene sormak onu da çok sevindirir."
+ },
+ {
+  "key": "10908060",
+  "pack": "durum",
+  "text": "Bahçede bir salyangoz gördün ve kabuğunun nasıl büyüdüğünü merak ettin. Ne yaparsın?"
+ },
+ {
+  "key": "2db621f0",
+  "pack": "durum",
+  "text": "Merak, öğrenmenin tohumudur. Kitaplara bakmak, gözlem yapmak ve not almak da sormanın bir yoludur."
+ },
+ {
+  "key": "a61335a7",
+  "pack": "durum",
+  "text": "Kardeşin sana durmadan Neden? diye soruyor ve sen biraz sıkıldın. Ne yaparsın?"
+ },
+ {
+  "key": "aad5dbcb",
+  "pack": "durum",
+  "text": "Soru soran kalbi kırmamak gerekir. Bilmiyorsan Birlikte öğrenelim demek en güzel cevaptır."
+ },
+ {
+  "key": "3412639b",
+  "pack": "durum",
+  "text": "Arkadaşın bilmediği bir şeyi biliyormuş gibi anlatıyor ve yanlış söylüyor. Ne yaparsın?"
+ },
+ {
+  "key": "d3914c21",
+  "pack": "durum",
+  "text": "Yanlışı nazikçe düzeltmek ve gerektiğinde Bilmiyorum diyebilmek de doğruluktur."
+ },
+ {
+  "key": "36e4703a",
+  "pack": "durum",
+  "text": "Bu hafta yeni bir şey öğrenme şansın var: yüzme, bir sure ya da bir el işi. Hangisini seçersin, neden?"
+ },
+ {
+  "key": "dab5427f",
+  "pack": "durum",
+  "text": "Rabbim, ilmimi artır duası, öğrenmeyi dua ile istemeyi öğretir."
+ },
+ {
+  "key": "0c8448e8",
+  "pack": "durum",
+  "text": "Annenin doğum günü için resim yapmaya başladın ama çok uzun sürüyor ve sıkıldın. Ne yaparsın?"
+ },
+ {
+  "key": "74af0003",
+  "pack": "durum",
+  "text": "Sevdiğin için verdiğin emek, hediyenin en kıymetli yanıdır."
+ },
+ {
+  "key": "af27631d",
+  "pack": "durum",
+  "text": "Komşunuz birkaç günlüğüne gidiyor ve kedisine bakacak kimse yok. Senden yardım istediler. Ne yaparsın?"
+ },
+ {
+  "key": "dd37e8fc",
+  "pack": "durum",
+  "text": "Sevgi sadece insanlara değil, bütün canlılara gösterilir."
+ },
+ {
+  "key": "87efb8b3",
+  "pack": "durum",
+  "text": "Ninen telefonda seni çok özlediğini söyledi ama sen oyunun ortasındasın. Ne yaparsın?"
+ },
+ {
+  "key": "02f5c9ae",
+  "pack": "durum",
+  "text": "Sevdiklerimize vakit ayırmak, sevginin en güzel dilidir."
+ },
+ {
+  "key": "64052106",
+  "pack": "durum",
+  "text": "Kardeşin en sevdiğin oyuncağı yanlışlıkla kırdı ve çok üzgün, ağlıyor. Ne yaparsın?"
+ },
+ {
+  "key": "d3ee7512",
+  "pack": "durum",
+  "text": "Sevgi, kızgınken bile kalbi yumuşak tutabilmektir."
+ },
+ {
+  "key": "e0667df5",
+  "pack": "durum",
+  "text": "Kahvaltıyı hep annen ya da baban hazırlıyor. Bir sabah herkesten erken uyandın. Ne yaparsın?"
+ },
+ {
+  "key": "586f9c0b",
+  "pack": "durum",
+  "text": "Sevdiklerimizin yükünü hafifletmek, sevgiyi göstermenin en güzel yoludur."
+ },
+ {
+  "key": "dfbb0c45",
+  "pack": "durum",
+  "text": "Sınıfa yeni gelen çocukla kimse ilgilenmiyor. Ne yaparsın?"
+ },
+ {
+  "key": "35689eec",
+  "pack": "durum",
+  "text": "Peygamberimiz Birbirinizi sevmedikçe iman etmiş olmazsınız buyurdu."
+ },
+ {
+  "key": "1daf6a08",
+  "pack": "durum",
+  "text": "Piknik günü yağmur yağdı. Kardeşin Yağmur kötü! diye ağlıyor. Ona ne anlatırsın?"
+ },
+ {
+  "key": "2170c0a8",
+  "pack": "durum",
+  "text": "Her şeyin bir hikmeti vardır. Yağmur, tarlalara ve ağaçlara can verir."
+ },
+ {
+  "key": "70a93d1c",
+  "pack": "durum",
+  "text": "Aşı olmaya gidiyorsun ve korkuyorsun. Annen Senin iyiliğin için diyor. Ne düşünürsün?"
+ },
+ {
+  "key": "34e9dd55",
+  "pack": "durum",
+  "text": "Bazen zor gelen bir şeyin arkasında büyük bir iyilik saklıdır."
+ },
+ {
+  "key": "41553148",
+  "pack": "durum",
+  "text": "Öğretmenin ödevini yeniden yapmanı istedi. İlk başta kızdın. Neden istemiş olabilir?"
+ },
+ {
+  "key": "6a41afe3",
+  "pack": "durum",
+  "text": "Sebebini anlamaya çalışan, kızmak yerine öğrenir."
+ },
+ {
+  "key": "e75d406d",
+  "pack": "durum",
+  "text": "Sonbaharda ağaçlar yapraklarını döküyor. Küçük kardeşin ağacın öldüğünü sanıyor. Ona ne anlatırsın?"
+ },
+ {
+  "key": "45eb00ab",
+  "pack": "durum",
+  "text": "Ağaç kışın dinlenir, baharda yeniden yeşerir. Bakmak başka, anlamak başkadır."
+ },
+ {
+  "key": "fbb8bfbc",
+  "pack": "durum",
+  "text": "Arkadaşın bugün sana çok ters davrandı. Hemen kızar mısın, yoksa sebebini mi sorarsın?"
+ },
+ {
+  "key": "511f86b1",
+  "pack": "durum",
+  "text": "Kızmadan önce sebebini sormak, kalple bakmaktır."
+ },
+ {
+  "key": "10cb41f4",
+  "pack": "durum",
+  "text": "Bir arı sana yaklaştı ve kaçmak istedin. Arıların dünyaya ne faydası var, biliyor musun?"
+ },
+ {
+  "key": "523f8b36",
+  "pack": "durum",
+  "text": "Arılar çiçekleri tozlaştırır ve bal yapar; Kur'an'da arının adını taşıyan Nahl Suresi vardır. Her canlının bir görevi vardır."
+ },
+ {
+  "key": "8ef8ea9a",
+  "pack": "durum",
+  "text": "Sınıfta birçok arkadaşının yeni bir telefonu var, seninki yok. Ne hissedersin, ne yaparsın?"
+ },
+ {
+  "key": "2500729a",
+  "pack": "durum",
+  "text": "Peygamberimiz Zenginlik mal çokluğu değil, gönül zenginliğidir buyurdu."
+ },
+ {
+  "key": "0ced6c3c",
+  "pack": "durum",
+  "text": "Bayramda kardeşine senden daha büyük bir hediye geldi. Ne yaparsın?"
+ },
+ {
+  "key": "2678a026",
+  "pack": "durum",
+  "text": "Kardeşinin sevincine sevinmek, kıskançlığı yenmenin en güzel yoludur."
+ },
+ {
+  "key": "052ae8e5",
+  "pack": "durum",
+  "text": "Akşam yemeğinde pek sevmediğin bir yemek var ama dolapta abur cubur da var. Ne yaparsın?"
+ },
+ {
+  "key": "e710c847",
+  "pack": "durum",
+  "text": "Sofradaki nimete şükredip yetinmek, kalbi zenginleştirir."
+ },
+ {
+  "key": "856456a4",
+  "pack": "durum",
+  "text": "Oyuncak dükkânında bir şey gördün ve Hemen alalım! diye tutturdun. Ama evde bir sürü oyuncağın var. Ne düşünürsün?"
+ },
+ {
+  "key": "fd9685fe",
+  "pack": "durum",
+  "text": "Her istediğimize sahip olmasak da, sahip olduklarımızla mutlu olabiliriz."
+ },
+ {
+  "key": "48489aff",
+  "pack": "durum",
+  "text": "Arkadaşın yarışmada birinci oldu, sen ikinci. Herkes onu tebrik ediyor. Ne yaparsın?"
+ },
+ {
+  "key": "681910cf",
+  "pack": "durum",
+  "text": "Başkasının başarısına sevinebilmek, kalbin zenginliğidir."
+ },
+ {
+  "key": "aba01334",
+  "pack": "durum",
+  "text": "Harçlığını biriktirdin. Hepsiyle kendine bir şey mi alırsın, bir kısmını ihtiyacı olana mı verirsin?"
+ },
+ {
+  "key": "583a57ef",
+  "pack": "durum",
+  "text": "Paylaşılan nimet bereketlenir. Azdan az, çoktan çok vermek güzeldir."
+ },
+ {
+  "key": "276beecf",
+  "pack": "durum",
+  "text": "Evde büyük bir temizlik var ve herkes çalışıyor. Sen de odanda oyun oynamak istiyorsun. Ne yaparsın?"
+ },
+ {
+  "key": "a0c9d855",
+  "pack": "durum",
+  "text": "Birlikte çalışınca iş çabuk biter, yük hafifler."
+ },
+ {
+  "key": "2de692ae",
+  "pack": "durum",
+  "text": "Takımınızda biri çok yavaş ve herkes ona kızıyor. Ne yaparsın?"
+ },
+ {
+  "key": "d37b884d",
+  "pack": "durum",
+  "text": "Sürü, en yavaş kuşuyla birlikte varır. Takım birlikte kazanır."
+ },
+ {
+  "key": "c4ec1836",
+  "pack": "durum",
+  "text": "İki arkadaşın kavga etti ve ikisi de seni kendi tarafına çekmek istiyor. Ne yaparsın?"
+ },
+ {
+  "key": "04733e78",
+  "pack": "durum",
+  "text": "Küsleri barıştırmak ve aradaki birliği korumak çok değerli bir iyiliktir."
+ },
+ {
+  "key": "407932c0",
+  "pack": "durum",
+  "text": "Ailece kocaman bir yapboz yapıyorsunuz ama sen tek başına bitirmek istiyorsun. Ne yaparsın?"
+ },
+ {
+  "key": "95f3bf0f",
+  "pack": "durum",
+  "text": "Birlikte yapılan iş, tek başına bitirilen işten daha güzeldir."
+ },
+ {
+  "key": "9bce4640",
+  "pack": "durum",
+  "text": "Akşam yemeğinde herkes telefonuna bakıyor, kimse konuşmuyor. Ne önerirsin?"
+ },
+ {
+  "key": "3b450c60",
+  "pack": "durum",
+  "text": "Aynı sofrada birlikte olmak, ailenin en güzel anlarındandır."
+ },
+ {
+  "key": "7eb3cf74",
+  "pack": "durum",
+  "text": "Camide cemaatle namaz kılınırken herkes omuz omuza durur. Sence bunun anlamı ne?"
+ },
+ {
+  "key": "da28a2f3",
+  "pack": "durum",
+  "text": "Kur'an Hep birlikte Allah'ın ipine sımsıkı sarılın, ayrılmayın buyurur."
+ },
+ {
+  "key": "4199a274",
+  "pack": "durum",
+  "text": "Gece balkona çıktın ve gökyüzü yıldızlarla dolu. Sence kaç yıldız var? Ne düşünürsün?"
+ },
+ {
+  "key": "12be7de5",
+  "pack": "durum",
+  "text": "Göklerin ve yerin yaratılışında akıl sahipleri için ibretler vardır."
+ },
+ {
+  "key": "4192f59c",
+  "pack": "durum",
+  "text": "Bir karınca ordusunun yiyecek taşıdığını izliyorsun. Bu düzeni görünce ne düşünürsün?"
+ },
+ {
+  "key": "16f5c551",
+  "pack": "durum",
+  "text": "Küçücük bir karıncada bile büyük bir düzen vardır; bunu düşünmek tefekkürdür."
+ },
+ {
+  "key": "5b2f76b4",
+  "pack": "durum",
+  "text": "Bir çiçeğin içine yakından baktın: renkleri, desenleri, kokusu... Ne hissedersin?"
+ },
+ {
+  "key": "3b7a33d2",
+  "pack": "durum",
+  "text": "Her çiçek, yaratılıştaki güzelliğin küçük bir işaretidir. Durup bakan hayran kalır."
+ },
+ {
+  "key": "dbfab701",
+  "pack": "durum",
+  "text": "Yeni doğan bir bebeğin minicik ellerine baktın. Aklına neler gelir?"
+ },
+ {
+  "key": "a84ec0de",
+  "pack": "durum",
+  "text": "Hayat başlı başına bir hayret sebebidir. Bunu düşünmek insanı şükre götürür."
+ },
+ {
+  "key": "c6ca7744",
+  "pack": "durum",
+  "text": "Deniz kenarında dalgaları izliyorsun. Dalgalar hiç durmuyor. Ne düşünürsün?"
+ },
+ {
+  "key": "92762a9a",
+  "pack": "durum",
+  "text": "Durup dinlemek ve düşünmek, kalbi Allah'ı anmaya yöneltir."
+ },
+ {
+  "key": "6d833288",
+  "pack": "durum",
+  "text": "Bir elmayı ikiye kestin ve çekirdeklerini gördün. Bu küçük çekirdekten ne çıkabilir?"
+ },
+ {
+  "key": "61eb9a5b",
+  "pack": "durum",
+  "text": "Minicik bir çekirdekten koca bir ağaç çıkar. Bu, düşünenler için büyük bir işarettir."
+ },
+ {
+  "key": "420ac152",
+  "pack": "durum",
+  "text": "Bir yarışmayı kazandın ve herkes seni övüyor. Kaybeden arkadaşın da orada. Ne yaparsın?"
+ },
+ {
+  "key": "13f7fb77",
+  "pack": "durum",
+  "text": "Peygamberimiz Allah için tevazu göstereni Allah yüceltir buyurdu."
+ },
+ {
+  "key": "aaa83d62",
+  "pack": "durum",
+  "text": "Bir hata yaptın ve özür dilemen gerekiyor ama utanıyorsun. Ne yaparsın?"
+ },
+ {
+  "key": "2783678a",
+  "pack": "durum",
+  "text": "Özür dileyebilmek, alçakgönüllü bir kalbin işaretidir."
+ },
+ {
+  "key": "63970f71",
+  "pack": "durum",
+  "text": "Yaptığın resim çok beğenildi, ama fikir aslında kardeşindi. Ne dersin?"
+ },
+ {
+  "key": "e6a0fac5",
+  "pack": "durum",
+  "text": "Hakkı sahibine vermek ve Biz yaptık diyebilmek tevazudur."
+ },
+ {
+  "key": "e250e90a",
+  "pack": "durum",
+  "text": "Okulda bir çocukla eski ayakkabıları yüzünden dalga geçiliyor. Ne yaparsın?"
+ },
+ {
+  "key": "50cea990",
+  "pack": "durum",
+  "text": "Kimseyi küçük görmemek gerekir; insanın değeri eşyasında değil, kalbindedir."
+ },
+ {
+  "key": "775a3e76",
+  "pack": "durum",
+  "text": "Sınıfta temizlik sırası sana geldi ve herkes bakıyor. Ne yaparsın?"
+ },
+ {
+  "key": "c08ba113",
+  "pack": "durum",
+  "text": "Kur'an Rahmân'ın kulları yeryüzünde vakar ve tevazu ile yürürler buyurur. İşin küçüğü yoktur."
+ },
+ {
+  "key": "1f7b2b9e",
+  "pack": "durum",
+  "text": "Bir oyunun kurallarını en iyi sen biliyorsun ama küçük kardeşin anlatmak istiyor. Ne yaparsın?"
+ },
+ {
+  "key": "5e238189",
+  "pack": "durum",
+  "text": "Söz hakkını başkasına bırakmak, ben yerine biz demektir."
+ },
+ {
   "key": "0a2a362d",
   "pack": "oyun",
   "text": "Allah'ın bize verdiği nimetleri sayın!"
@@ -3278,6 +3698,41 @@
   "key": "899610d0",
   "pack": "oyun",
   "text": "Abdestte yıkanan ve mesh edilen yerleri sayın!"
+ },
+ {
+  "key": "4953bfc0",
+  "pack": "oyun",
+  "text": "Merak ettiğiniz soruları sayın! (Gökyüzü neden mavi?.)"
+ },
+ {
+  "key": "e6901b85",
+  "pack": "oyun",
+  "text": "Sevdiklerimizi mutlu eden şeyleri sayın!"
+ },
+ {
+  "key": "4703ff3b",
+  "pack": "oyun",
+  "text": "Faydasını bildiğiniz hayvanları sayın! (Arı bal yapar.)"
+ },
+ {
+  "key": "14451534",
+  "pack": "oyun",
+  "text": "Parayla alınamayan güzel şeyleri sayın!"
+ },
+ {
+  "key": "0b12d91e",
+  "pack": "oyun",
+  "text": "Ailece birlikte yaptığımız işleri sayın!"
+ },
+ {
+  "key": "d257fb8f",
+  "pack": "oyun",
+  "text": "Gökyüzünde görebildiğimiz şeyleri sayın!"
+ },
+ {
+  "key": "d5c5dc9a",
+  "pack": "oyun",
+  "text": "Özür dilemenin ve teşekkür etmenin yollarını sayın!"
  },
  {
   "key": "536f8f64",
@@ -3415,9 +3870,9 @@
   "text": "Eve girerken Selâmün aleyküm denir.,Ayakkabılar kapıda çıkarılır, ev temiz tutulur.,Kapı yavaşça kapatılır, kimse rahatsız edilmez."
  },
  {
-  "key": "fdf21f08",
+  "key": "a7b784e5",
   "pack": "oyun",
-  "text": "Hapşıran Elhamdülillah der.,Duyan Yerhamükallah der.,Hapşıran da Yehdîkümullah diye karşılık verir."
+  "text": "Hapşıran Elhamdülillah der.,Duyan Yerhamükellah (Allah sana rahmet etsin) der.,Hapşıran da Yehdînâ ve yehdîkümullah (Allah bize ve size hidayet versin) diye karşılık verir."
  },
  {
   "key": "36744220",

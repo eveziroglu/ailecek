@@ -954,7 +954,7 @@ function openSettings(confirmReset) {
       ${voiceSettings()}
       <div class="setting"><div><b>Efekt sesleri</b><small>Tık, mühür ve davul sesleri.</small></div><button class="switch" role="switch" aria-checked="${soundOn}" aria-label="Efekt sesleri" data-act="sound"></button></div>
       <div class="setting"><div><b>Aile</b><small>${family.map(p => p.av + " " + esc(p.name)).join(" · ")}</small></div><button class="mini gold" data-act="setup">Düzenle</button></div>
-      <div class="setting"><div><b>Tüm durakları aç</b><small>Büyükler için: haritadaki her temayı sırayı beklemeden oynayın.</small></div><button class="switch" role="switch" aria-checked="${P.freeAll}" aria-label="Tüm durakları aç" data-act="freeall"></button></div>
+      <div class="setting"><div><b>Tüm durakları aç</b><small>Büyükler için: birinci sezonun bütün duraklarını ve Kuşların Yolculuğu'nun vadilerini sırayı beklemeden açar.</small></div><button class="switch" role="switch" aria-checked="${P.freeAll}" aria-label="Tüm durakları aç" data-act="freeall"></button></div>
       <div class="setting"><div><b>İyilik Defteri</b><small>${defter.length} hafta, ${fruitTotal()} gizli iyilik</small></div><button class="mini gold" data-act="defter">Aç</button></div>
       <div class="setting" style="border:0">
         <div><b class="danger">Verileri sıfırla</b><small>Aile, bahçe, yolculuk, albüm, rozetler, defter ve iyilik haftası silinir.</small></div>

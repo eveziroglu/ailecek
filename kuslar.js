@@ -55,6 +55,9 @@ const S2 = (() => {
   const kus = id => KUSLAR.find(k => k.id === id);
   const birdOf = name => kus(st().birds[name]);
   const hasBirds = () => family.some(p => st().birds[p.name]);
+  const missingBirds = () => family.filter(p => !st().birds[p.name]);
+  /* Aileden çıkarılan kişilerin kuşlarını serbest bırak */
+  const tidy = () => { const names = new Set(family.map(p => p.name)); Object.keys(st().birds).forEach(n => { if (!names.has(n)) delete st().birds[n]; }); };
   const deedsOf = name => defter.reduce((a, w) => a + w.cards.filter(c => c.from === name && c.done).length, 0) + (week ? week.cards.filter(c => c.from === name && c.done).length : 0);
   const gorevOf = name => (st().gorev[name] || []).length;
   const winsOf = name => st().wins[name] || 0;
@@ -63,7 +66,7 @@ const S2 = (() => {
 
   /* ---------- index.html'in kullandığı bağlantılar ---------- */
   const theme = k => { const v = isVadi(k) && vadi(VID(k)); return v ? { name: v.ad, ico: v.e, color: v.color, desc: v.desc, vadi: true } : undefined; };
-  const pool = k => isVadi(k) ? vadi(VID(k)).kaynak : k;
+  const pool = k => isVadi(k) ? (SENOLSAN[k] && HIZLI[k] ? k : vadi(VID(k)).kaynak) : k;
   const intro = k => vadi(VID(k)).giris;
   const label = k => isVadi(k) ? `Vadi ${vIndex(VID(k)) + 1} · ${vadi(VID(k)).ad}${st().vadis[VID(k)] ? " · " + "★".repeat(st().vadis[VID(k)]) : ""}` : "";
   const badgeValue = olcut => olcut === "s2final" ? st().finalDone : olcut === "s2bahane" ? family.filter(p => beatBahane(p.name)).length : undefined;
@@ -98,6 +101,7 @@ const S2 = (() => {
   /* ---------- Ana sayfa kartı ve belge düğmesi ---------- */
   function homeCard() {
     if (!unlocked()) return "";
+    tidy();
     if (!hasBirds()) return `
       <section class="week">
         <span class="eyebrow">İkinci sezon açıldı</span>
@@ -114,6 +118,7 @@ const S2 = (() => {
         </div>
         <div class="days">${VADILER.map(v => `<i class="${st().vadis[v.id] ? "on" : ""}"></i>`).join("")}</div>
         <div class="members">${family.map(p => birdAvatar(p, "ak-avatar--sm")).join("")}</div>
+        ${missingBirds().length ? `<button class="ak-btn ak-btn--night" data-act="s2-eksik">🪶 ${missingBirds().map(p => esc(p.name)).join(", ")} kuşunu seçsin</button>` : ""}
         <div class="btn-row">
           <button class="ak-btn ak-btn--night" data-act="s2-gorev">Bahane Görevleri</button>
           <button class="ak-btn ak-btn--kandil" data-act="s2-map">Vadi Haritası</button>
@@ -135,14 +140,16 @@ const S2 = (() => {
         <button class="ak-btn ak-btn--kandil ak-btn--lg" data-act="s2-meclis" data-arg="0">Kuşlar Meclisi'ne geç</button>
       </section>`, S2_SOZ.davet);
   }
-  function meclis(i) {
-    if (i === 0 && !G) st().birds = {};
-    if (i >= family.length) { saveP(); return map(); }
-    const p = family[i], taken = new Map(Object.entries(st().birds).map(([n, b]) => [b, n]));
+  let order = null;   // Meclis'te sırası gelecek üyeler (yeni seçimde herkes, eksik seçimde yalnızca kuşu olmayanlar)
+  function meclis(i, eksik) {
+    if (i === 0) { tidy(); order = eksik ? missingBirds() : family.slice(); if (!eksik) st().birds = {}; }
+    if (!order) order = family.slice();
+    if (i >= order.length) { order = null; saveP(); return map(); }
+    const p = order[i], taken = new Map(Object.entries(st().birds).map(([n, b]) => [b, n]));
     render(`
       ${i === 0 ? guide(S2_SOZ.meclis) : ""}
       <section class="ak-card center">
-        <span class="ak-label">Kuşlar Meclisi · ${i + 1}/${family.length}</span>
+        <span class="ak-label">Kuşlar Meclisi · ${i + 1}/${order.length}</span>
         ${avatar(p, "ak-avatar--lg")}
         <h2 style="font:700 26px/30px var(--font-display)">Sıra ${esc(ek(p.name, "de"))}! Kuşunu seç.</h2>
         <div class="album" style="width:100%">${KUSLAR.map(k => {
@@ -153,7 +160,7 @@ const S2 = (() => {
       </section>`, i === 0 ? S2_SOZ.meclis : { text: `Sıra ${ek(p.name, "de")}! Kuşunu seç.`, ai: [S2_SOZ.meclisSira] });
   }
   function pick(i, id) {
-    const p = family[i], k = kus(id);
+    const p = (order || family)[i], k = kus(id);
     st().birds[p.name] = id; saveP(); sfx.win(); confetti(12);
     render(`
       <section class="ak-deed">
@@ -163,7 +170,7 @@ const S2 = (() => {
         <p class="ak-deed__quote">${esc(k.karakter)}</p>
         <div class="tip" style="color:var(--ink);text-align:left;width:100%"><b>Bahanesi</b>${esc(k.bahane)}</div>
         <p class="ak-deed__quote">Yolculuk boyunca bu bahaneyi yenmeye çalışacaksın. Bahane Avcısı kartlarında ve haftalık görevlerde karşına çıkacak!</p>
-        <button class="ak-btn ak-btn--kandil ak-btn--lg" data-act="s2-meclis" data-arg="${i + 1}">${i + 1 < family.length ? "Sıradaki kuş" : "Vadi Haritası'nı aç"}</button>
+        <button class="ak-btn ak-btn--kandil ak-btn--lg" data-act="s2-meclis" data-arg="${i + 1}">${i + 1 < (order || family).length ? "Sıradaki kuş" : "Vadi Haritası'nı aç"}</button>
       </section>`, [`${k.ad}!`, S2_SOZ.bahanesi, k.bahane]);
   }
 
@@ -171,6 +178,7 @@ const S2 = (() => {
   function map() {
     closeSheet(); G = null; checkBadges();
     if (!hasBirds()) return davet();
+    tidy();
     const n = VADILER.length, stepY = 150, top = 90, H = top + (n + 1) * stepY - 40;
     const xs = i => [50, 26, 72, 34, 70, 28, 66][i % 7];
     const pts = VADILER.map((v, i) => [xs(i), top + i * stepY]).concat([[50, top + n * stepY]]);
@@ -362,7 +370,7 @@ const S2 = (() => {
   }
 
   const actions = {
-    "s2-davet": davet, "s2-meclis": a => meclis(+a), "s2-pick": a => { const [i, id] = a.split(":"); pick(+i, id); },
+    "s2-davet": davet, "s2-meclis": a => meclis(+a), "s2-eksik": () => meclis(0, true), "s2-pick": a => { const [i, id] = a.split(":"); pick(+i, id); },
     "s2-map": map, "s2-vadi": openVadi, "s2-gorev": gorevScreen, "s2-gorev-done": gorevDone,
     "flip-b": flipB, "s2-bgo": bGo, "s2-bdone": bDone, "s2-bbest": bBest,
     "s2-final": a => { const [s, m] = a.split(":"); final(+s, +m); }

@@ -218,3 +218,72 @@ ROZETLER.push(
   { id: "bahane-avcilari", e: "🪶", ad: "Bahane Avcıları", nasil: "Ailede bir kişi kendi kuşunun bahanesini yensin.", olcut: "s2bahane", hedef: 1 },
   { id: "kaf-dagi", e: "🏔️", ad: "Kaf Dağı", nasil: "Kuşların Yolculuğu'nu tamamlayın.", olcut: "s2final", hedef: 1 }
 );
+
+/* Vadi gecelerine özel Sen Olsan? kartları ve Hızlı Turlar (anahtar: "v-" + vadi id) */
+Object.assign(SENOLSAN, {
+  "v-talep": [
+    { e: "🤔", s: "Öğretmen bir konu anlattı ama hiç anlamadın. Sınıfta herkes anlamış gibi görünüyor. Ne yaparsın?", i: "Sormak ayıp değil, öğrenmenin kapısıdır. Bilmediğini soran, bilgisini büyütür." },
+    { e: "📚", s: "Dedenin eski bir kitabı var ama eski harflerle yazılmış, hiçbir şey anlamıyorsun. Ne yaparsın?", i: "Merak edip soran, büyüklerin hazinesine ulaşır. Dedene sormak onu da çok sevindirir." },
+    { e: "🐌", s: "Bahçede bir salyangoz gördün ve kabuğunun nasıl büyüdüğünü merak ettin. Ne yaparsın?", i: "Merak, öğrenmenin tohumudur. Kitaplara bakmak, gözlem yapmak ve not almak da sormanın bir yoludur." },
+    { e: "🙋", s: "Kardeşin sana durmadan “Neden?” diye soruyor ve sen biraz sıkıldın. Ne yaparsın?", i: "Soru soran kalbi kırmamak gerekir. Bilmiyorsan “Birlikte öğrenelim” demek en güzel cevaptır." },
+    { e: "✋", s: "Arkadaşın bilmediği bir şeyi biliyormuş gibi anlatıyor ve yanlış söylüyor. Ne yaparsın?", i: "Yanlışı nazikçe düzeltmek ve gerektiğinde “Bilmiyorum” diyebilmek de doğruluktur." },
+    { e: "🌱", s: "Bu hafta yeni bir şey öğrenme şansın var: yüzme, bir sure ya da bir el işi. Hangisini seçersin, neden?", i: "“Rabbim, ilmimi artır” duası, öğrenmeyi dua ile istemeyi öğretir. (Tâhâ, 114)" }
+  ],
+  "v-ask": [
+    { e: "🎂", s: "Annenin doğum günü için resim yapmaya başladın ama çok uzun sürüyor ve sıkıldın. Ne yaparsın?", i: "Sevdiğin için verdiğin emek, hediyenin en kıymetli yanıdır." },
+    { e: "🐱", s: "Komşunuz birkaç günlüğüne gidiyor ve kedisine bakacak kimse yok. Senden yardım istediler. Ne yaparsın?", i: "Sevgi sadece insanlara değil, bütün canlılara gösterilir." },
+    { e: "👵", s: "Ninen telefonda seni çok özlediğini söyledi ama sen oyunun ortasındasın. Ne yaparsın?", i: "Sevdiklerimize vakit ayırmak, sevginin en güzel dilidir." },
+    { e: "🧸", s: "Kardeşin en sevdiğin oyuncağı yanlışlıkla kırdı ve çok üzgün, ağlıyor. Ne yaparsın?", i: "Sevgi, kızgınken bile kalbi yumuşak tutabilmektir." },
+    { e: "🍳", s: "Kahvaltıyı hep annen ya da baban hazırlıyor. Bir sabah herkesten erken uyandın. Ne yaparsın?", i: "Sevdiklerimizin yükünü hafifletmek, sevgiyi göstermenin en güzel yoludur." },
+    { e: "💌", s: "Sınıfa yeni gelen çocukla kimse ilgilenmiyor. Ne yaparsın?", i: "Peygamberimiz “Birbirinizi sevmedikçe iman etmiş olmazsınız” buyurdu. (Müslim)" }
+  ],
+  "v-marifet": [
+    { e: "🌧️", s: "Piknik günü yağmur yağdı. Kardeşin “Yağmur kötü!” diye ağlıyor. Ona ne anlatırsın?", i: "Her şeyin bir hikmeti vardır. Yağmur, tarlalara ve ağaçlara can verir." },
+    { e: "💉", s: "Aşı olmaya gidiyorsun ve korkuyorsun. Annen “Senin iyiliğin için” diyor. Ne düşünürsün?", i: "Bazen zor gelen bir şeyin arkasında büyük bir iyilik saklıdır." },
+    { e: "📝", s: "Öğretmenin ödevini yeniden yapmanı istedi. İlk başta kızdın. Neden istemiş olabilir?", i: "Sebebini anlamaya çalışan, kızmak yerine öğrenir." },
+    { e: "🍂", s: "Sonbaharda ağaçlar yapraklarını döküyor. Küçük kardeşin ağacın öldüğünü sanıyor. Ona ne anlatırsın?", i: "Ağaç kışın dinlenir, baharda yeniden yeşerir. Bakmak başka, anlamak başkadır." },
+    { e: "😠", s: "Arkadaşın bugün sana çok ters davrandı. Hemen kızar mısın, yoksa sebebini mi sorarsın?", i: "Kızmadan önce sebebini sormak, kalple bakmaktır." },
+    { e: "🐝", s: "Bir arı sana yaklaştı ve kaçmak istedin. Arıların dünyaya ne faydası var, biliyor musun?", i: "Arılar çiçekleri tozlaştırır ve bal yapar; Kur'an'da arının adını taşıyan Nahl Suresi vardır. Her canlının bir görevi vardır." }
+  ],
+  "v-istigna": [
+    { e: "📱", s: "Sınıfta birçok arkadaşının yeni bir telefonu var, seninki yok. Ne hissedersin, ne yaparsın?", i: "Peygamberimiz “Zenginlik mal çokluğu değil, gönül zenginliğidir” buyurdu. (Buhârî, Müslim)" },
+    { e: "🎁", s: "Bayramda kardeşine senden daha büyük bir hediye geldi. Ne yaparsın?", i: "Kardeşinin sevincine sevinmek, kıskançlığı yenmenin en güzel yoludur." },
+    { e: "🍲", s: "Akşam yemeğinde pek sevmediğin bir yemek var ama dolapta abur cubur da var. Ne yaparsın?", i: "Sofradaki nimete şükredip yetinmek, kalbi zenginleştirir." },
+    { e: "🧸", s: "Oyuncak dükkânında bir şey gördün ve “Hemen alalım!” diye tutturdun. Ama evde bir sürü oyuncağın var. Ne düşünürsün?", i: "Her istediğimize sahip olmasak da, sahip olduklarımızla mutlu olabiliriz." },
+    { e: "🏆", s: "Arkadaşın yarışmada birinci oldu, sen ikinci. Herkes onu tebrik ediyor. Ne yaparsın?", i: "Başkasının başarısına sevinebilmek, kalbin zenginliğidir." },
+    { e: "🪙", s: "Harçlığını biriktirdin. Hepsiyle kendine bir şey mi alırsın, bir kısmını ihtiyacı olana mı verirsin?", i: "Paylaşılan nimet bereketlenir. Azdan az, çoktan çok vermek güzeldir." }
+  ],
+  "v-tevhid": [
+    { e: "🧹", s: "Evde büyük bir temizlik var ve herkes çalışıyor. Sen de odanda oyun oynamak istiyorsun. Ne yaparsın?", i: "Birlikte çalışınca iş çabuk biter, yük hafifler." },
+    { e: "⚽", s: "Takımınızda biri çok yavaş ve herkes ona kızıyor. Ne yaparsın?", i: "Sürü, en yavaş kuşuyla birlikte varır. Takım birlikte kazanır." },
+    { e: "🤝", s: "İki arkadaşın kavga etti ve ikisi de seni kendi tarafına çekmek istiyor. Ne yaparsın?", i: "Küsleri barıştırmak ve aradaki birliği korumak çok değerli bir iyiliktir." },
+    { e: "🧩", s: "Ailece kocaman bir yapboz yapıyorsunuz ama sen tek başına bitirmek istiyorsun. Ne yaparsın?", i: "Birlikte yapılan iş, tek başına bitirilen işten daha güzeldir." },
+    { e: "🍽️", s: "Akşam yemeğinde herkes telefonuna bakıyor, kimse konuşmuyor. Ne önerirsin?", i: "Aynı sofrada birlikte olmak, ailenin en güzel anlarındandır." },
+    { e: "🕌", s: "Camide cemaatle namaz kılınırken herkes omuz omuza durur. Sence bunun anlamı ne?", i: "Kur'an “Hep birlikte Allah'ın ipine sımsıkı sarılın, ayrılmayın” buyurur. (Âl-i İmrân, 103)" }
+  ],
+  "v-hayret": [
+    { e: "🌌", s: "Gece balkona çıktın ve gökyüzü yıldızlarla dolu. Sence kaç yıldız var? Ne düşünürsün?", i: "Göklerin ve yerin yaratılışında akıl sahipleri için ibretler vardır. (Âl-i İmrân, 190)" },
+    { e: "🐜", s: "Bir karınca ordusunun yiyecek taşıdığını izliyorsun. Bu düzeni görünce ne düşünürsün?", i: "Küçücük bir karıncada bile büyük bir düzen vardır; bunu düşünmek tefekkürdür." },
+    { e: "🌸", s: "Bir çiçeğin içine yakından baktın: renkleri, desenleri, kokusu... Ne hissedersin?", i: "Her çiçek, yaratılıştaki güzelliğin küçük bir işaretidir. Durup bakan hayran kalır." },
+    { e: "👶", s: "Yeni doğan bir bebeğin minicik ellerine baktın. Aklına neler gelir?", i: "Hayat başlı başına bir hayret sebebidir. Bunu düşünmek insanı şükre götürür." },
+    { e: "🌊", s: "Deniz kenarında dalgaları izliyorsun. Dalgalar hiç durmuyor. Ne düşünürsün?", i: "Durup dinlemek ve düşünmek, kalbi Allah'ı anmaya yöneltir." },
+    { e: "🍎", s: "Bir elmayı ikiye kestin ve çekirdeklerini gördün. Bu küçük çekirdekten ne çıkabilir?", i: "Minicik bir çekirdekten koca bir ağaç çıkar. Bu, düşünenler için büyük bir işarettir." }
+  ],
+  "v-fakr": [
+    { e: "🏅", s: "Bir yarışmayı kazandın ve herkes seni övüyor. Kaybeden arkadaşın da orada. Ne yaparsın?", i: "Peygamberimiz “Allah için tevazu göstereni Allah yüceltir” buyurdu. (Müslim)" },
+    { e: "🙇", s: "Bir hata yaptın ve özür dilemen gerekiyor ama utanıyorsun. Ne yaparsın?", i: "Özür dileyebilmek, alçakgönüllü bir kalbin işaretidir." },
+    { e: "🎨", s: "Yaptığın resim çok beğenildi, ama fikir aslında kardeşindi. Ne dersin?", i: "Hakkı sahibine vermek ve “Biz yaptık” diyebilmek tevazudur." },
+    { e: "👟", s: "Okulda bir çocukla eski ayakkabıları yüzünden dalga geçiliyor. Ne yaparsın?", i: "Kimseyi küçük görmemek gerekir; insanın değeri eşyasında değil, kalbindedir." },
+    { e: "🧽", s: "Sınıfta temizlik sırası sana geldi ve herkes bakıyor. Ne yaparsın?", i: "Kur'an “Rahmân'ın kulları yeryüzünde vakar ve tevazu ile yürürler” buyurur. (Furkân, 63) İşin küçüğü yoktur." },
+    { e: "🗣️", s: "Bir oyunun kurallarını en iyi sen biliyorsun ama küçük kardeşin anlatmak istiyor. Ne yaparsın?", i: "Söz hakkını başkasına bırakmak, “ben” yerine “biz” demektir." }
+  ]
+});
+Object.assign(HIZLI, {
+  "v-talep": [{ p: "Merak ettiğiniz soruları sayın! (Gökyüzü neden mavi?…)", t: 6 }],
+  "v-ask": [{ p: "Sevdiklerimizi mutlu eden şeyleri sayın!", t: 8 }],
+  "v-marifet": [{ p: "Faydasını bildiğiniz hayvanları sayın! (Arı bal yapar…)", t: 6 }],
+  "v-istigna": [{ p: "Parayla alınamayan güzel şeyleri sayın!", t: 6 }],
+  "v-tevhid": [{ p: "Ailece birlikte yaptığımız işleri sayın!", t: 8 }],
+  "v-hayret": [{ p: "Gökyüzünde görebildiğimiz şeyleri sayın!", t: 6 }],
+  "v-fakr": [{ p: "Özür dilemenin ve teşekkür etmenin yollarını sayın!", t: 5 }]
+});
