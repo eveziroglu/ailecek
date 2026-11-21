@@ -7,6 +7,7 @@ Ailecek, anne babaların ve çocukların İslami değerleri bir oyun gecesinde *
 - Butonlar ne olacağını söyler: “Çarkı Çevir”, “Gizle ve Başla”, “Mühürle”. “Tamam”, “İleri” gibi belirsiz etiketler kullanmayın.
 - Ayet ve hadis her zaman kaynağıyla yazılır, kaynak `caption` stilinde ve `ink-muted` renginde alt satırdadır: “Bakara Suresi, 153. ayet”. Tüm dini içerik yayından önce bir hocanın kontrolünden geçer.
 - Korku değil sevgi dili: ceza, cehennem, utandırma yok. Yapılmamış bir gizli iyilik için “Bu hafta yapabilirsin, sorun değil” denir.
+- **Allah hiçbir şeye ve sembole benzemez** (Ehl-i Sünnet ölçüsü). Allah'ın isimleri ve sıfatları hiçbir resim, emoji, ışık veya sembolle eşleştirilmez; resimli seçeneklerde, kartlarda ve sahnelerde Allah'ı temsil eden hiçbir öğe olmaz. Allah'ın sıfatları bir sorunun yanlış şıkkı olarak kullanılmaz.
 - Peygamberler, sahabeler ve melekler **asla çizilmez, canlandırılmaz, emojiyle temsil edilmez.** Pandomim ve ses kartları hayvanlar, nesneler ve davranışlardır.
 - Türkçe ekler isme göre çekimlenir: Zeynep'te, Ömer'e, Anne'nin. İsme sabit ek yapıştırmayın.
 - Emoji, oyunun **resim dilidir**: kart simgeleri, hayvanlar, avatarlar, sahne simgeleri. Başlık ya da bölüm işareti olarak emoji kullanmayın.

@@ -89,4 +89,7 @@ Kurulum gerektirmeyen bir web uygulamasıdır: `index.html` dosyasını tarayıc
 
 ## İçerik notu
 
+İçerik değiştiğinde ve her yayından önce `node kontrol.mjs` çalıştırın. Betik Ehl-i Sünnet ölçüsüne göre şunları denetler: Allah'ın isimleri hiçbir resim ya da sembolle eşleşmez, peygamberler ve melekler kart ya da resim konusu olmaz, Allah hakkında yanlış şık ya da yanlış cümle kurulmaz.
+
+
 Bu bir **prototiptir**. Tüm ayet, hadis ve kıssa bilgileri yayından önce bir hoca ya da ilahiyatçı tarafından kontrol edilmelidir. Tüm içerik `icerik.js` dosyasındadır. Yeni kart eklemek için ilgili listeye bir satır eklemek yeterlidir.
