@@ -30,6 +30,16 @@ Hüdhüd'ün sesi varsayılan olarak tatlı bir **küçük kız** tonundadır. U
 | 🧑‍🏫 Küçük Hoca | Çocuk öğretmen olur ve büyüklere soru sorar. Cevap sadece çocukta. Büyükler bilemezse hoca kazanır. |
 | 🙋 Kalk-Otur | Herkes ayakta: cümle doğruysa zıplanır, yanlışsa çömelinir. 5 cümlelik hareketli grup turu. |
 
+## Yolculuk ve koleksiyon
+
+Oyun geceleri uzun soluklu bir aile macerasına dönüşür:
+
+- **Yolculuk Haritası:** Yedi tema sırayla birer duraktır: Şükür Vadisi, Sabır Kıyısı, Merhamet Bahçesi, Doğruluk Tepesi, Paylaşma Çarşısı, Aile Ocağı, Temizlik Pınarı. Her oyun gecesi bir durağı tamamlar ve dikilen fidana göre 1-3 yıldız verir; tamamlanan durak bir sonrakini açar. Durak tekrar oynanıp yıldız artırılabilir. Yolun sonunda **Kandil Gecesi** ve ailenin isimlerinin yazılı olduğu bir yolculuk belgesi vardır. Ayarlardan "Tüm durakları aç" ile sıra beklemeden oynanabilir.
+- **Kıssa Kartları albümü:** Pandomimde, ses taklidinde ve hayvan yürüyüşünde bilinen her hayvan ve nesne, kıssasıyla birlikte albüme kart olarak eklenir (52 kart). Kartlara dokununca Hüdhüd kıssasını anlatır.
+- **Aile rozetleri:** 16 rozet (İlk Gece, Pandomim Ustası, Bilge Aile, Küçük Hocalar, Dedektif Ailesi, Gizli Dostlar, Koleksiyoncu, Kandil Gecesi…). Kazanılmamış rozetlerde nasıl kazanılacağı ve ilerleme görünür.
+- **Kandil zinciri:** Ailenin kaç hafta üst üste oyun gecesi yaptığını gösterir.
+- Gece sonunda kazanılan yıldızlar, açılan durak, yeni kartlar ve rozetler bir özet ekranında kutlanır.
+
 ## Yapay zekâ sesi
 
 Hüdhüd'ün sesi, cihaz seslerinin yerine **yapay zekâ ile üretilmiş, neşeli küçük kız tonunda** bir sesle çalınabilir. Sesler bir kez üretilir ve `ses/` klasöründe paketler hâlinde oyuna eklenir; oyun oynarken internet ya da ek ücret gerekmez.
@@ -65,7 +75,7 @@ Arayüz, `tasarim/project/` altındaki **Ailecek Tasarım Sistemi**'ne göre kur
 - **Renkler:** İznik çini paleti (çini mavisi, firuze, zümrüt, nar, kandil, lale ve gizli iyilikler için gece). Açık ve koyu tema, tüm metin çiftleri WCAG 4.5:1 üzerinde.
 - **Yazı tipleri:** Başlıklar Fredoka, metin Figtree.
 - **Biçim:** Mihrap kemeri biçimli kartlar, sekiz köşeli yıldız deseni.
-- **Bileşenler:** `ak-` önekli CSS bileşenleri (Button, Chip, Avatar, HudhudGuide, GameCard, OptionTile, Timer, FlipCard, Stamp, DeedCard).
+- **Bileşenler:** `ak-` önekli CSS bileşenleri (Button, Chip, Avatar, HudhudGuide, GameCard, OptionTile, Timer, FlipCard, Stamp, DeedCard, Station, KissaCard, Badge, Toast).
 
 Token'lar `tasarim/project/tokens.json`, bileşen stilleri `tasarim/project/components/bundle.css` dosyasındadır. Birini değiştirdikten sonra uygulamaya aktarmak için:
 

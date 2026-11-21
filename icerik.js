@@ -433,3 +433,47 @@ const HAYVANLAR = [
   { w: "Kurt", e: "🐺", m: "Sinsice yürü ve ulu!", info: "Hz. Yusuf kıssasında geçer." },
   { w: "Uyuyan köpek", e: "🐕", m: "Ayaklarını uzat, esne, sonra koş!", info: "Kehf Suresi'nde geçer." }
 ];
+
+/* Yolculuk Haritası: temalar sırayla birer durak. Bir durak tamamlanınca sonraki açılır. */
+const DURAKLAR = [
+  { tema: "sukur", ad: "Şükür Vadisi" },
+  { tema: "sabir", ad: "Sabır Kıyısı" },
+  { tema: "merhamet", ad: "Merhamet Bahçesi" },
+  { tema: "dogruluk", ad: "Doğruluk Tepesi" },
+  { tema: "paylasmak", ad: "Paylaşma Çarşısı" },
+  { tema: "annebaba", ad: "Aile Ocağı" },
+  { tema: "temizlik", ad: "Temizlik Pınarı" }
+];
+const FINAL_DURAK = { ad: "Kandil Gecesi", ico: "🪔" };
+
+/* Aile rozetleri. olcut: ilerleme kaydındaki sayaç, hedef: kaç tane gerektiği */
+const ROZETLER = [
+  { id: "ilk-gece", e: "🌙", ad: "İlk Gece", nasil: "İlk oyun gecesini tamamlayın.", olcut: "nights", hedef: 1 },
+  { id: "bes-gece", e: "✨", ad: "Beş Gece", nasil: "Beş oyun gecesi tamamlayın.", olcut: "nights", hedef: 5 },
+  { id: "on-gece", e: "🌟", ad: "On Gece", nasil: "On oyun gecesi tamamlayın.", olcut: "nights", hedef: 10 },
+  { id: "zincir", e: "🪔", ad: "Kandil Zinciri", nasil: "Üç hafta üst üste oyun gecesi yapın.", olcut: "streak", hedef: 3 },
+  { id: "pandomim", e: "🎭", ad: "Pandomim Ustası", nasil: "On pandomim kartını bildirin.", olcut: "pandomim", hedef: 10 },
+  { id: "ses", e: "🔊", ad: "Ses Sihirbazı", nasil: "On ses taklidini bildirin.", olcut: "ses", hedef: 10 },
+  { id: "bilge", e: "💡", ad: "Bilge Aile", nasil: "Bil Bakalım'da 25 doğru cevap verin.", olcut: "correct", hedef: 25 },
+  { id: "hoca", e: "🧑‍🏫", ad: "Küçük Hocalar", nasil: "Küçük Hoca turunda büyükleri üç kez şaşırtın.", olcut: "hocaWins", hedef: 3 },
+  { id: "heykel", e: "🗿", ad: "Heykel Ustaları", nasil: "Beş Hayvan Yürüyüşü tamamlayın.", olcut: "hayvan", hedef: 5 },
+  { id: "dedektif", e: "🔍", ad: "Dedektif Ailesi", nasil: "Açılış Töreni'nde üç gizli dostu doğru tahmin edin.", olcut: "detective", hedef: 3 },
+  { id: "gizli-dost", e: "💌", ad: "Gizli Dostlar", nasil: "On gizli iyilik yapın.", olcut: "deeds", hedef: 10 },
+  { id: "nar", e: "🍎", ad: "Nar Bahçesi", nasil: "Nar ağacında 25 nar biriktirin.", olcut: "deeds", hedef: 25 },
+  { id: "orman", e: "🌳", ad: "Fidan Ormanı", nasil: "Bahçeye 100 fidan dikin.", olcut: "garden", hedef: 100 },
+  { id: "koleksiyon", e: "🃏", ad: "Koleksiyoncu", nasil: "Albümde 25 Kıssa Kartı toplayın.", olcut: "cards", hedef: 25 },
+  { id: "yolcu", e: "🧭", ad: "Yolcu", nasil: "Haritada üç durağı tamamlayın.", olcut: "lands", hedef: 3 },
+  { id: "kandil", e: "🏆", ad: "Kandil Gecesi", nasil: "Yolculuğun tüm duraklarını tamamlayın.", olcut: "lands", hedef: 7 }
+];
+
+/* Yolculukla ilgili Hüdhüd cümleleri (yapay zekâ sesi için sabit) */
+const YOLCULUK_SOZ = {
+  harita: "Yolculukta sıradaki durak neresi? Haydi seçelim!",
+  kilitli: "Bu durak henüz kilitli. Önceki durağı tamamlayınca açılacak!",
+  durakAcildi: "Yeni bir durak açıldı!",
+  rozet: "Yeni bir rozet kazandınız!",
+  kart: "Yeni bir Kıssa Kartı albüme eklendi!",
+  albüm: "Kıssa Kartları albümümüz. Her kart bir kıssa anlatıyor!",
+  rozetler: "Ailemizin rozetleri. Hangisini sıradaki hedefimiz yapalım?",
+  final: "Tebrikler! Ailecek yolculuğunun bütün duraklarını tamamladınız. Allah hepinizden razı olsun!"
+};

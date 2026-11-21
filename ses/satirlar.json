@@ -495,6 +495,46 @@
   "text": "Defter henüz boş. İlk gizli iyilik haftası oyun gecesinin sonunda başlar."
  },
  {
+  "key": "ea1f45b8",
+  "pack": "genel",
+  "text": "Yolculukta sıradaki durak neresi? Haydi seçelim!"
+ },
+ {
+  "key": "b2de3515",
+  "pack": "genel",
+  "text": "Bu durak henüz kilitli. Önceki durağı tamamlayınca açılacak!"
+ },
+ {
+  "key": "83654cc1",
+  "pack": "genel",
+  "text": "Yeni bir durak açıldı!"
+ },
+ {
+  "key": "9b7e971b",
+  "pack": "genel",
+  "text": "Yeni bir rozet kazandınız!"
+ },
+ {
+  "key": "99b620b3",
+  "pack": "genel",
+  "text": "Yeni bir Kıssa Kartı albüme eklendi!"
+ },
+ {
+  "key": "b5b10fde",
+  "pack": "genel",
+  "text": "Kıssa Kartları albümümüz. Her kart bir kıssa anlatıyor!"
+ },
+ {
+  "key": "3a44c558",
+  "pack": "genel",
+  "text": "Ailemizin rozetleri. Hangisini sıradaki hedefimiz yapalım?"
+ },
+ {
+  "key": "085b5445",
+  "pack": "genel",
+  "text": "Tebrikler! Ailecek yolculuğunun bütün duraklarını tamamladınız. Allah hepinizden razı olsun!"
+ },
+ {
   "key": "35fcb931",
   "pack": "kart",
   "text": "Fil. Fil Suresi: Ebrehe fillerden oluşan ordusuyla Kâbe'yi yıkmaya geldi, ama Allah Kâbe'yi korudu."
@@ -823,6 +863,31 @@
   "key": "28599a16",
   "pack": "kart",
   "text": "Hepimiz Uyuyan köpek olduk! Ayaklarını uzat, esne, sonra koş!"
+ },
+ {
+  "key": "313b88a6",
+  "pack": "kart",
+  "text": "Arı. Nahl, yani Arı Suresi'nde geçer."
+ },
+ {
+  "key": "0ec1db53",
+  "pack": "kart",
+  "text": "Balık. Hazreti Yunus kıssasında büyük bir balık geçer."
+ },
+ {
+  "key": "a8bc0e35",
+  "pack": "kart",
+  "text": "Örümcek. Ankebût, yani Örümcek Suresi'nde geçer."
+ },
+ {
+  "key": "99fe6c66",
+  "pack": "kart",
+  "text": "Zürafa. Hazreti Nuh gemisine her canlıdan bir çift aldı."
+ },
+ {
+  "key": "0c42fad1",
+  "pack": "kart",
+  "text": "At. Âdiyât Suresi'nde koşan atlar anlatılır."
  },
  {
   "key": "2fadb7de",

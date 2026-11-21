@@ -44,6 +44,12 @@ Palet İznik çinilerinden gelir. Zemin serin beyaz, metin derin lacivert, vurgu
 - Hüdhüd sürekli hafifçe zıplar, göz kırpar ve tepeliğini sallar; konuşurken gagası oynar (`is-talking`), fidan kazanılınca kanat çırpar (`is-happy`).
 - `prefers-reduced-motion` açıkken tüm animasyonlar durur; oyun hareketsiz de eksiksiz oynanır.
 
+## Yolculuk ve koleksiyon
+
+- Temalar Yolculuk Haritası'nda sırayla birer duraktır (`Station`); tamamlanan durak bir sonrakini açar, her durak 1–3 yıldız alır. Yolun sonu Kandil Gecesi'dir ve gece zemininde bir yolculuk belgesiyle kutlanır.
+- Bilinen pandomim, ses ve hayvan kartları albüme `KissaCard` olarak eklenir; eksik kartlar adı gizli, yıldız desenli gri yüzlerdir.
+- Rozetler (`Badge`) aileye aittir; yeni rozet `Toast` ile duyurulur. Dil her zaman “birlikte” dilidir: “Ailece fidan kazandınız”, “Ailemizin rozetleri”.
+
 ## Ses ve sesli anlatım
 
 - Hüdhüd soruları, seçenekleri, durumları ve ayet/hadisleri sesli okur. **Gizli kartlar asla okunmaz:** pandomim kelimesi, Şaşkın Ebeveyn senaryosu, Küçük Hoca cevabı, gizli iyilik görevi.
@@ -58,4 +64,4 @@ Palet İznik çinilerinden gelir. Zemin serin beyaz, metin derin lacivert, vurgu
 
 ## Bileşenler
 
-Bileşenler `components/bundle.css` içindeki `ak-` önekli sınıflardır; JavaScript gerektirmezler. Kapsayıcıya `ak` sınıfını verin. Button, Chip, Avatar, HudhudGuide, GameCard, OptionTile, Timer, FlipCard, Stamp ve DeedCard için kullanım kuralları her bileşenin kendi sayfasındadır.
+Bileşenler `components/bundle.css` içindeki `ak-` önekli sınıflardır; JavaScript gerektirmezler. Kapsayıcıya `ak` sınıfını verin. Button, Chip, Avatar, HudhudGuide, GameCard, OptionTile, Timer, FlipCard, Stamp, DeedCard, Station, KissaCard, Badge ve Toast için kullanım kuralları her bileşenin kendi sayfasındadır.
