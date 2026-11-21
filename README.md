@@ -57,7 +57,7 @@ Ferîdüddîn-i Attâr'ın Mantıku't-Tayr'ından esinlenen ikinci sezon, Kandil
 
 Hüdhüd'ün sesi, cihaz seslerinin yerine **yapay zekâ ile üretilmiş, neşeli küçük kız tonunda** bir sesle çalınabilir. Sesler bir kez üretilir ve `ses/` klasöründe paketler hâlinde oyuna eklenir; oyun oynarken internet ya da ek ücret gerekmez.
 
-- Oyunun söyleyebileceği tüm sabit cümleler (yaklaşık 740 cümle, 42.000 karakter) sayfanın kendi `allSpeechLines()` fonksiyonundan alınır; ekrandaki metinle ses her zaman eşleşir.
+- Oyunun söyleyebileceği tüm sabit cümleler (yaklaşık 780 cümle, 46.000 karakter) sayfanın kendi `allSpeechLines()` fonksiyonundan alınır; ekrandaki metinle ses her zaman eşleşir.
 - İsim ve sayı içeren cümleler önceden üretilemez. Yapay zekâ sesinde bunların isimsiz karşılığı okunur ("Sıra Zeynep'te!" yerine "Sıra sende!"); isim ekranda görünür.
 - Ayarlardan **Yapay zekâ sesi** ile **Cihaz sesi** arasında geçiş yapılabilir. Yapay zekâ sesi henüz üretilmemişse Hüdhüd sessiz kalır.
 
