@@ -85,7 +85,7 @@ const S2 = (() => {
     const nasSay = (v.nas.tur === "hadis" ? "Peygamberimiz buyurdu: " : "") + v.nas.text;
     const gorevList = family.map(p => { const b = birdOf(p.name); return b ? `<li><span>${b.e}</span><span><b>${esc(p.name)}</b> · ${esc(b.gorev)}</span></li>` : ""; }).join("");
     return [
-      { ico: h.e, title: h.baslik, body: `<div class="story">${h.paragraflar.map(x => `<p>${esc(x)}</p>`).join("")}</div>
+      { ico: h.e, title: h.baslik, body: `${sahne("vadi:" + v.id)}<div class="story">${h.paragraflar.map(x => `<p>${esc(x)}</p>`).join("")}</div>
           <div class="tip" style="text-align:left"><b>Hüdhüd'ün sözü</b>${esc(h.soz)}</div>
           <p class="small muted bold">Küçükler için: ${esc(h.kucukler)}</p>`,
         say: [...h.paragraflar, h.soz] },
@@ -123,6 +123,7 @@ const S2 = (() => {
           <button class="ak-btn ak-btn--night" data-act="s2-gorev">Bahane Görevleri</button>
           <button class="ak-btn ak-btn--kandil" data-act="s2-map">Vadi Haritası</button>
         </div>
+        <button class="link" style="color:var(--on-gece);align-self:center" data-act="setup" data-arg="ayar">Kuşları ve aileyi düzenle</button>
       </section>`;
   }
   const certButton = () => `<button class="ak-btn ak-btn--night ak-btn--lg" data-act="s2-davet">🪶 Kuşların Yolculuğu'na başla</button>`;
@@ -172,6 +173,43 @@ const S2 = (() => {
         <p class="ak-deed__quote">Yolculuk boyunca bu bahaneyi yenmeye çalışacaksın. Bahane Avcısı kartlarında ve haftalık görevlerde karşına çıkacak!</p>
         <button class="ak-btn ak-btn--kandil ak-btn--lg" data-act="s2-meclis" data-arg="${i + 1}">${i + 1 < (order || family).length ? "Sıradaki kuş" : "Vadi Haritası'nı aç"}</button>
       </section>`, [`${k.ad}!`, S2_SOZ.bahanesi, k.bahane]);
+  }
+
+  /* ---------- Tek kişinin kuşunu değiştirme (Aile ekranından) ---------- */
+  function birdPicker(i) {
+    closeSheet();
+    const p = family[i]; if (!p) return screenSetup();
+    tidy();
+    const mine = st().birds[p.name], owners = new Map(Object.entries(st().birds).map(([n, b]) => [b, n]));
+    render(`
+      <section class="ak-card center">
+        <span class="ak-label">Kuşunu seç</span>
+        ${avatar(p, "ak-avatar--lg")}
+        <h2 style="font:700 24px/28px var(--font-display)">${esc(p.name)} hangi kuş olsun?</h2>
+        <p class="small bold muted">Başkasının kuşunu seçersen kuşlarınızı takas edersiniz. Vadi yıldızları ve görevler silinmez.</p>
+        <div class="album" style="width:100%">${KUSLAR.map(k => {
+          const owner = owners.get(k.id), isMine = k.id === mine;
+          const sub = isMine ? "Şu anki kuşun" : owner ? `${esc(owner)} ile takas` : "Boşta";
+          return `<button class="ak-kcard ${isMine ? "is-current" : ""}" style="--c:var(${MEMBER_COLORS[KUSLAR.indexOf(k) % 6]})" data-act="s2-set" data-arg="${i}:${k.id}" aria-label="${esc(k.ad)}, ${sub}"><i>${k.e}</i><b>${esc(k.ad)}</b><small>${sub}</small></button>`;
+        }).join("")}</div>
+        <div class="btn-row" style="width:100%">
+          ${mine ? `<button class="ak-btn ak-btn--ghost" data-act="s2-set" data-arg="${i}:">Kuşsuz bırak</button>` : ""}
+          <button class="ak-btn" data-act="m-back">Geri</button>
+        </div>
+      </section>`);
+  }
+  function setBird(i, id) {
+    const p = family[i]; if (!p) return screenSetup();
+    const mine = st().birds[p.name];
+    if (!id) delete st().birds[p.name];
+    else if (id !== mine) {
+      const owner = Object.keys(st().birds).find(n => st().birds[n] === id);
+      if (owner) { if (mine) st().birds[owner] = mine; else delete st().birds[owner]; }
+      st().birds[p.name] = id;
+      sfx.win(); confetti(10);
+    }
+    saveP(); screenSetup();
+    if (id && id !== mine) { const k = kus(id); toast(k.e, `${p.name} artık bir ${k.ad.toLocaleLowerCase("tr")}`, `Bahanesi: ${k.bahane}`); }
   }
 
   /* ---------- Vadi haritası ---------- */
@@ -318,7 +356,7 @@ const S2 = (() => {
     const next = (lbl, s, mm = 0) => `<button class="ak-btn ak-btn--kandil ak-btn--lg" data-act="s2-final" data-arg="${s}:${mm}">${lbl}</button>`;
     const row = `<div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap;font-size:40px">${birds.map(p => `<span class="ak-bird-mini" title="${esc(p.name)}" style="animation:hover 2.4s ease-in-out ${Math.random() * -2}s infinite;display:inline-block">${birdOf(p.name).e}</span>`).join("")}</div>`;
     const frame = (eyebrow, inner, sayObj) => render(`<section class="ak-deed"><span class="ak-deed__eyebrow">${eyebrow}</span>${inner}</section>`, sayObj);
-    if (step === 0) frame("Kaf Dağı", `<span class="mega bounce" style="font-size:84px">🏔️</span>${row}<div class="ak-on-night" style="width:100%">${guide(S2_SOZ.finaleGecis, { noSpeak: true })}</div>${next("Zirveye kon", 1)}`, S2_SOZ.finaleGecis);
+    if (step === 0) frame("Kaf Dağı", `${sahne("vadi:kaf") || `<span class="mega bounce" style="font-size:84px">🏔️</span>`}${row}<div class="ak-on-night" style="width:100%">${guide(S2_SOZ.finaleGecis, { noSpeak: true })}</div>${next("Zirveye kon", 1)}`, S2_SOZ.finaleGecis);
     else if (step === 1) frame("Zirve", `${row}<h2 style="font:700 28px/32px var(--font-display)">Başardınız!</h2><p class="ak-deed__text" style="font-size:19px">${esc(S2_SOZ.f1)}</p>${next("Devam", 2)}`, S2_SOZ.f1);
     else if (step === 2) frame("Ne arıyorduk?", `<div class="ak-chips"><span class="ak-chip" style="background:var(--surface-200)">⭐ ${totalStars} vadi yıldızı</span><span class="ak-chip" style="background:var(--surface-200)">💌 ${totalDeeds} gizli iyilik</span><span class="ak-chip" style="background:var(--surface-200)">🪶 ${totalGorev} bahane görevi</span></div><p class="ak-deed__text" style="font-size:20px">${esc(S2_SOZ.f2)}</p>${next("Devam", 3)}`, S2_SOZ.f2);
     else if (step === 3) frame("Berrak göl", `<div class="lake">🌙</div><p class="ak-deed__text" style="font-size:20px">${esc(S2_SOZ.f3)}</p><p class="ak-deed__quote">${esc(S2_SOZ.f4)}</p>${next("Göle bak", 4, 0)}`, [S2_SOZ.f3, S2_SOZ.f4]);
@@ -370,11 +408,11 @@ const S2 = (() => {
   }
 
   const actions = {
-    "s2-davet": davet, "s2-meclis": a => meclis(+a), "s2-eksik": () => meclis(0, true), "s2-pick": a => { const [i, id] = a.split(":"); pick(+i, id); },
+    "s2-davet": davet, "s2-set": a => { const k = a.indexOf(":"); setBird(+a.slice(0, k), a.slice(k + 1)); }, "s2-meclis": a => meclis(+a), "s2-eksik": () => meclis(0, true), "s2-pick": a => { const [i, id] = a.split(":"); pick(+i, id); },
     "s2-map": map, "s2-vadi": openVadi, "s2-gorev": gorevScreen, "s2-gorev-done": gorevDone,
     "flip-b": flipB, "s2-bgo": bGo, "s2-bdone": bDone, "s2-bbest": bBest,
     "s2-final": a => { const [s, m] = a.split(":"); final(+s, +m); }
   };
 
-  return { isVadi, theme, pool, intro, label, reward, slides, homeCard, certButton, playBahane, badgeValue, lines, actions, unlocked, st };
+  return { isVadi, theme, pool, intro, label, reward, slides, homeCard, certButton, playBahane, badgeValue, lines, actions, unlocked, st, birdOf, tidy, birdPicker };
 })();

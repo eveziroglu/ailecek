@@ -10,7 +10,7 @@ Hüdhüd'ün sesi varsayılan olarak tatlı bir **küçük kız** tonundadır. U
 
 ## Nasıl oynanır?
 
-1. **Aile kurulumu:** Kaç kişi oynanacağı, isimler ve yaş aralıkları (3-5, 6-8, 9-12, 13-17, yetişkin) girilir.
+1. **Aile kurulumu:** İsimler, yaş aralıkları (3-5, 6-8, 9-12, 13-17, yetişkin) ve simgeler girilir. Aile ekranı ana sayfadaki **Aileyi düzenle** düğmesinden ve Ayarlar › Aile'den her zaman açılır: kişi eklenir, aileden çıkarılır (onaylı), isim, yaş, simge ve kuş değiştirilir. İsim değişince kuş, görev ve iyilik kayıtları yeni isme taşınır.
 2. **Tema seçimi:** Şükür, Sabır, Merhamet, Doğruluk, Paylaşmak, Anne Baba, Temizlik ya da rastgele bir tema seçen Sürpriz Gece.
 3. **Turlar:** Sırası gelen **oyun çarkını** çevirir. Çark, yaşına uygun bir mini oyun seçer. Her dört turda bir herkesin katıldığı hareketli bir grup oyunu gelir. Doğru cevaplar ve güzel davranışlar ailenin ortak **bahçesine fidan** diker. Rekabet yoktur, aile tek takımdır.
 4. **Derinlik anı:** Temayla ilgili bir ayet ve hadis, bir sohbet sorusu ve haftalık aile görevi.
@@ -49,7 +49,8 @@ Ferîdüddîn-i Attâr'ın Mantıku't-Tayr'ından esinlenen ikinci sezon, Kandil
 - **Bahane Avcısı:** Vadi gecelerinde çarka eklenen mini oyun. Oyuncu bir kuşun bahanesini canlandırır, aile Hüdhüd gibi ikna eder, hakem en iyi cevabı seçer (24 kart, yetişkin sürümleriyle).
 - **Bahane görevleri:** Her vadiden sonra herkes kendi kuşunun bahanesine karşı küçük bir görev yapar.
 - **Vadiye özel kartlar:** Her vadinin kendi Sen Olsan? kartları (vadi başına 6) ve Hızlı Turu vardır.
-- Sezon ortasında aileye katılan kişi ana sayfadan yalnızca kendi kuşunu seçer; aileden çıkan kişinin kuşu boşa çıkar.
+- **Kuş değiştirme:** Aile ekranında her kişinin **Kuşu değiştir** düğmesi vardır. Başkasının kuşu seçilirse iki kişi kuşlarını takas eder; vadi yıldızları ve görevler silinmez. Kuşlar Meclisi aynı ekrandan yeniden toplanabilir.
+- Sezon ortasında aileye katılan kişi ana sayfadan ya da aile ekranından yalnızca kendi kuşunu seçer; aileden çıkan kişinin kuşu boşa çıkar.
 - **Kaf Dağı finali:** Kuşlar göl aynasında yol boyunca değişmiş kendilerini görür; Simurg gösterilmez. Kişiye özel cümleler, "Bahanesini Yenen Kuş" mührü ve kuşların yolculuk belgesi.
 - İçerik `icerik-kuslar.js`, oyun mantığı `kuslar.js` dosyasındadır. Hikâye tasarım belgesi uzman kontrolünü bekliyor.
 
@@ -95,6 +96,19 @@ Token'lar `tasarim/project/tokens.json`, bileşen stilleri `tasarim/project/comp
 ```
 python3 tasarim/esitle.py
 ```
+
+## Görseller
+
+Görseller [sanat yönetimi belgesindeki](https://claude.ai/artifact/8E2eWgjX2AqsUbQP8omqvA) komutlarla üretilir. Oyun onları kendisi yükler; görseli olmayan her yerde emoji ve çizimler kalır.
+
+1. Görseli `gorsel/liste.json`'daki dosya adıyla `gorsel/kaynak/` klasörüne koyun (ör. `kart-fil.png`, `avatar-bulbul.svg`; png, jpg, webp ya da svg).
+2. Çalıştırın:
+
+```
+node gorsel/hazirla.mjs
+```
+
+Betik görselleri küçültüp WebP'ye çevirir, oyunun okuduğu `gorsel/gorsel.json` dosyasını yazar ve `gorsel/DURUM.md` dosyasına hangi görsellerin hazır, hangilerinin eksik olduğunu eksiklerin tam komutlarıyla birlikte yazar. Listede 101 görsel vardır: 8 kuş avatarı, 10 oyun ikonu, 8 durak sahnesi ve harita zemini, 7 vadi sahnesi ve Kaf Dağı, 52 Kıssa Kartı, 6 Hüdhüd hâli, 8 arayüz ikonu. Hüdhüd hâlleri ve arayüz ikonları şimdilik kullanılmaz. `ffmpeg` gerekir.
 
 ## Çalıştırma
 
