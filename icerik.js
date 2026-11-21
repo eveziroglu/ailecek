@@ -307,7 +307,7 @@ const SASKIN = [
   { s: "Yatıp uyuyormuş gibi yap. Ama: dua etmeden, sol tarafına dönüp hemen horlamaya başla.", h: ["Uyumadan önce dua edilir: “Bismikellâhümme emûtü ve ahyâ.”","Sünnet olan, sağ tarafa yatmaktır.","Abdestli yatmak güzel bir sünnettir."] },
   { s: "Biri sana hediye veriyormuş gibi yap. Ama: teşekkür etme, “Bu ne ya?” de ve hediyeyi kenara fırlat.", h: ["Hediye verene teşekkür edilir.","Hediye ayıplanmaz; güzel bir söz söylenir.","Peygamberimiz “Hediyeleşin, birbirinizi sevin” buyurdu. (Buhârî, el-Edebü'l-Müfred)"] },
   { s: "Su içiyormuş gibi yap. Ama: ayakta, sol elinle, tek nefeste iç ve sonunda hiçbir şey deme.", h: ["Su sağ elle içilir.","Oturarak ve üç nefeste içmek sünnettir.","Başlarken “Bismillah”, bitince “Elhamdülillah” denir."] },
-  { s: "Telefonla konuşuyormuş gibi yap. Ama: selam verme, karşındakinin sözünü sürekli kes ve bağırarak konuş.", h: ["Konuşmaya selamla başlanır.","Karşımızdakini sözünü kesmeden dinleriz.","Sesimizi yumuşak tutarız. (Lokmân, 19)"] },
+  { s: "Telefonla konuşuyormuş gibi yap. Ama: selam verme, karşındakinin sözünü sürekli kes ve bağırarak konuş.", h: ["Konuşmaya selamla başlanır.","Karşımızdakinin sözünü kesmeden dinleriz.","Sesimizi yumuşak tutarız. (Lokmân, 19)"] },
   { s: "Camiye giriyormuş gibi yap. Ama: sol ayağınla gir, koşarak ve yüksek sesle konuşarak içeri dal.", h: ["Camiye sağ ayakla girilir.","Camide sessiz ve sakin olunur.","Girerken dua edilir; vakit uygunsa iki rekât “tahiyyetü'l-mescid” namazı kılınır."] }
 ];
 
