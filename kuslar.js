@@ -186,7 +186,7 @@ const S2 = (() => {
         <span class="ak-label">Kuşunu seç</span>
         ${avatar(p, "ak-avatar--lg")}
         <h2 style="font:700 24px/28px var(--font-display)">${esc(p.name)} hangi kuş olsun?</h2>
-        <p class="small bold muted">Başkasının kuşunu seçersen kuşlarınızı takas edersiniz. Vadi yıldızları ve görevler silinmez.</p>
+        <p class="small bold muted">Kuşun, aile ekranında ve Kuşların Yolculuğu'nda senin simgen olur. Başkasının kuşunu seçersen kuşlarınızı takas edersiniz.</p>
         <div class="album" style="width:100%">${KUSLAR.map(k => {
           const owner = owners.get(k.id), isMine = k.id === mine;
           const sub = isMine ? "Şu anki kuşun" : owner ? `${esc(owner)} ile takas` : "Boşta";

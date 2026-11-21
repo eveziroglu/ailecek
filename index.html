@@ -965,7 +965,7 @@ function screenHome() {
 }
 
 function familyStrip() {
-  const birds = S2.unlocked();
+  const birds = true;
   return `<section class="ak-card" style="gap:10px">
     <div class="fam-strip">
       <div class="faces">${family.map(p => { const b = birds && S2.birdOf(p.name); return `<span class="face"><span class="ak-avatar ak-avatar--sm" style="--c:var(${memberColor(p.name)})">${b ? b.e : p.av}</span>${esc(p.name)}</span>`; }).join("")}</div>
@@ -996,7 +996,7 @@ function openSettings(confirmReset) {
     <div class="sheet ak" role="dialog" aria-modal="true" aria-label="Ayarlar">
       <div style="display:flex;justify-content:space-between;align-items:center"><h2>Ayarlar</h2><button class="icon-btn" data-act="close-sheet" aria-label="Kapat">✕</button></div>
       <h3 class="set-h">Aile</h3>
-      <div class="setting"><div><b>Aile ve kuşlar</b><small>${family.map(p => { const b = S2.unlocked() && S2.birdOf(p.name); return p.av + " " + esc(p.name) + (b ? " (" + esc(b.ad) + ")" : ""); }).join(" · ")}<br>İsim, yaş, simge ve kuş değiştirme; kişi ekleme ve çıkarma.</small></div><button class="mini gold" data-act="setup" data-arg="ayar">Düzenle</button></div>
+      <div class="setting"><div><b>Aile ve kuşlar</b><small>${family.map(p => { const b = S2.birdOf(p.name); return p.av + " " + esc(p.name) + (b ? " (" + esc(b.ad) + ")" : ""); }).join(" · ")}<br>İsim, yaş, simge ve kuş değiştirme; kişi ekleme ve çıkarma.</small></div><button class="mini gold" data-act="setup" data-arg="ayar">Düzenle</button></div>
       <h3 class="set-h">Ses</h3>
       <div class="setting"><div><b>Sesli anlatım</b><small>Hüdhüd soruları ve durumları yüksek sesle okur.</small></div><button class="switch" role="switch" aria-checked="${voiceOn}" aria-label="Sesli anlatım" data-act="voice"></button></div>
       ${voiceSettings()}
@@ -1243,7 +1243,7 @@ function screenSetup(mode) {
   closeSheet();
   if (mode === "oyun" || mode === "ayar") { setupMode = mode; setupConfirm = -1; setupSnap = new Map(family.map(p => [p, p.name])); }
   if (!setupSnap) setupSnap = new Map(family.map(p => [p, p.name]));
-  const birds = S2.unlocked();
+  const birds = true, s2open = S2.unlocked();
   const rows = family.map((p, i) => {
     const b = birds && S2.birdOf(p.name);
     const tools = setupConfirm === i
@@ -1274,7 +1274,7 @@ function screenSetup(mode) {
       <div class="section-head" style="padding:0"><h2 style="font-size:21px">Aile · ${family.length} kişi</h2></div>
       <div class="stack">${rows}</div>
       ${family.length < 8 ? `<button class="add-member" data-act="m-add">+ Kişi ekle</button>` : `<p class="small bold muted">En fazla 8 kişi oynayabilir.</p>`}
-      ${birds ? `<details class="small" style="font-weight:600"><summary class="bold" style="cursor:pointer;color:var(--cini)">Kuşları baştan seçmek ister misiniz?</summary>
+      ${s2open ? `<details class="small" style="font-weight:600"><summary class="bold" style="cursor:pointer;color:var(--cini)">Kuşları baştan seçmek ister misiniz?</summary>
         <p class="muted" style="margin:8px 0">Kuşlar Meclisi yeniden toplanır ve herkes sırayla yeni kuşunu seçer. Vadi yıldızları ve görevler silinmez.</p>
         <button class="ak-btn ak-btn--night" data-act="s2-meclis" data-arg="0">Kuşlar Meclisi'ni yeniden topla</button></details>` : ""}
       <p class="small bold" id="setup-err" hidden style="color:var(--nar)"></p>
