@@ -477,6 +477,11 @@ blockquote cite { display: block; margin-top: 8px; font: 600 13px/18px var(--fon
 .foot { text-align: center; font: 600 12px/18px var(--font-body); color: var(--ink-muted); }
 
 
+/* ============ Kuşların Yolculuğu ============ */
+.story { text-align: left; display: flex; flex-direction: column; gap: 10px; }
+.story p { font: 500 17px/27px var(--font-body); }
+.lake { width: 100%; padding: 26px 10px; border-radius: 50% / 42%; text-align: center; font-size: 60px; line-height: 1; background: linear-gradient(color-mix(in srgb, var(--sky) 45%, var(--gece)), color-mix(in srgb, var(--firuze) 45%, var(--gece))); box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--yildiz) 40%, transparent), inset 0 -18px 30px -12px color-mix(in srgb, var(--yildiz) 25%, transparent); }
+
 /* ============ Yolculuk Haritası ============ */
 .journey-card { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: center; }
 .journey-card h2 { font: 700 22px/1.15 var(--font-display); }
@@ -545,6 +550,8 @@ blockquote cite { display: block; margin-top: 8px; font: 600 13px/18px var(--fon
 <div id="sheet-root"></div>
 
 <script src="icerik.js"></script>
+<script src="icerik-kuslar.js"></script>
+<script src="kuslar.js"></script>
 <script>
 /* ============ YARDIMCILAR ============ */
 const store = {
@@ -557,6 +564,9 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;"
 const rnd = arr => arr[Math.floor(Math.random() * arr.length)];
 const shuffle = arr => { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const optText = o => Array.isArray(o) ? o[0] : o;
+/* Tema: birinci sezon temaları THEMES'te, ikinci sezon vadileri S2'de (kuslar.js) */
+const TH = k => THEMES[k] || S2.theme(k);
+const POOL = k => S2.pool(k);
 /* Ehl-i Sünnet ölçüsü: Allah hiçbir şeye ve sembole benzemez. Allah'ın isimleri, peygamberler ve kutsal
    kavramlar hiçbir resim, emoji veya sembolle eşleştirilmez (bkz. kontrol.mjs). */
 const KUTSAL = /Allah|Rab|Rahmân|Rahîm|Esmâ|Peygamber|Resûl|Hz\.|melek|Cebrail/i;
@@ -793,6 +803,7 @@ function allSpeechLines() {
     "Tebrikler dedektif! Doğru bildin!", "Çok gizliymiş! Gizli dost ustaca saklanmış!", "Şimdi teşekkürünü seç.", TESEKKUR.map(t => t.s),
     "Tören bitti! Nar ağacımız büyüdü. Allah hepinizden razı olsun!", "Nar ağacımızdaki her nar, gizlice yapılmış bir iyilik!", EMPTY_DEFTER);
   add("genel", Object.values(YOLCULUK_SOZ));
+  add("kuslar", S2.lines());
   add("kart", PANDOMIM.concat(SESLER).map(x => `${x.w}. ${x.info}`), HAYVANLAR.map(x => `Hepimiz ${x.w} olduk! ${x.m}`), allCards().map(c => `${c.w}. ${c.info}`));
   [0, 1, 2, 3].forEach(l => BILGI[l].forEach(x => add("bilgi", x.q, x.o.map(optText), x.info)));
   Object.values(SENOLSAN).flat().forEach(x => add("durum", x.s, x.i));
@@ -1013,7 +1024,7 @@ function gainCard(w) {
   P.cards.push(w); P.newCards.push(w); if (G) (G.newCards ||= []).push(w); saveP(); return true;
 }
 function badgeValue(b) {
-  return { streak: streak(), deeds: fruitTotal(), garden: gardenTotal, cards: P.cards.length, lands: landsDone() }[b.olcut] ?? P[b.olcut] ?? 0;
+  return { streak: streak(), deeds: fruitTotal(), garden: gardenTotal, cards: P.cards.length, lands: landsDone() }[b.olcut] ?? S2.badgeValue(b.olcut) ?? P[b.olcut] ?? 0;
 }
 function checkBadges() {
   const fresh = ROZETLER.filter(b => !P.badges[b.id] && badgeValue(b) >= b.hedef);
@@ -1031,6 +1042,9 @@ function toast(e, eyebrow, title) {
 const bump1 = key => { P[key] = (P[key] || 0) + 1; saveP(); checkBadges(); };
 
 function journeyHome() {
+  return S2.homeCard() + journeyHome1();
+}
+function journeyHome1() {
   const cur = currentLand(), done = landsDone(), total = DURAKLAR.length;
   const curT = cur && THEMES[cur.tema];
   return `
@@ -1108,6 +1122,7 @@ function screenCert() {
       <p class="ak-deed__text" style="font-size:18px">Şükürden temizliğe, yedi durağın hepsini birlikte tamamladınız.</p>
       <div class="ak-chips"><span class="ak-chip" style="background:var(--surface-200)">⭐ ${stars}/21 yıldız</span><span class="ak-chip" style="background:var(--surface-200)">🃏 ${P.cards.length} kart</span><span class="ak-chip" style="background:var(--surface-200)">🍎 ${fruitTotal()} gizli iyilik</span></div>
       <p class="ak-deed__quote">${new Date().toLocaleDateString("tr-TR", { day: "numeric", month: "long", year: "numeric" })}</p>
+      ${S2.certButton()}
       <button class="ak-btn ak-btn--kandil ak-btn--lg" data-act="map">Haritaya dön</button>
     </section>`, YOLCULUK_SOZ.final);
   confetti(40); sfx.win();
@@ -1155,6 +1170,10 @@ function nightRewards() {
   if (!G || G.counted) return null;
   G.counted = true;
   const turns = G.plan.length, stars = G.fidan >= turns * 1.2 ? 3 : G.fidan >= turns * .7 ? 2 : 1;
+  if (S2.isVadi(G.theme)) {
+    P.nights++; const wk2 = weekKey(Date.now()); if (!P.weeks.includes(wk2)) P.weeks.push(wk2); saveP();
+    const r2 = S2.reward(G.theme, stars); checkBadges(); return r2;
+  }
   const before = P.lands[G.theme] || 0, wasDone = landsDone();
   if (THEMES[G.theme]) P.lands[G.theme] = Math.max(before, stars);
   P.nights++;
@@ -1162,7 +1181,7 @@ function nightRewards() {
   saveP();
   const unlocked = landsDone() > wasDone ? currentLand() : null;
   checkBadges();
-  return { stars, improved: stars > before, unlocked, finalOpen: landsDone() === DURAKLAR.length && wasDone < DURAKLAR.length };
+  return { stars, improved: stars > before, unlocked: unlocked && { ...unlocked, ico: THEMES[unlocked.tema].ico }, finalOpen: landsDone() === DURAKLAR.length && wasDone < DURAKLAR.length, finalName: FINAL_DURAK.ad, finalIco: FINAL_DURAK.ico };
 }
 
 /* ============ KURULUM VE TEMA ============ */
@@ -1197,7 +1216,8 @@ function screenThemes() {
 }
 
 /* ============ OYUN AKIŞI ============ */
-const WHEEL = ["pandomim", "bilgi", "ses", "senolsan", "hoca", "saskin"];
+const WHEEL_BASE = ["pandomim", "bilgi", "ses", "senolsan", "hoca", "saskin"];
+const wheelList = () => G && S2.isVadi(G.theme) ? [...WHEEL_BASE, "bahane"] : WHEEL_BASE;
 const GROUPS = ["hayvan", "kalkotur", "hizli"];
 function startGame(themeKey) {
   if (themeKey === "random") themeKey = rnd(DURAKLAR.filter(d => landUnlocked(d.tema)).map(d => d.tema));
@@ -1210,10 +1230,11 @@ function startGame(themeKey) {
   }
   G = { theme: themeKey, players, plan, i: 0, fidan: 0, used: {}, lastType: null, saskinCount: 0, newCards: [], newBadges: [] };
   try { navigator.wakeLock && navigator.wakeLock.request("screen").catch(() => {}); } catch (e) {}
-  const t = THEMES[themeKey], line = `Bu gece ${t.name}! Hazır mısınız?`, durak = DURAKLAR.find(d => d.tema === themeKey);
+  const t = TH(themeKey), line = S2.isVadi(themeKey) ? S2.intro(themeKey) : `Bu gece ${t.name}! Hazır mısınız?`, durak = DURAKLAR.find(d => d.tema === themeKey);
   render(`
     <section class="ak-card ak-card--game ${onFor(t.color)}" style="--c:var(${t.color})">
       <header class="ak-card__head"><span class="ak-card__title"><span class="ak-card__ico">${t.ico}</span>${t.name}</span></header>
+      ${S2.isVadi(themeKey) ? `<span class="ak-label" style="text-align:center">${esc(S2.label(themeKey))}</span>` : ""}
       ${durak ? `<span class="ak-label" style="text-align:center">Durak ${landIndex(themeKey) + 1} · ${esc(durak.ad)}${P.lands[themeKey] ? " · " + "★".repeat(P.lands[themeKey]) : ""}</span>` : ""}
       <span class="mega bounce">${t.ico}</span>
       <p class="q-text">${esc(t.desc)}</p>
@@ -1227,6 +1248,7 @@ function chooseType(player) {
   const w = { pandomim: 3, ses: 2.2, bilgi: 1.8, senolsan: lvl === 0 ? .6 : 1.1 };
   if (!adult && lvl >= 1 && G.players.length > 1) w.hoca = 1.4;
   if (adult && hasKid && G.saskinCount < 2) w.saskin = 1.8;
+  if (S2.isVadi(G.theme) && G.players.length > 1) w.bahane = 3.2;
   delete w[G.lastType];
   const e = Object.entries(w), sum = e.reduce((a, [, v]) => a + v, 0);
   let r = Math.random() * sum;
@@ -1242,7 +1264,7 @@ function card(type, inner, label) {
     <div style="text-align:center"><button class="link muted" data-act="finish">Oyunu bitir ve sohbete geç</button></div>`;
 }
 function wheelSVG() {
-  const n = WHEEL.length, r = 100, c = 110; let s = "";
+  const WHEEL = wheelList(), n = WHEEL.length, r = 100, c = 110; let s = "";
   const pt = (a, rr) => [(c + rr * Math.cos(a)).toFixed(1), (c + rr * Math.sin(a)).toFixed(1)];
   WHEEL.forEach((t, i) => {
     const a0 = i / n * 2 * Math.PI - Math.PI / 2, a1 = (i + 1) / n * 2 * Math.PI - Math.PI / 2, am = (a0 + a1) / 2;
@@ -1267,16 +1289,16 @@ function screenTurn() {
     </div>`, ["🎡", "Oyun Çarkı"]), line);
 }
 function spin() {
-  const t = G.plan[G.i], idx = WHEEL.indexOf(t.type), wheel = document.getElementById("wheel");
+  const WHEEL = wheelList(), t = G.plan[G.i], idx = WHEEL.indexOf(t.type), wheel = document.getElementById("wheel");
   document.getElementById("spin-area").innerHTML = `<p class="q-text muted">Dönüyor…</p>`;
-  const deg = 360 * 6 + (360 - (idx + .5) * 60) + (Math.random() * 30 - 15);
+  const deg = 360 * 6 + (360 - (idx + .5) * (360 / WHEEL.length)) + (Math.random() * 20 - 10);
   hush(); requestAnimationFrame(() => { wheel.style.transform = `rotate(${deg}deg)`; });
   let gap = 45, el = 0;
   const tick = () => { sfx.tick(); el += gap; gap *= 1.12; if (el < 3000) later(tick, gap); };
   tick(); later(() => landed(t), 3300);
 }
 function landed(t) {
-  const g = GAMES[t.type], p = t.player, secret = ["pandomim", "ses", "saskin", "hoca"].includes(t.type);
+  const g = GAMES[t.type], p = t.player, secret = ["pandomim", "ses", "saskin", "hoca", "bahane"].includes(t.type);
   sfx.win(); confetti(10);
   document.getElementById("spin-area").innerHTML = `
     <span class="ak-stamp" style="--c:var(${g.color === "--kandil" ? "--ink" : g.color})">${g.ico} ${g.name}</span>
@@ -1305,7 +1327,7 @@ function screenGroupIntro(t) {
 }
 function play() {
   const t = G.plan[G.i]; G.lastType = t.type;
-  ({ pandomim: playPandomim, ses: playSes, bilgi: playBilgi, senolsan: playSenOlsan, hizli: playHizli, saskin: playSaskin, kalkotur: playKalkOtur, hoca: playHoca, hayvan: playHayvan })[t.type](t);
+  ({ pandomim: playPandomim, ses: playSes, bilgi: playBilgi, senolsan: playSenOlsan, hizli: playHizli, saskin: playSaskin, kalkotur: playKalkOtur, hoca: playHoca, hayvan: playHayvan, bahane: S2.playBahane })[t.type](t);
 }
 function nextTurn() { G.i++; if (G.i >= G.plan.length) screenDeep(0); else screenTurn(); }
 function runTimer(sec, onEnd) {
@@ -1391,7 +1413,7 @@ function answer(i) {
 /* ---- Sen Olsan? ---- */
 function youngestKid() { const k = G.players.filter(p => p.age !== "y"); return k.length ? k.reduce((a, b) => ageOf(b.age).lvl < ageOf(a.age).lvl ? b : a) : null; }
 function playSenOlsan(t) {
-  const x = pick(SENOLSAN[G.theme], "sen"), judge = youngestKid();
+  const x = pick(SENOLSAN[POOL(G.theme)], "sen"), judge = youngestKid();
   G.cur = x;
   render(card("senolsan", `
     <span class="mega wiggle">${x.e}</span>
@@ -1411,7 +1433,7 @@ function best(i) {
 
 /* ---- Hızlı Tur ---- */
 function playHizli() {
-  const x = pick(HIZLI[G.theme].concat(HIZLI.genel), "hiz");
+  const x = pick(HIZLI[POOL(G.theme)].concat(HIZLI.genel), "hiz");
   G.cur = { x, count: 0, done: false };
   render(card("hizli", `
     <p class="q-text">${esc(x.p)}</p>
@@ -1535,8 +1557,8 @@ function hoca(ok) {
 /* ============ DERİNLİK ANI ============ */
 function screenDeep(step) {
   if (!G) return screenHome();
-  const t = THEMES[G.theme];
-  const slides = [
+  const t = TH(G.theme);
+  const slides = S2.isVadi(G.theme) ? S2.slides(G.theme) : [
     { ico: "📖", title: "Kur'an'dan", body: `<blockquote>“${esc(t.ayet.text)}”<cite>${esc(t.ayet.ref)}</cite></blockquote>`, say: t.ayet.text },
     { ico: "🌙", title: "Peygamberimiz buyurdu", body: `<blockquote>“${esc(t.hadis.text)}”<cite>${esc(t.hadis.ref)}</cite></blockquote>`, say: "Peygamberimiz buyurdu: " + t.hadis.text },
     { ico: "💬", title: "Hadi konuşalım", body: `<p class="q-text">${esc(t.soru)}</p>`, say: t.soru },
@@ -1555,7 +1577,7 @@ function screenDeep(step) {
       <span class="ak-label">${s.title}</span>
       ${s.body}
       ${nextBtn}
-    </section>`, step === 0 ? { text: intro + " " + s.say, ai: ["Bu gece bahçemize fidanlar diktik! Şimdi telefonu bırakıp biraz sohbet edelim.", s.say] } : s.say);
+    </section>`, step === 0 ? { text: intro + " " + normSay(s.say).text, ai: ["Bu gece bahçemize fidanlar diktik! Şimdi telefonu bırakıp biraz sohbet edelim.", ...normSay(s.say).ai] } : s.say);
 }
 
 /* ============ GİZLİ İYİLİK: ZARF DAĞITIMI ============ */
@@ -1809,7 +1831,7 @@ function screenDefter() {
   const total = fruitTotal();
   const weeks = defter.map(w => `
     <section class="ak-card log-week">
-      <div class="section-head" style="padding:0"><h2 style="font-size:19px">${dateTR(w.start)} haftası</h2><span class="muted small bold">${w.theme && THEMES[w.theme] ? THEMES[w.theme].ico + " " + THEMES[w.theme].name.replace(" Gecesi", "") : ""}</span></div>
+      <div class="section-head" style="padding:0"><h2 style="font-size:19px">${dateTR(w.start)} haftası</h2><span class="muted small bold">${w.theme && TH(w.theme) ? TH(w.theme).ico + " " + TH(w.theme).name.replace(" Gecesi", "") : ""}</span></div>
       ${w.cards.map(c => `<div class="log-row">${avatar({ name: c.from, av: c.fav }, "ak-avatar--sm")}<div style="min-width:0"><div class="who">${esc(c.from)} → ${esc(c.to)} ${c.tav}</div><div class="what">${esc(c.deed)}</div></div><span class="ty" title="${c.done ? "Yapıldı" : "Yapılmadı"}">${c.done ? (c.thanks || "✓") : "🌱"}</span></div>`).join("")}
     </section>`).join("");
   const lineText = total ? `Ailenizin nar ağacında ${total} nar var. Her biri gizlice yapılmış bir iyilik!` : EMPTY_DEFTER;
@@ -1828,12 +1850,12 @@ function screenDefter() {
 
 function screenEnd() {
   const f = G ? G.fidan : 0, msg = `Maşallah, ne güzel bir geceydi! Bu gece ${f} fidan diktiniz.`;
-  const R = nightRewards(), durak = G && DURAKLAR.find(d => d.tema === G.theme);
+  const R = nightRewards(), durak = G && (DURAKLAR.find(d => d.tema === G.theme) || (S2.isVadi(G.theme) && { ad: TH(G.theme).name }));
   const cards = (G && G.newCards || []).map(w => allCards().find(c => c.w === w)).filter(Boolean);
   const badges = G && G.newBadges || [];
   const rewards = [
-    R && R.unlocked ? `<div class="reward"><i>${THEMES[R.unlocked.tema].ico}</i><div><b>Yeni durak açıldı: ${esc(R.unlocked.ad)}</b><small>Haritada sizi bekliyor</small></div></div>` : "",
-    R && R.finalOpen ? `<div class="reward"><i>🪔</i><div><b>${FINAL_DURAK.ad} açıldı!</b><small>Yolculuk belgenizi alın</small></div></div>` : "",
+    R && R.unlocked ? `<div class="reward"><i>${R.unlocked.ico}</i><div><b>${R.unlocked.s2 ? "Yeni vadi açıldı" : "Yeni durak açıldı"}: ${esc(R.unlocked.ad)}</b><small>Haritada sizi bekliyor</small></div></div>` : "",
+    R && R.finalOpen ? `<div class="reward"><i>${R.finalIco}</i><div><b>${R.finalName} açıldı!</b><small>${R.finalName === "Kaf Dağı" ? "Yolculuğun finali sizi bekliyor" : "Yolculuk belgenizi alın"}</small></div></div>` : "",
     cards.length ? `<div class="reward" style="animation-delay:.15s"><i>🃏</i><div><b>${cards.length} yeni Kıssa Kartı</b><small>${cards.map(c => c.e + " " + esc(c.w)).join(", ")}</small></div></div>` : "",
     ...badges.map((b, i) => `<div class="reward" style="animation-delay:${.3 + i * .15}s"><i>${b.e}</i><div><b>Rozet: ${esc(b.ad)}</b><small>${esc(b.nasil)}</small></div></div>`)
   ].join("");
@@ -1843,7 +1865,7 @@ function screenEnd() {
       <h2 style="font:700 30px/34px var(--font-display)">Ne güzel bir geceydi!</h2>
       ${guide(msg, { noSpeak: true, soft: true })}
       ${rewards ? `<div class="reward-list">${rewards}</div>` : ""}
-      ${R && R.unlocked || R && R.finalOpen ? `<button class="ak-btn ak-btn--kandil ak-btn--lg" data-act="map">Haritayı Aç</button>` : ""}
+      ${R && R.unlocked || R && R.finalOpen ? `<button class="ak-btn ak-btn--kandil ak-btn--lg" data-act="${G && S2.isVadi(G.theme) ? "s2-map" : "map"}">Haritayı Aç</button>` : ""}
       ${week ? `<p class="small bold muted">İyilik Haftası ana sayfada sizi bekliyor. Yaptığınız iyilikleri oradan işaretleyin.</p>` : ""}
       <button class="ak-btn ak-btn--lg" data-act="home">Ana sayfa</button>
     </section>
@@ -1885,6 +1907,7 @@ const actions = {
   priv: a => { const [i, m] = split(a); privHand(i, m); }, "priv-open": a => { const [i, m] = split(a); privOpen(i, m); }, "priv-feel": a => { const [i, e] = split(a); privFeel(i, e); },
   "cer-intro": cerIntro, "cer-guess": cerGuess, "cer-pick": (a, el) => cerPick(a, el), "cer-reveal": cerReveal, "cer-thank": a => cerThank(+a), "cer-next": cerNext,
   defter: screenDefter,
+  ...S2.actions,
   map: screenMap, land: openLand, album: a => screenAlbum(a || null), card: screenCard, badges: screenBadges,
   freeall() { P.freeAll = !P.freeAll; saveP(); openSettings(false); }
 };

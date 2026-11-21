@@ -147,3 +147,74 @@ const BAHANE_KARTLARI = [
   { k: "huma", b: "Ben hiç hata yapmam, hata hep başkasında!", c: "Hatasını kabul eden kuş daha yükseğe uçar.", h: "Özür dilemek", y: "Ben yanılmam, sen yanlış anladın." },
   { k: "huma", b: "Kaybedersem oyunu bozarım, ben hep kazanmalıyım!", c: "Kazanmak güzeldir, ama birlikte oynamak daha güzeldir.", h: "Kaybetmeyi kabullenmek", y: "Tartışmada son sözü hep ben söylerim." }
 ];
+
+/* Yedi vadi: ikinci sezonun durakları. kaynak = Sen Olsan? ve Hızlı Tur için şimdilik kullanılan birinci sezon teması. */
+const VADILER = [
+  { id: "talep", ad: "Talep Vadisi", e: "🕊️", color: "--cini", kaynak: "dogruluk", desc: "Merak etmek, sormak, öğrenmek",
+    giris: "İlk vadiye hoş geldiniz: Talep Vadisi! Burada her kuş bir şeyi merak eder ve sorar. Soru sormak yolun ilk adımıdır. Bugün neyi öğrenmek istiyorsunuz?",
+    nas: { tur: "ayet", text: "Rabbim, ilmimi artır.", ref: "Tâhâ Suresi, 114. ayet" } },
+  { id: "ask", ad: "Aşk Vadisi", e: "🪺", color: "--nar", kaynak: "merhamet", desc: "Sevgiyle bağlanmak, emek vermek",
+    giris: "Aşk Vadisi'ne geldik. Burada kuşlar sevdikleri için emek verir, yorulsalar bile vazgeçmez. Sevgi, yolun kanatlarıdır. Bugün kimi sevindireceksiniz?",
+    nas: { tur: "hadis", text: "Birbirinizi sevmedikçe iman etmiş olmazsınız.", ref: "Müslim, Îman 93" } },
+  { id: "marifet", ad: "Marifet Vadisi", e: "🐜", color: "--zumrut", kaynak: "sukur", desc: "Bir şeyin sebebini anlamak",
+    giris: "Marifet Vadisi! Burada her şeyin bir sebebi, bir hikmeti vardır. Bakmak başka, anlamak başkadır. Gözlerinizi açın, kalbinizle bakın!",
+    nas: { tur: "ayet", text: "Hiç bilenlerle bilmeyenler bir olur mu?", ref: "Zümer Suresi, 9. ayet" } },
+  { id: "istigna", ad: "İstiğna Vadisi", e: "💎", color: "--kandil", kaynak: "paylasmak", desc: "Azla yetinmek, kıskanmamak",
+    giris: "İstiğna Vadisi'ndeyiz. Burada kuşlar azla yetinmeyi öğrenir. Kimseyi kıskanmayan kalp, en zengin kalptir.",
+    nas: { tur: "hadis", text: "Zenginlik mal çokluğu değil, gönül zenginliğidir.", ref: "Buhârî, Rikâk 15; Müslim, Zekât 120" } },
+  { id: "tevhid", ad: "Tevhid Vadisi", e: "🪿", color: "--firuze", kaynak: "annebaba", desc: "Birlikte olmak, ayrılmamak",
+    giris: "Tevhid Vadisi! Burada bütün kuşlar tek bir sürü gibi uçar. Birlikte olunca yol kısalır, yük hafifler. Kanat kanada verin!",
+    nas: { tur: "ayet", text: "Hep birlikte Allah'ın ipine sımsıkı sarılın, ayrılmayın.", ref: "Âl-i İmrân Suresi, 103. ayet" } },
+  { id: "hayret", ad: "Hayret Vadisi", e: "🌌", color: "--lale", kaynak: "sukur", desc: "Yaratılışa hayran kalmak",
+    giris: "Hayret Vadisi'ne hoş geldiniz. Burada kuşlar gökyüzüne, denize, bir yaprağa bakıp hayran kalır. Durun ve dinleyin: her şey Allah'ı anar.",
+    nas: { tur: "ayet", text: "Göklerin ve yerin yaratılışında, gece ile gündüzün birbiri ardınca gelişinde akıl sahipleri için elbette ibretler vardır.", ref: "Âl-i İmrân Suresi, 190. ayet" } },
+  { id: "fakr", ad: "Fakr ü Fenâ Vadisi", e: "🦚", color: "--cini", kaynak: "sabir", desc: "Alçakgönüllü olmak, “biz” demek",
+    giris: "Son vadi: Fakr ü Fenâ. Burada kuşlar “ben” demeyi bırakıp “biz” demeyi öğrenir. Alçakgönüllü kalp, en yükseğe uçar. Kaf Dağı çok yakın!",
+    nas: { tur: "ayet", text: "Rahmân'ın kulları yeryüzünde vakar ve tevazu ile yürürler.", ref: "Furkân Suresi, 63. ayet" } }
+];
+
+/* Final: göl aynasında her kuşun değişimi (hep olumlu kurulur) */
+const KUS_DEGISIM = {
+  bulbul: { once: "Eskiden sadece gülünü düşünüyordun.", simdi: "Şimdi sevdiklerine vakit ayıran bir bülbülsün." },
+  papagan: { once: "Eskiden eğlencenin hiç bitmemesini istiyordun.", simdi: "Şimdi zamanında bırakmayı bilen bir papağansın." },
+  tavus: { once: "Eskiden ödül olmadan kanat çırpmıyordun.", simdi: "Şimdi karşılık beklemeden iyilik yapan bir tavussun." },
+  keklik: { once: "Eskiden taşlarını kimseye vermiyordun.", simdi: "Şimdi paylaştıkça sevinen bir kekliksin." },
+  sahin: { once: "Eskiden sıraya girmek istemiyordun.", simdi: "Şimdi küçüklere yer açan bir şahinsin." },
+  serce: { once: "Eskiden “Ben çok küçüğüm” diyordun.", simdi: "Şimdi yeni şeyleri deneyen cesur bir serçesin." },
+  baykus: { once: "Eskiden köşenden çıkmıyordun.", simdi: "Şimdi sürüyle birlikte uçan bir baykuşsun." },
+  huma: { once: "Eskiden kendini en iyi sanıyordun.", simdi: "Şimdi her gün yeni bir şey öğrenen bir hümasın." }
+};
+
+/* İkinci sezonun Hüdhüd cümleleri (yapay zekâ sesi için sabit) */
+const S2_SOZ = {
+  davet: "Sevgili kuşlarım, yolculuğun ilk kısmını birlikte tamamladınız. Ama asıl yolculuk şimdi başlıyor! Uzaklarda, Kaf Dağı'nın ardında, bütün kuşların aradığı bir güzellik var. Yedi vadiden geçmek gerek. Benimle gelir misiniz?",
+  meclis: "Her kuşun bir şarkısı, bir de bahanesi vardır. Hadi, kendi kuşunu seç! Ama dikkat: yola çıkmak için kuşunun bahanesini yenmen gerekecek.",
+  meclisSira: "Sıra sende! Kuşunu seç.",
+  bahanesi: "Bahanesi şu:",
+  harita: "Yedi vadiden geçip Kaf Dağı'na ulaşacağız. Sıradaki vadi neresi?",
+  kilitli: "Bu vadi henüz kilitli. Önceki vadiyi geçince açılacak!",
+  gorevler: "Bahane görevleri! Bu hafta herkes kendi kuşunun bahanesine karşı küçük bir görev yapıyor.",
+  gorevYok: "Bahane görevleri ilk vadiden sonra başlar.",
+  gorevTamam: "Maşallah! Bahaneni bir adım daha geride bıraktın.",
+  bahaneCanlandir: "Bahaneni abartarak canlandır! Otuz saniyen var.",
+  bahaneTahmin: "Hangi kuş bahane uyduruyordu? Şimdi herkes Hüdhüd gibi onu ikna etsin! En ikna edici cevabı hakem seçsin.",
+  bahaneKendi: "Kendi kuşunun bahanesini yendin!",
+  finaleGecis: "Yedi vadiyi geçtiniz! Kanatlarınız yoruldu ama kalpleriniz büyüdü. İşte Kaf Dağı. Haydi, son kez birlikte uçalım.",
+  f1: "Başardınız! Yola çıkan nice kuştan siz buraya kadar geldiniz.",
+  f2: "Hep bir güzelliği aradık. Acaba nerede?",
+  f3: "Şu göle bakın. Ne görüyorsunuz?",
+  f4: "Göle sırayla bakalım. Herkes kendi yansımasını görsün.",
+  yolaCikti: "Yola çıkman en zor adımdı, sen o adımı attın.",
+  bahaneniYendin: "Bahaneni yendin!",
+  f5: "Aradığımız güzellik uzaklarda değildi. Yol boyunca birbirimize yaptığımız iyiliklerde büyüdü. Kalpleriniz artık daha geniş, kanatlarınız daha güçlü.",
+  f6: "Şimdi herkes, yolculukta kendisine en çok yardım eden kuşa teşekkür etsin.",
+  f7: "Kuşların Yolculuğu tamamlandı! Bu minyatür sizin.",
+  f8: "Allah yolumuzu hep hayra çıkarsın. Bir dahaki yolculukta görüşmek üzere!"
+};
+
+/* Bahane Avcısı mini oyunu ve ikinci sezon rozetleri */
+GAMES.bahane = { name: "Bahane Avcısı", color: "--cini", ico: "🪶", short: "Bahaneni canlandır, ailen seni ikna etsin!" };
+ROZETLER.push(
+  { id: "bahane-avcilari", e: "🪶", ad: "Bahane Avcıları", nasil: "Ailede bir kişi kendi kuşunun bahanesini yensin.", olcut: "s2bahane", hedef: 1 },
+  { id: "kaf-dagi", e: "🏔️", ad: "Kaf Dağı", nasil: "Kuşların Yolculuğu'nu tamamlayın.", olcut: "s2final", hedef: 1 }
+);

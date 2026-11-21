@@ -42,7 +42,8 @@ C.KALKOTUR.forEach(x => { if (!x.d && ALLAH.test(x.s)) ekle(hatalar, 4, `KALKOTU
 
 // Kuşların Yolculuğu
 if (fs.existsSync(path.join(kok, "icerik-kuslar.js"))) {
-  const K = oku("icerik-kuslar.js", "VADI_HIKAYELERI,KUSLAR,BAHANE_KARTLARI");
+  const K = new Function(["icerik.js", "icerik-kuslar.js"].map(f => fs.readFileSync(path.join(kok, f), "utf8")).join("\n") + ";return {VADI_HIKAYELERI,KUSLAR,BAHANE_KARTLARI,VADILER}")();
+  K.VADILER.forEach(v => { if (KUTSAL.test(v.ad)) ekle(hatalar, 2, `Vadi "${v.ad}"`, "Vadi adında kutsal isim + simge"); });
   K.VADI_HIKAYELERI.forEach(h => { if (KUTSAL.test(h.baslik)) ekle(hatalar, 2, `Vadi hikâyesi "${h.baslik}"`, "Başlıkta kutsal isim + resim"); });
   const kusIds = new Set(K.KUSLAR.map(x => x.id));
   K.BAHANE_KARTLARI.forEach((x, i) => {
