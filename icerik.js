@@ -101,7 +101,7 @@ const PANDOMIM = [
   { w: "Taş taşıyan kuşlar", e: "🪨", kolay: false, info: "Fil Suresi: Allah, Ebrehe'nin ordusunun üzerine taş taşıyan kuş sürüleri (Ebâbil) gönderdi." },
   { w: "Hurma ağacını sallamak", e: "🌴", kolay: false, info: "Meryem Suresi: Hz. Meryem'e hurma ağacını sallaması söylendi ve üzerine taze hurmalar döküldü." },
   { w: "Sahura uykulu kalkmak", e: "😴", kolay: false, info: "Peygamberimiz “Sahur yapın, çünkü sahurda bereket vardır” buyurdu. (Buhârî, Müslim)" },
-  { w: "Hapşırıp Elhamdülillah demek", e: "🤧", kolay: true, info: "Hapşıran “Elhamdülillah” der, duyan “Yerhamükallah” der. (Buhârî, Edeb 126)" },
+  { w: "Hapşırıp Elhamdülillah demek", e: "🤧", kolay: true, info: "Hapşıran “Elhamdülillah” der. Duyan “Yerhamükellah” (Allah sana rahmet etsin) der. Hapşıran da “Yehdînâ ve yehdîkümullah” (Allah bize ve size hidayet versin) diye karşılık verir. (Buhârî, Edeb 126)" },
   { w: "Susamış kediye su vermek", e: "🐱", kolay: true, info: "Peygamberimiz, susamış bir köpeğe kuyudan su çıkarıp içiren adamı Allah'ın bağışladığını anlattı. (Buhârî, Müslim)" },
   { w: "Abdest almak", e: "💧", kolay: false, info: "Abdest, namazın anahtarıdır. Peygamberimiz abdest alırken suyu israf etmezdi." },
   { w: "Bal yapan arı", e: "🐝", kolay: true, info: "Nahl (Arı) Suresi: Allah arıya dağlarda ve ağaçlarda yuva yapmasını ilham etti. Karınlarından insanlara şifa olan bal çıkar. (Nahl, 68-69)" },
@@ -302,7 +302,7 @@ const SASKIN = [
   { s: "Abdest alıyormuş gibi yap. Ama: ayaklarını yüzünden önce yıka, ağzını çalkalamayı unut ve başını mesh etmek yerine saçını tara. Abartmak serbest!", h: ["Ayaklar en son yıkanır.","Ağız çalkalanır, burna su verilir.","Baş, ıslak elle mesh edilir."] },
   { s: "Sofraya otur ve yemeğe başla. Ama: Besmele çekme, sol elinle ye ve tabağının yarısını bırakıp “Doydum!” de.", h: ["Yemeğe “Bismillah” diyerek başlanır.","Yemek sağ elle yenir.","İsraf etmeyiz; tabağa yiyebileceğimiz kadar alırız."] },
   { s: "Dışarı çıkıp eve gir. Ama: selam verme, ayakkabılarınla içeri yürü ve kapıyı çarp.", h: ["Eve girerken “Selâmün aleyküm” denir.","Ayakkabılar kapıda çıkarılır, ev temiz tutulur.","Kapı yavaşça kapatılır, kimse rahatsız edilmez."] },
-  { s: "Çok yüksek sesle hapşır ve hiçbir şey deme. Biri “Yerhamükallah” derse “Ne?” diye cevap ver.", h: ["Hapşıran “Elhamdülillah” der.","Duyan “Yerhamükallah” der.","Hapşıran da “Yehdîkümullah” diye karşılık verir."] },
+  { s: "Çok yüksek sesle hapşır ve hiçbir şey deme. Biri “Yerhamükellah” derse “Ne?” diye cevap ver.", h: ["Hapşıran “Elhamdülillah” der.", "Duyan “Yerhamükellah” (Allah sana rahmet etsin) der.", "Hapşıran da “Yehdînâ ve yehdîkümullah” (Allah bize ve size hidayet versin) diye karşılık verir."] },
   { s: "Misafir karşılıyormuş gibi yap. Ama: yerinden kalkma, “Hoş geldin” deme ve telefonuna bakmaya devam et.", h: ["Misafir ayağa kalkılarak, güler yüzle karşılanır.","“Hoş geldin” denir, hâli hatırı sorulur.","Misafire ikram edilir. (Allah'a ve ahiret gününe iman eden misafirine ikram etsin. Buhârî, Müslim)"] },
   { s: "Yatıp uyuyormuş gibi yap. Ama: dua etmeden, sol tarafına dönüp hemen horlamaya başla.", h: ["Uyumadan önce dua edilir: “Bismikellâhümme emûtü ve ahyâ.”","Sünnet olan, sağ tarafa yatmaktır.","Abdestli yatmak güzel bir sünnettir."] },
   { s: "Biri sana hediye veriyormuş gibi yap. Ama: teşekkür etme, “Bu ne ya?” de ve hediyeyi kenara fırlat.", h: ["Hediye verene teşekkür edilir.","Hediye ayıplanmaz; güzel bir söz söylenir.","Peygamberimiz “Hediyeleşin, birbirinizi sevin” buyurdu. (Buhârî, el-Edebü'l-Müfred)"] },
@@ -412,7 +412,7 @@ const SESLER = [
   { w: "Deve", e: "🐪", kolay: true, info: "Peygamberimizin devesi Kasvâ'nın çöktüğü yere Mescid-i Nebevî yapıldı." },
   { w: "Havlayan köpek", e: "🐕", kolay: true, info: "Kehf Suresi'nde mağaradaki gençlerin köpeğinden bahsedilir." },
   { w: "Sahur davulu", e: "🥁", kolay: true, info: "Ramazan'da sahura kaldırmak için davul çalınması güzel bir gelenektir." },
-  { w: "Kocaman bir hapşırık", e: "🤧", kolay: true, info: "Hapşıran “Elhamdülillah”, duyan “Yerhamükallah” der. (Buhârî)" },
+  { w: "Kocaman bir hapşırık", e: "🤧", kolay: true, info: "Hapşıran “Elhamdülillah”, duyan “Yerhamükellah” der; hapşıran da “Yehdînâ ve yehdîkümullah” diye karşılık verir. (Buhârî)" },
   { w: "Kaynayan çaydanlık", e: "🫖", kolay: true, info: "Misafire çay ikram etmek güzel bir gelenektir. Peygamberimiz misafire ikramı öğütledi. (Buhârî, Müslim)" }
 ];
 

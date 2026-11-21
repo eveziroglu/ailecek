@@ -1,6 +1,47 @@
 /* Kuşların Yolculuğu: Ailecek'in ikinci sezonu.
    Veri: icerik-kuslar.js. Bu dosya index.html'deki ortak fonksiyonları (render, guide, say, P, G, family…)
    yalnızca fonksiyonların içinde kullanır; index.html'in ana betiğinden önce yüklenir. */
+/* Kuş simgeleri: Hüdhüd ile aynı üslupta, sağa bakan küçük kuşlar (emoji yerine; her telefonda aynı görünür) */
+const KUS_SVG = (() => {
+  const EYE = '<circle cx="47" cy="24" r="2.8" fill="#1C2A33"/><circle cx="48" cy="23" r="1" fill="#fff"/>';
+  const LEGS = '<path d="M28 52v6M35 52v6M25 58h6M32 58h6" stroke="#8A6F5C" stroke-width="2.4" stroke-linecap="round"/>';
+  const BEAK = { duz: '<path d="M53 24.5 62 27 53 29.5Z" fill="#3A3A3A"/>', kisa: '<path d="M53 25.5 58.5 27 53 28.5Z" fill="#3A3A3A"/>',
+    kanca: '<path d="M52 22.5Q61 22 60 30.5L56.5 28 52 29Z" fill="#F2C14E"/>', kirmizi: '<path d="M53 25 60 27 53 29Z" fill="#D2433A"/>',
+    papagan: '<path d="M52 21.5Q62 21 60.5 31L56.5 28.5 52 29Z" fill="#F3E3C3"/><path d="M56.5 28.5 60.5 31 58 31.5Z" fill="#3A3A3A"/>' };
+  const bird = o => `<svg class="kus" viewBox="0 0 64 64" aria-hidden="true">${o.arka || ""}
+    <path d="${o.kuyruk || "M16 40 3 35 5 45 17 46Z"}" fill="${o.kanat}"/>
+    <ellipse cx="30" cy="41" rx="16" ry="13" fill="${o.govde}"/><ellipse cx="34" cy="45" rx="9" ry="7.5" fill="${o.gogus}"/>
+    ${o.gogusDesen || ""}<ellipse cx="25" cy="39" rx="10" ry="6.5" transform="rotate(-14 25 39)" fill="${o.kanat}"/>${o.kanatDesen || ""}
+    <circle cx="44" cy="26" r="10" fill="${o.bas || o.govde}"/>${o.basDesen || ""}${o.tepe || ""}${EYE}${o.gozHalka || ""}${BEAK[o.gaga || "duz"]}${LEGS}</svg>`;
+  return {
+    bulbul: bird({ govde: "#9C7A5B", gogus: "#E3D3BF", kanat: "#6F5440", gaga: "kisa", kuyruk: "M16 41 0 33 2 40 0 47 17 47Z" }),
+    papagan: bird({ govde: "#2E9E4F", gogus: "#BFD65A", kanat: "#1E6FB8", bas: "#D93A3A", gaga: "papagan", kuyruk: "M16 42 1 47 3 51 18 47Z" }),
+    tavus: bird({ govde: "#1E63B5", gogus: "#2B86D9", kanat: "#17508F", gaga: "kisa", kuyruk: "M16 42 8 42 8 44 16 44Z",
+      arka: [-50, -25, 0, 25, 50].map(a => `<g transform="rotate(${a} 18 42)"><ellipse cx="6" cy="42" rx="12" ry="5" fill="#1C7A4C"/><circle cx="-2" cy="42" r="3.2" fill="#0B7A77"/><circle cx="-2" cy="42" r="1.6" fill="#EAA214"/></g>`).join(""),
+      tepe: '<path d="M43 16v-6M46 16.5l2-6M40 16.5l-2-6" stroke="#17508F" stroke-width="1.6"/><circle cx="43" cy="9.5" r="1.8" fill="#0B7A77"/><circle cx="48.3" cy="10" r="1.8" fill="#0B7A77"/><circle cx="37.7" cy="10" r="1.8" fill="#0B7A77"/>' }),
+    keklik: bird({ govde: "#B5A08A", gogus: "#D9CFC2", kanat: "#8E7A66", gaga: "kirmizi", bas: "#C9B8A5",
+      gogusDesen: '<path d="M20 45q3-4 6 0M23 49q3-4 6 0M18 41q3-4 6 0" stroke="#4A3B30" stroke-width="2" fill="none" stroke-linecap="round"/>',
+      basDesen: '<path d="M38 30q6 4 13 0" stroke="#1C2A33" stroke-width="2" fill="none"/>', gozHalka: '<circle cx="47" cy="24" r="4.2" fill="none" stroke="#D2433A" stroke-width="1.6"/>' }),
+    sahin: bird({ govde: "#7B5A44", gogus: "#EFE3D0", kanat: "#5A3F2E", gaga: "kanca", bas: "#6A4B37",
+      gogusDesen: '<g fill="#7B5A44"><circle cx="31" cy="43" r="1.2"/><circle cx="35" cy="46" r="1.2"/><circle cx="38" cy="42" r="1.2"/><circle cx="33" cy="49" r="1.2"/></g>',
+      gozHalka: '<circle cx="47" cy="24" r="4" fill="none" stroke="#F2C14E" stroke-width="1.6"/>' }),
+    serce: bird({ govde: "#A27E5E", gogus: "#E2D6C6", kanat: "#7A5A40", gaga: "kisa", bas: "#B08B6A",
+      basDesen: '<path d="M35 22a10 10 0 0 1 18 0q-9-4-18 0Z" fill="#8F8F8F"/><path d="M42 32q4 6 9 0q-4 1-9 0Z" fill="#2B2B2B"/>' }),
+    baykus: `<svg class="kus" viewBox="0 0 64 64" aria-hidden="true"><path d="M18 14l6 9M46 14l-6 9" stroke="#6D4C35" stroke-width="5" stroke-linecap="round"/>
+      <ellipse cx="32" cy="38" rx="19" ry="20" fill="#8A6247"/><ellipse cx="32" cy="45" rx="11" ry="11" fill="#D9C2A5"/>
+      <path d="M26 45q2 2 4 0M34 45q2 2 4 0M30 50q2 2 4 0" stroke="#8A6247" stroke-width="1.6" fill="none"/>
+      <circle cx="24.5" cy="30" r="7.5" fill="#F4E6CF"/><circle cx="39.5" cy="30" r="7.5" fill="#F4E6CF"/>
+      <circle cx="24.5" cy="30" r="4.6" fill="#EAA214"/><circle cx="39.5" cy="30" r="4.6" fill="#EAA214"/>
+      <circle cx="25" cy="30" r="2.6" fill="#1C2A33"/><circle cx="40" cy="30" r="2.6" fill="#1C2A33"/><circle cx="26" cy="29" r=".9" fill="#fff"/><circle cx="41" cy="29" r=".9" fill="#fff"/>
+      <path d="M30 35 32 40 34 35Z" fill="#3A3A3A"/>${LEGS.replace(/M28 52/, "M28 56").replace(/M35 52/, "M36 56")}</svg>`,
+    huma: bird({ govde: "#EAA214", gogus: "#FFD37A", kanat: "#C9870A", gaga: "kisa", bas: "#F2B33A",
+      kuyruk: "M17 40 C6 30 2 22 0 18 C6 28 8 34 4 36 C10 36 12 40 2 46 C10 44 14 44 17 46Z",
+      arka: '<path d="M16 44 C6 50 2 56 0 60 C8 54 12 52 18 47Z" fill="#C4362E"/>',
+      tepe: '<path d="M42 17 39 9 43 14 44 7 46 14 50 9 47 17Z" fill="#EAA214" stroke="#C9870A" stroke-width=".8"/>' })
+  };
+})();
+KUSLAR.forEach(k => { if (KUS_SVG[k.id]) k.e = KUS_SVG[k.id]; });
+
 const S2 = (() => {
   const st = () => (P.s2 ||= { birds: {}, vadis: {}, wins: {}, gorev: {}, finalDone: 0, used: [] });
   const VID = k => (typeof k === "string" && k.startsWith("v-")) ? k.slice(2) : null;

@@ -26,7 +26,7 @@ Palet İznik çinilerinden gelir. Zemin serin beyaz, metin derin lacivert, vurgu
 
 ## Tipografi
 
-- Başlıklar, butonlar, sorular ve Hüdhüd'ün sesi `display` ailesinde (Fredoka): yuvarlak, sıcak, okunaklı. Stiller: `hero`, `card-word`, `title`, `question`, `bubble`.
+- Başlıklar, butonlar, sorular ve Hüdhüd'ün sesi `display` ailesinde (Baloo 2; Türkçe harflerin tamamını içerir, Fredoka'da ş, ğ ve İ eksik olduğu için kullanılmaz): yuvarlak, sıcak, okunaklı. Stiller: `hero`, `card-word`, `title`, `question`, `bubble`.
 - Gövde metni `body` ailesinde (Figtree): `body-lg`, `body`, `caption`. Büyük harfli etiketler `label` (0.08em harf aralığı).
 - Rakamlar (zamanlayıcı, sayaç, fidan sayısı) `display` ailesinde ve `tabular-nums`.
 - Metni ortalayın yalnızca tek odaklı oyun ekranlarında (soru, kelime, mühür). Liste ve açıklamalar sola dayalıdır.

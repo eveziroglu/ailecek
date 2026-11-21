@@ -84,7 +84,7 @@ Anahtarlar: Claude Code bulut ortamında ortamın **Network secrets** bölümün
 Arayüz, `tasarim/project/` altındaki **Ailecek Tasarım Sistemi**'ne göre kurulmuştur:
 
 - **Renkler:** İznik çini paleti (çini mavisi, firuze, zümrüt, nar, kandil, lale ve gizli iyilikler için gece). Açık ve koyu tema, tüm metin çiftleri WCAG 4.5:1 üzerinde.
-- **Yazı tipleri:** Başlıklar Fredoka, metin Figtree.
+- **Yazı tipleri:** Başlıklar Baloo 2, metin Figtree (ikisi de Türkçe harflerin tamamını içerir).
 - **Biçim:** Mihrap kemeri biçimli kartlar, sekiz köşeli yıldız deseni.
 - **Bileşenler:** `ak-` önekli CSS bileşenleri (Button, Chip, Avatar, HudhudGuide, GameCard, OptionTile, Timer, FlipCard, Stamp, DeedCard, Station, KissaCard, Badge, Toast).
 
