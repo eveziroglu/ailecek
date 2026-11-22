@@ -1,5 +1,5 @@
 /* Sürüm etiketi: node surum.mjs ile güncellenir; index.html ile aynı olmalı. */
-const ICERIK_SURUM = "20261122-1449";
+const ICERIK_SURUM = "20261122-1453";
 /* Ailecek oyun içeriği.
    Yeni kart eklemek için ilgili listeye bir satır eklemeniz yeterli.
    Bil Bakalım'da ilk seçenek doğru cevaptır (oyunda karıştırılır).
@@ -29,7 +29,8 @@ const GAMES = {
   sirala: { name: "Kıssa Sıralama", color: "--firuze", ico: "🔢", short: "Olayları doğru sıraya dizin!" },
   farkli: { name: "Hangisi Farklı?", color: "--nar", ico: "🔍", short: "Gruba uymayanı bulun!" },
   kalpdoktoru: { name: "Kalp Doktoru", color: "--zumrut", ico: "🌱", short: "Kalpte hangi ot bitti? İlacını bulalım!" },
-  hikaye: { name: "Hikmetli Hikâye", color: "--cini", ico: "📖", short: "Dinle, düşün, hikmeti bul!" }
+  hikaye: { name: "Hikmetli Hikâye", color: "--cini", ico: "📖", short: "Dinle, düşün, hikmeti bul!" },
+  aile: { name: "Aile Kartı", color: "--kandil", ico: "🏡", short: "Ailemizin kendi sorusu!" }
 };
 
 const THEMES = {
