@@ -11,6 +11,8 @@
   5. Bilmece cevabı Allah, peygamber, sahabe ya da melek olamaz; Hangisi Farklı'da kutsal isimler resimsiz gelir.
   6. Kalp Doktoru ve Hikmetli Hikâye: her kart bilinen bir kalp köşesine bağlıdır; "gösteriş" kartları en küçüklere gelmez;
      hikmette "Peygamberimiz" geçiyorsa hadisin kaynağı (r) yazılıdır; korkutma dili kullanılmaz.
+  7. Kâinat Kitabı: her sayfanın ayet kaynağı, üç görevi ve üç Hayret! kartı vardır; "doğa/tabiat yaptı" dili kullanılmaz;
+     görevlerde canlıya zarar (koparmak, kavanoza kapatmak, yuva bozmak) yoktur.
 */
 import fs from "node:fs";
 import path from "node:path";
@@ -82,6 +84,28 @@ if (fs.existsSync(path.join(kok, "kalp.js"))) {
     x.senolsan.forEach(c => { if (KUTSAL.test(c.s) && c.e) ekle(uyarilar, 1, `Kalp Bahçesi ${id} Sen Olsan`, `"${c.s.slice(0, 40)}…" resimle birlikte kutsal isim içeriyor`); });
   });
   if (KORKU.test(Object.values(KB.KALP_SOZ).join(" "))) ekle(hatalar, 6, "Kalp Bahçesi sözleri", "Korkutma dili");
+}
+
+// Kâinat Kitabı (kainat.js)
+if (fs.existsSync(path.join(kok, "kainat.js"))) {
+  const KK = new Function(["icerik.js", "kainat.js"].map(f => fs.readFileSync(path.join(kok, f), "utf8")).join("\n") + ";return {KAINAT_SAYFALAR,HAYRET,KAINAT_SOZ}")();
+  const ids = new Set(KK.KAINAT_SAYFALAR.map(x => x.id));
+  const DOGA = /(doğa|tabiat)\s*(ana|yap|tasarla|yarat)|evrim/i, ZARAR = /kopar|kavanoz|yuvayı boz|yakala/i;
+  KK.KAINAT_SAYFALAR.forEach(x => {
+    if (!x.ayet || !x.ayet.ref || !/Suresi, \d/.test(x.ayet.ref)) ekle(hatalar, 7, `Kâinat sayfası ${x.id}`, "Ayetin kaynağı yok");
+    if (x.gorevler.length !== 3) ekle(hatalar, 7, `Kâinat sayfası ${x.id}`, "3 görev olmalı");
+    const tum = [x.giris, x.soru, x.bilgi, x.gorevler].flat().join(" ");
+    if (DOGA.test(tum)) ekle(hatalar, 7, `Kâinat sayfası ${x.id}`, "“Doğa yaptı” dili");
+    if (ZARAR.test(x.gorevler.join(" ").replace(/yuvayı bozmadan/g, ""))) ekle(hatalar, 7, `Kâinat sayfası ${x.id}`, "Görevde canlıya zarar");
+    if (KORKU.test(tum)) ekle(hatalar, 7, `Kâinat sayfası ${x.id}`, "Korkutma dili");
+    const n = KK.HAYRET.filter(h => h.k === x.id).length; if (n !== 3) ekle(uyarilar, 7, `Kâinat sayfası ${x.id}`, `${n} Hayret! kartı var, 3 olmalı`);
+  });
+  KK.HAYRET.forEach((h, i) => {
+    if (!ids.has(h.k)) ekle(hatalar, 7, `Hayret! kartı ${i + 1}`, `Bilinmeyen sayfa: ${h.k}`);
+    if (KUTSAL.test(h.s) || ALLAH.test(h.s)) ekle(hatalar, 3, `Hayret! kartı ${i + 1}`, "Doğru/şaka cümlesi kutsal isim ya da Allah hakkında olmamalı");
+    if (DOGA.test(h.s + h.a)) ekle(hatalar, 7, `Hayret! kartı ${i + 1}`, "“Doğa yaptı” dili");
+  });
+  if (DOGA.test(Object.values(KK.KAINAT_SOZ).join(" "))) ekle(hatalar, 7, "Kâinat Kitabı sözleri", "“Doğa yaptı” dili");
 }
 
 // Kuşların Yolculuğu

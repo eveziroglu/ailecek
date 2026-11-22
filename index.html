@@ -19,7 +19,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Ailecek">
-<link rel="stylesheet" href="yazi/yazi.css?v=20261122-1707">
+<link rel="stylesheet" href="yazi/yazi.css?v=20261122-1741">
 <style>
 /* Ailecek tasarım sistemi: tasarim/project/ altındaki tokens.json ve bundle.css'ten üretilir (python3 tasarim/esitle.py). Elle düzenlemeyin. */
 /* @tokenlar:başla */
@@ -414,6 +414,28 @@ blockquote cite { display: block; margin-top: 8px; font: 600 13px/18px var(--fon
 .kb-kose.is-current { border-color: var(--kandil); box-shadow: 0 0 0 3px color-mix(in srgb, var(--kandil) 35%, transparent); }
 .kb-kose.is-locked { opacity: .55; }
 .kb-kose--final { grid-column: 1 / -1; }
+/* Kâinat Kitabı */
+.kk-kart { --c: var(--cini); border-left: 6px solid var(--c); }
+.kk-gorevler { display: grid; gap: 8px; }
+.kk-gorev { display: flex; align-items: flex-start; gap: 10px; width: 100%; padding: 10px 12px; text-align: left; border: 2px solid var(--line); border-radius: var(--radius-md); background: var(--surface-200); color: var(--ink); font: 600 15px/1.35 var(--font-body); cursor: pointer; }
+.kk-gorev__kutu { flex: none; display: grid; place-items: center; width: 26px; height: 26px; border-radius: 8px; border: 2px solid var(--line); background: var(--surface-100, #fff); font-weight: 800; color: var(--on-accent); }
+.kk-gorev[aria-pressed="true"] { border-color: var(--zumrut); background: color-mix(in srgb, var(--zumrut) 12%, var(--surface-200)); }
+.kk-gorev[aria-pressed="true"] .kk-gorev__kutu { background: var(--zumrut); border-color: var(--zumrut); }
+#kk-not { width: 100%; min-height: 48px; padding: 10px 14px; border-radius: var(--radius-md); border: 2px solid var(--line); background: var(--surface-200); color: var(--ink); font: 600 16px/1.4 var(--font-body); }
+.kk-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.kk-sayfa { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 12px 8px; border-radius: 18px; border: 2px dashed var(--line, #d3dcec); background: var(--surface-100, #fff); color: inherit; font: inherit; text-align: center; cursor: pointer; min-width: 0; }
+.kk-sayfa b { font: 700 16px/1.15 var(--font-display); }
+.kk-sayfa small { font-size: 12px; font-weight: 800; opacity: .8; min-height: 1em; }
+.kk-sayfa__ico { font-size: 34px; line-height: 1.1; filter: grayscale(.7); opacity: .7; }
+.kk-sayfa__not { font-size: 12px; font-weight: 600; font-style: italic; opacity: .85; overflow-wrap: anywhere; }
+.kk-sayfa.is-okundu { border-style: solid; border-color: var(--c); background: color-mix(in srgb, var(--c) 12%, var(--surface-100, #fff)); }
+.kk-sayfa.is-okundu .kk-sayfa__ico, .kk-sayfa.is-current .kk-sayfa__ico { filter: none; opacity: 1; }
+.kk-sayfa.is-current { border-style: solid; border-color: var(--kandil); box-shadow: 0 0 0 3px color-mix(in srgb, var(--kandil) 35%, transparent); }
+.kk-sayfa--final { grid-column: 1 / -1; }
+.kk-sayfa.is-locked { opacity: .55; }
+.hr-oy { display: flex; justify-content: center; gap: 22px; font-size: 40px; }
+.hr-oy span { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.hr-oy small { font: 700 13px/1.2 var(--font-body); }
 #k3-gorevler .ak-option[aria-pressed="true"] { border-color: var(--zumrut); background: color-mix(in srgb, var(--zumrut) 14%, var(--surface-100, #fff)); box-shadow: 0 0 0 3px color-mix(in srgb, var(--zumrut) 30%, transparent); }
 #k3-gorevler .ak-option[aria-pressed="true"] .ak-option__key::after { content: " ✓"; }
 .members { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -663,17 +685,18 @@ blockquote cite { display: block; margin-top: 8px; font: 600 13px/18px var(--fon
 </div>
 <div id="sheet-root"></div>
 
-<script src="icerik.js?v=20261122-1707"></script>
-<script src="icerik-kuslar.js?v=20261122-1707"></script>
-<script src="kuslar.js?v=20261122-1707"></script>
-<script src="kalp.js?v=20261122-1707"></script>
+<script src="icerik.js?v=20261122-1741"></script>
+<script src="icerik-kuslar.js?v=20261122-1741"></script>
+<script src="kuslar.js?v=20261122-1741"></script>
+<script src="kalp.js?v=20261122-1741"></script>
+<script src="kainat.js?v=20261122-1741"></script>
 <script>
 /* ---- Sürüm ve hata koruması ----
    Telefon yeni sayfayla eski önbellekteki bir dosyayı birlikte yüklerse oyun sessizce takılabilir.
    Sürümler uyuşmazsa önbellek temizlenip sayfa bir kez yeniden yüklenir. Bir düğme hata verirse uyarı çıkar. */
-const OYUN_SURUM = "20261122-1707";
+const OYUN_SURUM = "20261122-1741";
 (() => {
-  const uyumlu = typeof ICERIK_SURUM !== "undefined" && ICERIK_SURUM === OYUN_SURUM && typeof KUSLAR_SURUM !== "undefined" && KUSLAR_SURUM === OYUN_SURUM && typeof KALP_SURUM !== "undefined" && KALP_SURUM === OYUN_SURUM;
+  const uyumlu = typeof ICERIK_SURUM !== "undefined" && ICERIK_SURUM === OYUN_SURUM && typeof KUSLAR_SURUM !== "undefined" && KUSLAR_SURUM === OYUN_SURUM && typeof KALP_SURUM !== "undefined" && KALP_SURUM === OYUN_SURUM && typeof KAINAT_SURUM !== "undefined" && KAINAT_SURUM === OYUN_SURUM;
   if (uyumlu) return;
   let denendi = false;
   try { denendi = sessionStorage.getItem("ailecek:onarim") === OYUN_SURUM; sessionStorage.setItem("ailecek:onarim", OYUN_SURUM); } catch (e) {}
@@ -1023,6 +1046,7 @@ function allSpeechLines() {
   add("genel", Object.values(YOLCULUK_SOZ));
   add("kuslar", S2.lines());
   add("kalp", S3.lines());
+  add("kainat", KK.lines());
   add("kart", PANDOMIM.concat(SESLER).map(x => `${x.w}. ${x.info}`), HAYVANLAR.map(x => `Hepimiz ${x.w} olduk! ${x.m}`), allCards().map(c => `${c.w}. ${c.info}`));
   [0, 1, 2, 3].forEach(l => BILGI[l].forEach(x => add("bilgi", x.q, x.o.map(optText), x.info)));
   Object.values(SENOLSAN).flat().forEach(x => add("durum", x.s, x.i));
@@ -1127,6 +1151,7 @@ function screenHome() {
     ${familyStrip()}
     ${ozelGunKart(ozelGun())}
     ${gununSorusuKart()}
+    ${KK.homeCard()}
     ${week ? weekPanel() : ""}
     ${yolculuklar()}
     <button class="ak-card aile-ozet" data-act="ailemiz">
@@ -1265,6 +1290,7 @@ function haftalikOzet() {
     <ul class="small" style="margin:0;padding-left:1.2em;display:grid;gap:6px;font-weight:600">
       <li>Konuştuğunuz konular: ${esc(temalar.join(", "))}</li>
       ${enCok.length ? `<li>En çok oynanan: ${esc(enCok.join(", "))}</li>` : ""}
+      ${KK.ozet() ? `<li>${esc(KK.ozet())}</li>` : ""}
     </ul>
     ${soru ? `<div class="tip" style="text-align:left"><b>Sofrada sohbeti sürdürün</b>${esc(soru)}</div>` : ""}
   </section>`;
@@ -1282,6 +1308,7 @@ function screenAilemiz() {
       <div class="mini-stat"><i>🪔</i><b>${streak()}</b><small>Haftalık zincir</small></div>
     </div>
     ${yolSatiri({ act: "ailekartlari", ikon: "🏡", renk: "--kandil", etiket: "Aile Kartlarımız", baslik: aileKartlari.length ? `${aileKartlari.length} kart · yeni kart ekle` : "Kendi sorularınızı ekleyin", not: "Oyun gecelerinde çarktan Aile Kartı çıkar" })}
+    ${KK.homeRow()}
     <section class="ak-card tree-card">
       ${treeSVG(fruitTotal())}
       <div class="stack" style="gap:6px">
@@ -1431,7 +1458,7 @@ function gainCard(w) {
   P.cards.push(w); P.newCards.push(w); if (G) (G.newCards ||= []).push(w); saveP(); return true;
 }
 function badgeValue(b) {
-  return { streak: streak(), deeds: fruitTotal(), garden: gardenTotal, cards: P.cards.length, lands: landsDone() }[b.olcut] ?? S2.badgeValue(b.olcut) ?? S3.badgeValue(b.olcut) ?? P[b.olcut] ?? 0;
+  return { streak: streak(), deeds: fruitTotal(), garden: gardenTotal, cards: P.cards.length, lands: landsDone() }[b.olcut] ?? S2.badgeValue(b.olcut) ?? S3.badgeValue(b.olcut) ?? KK.badgeValue(b.olcut) ?? P[b.olcut] ?? 0;
 }
 function checkBadges() {
   const fresh = ROZETLER.filter(b => !P.badges[b.id] && badgeValue(b) >= b.hedef);
@@ -1669,8 +1696,8 @@ function screenThemes() {
 }
 
 /* ============ OYUN AKIŞI ============ */
-const WHEEL_BASE = ["pandomim", "bilgi", "ses", "bilmece", "senolsan", "hikaye", "aile", "hoca", "saskin"];
-const wheelList = () => (G && S2.isVadi(G.theme) ? [...WHEEL_BASE, "bahane"] : WHEEL_BASE).filter(t => GAMES[t] && (t !== "aile" || aileKartlari.length));
+const WHEEL_BASE = ["pandomim", "bilgi", "ses", "bilmece", "senolsan", "hikaye", "hayret", "aile", "hoca", "saskin"];
+const wheelList = () => (G && S2.isVadi(G.theme) ? [...WHEEL_BASE, "bahane"] : WHEEL_BASE).filter(t => GAMES[t] && (t !== "aile" || aileKartlari.length) && (t !== "hayret" || KK.unlocked()));
 const GROUPS = ["hayvan", "sirala", "kalkotur", "kalpdoktoru", "farkli", "hizli"].filter(t => GAMES[t]);
 /* Gece süresi: Kısa (6 tur), Tam (aile büyüklüğüne göre 6-12 tur), Sakin (6 tur, hareketli ve sesli oyun yok; yatmadan önce) */
 const SURELER = {
@@ -1692,6 +1719,7 @@ function startGame(themeKey) {
   }
   G = { theme: themeKey, players, plan, i: 0, fidan: 0, used: {}, lastType: null, saskinCount: 0, newCards: [], newBadges: [], sure: geceSure };
   S3.planla(G);
+  KK.planla(G);
   try { navigator.wakeLock && navigator.wakeLock.request("screen").catch(() => {}); } catch (e) {}
   const t = TH(themeKey), line = S2.isVadi(themeKey) ? S2.intro(themeKey) : S3.isKose(themeKey) ? S3.intro(themeKey) : `Bu gece ${t.name}! Hazır mısınız?`, durak = DURAKLAR.find(d => d.tema === themeKey);
   render(`
@@ -1714,6 +1742,7 @@ function chooseType(player) {
   if (adult && hasKid && G.saskinCount < 2) w.saskin = 1.8;
   if (S2.isVadi(G.theme) && G.players.length > 1) w.bahane = 3.2;
   if (aileKartlari.length) w.aile = 1.4;
+  if (KK.unlocked()) w.hayret = 1.5;
   if (G.sure === "sakin") { delete w.ses; w.pandomim = 1.6; w.hikaye = (w.hikaye || 1) * 1.6; }
   delete w[G.lastType];
   const e = Object.entries(w), sum = e.reduce((a, [, v]) => a + v, 0);
@@ -1774,6 +1803,7 @@ function landed(t) {
   say({ text: `${g.name}! ${g.short}${secret ? ` Telefonu ${ek(p.name, "e")} verin, diğerleri bakmasın!` : ""}`, ai: [`${g.name}! ${g.short}`, secret && "Telefonu sırası gelene verin, diğerleri bakmasın!"] });
 }
 const GROUP_LINES = {
+  kainat: KK.groupLine,
   hayvan: "Herkes ayağa kalksın! Hayvan gibi yürüyeceğiz. Ben DUR deyince heykel olun!",
   kalkotur: "Herkes ayağa kalksın! Cümle doğruysa zıplayın, yanlışsa yere çömelin!",
   hizli: "Hızlı tur! Otuz saniyede hep birlikte bağırarak sayacağız!",
@@ -1796,7 +1826,7 @@ function screenGroupIntro(t) {
 }
 function play() {
   const t = G.plan[G.i]; G.lastType = t.type;
-  ({ pandomim: playPandomim, ses: playSes, bilgi: playBilgi, senolsan: playSenOlsan, hizli: playHizli, saskin: playSaskin, kalkotur: playKalkOtur, hoca: playHoca, hayvan: playHayvan, bahane: S2.playBahane, bilmece: playBilmece, sirala: playSirala, farkli: playFarkli, kalpdoktoru: playKalpDoktoru, hikaye: playHikaye, aile: playAile })[t.type](t);
+  ({ pandomim: playPandomim, ses: playSes, bilgi: playBilgi, senolsan: playSenOlsan, hizli: playHizli, saskin: playSaskin, kalkotur: playKalkOtur, hoca: playHoca, hayvan: playHayvan, bahane: S2.playBahane, bilmece: playBilmece, sirala: playSirala, farkli: playFarkli, kalpdoktoru: playKalpDoktoru, hikaye: playHikaye, aile: playAile, hayret: KK.playHayret, kainat: () => KK.an(0) })[t.type](t);
 }
 function nextTurn() { G.i++; if (G.i >= G.plan.length) screenDeep(0); else screenTurn(); }
 function runTimer(sec, onEnd) {
@@ -2570,6 +2600,7 @@ function screenKaynaklar() {
     ${blok("Kuşların Yolculuğu", "Her vadi gecesinde okunur. Hikâyeler Ferîdüddîn-i Attâr'ın Mantıku't-Tayr eserinden esinlenmiştir.", vadiler)}
     ${blok("Kalp Bahçesi", "Her köşe gecesinin Derinlik Anı'nda okunur. Sezon İmam Gazâlî'nin İhyâu Ulûmi'd-Dîn ve Kimyâ-yı Saâdet eserlerinden esinlenmiştir; Gazâlî'den alıntı yapılmamış, fikirler sadeleştirilerek anlatılmıştır.", [...KALP_KOSELER.flatMap(k => { const x = KALP_ICERIK[k.id]; return [nas("Ayet", x.ayet.text, x.ayet.ref, `${k.ot} ➜ ${k.cicek}`), nas("Hadis", x.hadis.text, x.hadis.ref)]; }), nas("Ayet", KALP_FINAL_AYET.text, KALP_FINAL_AYET.ref, "Final: Kalb-i selîm"), nas("Hadis", KALP_FINAL_HADIS.text, KALP_FINAL_HADIS.ref), nas("Ayet", KALP_FINAL_DUA.text, KALP_FINAL_DUA.ref)])}
     ${blok("Hikmetli Hikâye", "Hikâyeler özgün temsil ya da kaynağı belli olmayan halk hikâyesidir; Gazâlî'ye veya hadise dayandırılmaz. Hikmet bölümünde geçen hadislerin kaynakları:", HIKMETLI.filter(x => x.r).map(x => `<div><b>${esc(x.ad)}</b><p class="small" style="margin:2px 0 0;font-weight:600">${esc(x.c)} (${esc(x.r)})</p></div>`))}
+    ${blok("Kâinat Kitabı", "Haftalık etkinlik. Her sayfada bir ayet okunur; ayetler bilimin kanıtı olarak değil, tefekküre çağrı olarak sunulur. Mealler Diyanet mealinden sadeleştirilmiştir.", [...KAINAT_SAYFALAR.map(x => nas("Ayet", x.ayet.text, x.ayet.ref, x.ad)), nas("Ayet", KAINAT_FINAL_AYET.text, KAINAT_FINAL_AYET.ref, "Final: Kâinat Kitabımız")])}
     ${blok("Kıssa Kartları", "Kartların arkasında kaynağıyla verilen bilgiler.", kartlar)}`);
   try { history.replaceState(null, "", "#kaynaklar"); } catch (e) {}
 }
@@ -2754,6 +2785,7 @@ const actions = {
   defter: screenDefter,
   ...S2.actions,
   ...S3.actions,
+  ...KK.actions,
   ...fbActions,
   ...tourActions,
   install: doInstall,
@@ -2786,6 +2818,7 @@ document.addEventListener("input", e => {
   const el = e.target;
   if (el.id === "own") { const has = el.value.trim().length > 2; if (has) { G.deal.sel = null; document.querySelectorAll("#choices .choice").forEach(b => b.setAttribute("aria-pressed", "false")); } document.getElementById("seal-btn").disabled = !has && G.deal.sel == null; return; }
   if (el.dataset.fb) { fb[el.dataset.fb] = el.value; fbSave(); return; }
+  if (el.id === "kk-not") { KK.notYaz(el.value); return; }
   if (!el.dataset.field) return;
   family[+el.dataset.i][el.dataset.field] = el.value; store.set("family", family);
 });
