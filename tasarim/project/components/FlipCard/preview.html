@@ -1,0 +1,6 @@
+<!-- @dsCard group="Oyun" height=330 subtitle="Kapalı ve açık yüz (dokununca çevrilir)" -->
+<div class="ak" style="padding:20px;background:var(--surface-100);min-height:100%;display:flex;flex-direction:column;gap:16px"><div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+  <div class="ak-flip" style="--c:var(--nar)"><div class="ak-flip__inner"><button class="ak-flip__face ak-flip__front"><span class="ak-flip__glyph">?</span><span class="ak-flip__hint">Dokun, çevir</span><span class="ak-flip__note">Sadece Zeynep baksın!</span></button><div class="ak-flip__face ak-flip__back"><span class="ak-flip__pic">🐦</span><span class="ak-flip__word">Hüdhüd kuşu</span></div></div></div>
+  <div class="ak-flip ak-on-kandil is-open" style="--c:var(--kandil)"><div class="ak-flip__inner"><button class="ak-flip__face ak-flip__front"><span class="ak-flip__glyph">?</span><span class="ak-flip__hint">Dokun, çevir</span></button><div class="ak-flip__face ak-flip__back"><span class="ak-flip__pic">🐓</span><span class="ak-flip__word">Horoz</span></div></div></div>
+</div></div>
+<script>document.querySelectorAll('.ak-flip').forEach(f=>f.onclick=()=>f.classList.toggle('is-open'));</script>

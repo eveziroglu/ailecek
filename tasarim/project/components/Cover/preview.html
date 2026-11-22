@@ -1,0 +1,41 @@
+<!-- @dsCard height=288 -->
+<div class="cover">
+  <svg class="art" viewBox="480 0 480 288" width="480" height="288" aria-hidden="true">
+    <!-- blocks: cini slab 208×288 (bleeds top/bottom, arch top = radius-arch), kandil disc r=56, nar block 188×120 (radius-lg, bleeds right), firuze 40×96 (radius-sm), zumrut arch 48×48 (radius-arch) -->
+    <!-- arrangement: one tall arched slab with satellites; nar and kandil bleed off the right edge like tiles cut at the frame -->
+    <!-- pattern: literal motif row — eight-point stars (two squares) cut out of the cini slab in surface-100; chosen because the README names the eight-point star as the brand's tile texture -->
+    <!-- scales: star pitch space-6 (48px), star square 18px, gaps space-4/space-5, radii radius-sm, radius-lg, radius-arch -->
+    <path class="cini" d="M560 288 V160 A104 104 0 0 1 768 160 V288 Z"/>
+    <g class="stars">
+      <g transform="translate(616 128)"><rect x="-9" y="-9" width="18" height="18"/><rect x="-9" y="-9" width="18" height="18" transform="rotate(45)"/></g>
+      <g transform="translate(664 104)"><rect x="-9" y="-9" width="18" height="18"/><rect x="-9" y="-9" width="18" height="18" transform="rotate(45)"/></g>
+      <g transform="translate(712 128)"><rect x="-9" y="-9" width="18" height="18"/><rect x="-9" y="-9" width="18" height="18" transform="rotate(45)"/></g>
+      <g transform="translate(616 176)"><rect x="-9" y="-9" width="18" height="18"/><rect x="-9" y="-9" width="18" height="18" transform="rotate(45)"/></g>
+      <g transform="translate(664 152)"><rect x="-9" y="-9" width="18" height="18"/><rect x="-9" y="-9" width="18" height="18" transform="rotate(45)"/></g>
+      <g transform="translate(712 176)"><rect x="-9" y="-9" width="18" height="18"/><rect x="-9" y="-9" width="18" height="18" transform="rotate(45)"/></g>
+      <g transform="translate(616 224)"><rect x="-9" y="-9" width="18" height="18"/><rect x="-9" y="-9" width="18" height="18" transform="rotate(45)"/></g>
+      <g transform="translate(664 200)"><rect x="-9" y="-9" width="18" height="18"/><rect x="-9" y="-9" width="18" height="18" transform="rotate(45)"/></g>
+      <g transform="translate(712 224)"><rect x="-9" y="-9" width="18" height="18"/><rect x="-9" y="-9" width="18" height="18" transform="rotate(45)"/></g>
+      <g transform="translate(664 248)"><rect x="-9" y="-9" width="18" height="18"/><rect x="-9" y="-9" width="18" height="18" transform="rotate(45)"/></g>
+    </g>
+    <circle class="kandil" cx="872" cy="64" r="56"/>
+    <rect class="nar tile-lg" x="792" y="152" width="200" height="120"/>
+    <rect class="firuze tile-sm" x="504" y="168" width="40" height="96"/>
+    <path class="zumrut" d="M800 288 V264 A24 24 0 0 1 848 264 V288 Z"/>
+  </svg>
+  <div class="txt">
+    <div class="name">Ailecek</div>
+    <div class="tag">Ailece oynayarak, gülerek ve yaşayarak öğrenilen İslami değerler.</div>
+  </div>
+</div>
+<script></script>
+<style>
+.cover { position: relative; width: 960px; height: 288px; overflow: hidden; background: var(--surface-100); }
+.art { position: absolute; left: 480px; top: 0; }
+.cini { fill: var(--cini); } .kandil { fill: var(--kandil); } .nar { fill: var(--nar); } .firuze { fill: var(--firuze); } .zumrut { fill: var(--zumrut); }
+.tile-lg { rx: var(--radius-lg); } .tile-sm { rx: var(--radius-sm); }
+.stars rect { fill: none; stroke: var(--surface-100); stroke-width: 2.5; }
+.txt { position: absolute; left: 48px; bottom: 40px; max-width: 440px; }
+.name { font: 700 104px/.92 var(--font-display); color: var(--ink); letter-spacing: -0.01em; }
+.tag { margin-top: 14px; font: 600 14px/1.4 var(--font-body); color: var(--ink-muted); }
+</style>

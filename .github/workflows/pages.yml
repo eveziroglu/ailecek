@@ -1,0 +1,43 @@
+# Oyunu GitHub Pages'te yayınlar: main dalına her gönderimde ve elle (Actions › Run workflow).
+# Bir kez yapılacak ayar: Settings › Pages › Build and deployment › Source: "GitHub Actions".
+name: GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  yayinla:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Yayın klasörünü hazırla
+        run: |
+          mkdir -p _site/gorsel _site/ses
+          cp index.html icerik.js icerik-kuslar.js kuslar.js sw.js manifest.webmanifest _site/
+          cp -r ikon _site/
+          cp gorsel/gorsel.json _site/gorsel/
+          find gorsel -maxdepth 1 \( -name '*.webp' -o -name '*.svg' \) -exec cp {} _site/gorsel/ \;
+          if [ -f ses/ses.json ]; then cp ses/ses.json _site/ses/; fi
+          find ses -maxdepth 2 -type f \( -name '*.mp3' -o -name '*.m4a' -o -name '*.ogg' -o -name '*.opus' \) -exec cp --parents {} _site/ \;
+          touch _site/.nojekyll
+          ls -R _site | head -50
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deploy
+        uses: actions/deploy-pages@v4

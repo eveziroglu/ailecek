@@ -1,0 +1,8 @@
+<!-- @dsCard group="Actions" height=120 subtitle="Etiket, renkli etiket, seçilebilir" -->
+<div class="ak" style="padding:20px;background:var(--surface-100);min-height:100%;display:flex;flex-direction:column;gap:16px"><div class="ak-chips" style="justify-content:flex-start">
+  <span class="ak-chip">🤐 Konuşmak yok</span>
+  <span class="ak-chip ak-chip--tint" style="--c:var(--nar)">🔊 Ses çıkarmak serbest</span>
+  <button class="ak-chip ak-chip--select" aria-pressed="false">🦊 Zeynep</button>
+  <button class="ak-chip ak-chip--select" aria-pressed="true">🐰 Ömer</button>
+</div></div>
+<script>document.querySelectorAll('.ak-chip--select').forEach(b=>b.onclick=()=>{document.querySelectorAll('.ak-chip--select').forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true')});</script>

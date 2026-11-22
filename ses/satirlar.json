@@ -1,0 +1,3907 @@
+[
+ {
+  "key": "4480ab17",
+  "pack": "genel",
+  "text": "Selâmün aleyküm! Ben Hüdhüd. Bu akşam ailecek oynayalım mı?"
+ },
+ {
+  "key": "a31a8ffd",
+  "pack": "genel",
+  "text": "Sesli anlatım açık."
+ },
+ {
+  "key": "dc8dde27",
+  "pack": "genel",
+  "text": "Açılış Töreni zamanı geldi! Gizli dostlarınızı merak ediyorum."
+ },
+ {
+  "key": "86374067",
+  "pack": "genel",
+  "text": "İyilik Haftası devam ediyor!"
+ },
+ {
+  "key": "2015b3a0",
+  "pack": "genel",
+  "text": "Herkes uyurken ya da başka bir odadayken yap. Gece ile sabah arası en gizli zamandır!"
+ },
+ {
+  "key": "50751610",
+  "pack": "genel",
+  "text": "İz bırakma: yazdığın notu imzalama, el yazını biraz değiştirebilirsin."
+ },
+ {
+  "key": "7fc2158b",
+  "pack": "genel",
+  "text": "Herkese biraz iyilik yaparsan, asıl gizli dostunun kim olduğu anlaşılmaz."
+ },
+ {
+  "key": "04a57a24",
+  "pack": "genel",
+  "text": "Gizli iyilik niyetle başlar: Allah rızası için de ve başla."
+ },
+ {
+  "key": "b46773bb",
+  "pack": "genel",
+  "text": "Kimse görmediğinde yapılan iyiliği Allah görür. Gizli dost olmak buna en güzel alıştırmadır."
+ },
+ {
+  "key": "1bf9c523",
+  "pack": "genel",
+  "text": "Bugün iyiliğini yapmadıysan sorun değil; yarın yapabilirsin. Önemli olan vazgeçmemek."
+ },
+ {
+  "key": "04a061da",
+  "pack": "genel",
+  "text": "Açılış Töreni yaklaşıyor! Gizli dostun seni tahmin edebilir mi?"
+ },
+ {
+  "key": "615cff81",
+  "pack": "genel",
+  "text": "Bu gece hangi tema?"
+ },
+ {
+  "key": "a5e14186",
+  "pack": "genel",
+  "text": "Sıra sende! Çarkı çevir!"
+ },
+ {
+  "key": "e59af9dc",
+  "pack": "genel",
+  "text": "Telefonu sırası gelene verin, diğerleri bakmasın!"
+ },
+ {
+  "key": "3ecce4ff",
+  "pack": "genel",
+  "text": "Herkes ayağa kalksın! Hayvan gibi yürüyeceğiz. Ben DUR deyince heykel olun!"
+ },
+ {
+  "key": "7348f90f",
+  "pack": "genel",
+  "text": "Herkes ayağa kalksın! Cümle doğruysa zıplayın, yanlışsa yere çömelin!"
+ },
+ {
+  "key": "bbcdb217",
+  "pack": "genel",
+  "text": "Hızlı tur! Otuz saniyede hep birlikte bağırarak sayacağız!"
+ },
+ {
+  "key": "80b7ff7a",
+  "pack": "genel",
+  "text": "Kıssa Pandomimi! Canlandır, ailen bilsin!"
+ },
+ {
+  "key": "9acfb709",
+  "pack": "genel",
+  "text": "Bil Bakalım! Doğru cevabı bul!"
+ },
+ {
+  "key": "aeeb91d2",
+  "pack": "genel",
+  "text": "Ses Taklidi! Herkes gözünü kapatsın, sadece ses!"
+ },
+ {
+  "key": "b8bfebad",
+  "pack": "genel",
+  "text": "Sen Olsan?! Sen olsan ne yapardın?"
+ },
+ {
+  "key": "0c1a1bca",
+  "pack": "genel",
+  "text": "Küçük Hoca! Öğretmen sensin, soruyu sen sor!"
+ },
+ {
+  "key": "2d9929a9",
+  "pack": "genel",
+  "text": "Şaşkın Ebeveyn! Hatalar yapacak, sen yakala!"
+ },
+ {
+  "key": "83d69948",
+  "pack": "genel",
+  "text": "Hızlı Tur! 30 saniyede hep birlikte sayın!"
+ },
+ {
+  "key": "1128c90c",
+  "pack": "genel",
+  "text": "Kalk-Otur! Doğruysa zıpla, yanlışsa çömel!"
+ },
+ {
+  "key": "e600c00b",
+  "pack": "genel",
+  "text": "Hayvan Yürüyüşü! Hayvan gibi yürü, DUR deyince don!"
+ },
+ {
+  "key": "60c7613b",
+  "pack": "genel",
+  "text": "Bahane Avcısı! Bahaneni canlandır, ailen seni ikna etsin!"
+ },
+ {
+  "key": "c77ff26d",
+  "pack": "genel",
+  "text": "Maşallah!"
+ },
+ {
+  "key": "606372a0",
+  "pack": "genel",
+  "text": "Maşallah, doğru!"
+ },
+ {
+  "key": "5ecd418f",
+  "pack": "genel",
+  "text": "Olsun! Doğru cevap:"
+ },
+ {
+  "key": "698cd07b",
+  "pack": "genel",
+  "text": "Doğru cevap:"
+ },
+ {
+  "key": "176d32e6",
+  "pack": "genel",
+  "text": "Sen olsan ne yapardın?"
+ },
+ {
+  "key": "1187dc07",
+  "pack": "genel",
+  "text": "Hadi başla!"
+ },
+ {
+  "key": "3db75da2",
+  "pack": "genel",
+  "text": "Hedef tamam! Harikasınız!"
+ },
+ {
+  "key": "b3d1a0dc",
+  "pack": "genel",
+  "text": "Süre bitti! Yarıyı geçtiniz, bir fidan kazandınız."
+ },
+ {
+  "key": "066778f2",
+  "pack": "genel",
+  "text": "Süre bitti! Bir dahaki sefere daha hızlı olacağız!"
+ },
+ {
+  "key": "939b1b9f",
+  "pack": "genel",
+  "text": "Doğru!"
+ },
+ {
+  "key": "3ac3f510",
+  "pack": "genel",
+  "text": "Yanlış!"
+ },
+ {
+  "key": "0d59e9d8",
+  "pack": "genel",
+  "text": "Harika! Ailece fidan kazandınız."
+ },
+ {
+  "key": "558288da",
+  "pack": "genel",
+  "text": "Bir dahaki turda daha dikkatli zıplayacağız!"
+ },
+ {
+  "key": "e01d1365",
+  "pack": "genel",
+  "text": "Dur! Heykel ol!"
+ },
+ {
+  "key": "617e1162",
+  "pack": "genel",
+  "text": "Harika heykellerdiniz! Ailece iki fidan kazandınız."
+ },
+ {
+  "key": "2fa517d0",
+  "pack": "genel",
+  "text": "Çocuklar! Şimdi bazı hatalar yapılacak. Her hatada Yakaladım diye bağırın!"
+ },
+ {
+  "key": "494aecec",
+  "pack": "genel",
+  "text": "Doğrusu nasıl?"
+ },
+ {
+  "key": "865cd56f",
+  "pack": "genel",
+  "text": "Aferin! Hocamız da çok güzel sordu."
+ },
+ {
+  "key": "144cddc1",
+  "pack": "genel",
+  "text": "Hocamız kazandı!"
+ },
+ {
+  "key": "bf03a3f6",
+  "pack": "genel",
+  "text": "Bu gece bahçemize fidanlar diktik! Şimdi telefonu bırakıp biraz sohbet edelim."
+ },
+ {
+  "key": "03d4a10f",
+  "pack": "genel",
+  "text": "Maşallah, ne güzel bir geceydi!"
+ },
+ {
+  "key": "0206db0e",
+  "pack": "tema",
+  "text": "Bu gece Şükür Gecesi! Hazır mısınız?"
+ },
+ {
+  "key": "6408221b",
+  "pack": "tema",
+  "text": "Eğer şükrederseniz, elbette size (nimetimi) artırırım."
+ },
+ {
+  "key": "8385c783",
+  "pack": "tema",
+  "text": "Peygamberimiz buyurdu: İnsanlara teşekkür etmeyen, Allah'a şükretmiş olmaz."
+ },
+ {
+  "key": "0fbfada2",
+  "pack": "tema",
+  "text": "Bugün kime ve hangi nimete teşekkür etmek istersin? Herkes bir tane söylesin."
+ },
+ {
+  "key": "6737e787",
+  "pack": "tema",
+  "text": "Bu hafta her akşam yemeğinde herkes o gün fark ettiği bir nimeti söylesin."
+ },
+ {
+  "key": "736e2b9e",
+  "pack": "tema",
+  "text": "Bu gece Sabır Gecesi! Hazır mısınız?"
+ },
+ {
+  "key": "24f2a852",
+  "pack": "tema",
+  "text": "Ey iman edenler! Sabır ve namazla Allah'tan yardım isteyin. Şüphesiz Allah sabredenlerle beraberdir."
+ },
+ {
+  "key": "88df5a48",
+  "pack": "tema",
+  "text": "Peygamberimiz buyurdu: Pehlivan, güreşte rakibini yenen değildir. Asıl pehlivan, öfkelendiği zaman kendine hâkim olandır."
+ },
+ {
+  "key": "b6f723e7",
+  "pack": "tema",
+  "text": "En son ne zaman çok sinirlendin? Şimdi düşününce ne yapabilirdin?"
+ },
+ {
+  "key": "ee1702ad",
+  "pack": "tema",
+  "text": "Aile şifremiz: Pehlivan! Bu hafta biri sinirlenince şifreyi söyleyin ve hep birlikte üç derin nefes alın."
+ },
+ {
+  "key": "5e84d2a8",
+  "pack": "tema",
+  "text": "Bu gece Merhamet Gecesi! Hazır mısınız?"
+ },
+ {
+  "key": "a8ac7180",
+  "pack": "tema",
+  "text": "Biz seni ancak âlemlere rahmet olarak gönderdik."
+ },
+ {
+  "key": "38302888",
+  "pack": "tema",
+  "text": "Peygamberimiz buyurdu: Merhamet etmeyene merhamet olunmaz."
+ },
+ {
+  "key": "7b4fd543",
+  "pack": "tema",
+  "text": "Evimizde, okulda ya da sokakta merhamete en çok kimin ihtiyacı var?"
+ },
+ {
+  "key": "be9b8302",
+  "pack": "tema",
+  "text": "Bu hafta ailece bir canlıya iyilik yapın: kuşlara yem, sokak hayvanlarına su ya da yalnız bir komşuya ziyaret."
+ },
+ {
+  "key": "919e62d6",
+  "pack": "tema",
+  "text": "Bu gece Doğruluk Gecesi! Hazır mısınız?"
+ },
+ {
+  "key": "2ac54d7e",
+  "pack": "tema",
+  "text": "Ey iman edenler! Allah'a karşı gelmekten sakının ve doğrularla beraber olun."
+ },
+ {
+  "key": "4b6d4f54",
+  "pack": "tema",
+  "text": "Peygamberimiz buyurdu: Doğruluk iyiliğe, iyilik de cennete götürür."
+ },
+ {
+  "key": "7de5f36c",
+  "pack": "tema",
+  "text": "Doğruyu söylemenin zor geldiği bir an oldu mu? Sonunda ne hissettin?"
+ },
+ {
+  "key": "dfcfce83",
+  "pack": "tema",
+  "text": "Bu hafta bir hata yapan onu kendisi söylerse kızmak yok, sarılmak var! Buna doğruluk ödülü diyoruz."
+ },
+ {
+  "key": "51f8ccbd",
+  "pack": "tema",
+  "text": "Bu gece Paylaşma Gecesi! Hazır mısınız?"
+ },
+ {
+  "key": "9cd30a16",
+  "pack": "tema",
+  "text": "Sevdiğiniz şeylerden (Allah yolunda) harcamadıkça iyiliğe asla erişemezsiniz."
+ },
+ {
+  "key": "5ce74855",
+  "pack": "tema",
+  "text": "Peygamberimiz buyurdu: Sizden biriniz, kendisi için istediğini kardeşi için de istemedikçe (gerçek anlamda) iman etmiş olmaz."
+ },
+ {
+  "key": "3ea69d04",
+  "pack": "tema",
+  "text": "Sahip olduğun şeylerden hangisini paylaşmak sana en zor gelir? Neden?"
+ },
+ {
+  "key": "f1cc94e6",
+  "pack": "tema",
+  "text": "Ailece bir paylaşma kutusu hazırlayın. Herkes iyi durumdaki bir eşyasını koysun ve hafta sonu ihtiyacı olana verin."
+ },
+ {
+  "key": "7f3b409f",
+  "pack": "tema",
+  "text": "Bu gece Anne Baba Gecesi! Hazır mısınız?"
+ },
+ {
+  "key": "ab660306",
+  "pack": "tema",
+  "text": "Rabbin, yalnız kendisine kulluk etmenizi ve anne babaya iyilik etmenizi emretti. Onlara öf bile deme, onları azarlama; onlara güzel söz söyle."
+ },
+ {
+  "key": "d1bf607b",
+  "pack": "tema",
+  "text": "Peygamberimiz buyurdu: Allah'ın rızası anne babanın rızasındadır."
+ },
+ {
+  "key": "f8961218",
+  "pack": "tema",
+  "text": "Çocuklar: anne babanızı en çok ne mutlu eder? Anne baba: çocuklarınızın hangi davranışı sizi en çok sevindiriyor?"
+ },
+ {
+  "key": "1e3d89f2",
+  "pack": "tema",
+  "text": "Bu hafta çocuklar anne babalarına sorulmadan bir iş yapsın. Anne babalar da her çocuğa ona özel 15 dakika ayırsın."
+ },
+ {
+  "key": "5290cdbc",
+  "pack": "tema",
+  "text": "Bu gece Temizlik Gecesi! Hazır mısınız?"
+ },
+ {
+  "key": "dc7e4989",
+  "pack": "tema",
+  "text": "Şüphesiz Allah çok tövbe edenleri sever, temizlenenleri sever."
+ },
+ {
+  "key": "fc80ea63",
+  "pack": "tema",
+  "text": "Peygamberimiz buyurdu: Temizlik imanın yarısıdır."
+ },
+ {
+  "key": "3e1785a8",
+  "pack": "tema",
+  "text": "Evimizde temizliğe en çok kim emek veriyor? Biz ona nasıl yardım edebiliriz?"
+ },
+ {
+  "key": "7d2e07b6",
+  "pack": "tema",
+  "text": "Bu hafta her akşam 5 dakikalık ailece toparlanma yarışı yapın ve bitince hep birlikte Elhamdülillah deyin."
+ },
+ {
+  "key": "b74d99b1",
+  "pack": "gizli",
+  "text": "Şimdi herkes gizli bir dost alacak. Bir hafta boyunca ona kimseye belli etmeden iyilik yapacaksınız!"
+ },
+ {
+  "key": "5350999c",
+  "pack": "gizli",
+  "text": "Telefonu sırası gelene verin. Kimse bakmasın!"
+ },
+ {
+  "key": "f23b5ccb",
+  "pack": "gizli",
+  "text": "Zarflar mühürlendi! Bir hafta boyunca gizli dostunuza iyilik yapın. Yedinci gün Açılış Töreni var."
+ },
+ {
+  "key": "db70a77e",
+  "pack": "gizli",
+  "text": "Telefonu kartın sahibine verin. Sadece o baksın!"
+ },
+ {
+  "key": "606eaaf8",
+  "pack": "gizli",
+  "text": "Açılış Töreni başlıyor! Bu hafta kim kime gizli iyilik yaptı, şimdi öğreneceğiz."
+ },
+ {
+  "key": "a6c8a314",
+  "pack": "gizli",
+  "text": "Bu hafta sana kim gizli iyilik yaptı?"
+ },
+ {
+  "key": "a6af7b50",
+  "pack": "gizli",
+  "text": "Önce fark ettiğin iyilikleri anlat, sonra tahminini seç!"
+ },
+ {
+  "key": "0dd33dd4",
+  "pack": "gizli",
+  "text": "Tebrikler dedektif! Doğru bildin!"
+ },
+ {
+  "key": "a50938b8",
+  "pack": "gizli",
+  "text": "Çok gizliymiş! Gizli dost ustaca saklanmış!"
+ },
+ {
+  "key": "db42a2b4",
+  "pack": "gizli",
+  "text": "Şimdi teşekkürünü seç."
+ },
+ {
+  "key": "e62992cf",
+  "pack": "gizli",
+  "text": "Şimdi gizli dostuna kocaman sarıl!"
+ },
+ {
+  "key": "3bddbf43",
+  "pack": "gizli",
+  "text": "Gizli dostun için Allah senden razı olsun de."
+ },
+ {
+  "key": "ad0121a9",
+  "pack": "gizli",
+  "text": "Gizli dostuna bu haftanın yıldızı olduğunu söyle!"
+ },
+ {
+  "key": "554ca246",
+  "pack": "gizli",
+  "text": "Gizli dostuna hayalî bir buket uzat ve teşekkür et."
+ },
+ {
+  "key": "d256ace8",
+  "pack": "gizli",
+  "text": "Tören bitti! Nar ağacımız büyüdü. Allah hepinizden razı olsun!"
+ },
+ {
+  "key": "d2fcf9a8",
+  "pack": "gizli",
+  "text": "Nar ağacımızdaki her nar, gizlice yapılmış bir iyilik!"
+ },
+ {
+  "key": "512ad112",
+  "pack": "gizli",
+  "text": "Defter henüz boş. İlk gizli iyilik haftası oyun gecesinin sonunda başlar."
+ },
+ {
+  "key": "ea1f45b8",
+  "pack": "genel",
+  "text": "Yolculukta sıradaki durak neresi? Haydi seçelim!"
+ },
+ {
+  "key": "b2de3515",
+  "pack": "genel",
+  "text": "Bu durak henüz kilitli. Önceki durağı tamamlayınca açılacak!"
+ },
+ {
+  "key": "83654cc1",
+  "pack": "genel",
+  "text": "Yeni bir durak açıldı!"
+ },
+ {
+  "key": "9b7e971b",
+  "pack": "genel",
+  "text": "Yeni bir rozet kazandınız!"
+ },
+ {
+  "key": "99b620b3",
+  "pack": "genel",
+  "text": "Yeni bir Kıssa Kartı albüme eklendi!"
+ },
+ {
+  "key": "b5b10fde",
+  "pack": "genel",
+  "text": "Kıssa Kartları albümümüz. Her kart bir kıssa anlatıyor!"
+ },
+ {
+  "key": "3a44c558",
+  "pack": "genel",
+  "text": "Ailemizin rozetleri. Hangisini sıradaki hedefimiz yapalım?"
+ },
+ {
+  "key": "085b5445",
+  "pack": "genel",
+  "text": "Tebrikler! Ailecek yolculuğunun bütün duraklarını tamamladınız. Allah hepinizden razı olsun!"
+ },
+ {
+  "key": "09d36b2c",
+  "pack": "kuslar",
+  "text": "Sevgili kuşlarım, yolculuğun ilk kısmını birlikte tamamladınız. Ama asıl yolculuk şimdi başlıyor! Uzaklarda, Kaf Dağı'nın ardında, bütün kuşların aradığı bir güzellik var. Yedi vadiden geçmek gerek. Benimle gelir misiniz?"
+ },
+ {
+  "key": "5e299326",
+  "pack": "kuslar",
+  "text": "Her kuşun bir şarkısı, bir de bahanesi vardır. Hadi, kendi kuşunu seç! Ama dikkat: yola çıkmak için kuşunun bahanesini yenmen gerekecek."
+ },
+ {
+  "key": "b6dcb582",
+  "pack": "kuslar",
+  "text": "Sıra sende! Kuşunu seç."
+ },
+ {
+  "key": "29569b34",
+  "pack": "kuslar",
+  "text": "Bahanesi şu:"
+ },
+ {
+  "key": "293bc027",
+  "pack": "kuslar",
+  "text": "Yedi vadiden geçip Kaf Dağı'na ulaşacağız. Sıradaki vadi neresi?"
+ },
+ {
+  "key": "6fe8519b",
+  "pack": "kuslar",
+  "text": "Bu vadi henüz kilitli. Önceki vadiyi geçince açılacak!"
+ },
+ {
+  "key": "a51abcdd",
+  "pack": "kuslar",
+  "text": "Bahane görevleri! Bu hafta herkes kendi kuşunun bahanesine karşı küçük bir görev yapıyor."
+ },
+ {
+  "key": "12fe37ad",
+  "pack": "kuslar",
+  "text": "Bahane görevleri ilk vadiden sonra başlar."
+ },
+ {
+  "key": "5d1cdb2f",
+  "pack": "kuslar",
+  "text": "Maşallah! Bahaneni bir adım daha geride bıraktın."
+ },
+ {
+  "key": "72281383",
+  "pack": "kuslar",
+  "text": "Bahaneni abartarak canlandır! Otuz saniyen var."
+ },
+ {
+  "key": "d6d6f92c",
+  "pack": "kuslar",
+  "text": "Hangi kuş bahane uyduruyordu? Şimdi herkes Hüdhüd gibi onu ikna etsin! En ikna edici cevabı hakem seçsin."
+ },
+ {
+  "key": "871cbd4d",
+  "pack": "kuslar",
+  "text": "Kendi kuşunun bahanesini yendin!"
+ },
+ {
+  "key": "4b561580",
+  "pack": "kuslar",
+  "text": "Yedi vadiyi geçtiniz! Kanatlarınız yoruldu ama kalpleriniz büyüdü. İşte Kaf Dağı. Haydi, son kez birlikte uçalım."
+ },
+ {
+  "key": "8a33e47a",
+  "pack": "kuslar",
+  "text": "Başardınız! Yola çıkan nice kuştan siz buraya kadar geldiniz."
+ },
+ {
+  "key": "79251da0",
+  "pack": "kuslar",
+  "text": "Hep bir güzelliği aradık. Acaba nerede?"
+ },
+ {
+  "key": "80569455",
+  "pack": "kuslar",
+  "text": "Şu göle bakın. Ne görüyorsunuz?"
+ },
+ {
+  "key": "9593dbd3",
+  "pack": "kuslar",
+  "text": "Göle sırayla bakalım. Herkes kendi yansımasını görsün."
+ },
+ {
+  "key": "01863108",
+  "pack": "kuslar",
+  "text": "Yola çıkman en zor adımdı, sen o adımı attın."
+ },
+ {
+  "key": "7446f1f9",
+  "pack": "kuslar",
+  "text": "Bahaneni yendin!"
+ },
+ {
+  "key": "b972b91f",
+  "pack": "kuslar",
+  "text": "Aradığımız güzellik uzaklarda değildi. Yol boyunca birbirimize yaptığımız iyiliklerde büyüdü. Kalpleriniz artık daha geniş, kanatlarınız daha güçlü."
+ },
+ {
+  "key": "a57001db",
+  "pack": "kuslar",
+  "text": "Şimdi herkes, yolculukta kendisine en çok yardım eden kuşa teşekkür etsin."
+ },
+ {
+  "key": "dee5a412",
+  "pack": "kuslar",
+  "text": "Kuşların Yolculuğu tamamlandı! Bu minyatür sizin."
+ },
+ {
+  "key": "a5cb5033",
+  "pack": "kuslar",
+  "text": "Allah yolumuzu hep hayra çıkarsın. Bir dahaki yolculukta görüşmek üzere!"
+ },
+ {
+  "key": "1c96faec",
+  "pack": "kuslar",
+  "text": "Bülbül!"
+ },
+ {
+  "key": "75f55c7c",
+  "pack": "kuslar",
+  "text": "Gülüne âşıktır, onu bırakıp yola çıkamaz."
+ },
+ {
+  "key": "54f04e70",
+  "pack": "kuslar",
+  "text": "Papağan!"
+ },
+ {
+  "key": "e4a39f3a",
+  "pack": "kuslar",
+  "text": "Ölümsüzlük suyunu arar, sonsuza dek yaşamak ister."
+ },
+ {
+  "key": "9322eedf",
+  "pack": "kuslar",
+  "text": "Tavus!"
+ },
+ {
+  "key": "2823b516",
+  "pack": "kuslar",
+  "text": "Cennetteki eski yerine dönmekten başka bir şey düşünmez."
+ },
+ {
+  "key": "22632635",
+  "pack": "kuslar",
+  "text": "Keklik!"
+ },
+ {
+  "key": "4156c0e9",
+  "pack": "kuslar",
+  "text": "Değerli taşlara, mücevherlere düşkündür."
+ },
+ {
+  "key": "08a4eca2",
+  "pack": "kuslar",
+  "text": "Şahin!"
+ },
+ {
+  "key": "eb9539f7",
+  "pack": "kuslar",
+  "text": "Sultanın kolunda yaşamaktan vazgeçmez."
+ },
+ {
+  "key": "78a42a58",
+  "pack": "kuslar",
+  "text": "Serçe!"
+ },
+ {
+  "key": "01107f47",
+  "pack": "kuslar",
+  "text": "Ben çok küçük ve zayıfım, bu yol bana göre değil der."
+ },
+ {
+  "key": "a81e9a17",
+  "pack": "kuslar",
+  "text": "Baykuş!"
+ },
+ {
+  "key": "a8bb39d2",
+  "pack": "kuslar",
+  "text": "Yıkıntılarda gizli hazine bekler, köşesinden çıkmaz."
+ },
+ {
+  "key": "8fd7086a",
+  "pack": "kuslar",
+  "text": "Hüma!"
+ },
+ {
+  "key": "922c9299",
+  "pack": "kuslar",
+  "text": "Gölgesinin düştüğü kişinin padişah olduğunu söyler, şöhretine güvenir."
+ },
+ {
+  "key": "42c2bf1e",
+  "pack": "kuslar",
+  "text": "Eskiden sadece gülünü düşünüyordun."
+ },
+ {
+  "key": "cf3b24bc",
+  "pack": "kuslar",
+  "text": "Şimdi sevdiklerine vakit ayıran bir bülbülsün."
+ },
+ {
+  "key": "e61dfd96",
+  "pack": "kuslar",
+  "text": "Eskiden eğlencenin hiç bitmemesini istiyordun."
+ },
+ {
+  "key": "4dd3a899",
+  "pack": "kuslar",
+  "text": "Şimdi zamanında bırakmayı bilen bir papağansın."
+ },
+ {
+  "key": "8bd63d34",
+  "pack": "kuslar",
+  "text": "Eskiden ödül olmadan kanat çırpmıyordun."
+ },
+ {
+  "key": "b5efbcb4",
+  "pack": "kuslar",
+  "text": "Şimdi karşılık beklemeden iyilik yapan bir tavussun."
+ },
+ {
+  "key": "51a48f0e",
+  "pack": "kuslar",
+  "text": "Eskiden taşlarını kimseye vermiyordun."
+ },
+ {
+  "key": "3605df40",
+  "pack": "kuslar",
+  "text": "Şimdi paylaştıkça sevinen bir kekliksin."
+ },
+ {
+  "key": "a8a305a6",
+  "pack": "kuslar",
+  "text": "Eskiden sıraya girmek istemiyordun."
+ },
+ {
+  "key": "3f03b19c",
+  "pack": "kuslar",
+  "text": "Şimdi küçüklere yer açan bir şahinsin."
+ },
+ {
+  "key": "59b19988",
+  "pack": "kuslar",
+  "text": "Eskiden Ben çok küçüğüm diyordun."
+ },
+ {
+  "key": "7ffea789",
+  "pack": "kuslar",
+  "text": "Şimdi yeni şeyleri deneyen cesur bir serçesin."
+ },
+ {
+  "key": "21321b7c",
+  "pack": "kuslar",
+  "text": "Eskiden köşenden çıkmıyordun."
+ },
+ {
+  "key": "189ec54e",
+  "pack": "kuslar",
+  "text": "Şimdi sürüyle birlikte uçan bir baykuşsun."
+ },
+ {
+  "key": "4d107a18",
+  "pack": "kuslar",
+  "text": "Eskiden kendini en iyi sanıyordun."
+ },
+ {
+  "key": "64d66c6f",
+  "pack": "kuslar",
+  "text": "Şimdi her gün yeni bir şey öğrenen bir hümasın."
+ },
+ {
+  "key": "6421e2a0",
+  "pack": "kuslar",
+  "text": "İlk vadiye hoş geldiniz: Talep Vadisi! Burada her kuş bir şeyi merak eder ve sorar. Soru sormak yolun ilk adımıdır. Bugün neyi öğrenmek istiyorsunuz?"
+ },
+ {
+  "key": "9e3fd2ad",
+  "pack": "kuslar",
+  "text": "Rabbim, ilmimi artır."
+ },
+ {
+  "key": "6f0297c3",
+  "pack": "kuslar",
+  "text": "Aşk Vadisi'ne geldik. Burada kuşlar sevdikleri için emek verir, yorulsalar bile vazgeçmez. Sevgi, yolun kanatlarıdır. Bugün kimi sevindireceksiniz?"
+ },
+ {
+  "key": "8bfdc442",
+  "pack": "kuslar",
+  "text": "Peygamberimiz buyurdu: Birbirinizi sevmedikçe iman etmiş olmazsınız."
+ },
+ {
+  "key": "1ffad349",
+  "pack": "kuslar",
+  "text": "Marifet Vadisi! Burada her şeyin bir sebebi, bir hikmeti vardır. Bakmak başka, anlamak başkadır. Gözlerinizi açın, kalbinizle bakın!"
+ },
+ {
+  "key": "0ba148d9",
+  "pack": "kuslar",
+  "text": "Hiç bilenlerle bilmeyenler bir olur mu?"
+ },
+ {
+  "key": "b1f17c87",
+  "pack": "kuslar",
+  "text": "İstiğna Vadisi'ndeyiz. Burada kuşlar azla yetinmeyi öğrenir. Kimseyi kıskanmayan kalp, en zengin kalptir."
+ },
+ {
+  "key": "cb57f078",
+  "pack": "kuslar",
+  "text": "Peygamberimiz buyurdu: Zenginlik mal çokluğu değil, gönül zenginliğidir."
+ },
+ {
+  "key": "5734a643",
+  "pack": "kuslar",
+  "text": "Tevhid Vadisi! Burada bütün kuşlar tek bir sürü gibi uçar. Birlikte olunca yol kısalır, yük hafifler. Kanat kanada verin!"
+ },
+ {
+  "key": "ff7f4a61",
+  "pack": "kuslar",
+  "text": "Hep birlikte Allah'ın ipine sımsıkı sarılın, ayrılmayın."
+ },
+ {
+  "key": "45250ac6",
+  "pack": "kuslar",
+  "text": "Hayret Vadisi'ne hoş geldiniz. Burada kuşlar gökyüzüne, denize, bir yaprağa bakıp hayran kalır. Durun ve dinleyin: her şey Allah'ı anar."
+ },
+ {
+  "key": "a9c3b0dc",
+  "pack": "kuslar",
+  "text": "Göklerin ve yerin yaratılışında, gece ile gündüzün birbiri ardınca gelişinde akıl sahipleri için elbette ibretler vardır."
+ },
+ {
+  "key": "a3bd13ca",
+  "pack": "kuslar",
+  "text": "Son vadi: Fakr ü Fenâ. Burada kuşlar ben demeyi bırakıp biz demeyi öğrenir. Alçakgönüllü kalp, en yükseğe uçar. Kaf Dağı çok yakın!"
+ },
+ {
+  "key": "7e226972",
+  "pack": "kuslar",
+  "text": "Rahmân'ın kulları yeryüzünde vakar ve tevazu ile yürürler."
+ },
+ {
+  "key": "b08ee405",
+  "pack": "kuslar",
+  "text": "Vadinin dibinde, söğütlerin arasında Pıtır adında küçük bir kumru yaşardı. Pıtır her sabah derenin şırıltısıyla uyanır ve hep aynı şeyi merak ederdi: Bu su nereden geliyor?"
+ },
+ {
+  "key": "5d21e581",
+  "pack": "kuslar",
+  "text": "Annesine sordu. Annesi gülümsedi: Soran bulur, yavrum."
+ },
+ {
+  "key": "b7ed1c54",
+  "pack": "kuslar",
+  "text": "Pıtır kanatlarını açtı ve derenin kenarından yukarı uçtu. Önce bir kurbağaya rastladı. Su nereden geliyor? diye sordu. Kurbağa Yukarıdaki göletten dedi. Gölete vardı; orada bir ördek yüzüyordu. Gölet nereden doluyor? Ördek kanadıyla dağı gösterdi: Yamaçtaki çağlayandan."
+ },
+ {
+  "key": "74ccce98",
+  "pack": "kuslar",
+  "text": "Pıtır yoruldu ama vazgeçmedi. Çağlayanın yanında otlayan bir keçi ona son ipucunu verdi: Tepenin başında, kayaların arasından bir pınar fışkırır."
+ },
+ {
+  "key": "d339e2a7",
+  "pack": "kuslar",
+  "text": "Sonunda Pıtır pınara ulaştı. Su, taşların arasından buz gibi ve pırıl pırıl çıkıyordu. Pıtır dönüp aşağı baktı ve nefesi kesildi: bütün vadi ayaklarının altındaydı. Dere gümüş bir kurdele gibi kıvrılıyor, ağaçlar yemyeşil sallanıyordu."
+ },
+ {
+  "key": "a50051bf",
+  "pack": "kuslar",
+  "text": "Sormasaydım, bu güzelliği hiç göremeyecektim dedi Pıtır."
+ },
+ {
+  "key": "70f89c22",
+  "pack": "kuslar",
+  "text": "Her soru bir kanat çırpışıdır. Soru soran kuş, yükseklere uçar."
+ },
+ {
+  "key": "bcb4bc55",
+  "pack": "kuslar",
+  "text": "En son neyi merak ettin? Cevabını kime sorabilirsin?"
+ },
+ {
+  "key": "6b42643f",
+  "pack": "kuslar",
+  "text": "Köyün camisinin yanındaki yaşlı çınarın tepesinde Ak Leylek'in yuvası vardı. Yuvada üç minik yavru, gagalarını açmış, annelerini beklerdi."
+ },
+ {
+  "key": "4fb67358",
+  "pack": "kuslar",
+  "text": "Bir akşam gökyüzü karardı, rüzgâr çınarın dallarını salladı. Ak Leylek kanatlarını yavrularının üstüne gerdi, onları sıcacık sakladı. Sabah olduğunda yavrular güvendeydi, ama yuvanın yarısı dağılmış, dallar yerlere saçılmıştı."
+ },
+ {
+  "key": "78da6bc4",
+  "pack": "kuslar",
+  "text": "Komşusu karga seslendi: Bu yuvayı yeniden yapmak günler sürer, boşuna yorulma!"
+ },
+ {
+  "key": "e9843856",
+  "pack": "kuslar",
+  "text": "Ak Leylek cevap verdi: Yavrularımı seviyorum. Sevdiğin için yorulmak, yorulmak sayılmaz."
+ },
+ {
+  "key": "655680ef",
+  "pack": "kuslar",
+  "text": "Ve işe koyuldu. Tarladan bir dal, dere kenarından bir saman, bahçeden yumuşak bir yaprak... Her seferinde bir tane taşıdı. Kanatları ağrıdı, ama her dalı yerleştirdiğinde yavrularının mutlu cıvıltısını duydu."
+ },
+ {
+  "key": "18702645",
+  "pack": "kuslar",
+  "text": "Akşam olduğunda yuva eskisinden de sağlamdı. Karga bile hayran kaldı; gagasında bir dal getirip yuvaya ekledi."
+ },
+ {
+  "key": "b3f4fa2b",
+  "pack": "kuslar",
+  "text": "O gece yavrular, annelerinin kanatları altında huzurla uyudular."
+ },
+ {
+  "key": "f24bb514",
+  "pack": "kuslar",
+  "text": "Sevgi kanatlara güç verir. Sevdiğin için emek verdiğinde yol kısalır."
+ },
+ {
+  "key": "36893cc1",
+  "pack": "kuslar",
+  "text": "Sevdiğin biri için en son ne yaptın? Senin için kim emek veriyor?"
+ },
+ {
+  "key": "9b0e83df",
+  "pack": "kuslar",
+  "text": "Sonbaharın ilk serin sabahıydı. Telaşlı bir serçe olan Cik, bir taşın üstüne konmuş, kahvaltılık arıyordu. Birden yerde ilginç bir şey gördü: minicik bir karınca, kendisinden üç kat büyük bir buğday tanesini sürüklüyordu."
+ },
+ {
+  "key": "6b2c03ee",
+  "pack": "kuslar",
+  "text": "Cik kahkahayı bastı: Hey küçük! O tane senden büyük. Hem neden bu kadar uğraşıyorsun? Etraf yiyecek dolu!"
+ },
+ {
+  "key": "4923d005",
+  "pack": "kuslar",
+  "text": "Karınca durmadı, sadece Gel de gör dedi."
+ },
+ {
+  "key": "6b38343b",
+  "pack": "kuslar",
+  "text": "Cik merakla karıncanın peşine takıldı. Karınca toprağın altındaki yuvasına girdi. Cik başını eğip içeri baktı: yüzlerce karınca düzenli sıralar hâlinde taneleri depoluyordu. Yaşlı bir karınca anlattı: Kış gelince toprak donar, dışarıda tek bir tane bulamayız. Bugün taşıdığımız her tane, kışın bütün yuvayı doyuracak."
+ },
+ {
+  "key": "cc6915a4",
+  "pack": "kuslar",
+  "text": "Cik utandı. Az önce güldüğü küçük karınca, aslında bütün ailesini düşünüyordu."
+ },
+ {
+  "key": "552c449e",
+  "pack": "kuslar",
+  "text": "Bakmak başka, anlamak başkaymış dedi Cik. Ve o gün, karıncalara yolun üstündeki buğday tanelerini göstererek yardım etti."
+ },
+ {
+  "key": "d2382c1c",
+  "pack": "kuslar",
+  "text": "Gözle bakan görür, kalple bakan anlar. Gülmeden önce sebebini sor."
+ },
+ {
+  "key": "cbacd97b",
+  "pack": "kuslar",
+  "text": "Bir şeyin sebebini öğrenince fikrin hiç değişti mi?"
+ },
+ {
+  "key": "e0003af8",
+  "pack": "kuslar",
+  "text": "Ormanın kenarında Simsim adında bir saksağan yaşardı. Simsim parlak şeylere bayılırdı: bir cam boncuk, bir düğme, güneşte ışıldayan küçük taşlar... Gördüğü her parlak şeyi gagasıyla kapıp yuvasına taşırdı."
+ },
+ {
+  "key": "936d29a6",
+  "pack": "kuslar",
+  "text": "Yuva gün geçtikçe doldu. Simsim her akşam hazinesine bakar, Daha fazlası lazım! derdi. Ama bir türlü mutlu olamıyordu, çünkü başka ağaçlarda hep daha parlak taşlar görüyordu."
+ },
+ {
+  "key": "223917f7",
+  "pack": "kuslar",
+  "text": "Bir gün göç vakti geldi. Bütün kuşlar sıcak ülkelere uçmak için toplandı. Simsim taşlarını bırakmak istemedi; hepsini bir bohçaya doldurup havalandı. Ama bohça o kadar ağırdı ki Simsim bir türlü yükselemedi; dal dal kona kona geride kaldı."
+ },
+ {
+  "key": "be9edeee",
+  "pack": "kuslar",
+  "text": "Bunu gören yaşlı bir güvercin yanına kondu: Kanatların taş taşımak için değil, gökyüzü için, Simsim."
+ },
+ {
+  "key": "3ca549b7",
+  "pack": "kuslar",
+  "text": "Simsim düşündü. Sonra en güzel boncuğu yuvası süssüz kalmış yavru bir ispinoza, mavi düğmeyi de yuvasını süslemek isteyen bir bülbüle hediye etti. Taşları dağıttıkça yükü hafifledi, içi ferahladı."
+ },
+ {
+  "key": "8aeb4986",
+  "pack": "kuslar",
+  "text": "Ve Simsim, ilk kez, bulutların üstüne kadar yükseldi."
+ },
+ {
+  "key": "b557217e",
+  "pack": "kuslar",
+  "text": "Kimseyi kıskanmayan, azla yetinen kalp en zengin kalptir. Paylaştıkça hafifleriz."
+ },
+ {
+  "key": "5b7874b6",
+  "pack": "kuslar",
+  "text": "Neyi daha az isteyerek daha mutlu olabilirsin?"
+ },
+ {
+  "key": "e0b5f502",
+  "pack": "kuslar",
+  "text": "Sonbaharda gökyüzünde V harfi gibi uçan kaz sürülerini gördünüz mü? Bu hikâye onlardan biri hakkında."
+ },
+ {
+  "key": "06507c41",
+  "pack": "kuslar",
+  "text": "Genç kaz Dırdır, çok hızlı uçmasıyla övünürdü. Ben sürüyü beklemem! dedi ve tek başına yola çıktı. İlk saatlerde çok eğlendi. Ama rüzgâr karşıdan esiyordu; her kanat çırpışı bir öncekinden zor geldi. Akşama doğru kanatları titremeye başladı."
+ },
+ {
+  "key": "014ca328",
+  "pack": "kuslar",
+  "text": "Tam o sırada arkasından tanıdık bir ses duydu: sürü geliyordu! En öndeki yaşlı kaz seslendi: Gel Dırdır, arkama gir!"
+ },
+ {
+  "key": "3bee2e65",
+  "pack": "kuslar",
+  "text": "Dırdır sürüye katıldı ve şaşırdı: öndeki kazların kanatları havayı yarıyor, arkadakilere yol açıyordu. Uçmak birden kolaylaşmıştı. Bir süre sonra öndeki yaşlı kaz yoruldu ve geriye geçti; yerine bir başkası geçti. Herkes sırayla öne çıkıyor, sırayla dinleniyordu. Arkadakiler de Haydi, az kaldı! diye öttükçe öndekiler güçleniyordu."
+ },
+ {
+  "key": "ade23046",
+  "pack": "kuslar",
+  "text": "O gece Dırdır, sürüyle birlikte sıcak bir göle kondu. Tek başıma hızlıydım dedi, ama birlikte uzağa gidebiliyormuşuz."
+ },
+ {
+  "key": "0bc48201",
+  "pack": "kuslar",
+  "text": "Kanat kanada verenin yolu kısalır, yükü hafifler. Birlik, güçtür."
+ },
+ {
+  "key": "789ba21f",
+  "pack": "kuslar",
+  "text": "Ailece hangi işi birlikte daha kolay yapıyoruz?"
+ },
+ {
+  "key": "80c9120e",
+  "pack": "kuslar",
+  "text": "Yaşlı ceviz ağacının kovuğunda Pofuduk adında bir baykuş yavrusu yaşardı. Pofuduk bugüne kadar hep annesinin kanadının altına sokulmuş, dışarıya hiç bakmamıştı. Ama bu gece farklıydı. Annesi Artık büyüdün, gel, dışarıya bakalım dedi."
+ },
+ {
+  "key": "965fb31a",
+  "pack": "kuslar",
+  "text": "Pofuduk kovuğun ağzına çıktı ve başını kaldırdı. Gözleri kocaman açıldı."
+ },
+ {
+  "key": "064056bb",
+  "pack": "kuslar",
+  "text": "Gökyüzü yıldızlarla doluydu! Bazıları bir kum tanesi kadar küçük, bazıları bir kandil kadar parlaktı. Ay, gümüş bir tabak gibi tepenin üstünde duruyordu. Uzaktan bir dere şırıldıyor, cırcır böcekleri şarkı söylüyor, serin rüzgâr yaprakları hışırdatıyordu."
+ },
+ {
+  "key": "567d14c3",
+  "pack": "kuslar",
+  "text": "Pofuduk yıldızları saymaya başladı: Bir, iki, üç... yüz... Ama yıldızlar bitmiyordu; saydıkça yenileri beliriyordu."
+ },
+ {
+  "key": "262ae772",
+  "pack": "kuslar",
+  "text": "Anne, bunları kim yarattı? Hepsini kim yerinde tutuyor?"
+ },
+ {
+  "key": "87192184",
+  "pack": "kuslar",
+  "text": "Annesi yumuşak bir sesle cevap verdi: Her şeyi yaratan Allah, yavrum. Bak, dere de, rüzgâr da, böcekler de O'nu anıyor."
+ },
+ {
+  "key": "aaf9a1cd",
+  "pack": "kuslar",
+  "text": "Pofuduk bir süre sessizce dinledi. Sonra minicik gagasıyla fısıldadı: Sübhânallah."
+ },
+ {
+  "key": "c7c42906",
+  "pack": "kuslar",
+  "text": "Durup bakan hayran kalır. Hayran kalan kalp Allah'ı anar."
+ },
+ {
+  "key": "bf1ba070",
+  "pack": "kuslar",
+  "text": "Seni en son hayran bırakan şey neydi? Bu akşam pencereden gökyüzüne bakalım mı?"
+ },
+ {
+  "key": "e2974b5c",
+  "pack": "kuslar",
+  "text": "Kuşlar uzun bir yolculuğa çıkacaktı. Yola çıkmadan önce kimin önden uçacağını konuşmaya başladılar."
+ },
+ {
+  "key": "0d8e3d98",
+  "pack": "kuslar",
+  "text": "Tavus kuşu Şaşaa kuyruğunu yelpaze gibi açtı: Elbette ben! En güzel tüyler bende, en parlak renkler bende. Önde ben olmalıyım!"
+ },
+ {
+  "key": "2377ead3",
+  "pack": "kuslar",
+  "text": "Kuşlar birbirine baktı, kimse bir şey diyemedi. Şaşaa en öne geçti ve sürü havalandı."
+ },
+ {
+  "key": "2fd842e5",
+  "pack": "kuslar",
+  "text": "Ama çok geçmeden sis bastırdı. Önünü göremeyen Şaşaa sağa döndü, sola döndü; sürü dağılmaya başladı. Tam o sırada arkadan ince bir ses duyuldu: Bu yolu biliyorum! Her yıl annemle geçerdik. Dereyi takip edersek sisten çıkarız."
+ },
+ {
+  "key": "8ef19742",
+  "pack": "kuslar",
+  "text": "Bu, sürünün en küçüğü, minik serçe Cıvıl'dı."
+ },
+ {
+  "key": "106f47db",
+  "pack": "kuslar",
+  "text": "Şaşaa bir an durdu. İçinden Ben bu kadar güzelken bu minicik kuşun arkasından mı uçacağım? diye geçirdi. Sonra sürüye baktı: herkes yorgundu, herkes yolunu kaybetmişti."
+ },
+ {
+  "key": "bc4d3d75",
+  "pack": "kuslar",
+  "text": "Şaşaa derin bir nefes aldı: Cıvıl, sen önden uç. Biz de arkandan geliyoruz."
+ },
+ {
+  "key": "07ed5ffe",
+  "pack": "kuslar",
+  "text": "Cıvıl'ın arkasında sürü sisten çıktı ve güneşli bir vadiye kondu. Kuşlar Cıvıl'a teşekkür etti. Ama en çok da Şaşaa'yı takdir ettiler, çünkü ben demeyi bırakıp biz diyebilmişti."
+ },
+ {
+  "key": "511a27fd",
+  "pack": "kuslar",
+  "text": "Alçakgönüllü kalp en yükseğe uçar. Ben yerine biz diyen, sürüyü kurtarır."
+ },
+ {
+  "key": "a33b62e0",
+  "pack": "kuslar",
+  "text": "Ben yerine biz demek ne zaman zor geliyor?"
+ },
+ {
+  "key": "409b52d9",
+  "pack": "kuslar",
+  "text": "Gül bir mevsim açar, sonra solar. Bir mevsimlik güzellik için bütün yolu kaçırma."
+ },
+ {
+  "key": "23e9c98c",
+  "pack": "kuslar",
+  "text": "En güzel şarkı, sevdiklerinle birlikte söylenendir."
+ },
+ {
+  "key": "356782c1",
+  "pack": "kuslar",
+  "text": "Gülün seni bekler, ama yol seni beklemez. Dönünce ona anlatacak güzel hikâyelerin olur."
+ },
+ {
+  "key": "24404ecf",
+  "pack": "kuslar",
+  "text": "Her güzel şeyin bir zamanı vardır; zamanında bırakmayı bilen, yarın yine oynar."
+ },
+ {
+  "key": "78504949",
+  "pack": "kuslar",
+  "text": "Dinlemeyi bilen kuş, yeni şarkılar öğrenir."
+ },
+ {
+  "key": "9919111c",
+  "pack": "kuslar",
+  "text": "Doymayı bilen midenin de kalbin de keyfi yerinde olur."
+ },
+ {
+  "key": "360bc806",
+  "pack": "kuslar",
+  "text": "En güzel iyilik, karşılık beklemeden yapılandır."
+ },
+ {
+  "key": "51aef36a",
+  "pack": "kuslar",
+  "text": "Asıl güzellik tüylerde değil, kalptedir."
+ },
+ {
+  "key": "c3a8d006",
+  "pack": "kuslar",
+  "text": "Kimse görmese de yapılan iyilik, en parlak tüyden güzeldir."
+ },
+ {
+  "key": "7688b58c",
+  "pack": "kuslar",
+  "text": "Taşların parlaklığı gider; paylaştığın sevinç hep kalır."
+ },
+ {
+  "key": "e4692eb3",
+  "pack": "kuslar",
+  "text": "Ödünç verdiğin her şey arkadaşlığını büyütür. Nasıl kullanacağını güzelce anlatabilirsin."
+ },
+ {
+  "key": "db436e51",
+  "pack": "kuslar",
+  "text": "Saklanan kurabiye bayatlar, paylaşılan kurabiye tatlanır."
+ },
+ {
+  "key": "a6845a9e",
+  "pack": "kuslar",
+  "text": "Gerçek büyüklük, küçüklere yer açmaktır."
+ },
+ {
+  "key": "ea6e5d77",
+  "pack": "kuslar",
+  "text": "Sürü, en yavaş kuşuyla birlikte varır."
+ },
+ {
+  "key": "2647af4b",
+  "pack": "kuslar",
+  "text": "Sultanın şahini de yuvasına çöp taşır; işin küçüğü yoktur."
+ },
+ {
+  "key": "f2c7aa29",
+  "pack": "kuslar",
+  "text": "Küçük kanatlar da uçar; yeter ki sürüden ayrılma."
+ },
+ {
+  "key": "ca567376",
+  "pack": "kuslar",
+  "text": "Düşmekten korkan kuş uçmayı hiç öğrenemez."
+ },
+ {
+  "key": "d8146786",
+  "pack": "kuslar",
+  "text": "Küçük kuşun sesi de duyulur; yeter ki güzel söylesin."
+ },
+ {
+  "key": "4a2b30b5",
+  "pack": "kuslar",
+  "text": "Asıl hazine, birlikte uçtuğun dostlarındır."
+ },
+ {
+  "key": "0ad51c35",
+  "pack": "kuslar",
+  "text": "Selam veren kuşun dostu çok olur."
+ },
+ {
+  "key": "03b06652",
+  "pack": "kuslar",
+  "text": "Derdini paylaşan kuşun kanadı hafifler."
+ },
+ {
+  "key": "24b0ff45",
+  "pack": "kuslar",
+  "text": "Kendini en iyi sanan yolda durur; öğrenmeye devam eden ileri gider."
+ },
+ {
+  "key": "9a5762ef",
+  "pack": "kuslar",
+  "text": "Hatasını kabul eden kuş daha yükseğe uçar."
+ },
+ {
+  "key": "f096a94a",
+  "pack": "kuslar",
+  "text": "Kazanmak güzeldir, ama birlikte oynamak daha güzeldir."
+ },
+ {
+  "key": "35fcb931",
+  "pack": "kart",
+  "text": "Fil. Fil Suresi: Ebrehe fillerden oluşan ordusuyla Kâbe'yi yıkmaya geldi, ama Allah Kâbe'yi korudu."
+ },
+ {
+  "key": "82b50580",
+  "pack": "kart",
+  "text": "Karınca. Neml Suresi: Hazreti Süleyman'ın ordusu yaklaşırken bir karınca arkadaşlarını uyardı: Yuvalarınıza girin!"
+ },
+ {
+  "key": "a952c1a2",
+  "pack": "kart",
+  "text": "Hüdhüd kuşu. Neml Suresi: Hüdhüd kuşu, Hazreti Süleyman'a Sebe ülkesinden haber getirdi."
+ },
+ {
+  "key": "0196c258",
+  "pack": "kart",
+  "text": "Büyük balık. Hazreti Yunus'u büyük bir balık yuttu. O, balığın karnında Lâ ilâhe illâ ente sübhâneke innî küntü mine'z-zâlimîn diye dua etti."
+ },
+ {
+  "key": "e5a68c3e",
+  "pack": "kart",
+  "text": "Uyuyan köpek. Kehf Suresi: Mağaradaki gençlerin köpeği, ön ayaklarını uzatmış bekliyordu. Geleneğe göre adı Kıtmîr'dir."
+ },
+ {
+  "key": "552feb0e",
+  "pack": "kart",
+  "text": "Deve. Peygamberimiz Medine'ye vardığında devesi Kasvâ'nın çöktüğü yere Mescid-i Nebevî yapıldı."
+ },
+ {
+  "key": "0d6878d6",
+  "pack": "kart",
+  "text": "İnek. Kur'an'ın en uzun suresinin adı Bakara'dır, yani inek."
+ },
+ {
+  "key": "bf4593a9",
+  "pack": "kart",
+  "text": "Yılan. Hazreti Musa asasını yere attığında, Allah'ın izniyle asa yılana dönüştü."
+ },
+ {
+  "key": "d31976f6",
+  "pack": "kart",
+  "text": "Koç. Allah, Hazreti İbrahim'e oğlu Hazreti İsmail'in yerine kurban etmesi için büyük bir kurbanlık gönderdi."
+ },
+ {
+  "key": "3f885783",
+  "pack": "kart",
+  "text": "Kurt. Hazreti Yusuf'un kardeşleri onu kuyuya attı ve babalarına Onu kurt yedi diye yalan söyledi."
+ },
+ {
+  "key": "0d8e743f",
+  "pack": "kart",
+  "text": "Ağ ören örümcek. Hicret yolculuğunda Peygamberimiz ve Hazreti Ebû Bekir Sevr Mağarası'na saklandı. Rivayete göre mağaranın ağzına bir örümcek ağ ördü."
+ },
+ {
+  "key": "e371846b",
+  "pack": "kart",
+  "text": "Gemi yapmak. Hazreti Nuh, Allah'ın emriyle büyük bir gemi yaptı. İnsanlar onunla alay etti ama o sabırla devam etti."
+ },
+ {
+  "key": "68259722",
+  "pack": "kart",
+  "text": "Taş taşıyan kuşlar. Fil Suresi: Allah, Ebrehe'nin ordusunun üzerine taş taşıyan kuş sürüleri (Ebâbil) gönderdi."
+ },
+ {
+  "key": "b68671fd",
+  "pack": "kart",
+  "text": "Hurma ağacını sallamak. Meryem Suresi: Hazreti Meryem'e hurma ağacını sallaması söylendi ve üzerine taze hurmalar döküldü."
+ },
+ {
+  "key": "3cb2b1a7",
+  "pack": "kart",
+  "text": "Sahura uykulu kalkmak. Peygamberimiz Sahur yapın, çünkü sahurda bereket vardır buyurdu."
+ },
+ {
+  "key": "99a6014a",
+  "pack": "kart",
+  "text": "Hapşırıp Elhamdülillah demek. Hapşıran Elhamdülillah der. Duyan Yerhamükellah (Allah sana rahmet etsin) der. Hapşıran da Yehdînâ ve yehdîkümullah (Allah bize ve size hidayet versin) diye karşılık verir."
+ },
+ {
+  "key": "2e87d44a",
+  "pack": "kart",
+  "text": "Susamış kediye su vermek. Peygamberimiz, susamış bir köpeğe kuyudan su çıkarıp içiren adamı Allah'ın bağışladığını anlattı."
+ },
+ {
+  "key": "833774dd",
+  "pack": "kart",
+  "text": "Abdest almak. Abdest, namazın anahtarıdır. Peygamberimiz abdest alırken suyu israf etmezdi."
+ },
+ {
+  "key": "742be5ef",
+  "pack": "kart",
+  "text": "Bal yapan arı. Nahl (Arı) Suresi: Allah arıya dağlarda ve ağaçlarda yuva yapmasını ilham etti. Karınlarından insanlara şifa olan bal çıkar."
+ },
+ {
+  "key": "e3f096e2",
+  "pack": "kart",
+  "text": "Kurbağa. Firavun ve kavmi inat edince Allah onlara tufan, çekirge, haşere, kurbağa ve kan gönderdi."
+ },
+ {
+  "key": "a1104b79",
+  "pack": "kart",
+  "text": "Çekirge. Firavun'un kavmine gönderilen uyarılardan biri de çekirge sürüleriydi."
+ },
+ {
+  "key": "4844d66a",
+  "pack": "kart",
+  "text": "Sivrisinek. Bakara Suresi'nde Allah, sivrisineği bile örnek vermekten çekinmeyeceğini bildirir."
+ },
+ {
+  "key": "f049163b",
+  "pack": "kart",
+  "text": "Zürafa gemiye biniyor. Allah Hazreti Nuh'a her canlıdan birer çifti gemiye almasını emretti."
+ },
+ {
+  "key": "4f671ad5",
+  "pack": "kart",
+  "text": "Koyun gütmek. Peygamberimiz gençliğinde çobanlık yaptı ve gönderilen her peygamberin çobanlık yaptığını söyledi."
+ },
+ {
+  "key": "9e34f305",
+  "pack": "kart",
+  "text": "Kuyudan kova ile su çekmek. Bir kervan, su almak için Hazreti Yusuf'un bulunduğu kuyuya kova sarkıttı ve onu buldu."
+ },
+ {
+  "key": "b9670519",
+  "pack": "kart",
+  "text": "Yıldızları ve ayı izlemek. Hazreti Yusuf rüyasında on bir yıldızın, güneşin ve ayın kendisine secde ettiğini gördü."
+ },
+ {
+  "key": "3d7cc084",
+  "pack": "kart",
+  "text": "Hurma ile iftar açmak. Peygamberimiz orucunu genellikle taze ya da kuru hurma ile, bulamazsa su ile açardı."
+ },
+ {
+  "key": "f11813c2",
+  "pack": "kart",
+  "text": "Misafire yemek ikram etmek. Hazreti İbrahim misafirleri gelince hemen semiz bir buzağı kızartıp ikram etti."
+ },
+ {
+  "key": "f74ab06f",
+  "pack": "kart",
+  "text": "Esen rüzgâr. Allah rüzgârı Hazreti Süleyman'ın emrine verdi."
+ },
+ {
+  "key": "2dcf4506",
+  "pack": "kart",
+  "text": "Misvakla diş fırçalamak. Peygamberimiz misvakı çok severdi ve sık sık kullanırdı."
+ },
+ {
+  "key": "be85aedb",
+  "pack": "kart",
+  "text": "Fidan dikmek. Peygamberimiz, kıyamet kopacağı sırada bile elinde bir fidan olanın onu dikmesini tavsiye etti."
+ },
+ {
+  "key": "358bc28e",
+  "pack": "kart",
+  "text": "Bayramda el öpmek. Bayramlarda büyükleri ziyaret etmek, el öpmek ve küçükleri sevindirmek güzel bir gelenektir."
+ },
+ {
+  "key": "549d3a09",
+  "pack": "kart",
+  "text": "Yoldaki taşı kaldırmak. Peygamberimiz yoldan insanlara eziyet veren bir şeyi kaldırmanın sadaka olduğunu söyledi."
+ },
+ {
+  "key": "d6d30a5a",
+  "pack": "kart",
+  "text": "Horoz. Peygamberimiz Horozun öttüğünü duyunca Allah'tan lütfunu isteyin buyurdu."
+ },
+ {
+  "key": "7d35e169",
+  "pack": "kart",
+  "text": "Eşek. Lokmân Suresi'nde sesimizi yumuşak tutmamız öğütlenir: Seslerin en çirkini eşeklerin sesidir."
+ },
+ {
+  "key": "c91c6166",
+  "pack": "kart",
+  "text": "Dörtnala koşan at. Âdiyât Suresi, soluk soluğa koşan atlara yemin ederek başlar."
+ },
+ {
+  "key": "f4222e0b",
+  "pack": "kart",
+  "text": "Gök gürültüsü. Ra'd Suresi'nin adı gök gürültüsü demektir. Gök gürültüsü de Allah'ı hamd ile tesbih eder."
+ },
+ {
+  "key": "9c1f3c09",
+  "pack": "kart",
+  "text": "Yağmur. Peygamberimiz yağmur yağınca Allah'ım, faydalı bir yağmur yağdır diye dua ederdi."
+ },
+ {
+  "key": "f6b64806",
+  "pack": "kart",
+  "text": "Vızıldayan arı. Nahl, yani Arı Suresi: Arıların karnından insanlara şifa olan bal çıkar."
+ },
+ {
+  "key": "52f238d6",
+  "pack": "kart",
+  "text": "Deniz dalgaları. Hazreti Musa asasını denize vurdu ve deniz ikiye yarıldı."
+ },
+ {
+  "key": "7c8be95c",
+  "pack": "kart",
+  "text": "Cıvıldayan kuşlar. Hazreti Davud Allah'ı tesbih ettiğinde dağlar ve kuşlar da onunla birlikte tesbih ederdi."
+ },
+ {
+  "key": "55681b93",
+  "pack": "kart",
+  "text": "Fil. Fil Suresi: Ebrehe'nin fillerle gelen ordusu Kâbe'ye zarar veremedi."
+ },
+ {
+  "key": "3390959c",
+  "pack": "kart",
+  "text": "Uluyan kurt. Hazreti Yusuf'un kardeşleri babalarına Onu kurt yedi diye yalan söyledi."
+ },
+ {
+  "key": "fd5d648b",
+  "pack": "kart",
+  "text": "İnek. Kur'an'ın en uzun suresinin adı Bakara, yani inektir."
+ },
+ {
+  "key": "3e299c1d",
+  "pack": "kart",
+  "text": "Koyun. Peygamberimiz gençliğinde çobanlık yaptı."
+ },
+ {
+  "key": "76f0d747",
+  "pack": "kart",
+  "text": "Sivrisinek. Allah sivrisineği bile örnek vermekten çekinmez."
+ },
+ {
+  "key": "f598680b",
+  "pack": "kart",
+  "text": "Kurbağa. Firavun'un kavmine gönderilen uyarılardan biri kurbağalardı."
+ },
+ {
+  "key": "e83d9299",
+  "pack": "kart",
+  "text": "Deve. Peygamberimizin devesi Kasvâ'nın çöktüğü yere Mescid-i Nebevî yapıldı."
+ },
+ {
+  "key": "1bd8690e",
+  "pack": "kart",
+  "text": "Havlayan köpek. Kehf Suresi'nde mağaradaki gençlerin köpeğinden bahsedilir."
+ },
+ {
+  "key": "1274f8be",
+  "pack": "kart",
+  "text": "Sahur davulu. Ramazan'da sahura kaldırmak için davul çalınması güzel bir gelenektir."
+ },
+ {
+  "key": "eb9ba319",
+  "pack": "kart",
+  "text": "Kocaman bir hapşırık. Hapşıran Elhamdülillah, duyan Yerhamükellah der; hapşıran da Yehdînâ ve yehdîkümullah diye karşılık verir."
+ },
+ {
+  "key": "9b577b4c",
+  "pack": "kart",
+  "text": "Kaynayan çaydanlık. Misafire çay ikram etmek güzel bir gelenektir. Peygamberimiz misafire ikramı öğütledi."
+ },
+ {
+  "key": "902c9892",
+  "pack": "kart",
+  "text": "Hepimiz Fil olduk! Hortumunu salla, ağır ağır yürü!"
+ },
+ {
+  "key": "0aa7117c",
+  "pack": "kart",
+  "text": "Hepimiz Karınca olduk! Minik minik, hızlı hızlı yürü!"
+ },
+ {
+  "key": "391fe887",
+  "pack": "kart",
+  "text": "Hepimiz Deve olduk! Sallana sallana çölde yürü!"
+ },
+ {
+  "key": "4767ce43",
+  "pack": "kart",
+  "text": "Hepimiz Kurbağa olduk! Zıpla, zıpla, zıpla!"
+ },
+ {
+  "key": "fa2b1ed7",
+  "pack": "kart",
+  "text": "Hepimiz Arı olduk! Vızıldayarak uç!"
+ },
+ {
+  "key": "a5bfe7d1",
+  "pack": "kart",
+  "text": "Hepimiz Hüdhüd kuşu olduk! Kanatlarını çırp, başını salla!"
+ },
+ {
+  "key": "97160183",
+  "pack": "kart",
+  "text": "Hepimiz Balık olduk! Kollarınla yüzüyormuş gibi yap!"
+ },
+ {
+  "key": "3db23248",
+  "pack": "kart",
+  "text": "Hepimiz Örümcek olduk! Elinle ve ayağınla dört ayaklı yürü!"
+ },
+ {
+  "key": "a821f89b",
+  "pack": "kart",
+  "text": "Hepimiz Koyun olduk! Meleyerek otla!"
+ },
+ {
+  "key": "d066294c",
+  "pack": "kart",
+  "text": "Hepimiz Yılan olduk! Kıvrıl kıvrıl ilerle!"
+ },
+ {
+  "key": "00ddbd05",
+  "pack": "kart",
+  "text": "Hepimiz Zürafa olduk! Boynunu uzat, gemiye bin!"
+ },
+ {
+  "key": "9805d914",
+  "pack": "kart",
+  "text": "Hepimiz At olduk! Dörtnala koş!"
+ },
+ {
+  "key": "123e094e",
+  "pack": "kart",
+  "text": "Hepimiz Kurt olduk! Sinsice yürü ve ulu!"
+ },
+ {
+  "key": "28599a16",
+  "pack": "kart",
+  "text": "Hepimiz Uyuyan köpek olduk! Ayaklarını uzat, esne, sonra koş!"
+ },
+ {
+  "key": "313b88a6",
+  "pack": "kart",
+  "text": "Arı. Nahl, yani Arı Suresi'nde geçer."
+ },
+ {
+  "key": "0ec1db53",
+  "pack": "kart",
+  "text": "Balık. Hazreti Yunus kıssasında büyük bir balık geçer."
+ },
+ {
+  "key": "a8bc0e35",
+  "pack": "kart",
+  "text": "Örümcek. Ankebût, yani Örümcek Suresi'nde geçer."
+ },
+ {
+  "key": "99fe6c66",
+  "pack": "kart",
+  "text": "Zürafa. Hazreti Nuh gemisine her canlıdan bir çift aldı."
+ },
+ {
+  "key": "0c42fad1",
+  "pack": "kart",
+  "text": "At. Âdiyât Suresi'nde koşan atlar anlatılır."
+ },
+ {
+  "key": "2fadb7de",
+  "pack": "bilgi",
+  "text": "Yemeğe başlarken ne deriz?"
+ },
+ {
+  "key": "06a548fa",
+  "pack": "bilgi",
+  "text": "Bismillah"
+ },
+ {
+  "key": "6a4d9719",
+  "pack": "bilgi",
+  "text": "Günaydın"
+ },
+ {
+  "key": "ffa613a1",
+  "pack": "bilgi",
+  "text": "Hoşça kal"
+ },
+ {
+  "key": "0f569cd4",
+  "pack": "bilgi",
+  "text": "Yemek bitince ne deriz?"
+ },
+ {
+  "key": "70d2e824",
+  "pack": "bilgi",
+  "text": "Elhamdülillah"
+ },
+ {
+  "key": "02829fbf",
+  "pack": "bilgi",
+  "text": "Ayy, doydum!"
+ },
+ {
+  "key": "4bfb06ea",
+  "pack": "bilgi",
+  "text": "İyi geceler"
+ },
+ {
+  "key": "38add09a",
+  "pack": "bilgi",
+  "text": "Biriyle karşılaşınca ne deriz?"
+ },
+ {
+  "key": "de3339ff",
+  "pack": "bilgi",
+  "text": "Selâmün aleyküm"
+ },
+ {
+  "key": "9f7fe543",
+  "pack": "bilgi",
+  "text": "Hiçbir şey"
+ },
+ {
+  "key": "6cb04ba9",
+  "pack": "bilgi",
+  "text": "Hangisi Kâbe?"
+ },
+ {
+  "key": "e0c50811",
+  "pack": "bilgi",
+  "text": "Kâbe"
+ },
+ {
+  "key": "1f3215a9",
+  "pack": "bilgi",
+  "text": "Şato"
+ },
+ {
+  "key": "2b795142",
+  "pack": "bilgi",
+  "text": "Kule"
+ },
+ {
+  "key": "0b838f21",
+  "pack": "bilgi",
+  "text": "Hapşırınca ne deriz?"
+ },
+ {
+  "key": "5ee290f1",
+  "pack": "bilgi",
+  "text": "Miyav"
+ },
+ {
+  "key": "f0ebfbc3",
+  "pack": "bilgi",
+  "text": "Ramazan'da ne yaparız?"
+ },
+ {
+  "key": "a080af5d",
+  "pack": "bilgi",
+  "text": "Oruç tutarız"
+ },
+ {
+  "key": "115163c1",
+  "pack": "bilgi",
+  "text": "Kardan adam yaparız"
+ },
+ {
+  "key": "0103e0b9",
+  "pack": "bilgi",
+  "text": "Uçağa bineriz"
+ },
+ {
+  "key": "2727d6f1",
+  "pack": "bilgi",
+  "text": "Hazreti Nuh'un gemisine kimler bindi?"
+ },
+ {
+  "key": "add9bbbd",
+  "pack": "bilgi",
+  "text": "Hayvanlar"
+ },
+ {
+  "key": "c364731f",
+  "pack": "bilgi",
+  "text": "Arabalar"
+ },
+ {
+  "key": "6a88f4de",
+  "pack": "bilgi",
+  "text": "Robotlar"
+ },
+ {
+  "key": "0ce56d62",
+  "pack": "bilgi",
+  "text": "Camiye ne için gideriz?"
+ },
+ {
+  "key": "2fb4d457",
+  "pack": "bilgi",
+  "text": "Namaz kılmak"
+ },
+ {
+  "key": "91205db4",
+  "pack": "bilgi",
+  "text": "Top oynamak"
+ },
+ {
+  "key": "5ee389b5",
+  "pack": "bilgi",
+  "text": "Uyumak"
+ },
+ {
+  "key": "ecec82ff",
+  "pack": "bilgi",
+  "text": "Namaz kılmadan önce ne yaparız?"
+ },
+ {
+  "key": "df6df787",
+  "pack": "bilgi",
+  "text": "Abdest alırız"
+ },
+ {
+  "key": "5738f8ac",
+  "pack": "bilgi",
+  "text": "Dondurma yeriz"
+ },
+ {
+  "key": "90ddac3a",
+  "pack": "bilgi",
+  "text": "Dans ederiz"
+ },
+ {
+  "key": "b3c93046",
+  "pack": "bilgi",
+  "text": "Dua ederken ellerimizi nasıl tutarız?"
+ },
+ {
+  "key": "0ae3ba09",
+  "pack": "bilgi",
+  "text": "Avuçlarımızı açarız"
+ },
+ {
+  "key": "ef920b07",
+  "pack": "bilgi",
+  "text": "Alkışlarız"
+ },
+ {
+  "key": "b87c91a0",
+  "pack": "bilgi",
+  "text": "El sallarız"
+ },
+ {
+  "key": "f693be2b",
+  "pack": "bilgi",
+  "text": "Kardeşin ağlarsa ne yaparız?"
+ },
+ {
+  "key": "3ffdb2a8",
+  "pack": "bilgi",
+  "text": "Sarılırız"
+ },
+ {
+  "key": "8f7a1456",
+  "pack": "bilgi",
+  "text": "Güleriz"
+ },
+ {
+  "key": "f38a492e",
+  "pack": "bilgi",
+  "text": "Kaçarız"
+ },
+ {
+  "key": "e280b154",
+  "pack": "bilgi",
+  "text": "Bayramda büyüklerimizin neyini öperiz?"
+ },
+ {
+  "key": "ca36d456",
+  "pack": "bilgi",
+  "text": "Elini"
+ },
+ {
+  "key": "b1f8f957",
+  "pack": "bilgi",
+  "text": "Ayağını"
+ },
+ {
+  "key": "18398c43",
+  "pack": "bilgi",
+  "text": "Kulağını"
+ },
+ {
+  "key": "c9f91675",
+  "pack": "bilgi",
+  "text": "Yerde çöp görürsek ne yaparız?"
+ },
+ {
+  "key": "b1b2090f",
+  "pack": "bilgi",
+  "text": "Çöp kutusuna atarız"
+ },
+ {
+  "key": "5d789c2b",
+  "pack": "bilgi",
+  "text": "Tekmeleriz"
+ },
+ {
+  "key": "541ce097",
+  "pack": "bilgi",
+  "text": "Üstüne basarız"
+ },
+ {
+  "key": "24dd6f01",
+  "pack": "bilgi",
+  "text": "Hazreti Yunus'u kim yuttu?"
+ },
+ {
+  "key": "19e89230",
+  "pack": "bilgi",
+  "text": "Büyük balık"
+ },
+ {
+  "key": "625f1176",
+  "pack": "bilgi",
+  "text": "Kedi"
+ },
+ {
+  "key": "eb4074b6",
+  "pack": "bilgi",
+  "text": "Kuş"
+ },
+ {
+  "key": "0ce9e39e",
+  "pack": "bilgi",
+  "text": "Bal yapan hayvan hangisi? Kur'an'da onun adını taşıyan bir sure var!"
+ },
+ {
+  "key": "4ef947b1",
+  "pack": "bilgi",
+  "text": "Arı"
+ },
+ {
+  "key": "c75e9a4c",
+  "pack": "bilgi",
+  "text": "Kelebek"
+ },
+ {
+  "key": "30a96f02",
+  "pack": "bilgi",
+  "text": "Uğur böceği"
+ },
+ {
+  "key": "6dbaeeaf",
+  "pack": "bilgi",
+  "text": "Günde kaç vakit namaz kılınır?"
+ },
+ {
+  "key": "300ca0d0",
+  "pack": "bilgi",
+  "text": "5"
+ },
+ {
+  "key": "360caa42",
+  "pack": "bilgi",
+  "text": "3"
+ },
+ {
+  "key": "320ca3f6",
+  "pack": "bilgi",
+  "text": "7"
+ },
+ {
+  "key": "683645e1",
+  "pack": "bilgi",
+  "text": "Kur'an-ı Kerim'in ilk suresi hangisidir?"
+ },
+ {
+  "key": "289bda9d",
+  "pack": "bilgi",
+  "text": "Fâtiha"
+ },
+ {
+  "key": "2dbc6f28",
+  "pack": "bilgi",
+  "text": "İhlâs"
+ },
+ {
+  "key": "dd1fa9c1",
+  "pack": "bilgi",
+  "text": "Bakara"
+ },
+ {
+  "key": "d9e75057",
+  "pack": "bilgi",
+  "text": "Peygamberimiz hangi şehirde doğdu?"
+ },
+ {
+  "key": "b82005c8",
+  "pack": "bilgi",
+  "text": "Mekke"
+ },
+ {
+  "key": "11fcd4ed",
+  "pack": "bilgi",
+  "text": "Medine"
+ },
+ {
+  "key": "10e4be72",
+  "pack": "bilgi",
+  "text": "Kudüs"
+ },
+ {
+  "key": "baf8032b",
+  "pack": "bilgi",
+  "text": "Hazreti Yunus'u ne yuttu?"
+ },
+ {
+  "key": "c1780049",
+  "pack": "bilgi",
+  "text": "Büyük bir balık"
+ },
+ {
+  "key": "3ba7940d",
+  "pack": "bilgi",
+  "text": "Bir aslan"
+ },
+ {
+  "key": "4171ee41",
+  "pack": "bilgi",
+  "text": "Bir kartal"
+ },
+ {
+  "key": "9e32384a",
+  "pack": "bilgi",
+  "text": "Kur'an-ı Kerim'de kaç sure vardır?"
+ },
+ {
+  "key": "69361659",
+  "pack": "bilgi",
+  "text": "114"
+ },
+ {
+  "key": "14fea6f7",
+  "pack": "bilgi",
+  "text": "99"
+ },
+ {
+  "key": "89e388a9",
+  "pack": "bilgi",
+  "text": "40"
+ },
+ {
+  "key": "70731995",
+  "pack": "bilgi",
+  "text": "Abdeste başlarken önce neyi yıkarız?"
+ },
+ {
+  "key": "2317af71",
+  "pack": "bilgi",
+  "text": "Ellerimizi"
+ },
+ {
+  "key": "15c0e622",
+  "pack": "bilgi",
+  "text": "Ayaklarımızı"
+ },
+ {
+  "key": "3cb5374b",
+  "pack": "bilgi",
+  "text": "Saçlarımızı"
+ },
+ {
+  "key": "b4d5cb7e",
+  "pack": "bilgi",
+  "text": "Ramazan ayının sonunda hangi bayramı kutlarız?"
+ },
+ {
+  "key": "b286d538",
+  "pack": "bilgi",
+  "text": "Ramazan Bayramı"
+ },
+ {
+  "key": "f50a23fd",
+  "pack": "bilgi",
+  "text": "Kurban Bayramı"
+ },
+ {
+  "key": "e9958bc4",
+  "pack": "bilgi",
+  "text": "Yılbaşı"
+ },
+ {
+  "key": "4c35121d",
+  "pack": "bilgi",
+  "text": "Ezan günde kaç kez okunur?"
+ },
+ {
+  "key": "370cabd5",
+  "pack": "bilgi",
+  "text": "2"
+ },
+ {
+  "key": "1beb2a44",
+  "pack": "bilgi",
+  "text": "10"
+ },
+ {
+  "key": "7647e5e4",
+  "pack": "bilgi",
+  "text": "Hazreti Nuh ne yaptı?"
+ },
+ {
+  "key": "55da0ef4",
+  "pack": "bilgi",
+  "text": "Büyük bir gemi"
+ },
+ {
+  "key": "258ca596",
+  "pack": "bilgi",
+  "text": "Bir saray"
+ },
+ {
+  "key": "41ab2117",
+  "pack": "bilgi",
+  "text": "Bir köprü"
+ },
+ {
+  "key": "d3a52f95",
+  "pack": "bilgi",
+  "text": "İlk insan ve ilk peygamber kimdir?"
+ },
+ {
+  "key": "05dc453e",
+  "pack": "bilgi",
+  "text": "Hazreti Âdem"
+ },
+ {
+  "key": "3d2fea2d",
+  "pack": "bilgi",
+  "text": "Hazreti Nuh"
+ },
+ {
+  "key": "65fb1544",
+  "pack": "bilgi",
+  "text": "Hazreti Musa"
+ },
+ {
+  "key": "27c22942",
+  "pack": "bilgi",
+  "text": "Kâbe hangi şehirdedir?"
+ },
+ {
+  "key": "84046456",
+  "pack": "bilgi",
+  "text": "İstanbul"
+ },
+ {
+  "key": "3f19a575",
+  "pack": "bilgi",
+  "text": "Peygamberimize indirilen kitap hangisidir?"
+ },
+ {
+  "key": "fee69bd3",
+  "pack": "bilgi",
+  "text": "Kur'an-ı Kerim"
+ },
+ {
+  "key": "773f012f",
+  "pack": "bilgi",
+  "text": "Tevrat"
+ },
+ {
+  "key": "05543989",
+  "pack": "bilgi",
+  "text": "Zebur"
+ },
+ {
+  "key": "59ede058",
+  "pack": "bilgi",
+  "text": "Oruçlu biri iftarı ne zaman açar?"
+ },
+ {
+  "key": "2e06cba3",
+  "pack": "bilgi",
+  "text": "Akşam ezanı okununca"
+ },
+ {
+  "key": "24e9a530",
+  "pack": "bilgi",
+  "text": "Öğle vakti"
+ },
+ {
+  "key": "d7bc7aea",
+  "pack": "bilgi",
+  "text": "Sabah kalkınca"
+ },
+ {
+  "key": "1d8364d1",
+  "pack": "bilgi",
+  "text": "Peygamberimizin kızlarından biri kimdir?"
+ },
+ {
+  "key": "f621b45b",
+  "pack": "bilgi",
+  "text": "Hazreti Fâtıma"
+ },
+ {
+  "key": "7a9c92eb",
+  "pack": "bilgi",
+  "text": "Hazreti Meryem"
+ },
+ {
+  "key": "5ae089f8",
+  "pack": "bilgi",
+  "text": "Hazreti Havva"
+ },
+ {
+  "key": "054dee87",
+  "pack": "bilgi",
+  "text": "Hangi hayvanın adı bir sureye verilmiştir?"
+ },
+ {
+  "key": "d6ca06e3",
+  "pack": "bilgi",
+  "text": "Arı (Nahl)"
+ },
+ {
+  "key": "350cd388",
+  "pack": "bilgi",
+  "text": "Aslan"
+ },
+ {
+  "key": "c3688ebe",
+  "pack": "bilgi",
+  "text": "Kaplan"
+ },
+ {
+  "key": "5f6f08e5",
+  "pack": "bilgi",
+  "text": "Peygamberimizin annesinin adı nedir?"
+ },
+ {
+  "key": "246b96bf",
+  "pack": "bilgi",
+  "text": "Hazreti Âmine"
+ },
+ {
+  "key": "d6bfaaa2",
+  "pack": "bilgi",
+  "text": "Hazreti Hatice"
+ },
+ {
+  "key": "b8560ca2",
+  "pack": "bilgi",
+  "text": "İlk vahiy nerede geldi?"
+ },
+ {
+  "key": "352d336a",
+  "pack": "bilgi",
+  "text": "Hira Mağarası"
+ },
+ {
+  "key": "75a85ee0",
+  "pack": "bilgi",
+  "text": "Sevr Mağarası"
+ },
+ {
+  "key": "8cf5beb0",
+  "pack": "bilgi",
+  "text": "Uhud Dağı"
+ },
+ {
+  "key": "afd1917e",
+  "pack": "bilgi",
+  "text": "İlk inen ayet hangi emirle başlar?"
+ },
+ {
+  "key": "7ae9b13d",
+  "pack": "bilgi",
+  "text": "Oku!"
+ },
+ {
+  "key": "0d48272a",
+  "pack": "bilgi",
+  "text": "Yaz!"
+ },
+ {
+  "key": "36a4ef53",
+  "pack": "bilgi",
+  "text": "Koş!"
+ },
+ {
+  "key": "0e4a6a32",
+  "pack": "bilgi",
+  "text": "Peygamberimiz hangi şehre hicret etti?"
+ },
+ {
+  "key": "7e71cc18",
+  "pack": "bilgi",
+  "text": "Tâif"
+ },
+ {
+  "key": "5a0ff637",
+  "pack": "bilgi",
+  "text": "Şam"
+ },
+ {
+  "key": "4f9f9cb7",
+  "pack": "bilgi",
+  "text": "Hazreti Süleyman'a Sebe ülkesinden haber getiren kuş hangisidir?"
+ },
+ {
+  "key": "b63f804d",
+  "pack": "bilgi",
+  "text": "Hüdhüd"
+ },
+ {
+  "key": "7b6fd70b",
+  "pack": "bilgi",
+  "text": "Güvercin"
+ },
+ {
+  "key": "5d1e5c01",
+  "pack": "bilgi",
+  "text": "Karga"
+ },
+ {
+  "key": "b98c35a2",
+  "pack": "bilgi",
+  "text": "Allah'ın güzel isimlerine ne denir?"
+ },
+ {
+  "key": "e9c06715",
+  "pack": "bilgi",
+  "text": "Esmâ-i Hüsnâ"
+ },
+ {
+  "key": "cc2a0b8e",
+  "pack": "bilgi",
+  "text": "Kelime-i Tevhid"
+ },
+ {
+  "key": "65bca7e4",
+  "pack": "bilgi",
+  "text": "Amentü"
+ },
+ {
+  "key": "c367a9c9",
+  "pack": "bilgi",
+  "text": "Hangisi İslam'ın beş şartından biri DEĞİLDİR?"
+ },
+ {
+  "key": "d4dfc8a2",
+  "pack": "bilgi",
+  "text": "Kurban kesmek"
+ },
+ {
+  "key": "05bc6e21",
+  "pack": "bilgi",
+  "text": "Zekât vermek"
+ },
+ {
+  "key": "cbbceb4c",
+  "pack": "bilgi",
+  "text": "Oruç tutmak"
+ },
+ {
+  "key": "5824bfa6",
+  "pack": "bilgi",
+  "text": "Hangisi Allah'ın güzel isimlerinden (Esmâ-i Hüsnâ) biridir?"
+ },
+ {
+  "key": "06118f63",
+  "pack": "bilgi",
+  "text": "er-Rahmân"
+ },
+ {
+  "key": "92128371",
+  "pack": "bilgi",
+  "text": "Kevser"
+ },
+ {
+  "key": "8a129e71",
+  "pack": "bilgi",
+  "text": "er-Rahmân, çok merhametli demektir. Hüdhüd bir kuşun, Kevser ise bir surenin adıdır."
+ },
+ {
+  "key": "822c18ea",
+  "pack": "bilgi",
+  "text": "Hazreti İbrahim ateşe atıldığında ateş ne oldu?"
+ },
+ {
+  "key": "2a1499f6",
+  "pack": "bilgi",
+  "text": "Serin ve esenlik oldu"
+ },
+ {
+  "key": "fc93caf1",
+  "pack": "bilgi",
+  "text": "Daha çok yandı"
+ },
+ {
+  "key": "bca9f2fa",
+  "pack": "bilgi",
+  "text": "Söndü ve duman oldu"
+ },
+ {
+  "key": "71be4150",
+  "pack": "bilgi",
+  "text": "Allah ateşe Ey ateş! İbrahim'e karşı serin ve esenlik ol dedi."
+ },
+ {
+  "key": "c5459629",
+  "pack": "bilgi",
+  "text": "Hazreti Musa'ya indirilen kitap hangisidir?"
+ },
+ {
+  "key": "e6bc0535",
+  "pack": "bilgi",
+  "text": "İncil"
+ },
+ {
+  "key": "f2429fb2",
+  "pack": "bilgi",
+  "text": "Hazreti Davud'a indirilen kitap hangisidir?"
+ },
+ {
+  "key": "9d38ce59",
+  "pack": "bilgi",
+  "text": "Peygamberimizin ilk eşi kimdir?"
+ },
+ {
+  "key": "b45b795f",
+  "pack": "bilgi",
+  "text": "Hazreti Âişe"
+ },
+ {
+  "key": "5dce4fc2",
+  "pack": "bilgi",
+  "text": "Ezanı ilk okuyan sahabi kimdir?"
+ },
+ {
+  "key": "fef4c907",
+  "pack": "bilgi",
+  "text": "Hazreti Bilâl"
+ },
+ {
+  "key": "5721f2fc",
+  "pack": "bilgi",
+  "text": "Hazreti Ömer"
+ },
+ {
+  "key": "a76f11c6",
+  "pack": "bilgi",
+  "text": "Hazreti Ali"
+ },
+ {
+  "key": "7ec02731",
+  "pack": "bilgi",
+  "text": "Kur'an'ın indirilmeye başladığı mübarek gece hangisidir?"
+ },
+ {
+  "key": "77be4064",
+  "pack": "bilgi",
+  "text": "Kadir Gecesi"
+ },
+ {
+  "key": "318b8529",
+  "pack": "bilgi",
+  "text": "Berat Kandili"
+ },
+ {
+  "key": "56440cfa",
+  "pack": "bilgi",
+  "text": "Mevlid Kandili"
+ },
+ {
+  "key": "c47bdcdb",
+  "pack": "bilgi",
+  "text": "Hac ibadeti hangi şehirde yapılır?"
+ },
+ {
+  "key": "d574fe58",
+  "pack": "bilgi",
+  "text": "Hazreti İbrahim, Kâbe'yi hangi oğluyla birlikte inşa etti?"
+ },
+ {
+  "key": "84d4f62c",
+  "pack": "bilgi",
+  "text": "Hazreti İsmail"
+ },
+ {
+  "key": "d72fae21",
+  "pack": "bilgi",
+  "text": "Hazreti İshak"
+ },
+ {
+  "key": "a3a4a678",
+  "pack": "bilgi",
+  "text": "Hazreti Yakup"
+ },
+ {
+  "key": "6692d773",
+  "pack": "bilgi",
+  "text": "Bakara Suresi, 127. ayet."
+ },
+ {
+  "key": "05c703a7",
+  "pack": "bilgi",
+  "text": "Kur'an'da adı geçen tek kadın kimdir?"
+ },
+ {
+  "key": "c770113e",
+  "pack": "bilgi",
+  "text": "Hazreti Âsiye"
+ },
+ {
+  "key": "1cde3921",
+  "pack": "bilgi",
+  "text": "Hazreti Hacer"
+ },
+ {
+  "key": "e8f5f071",
+  "pack": "bilgi",
+  "text": "Besmele ile başlamayan sure hangisidir?"
+ },
+ {
+  "key": "46f2f77d",
+  "pack": "bilgi",
+  "text": "Tevbe"
+ },
+ {
+  "key": "8bf01c1b",
+  "pack": "bilgi",
+  "text": "Yâsîn"
+ },
+ {
+  "key": "2e7f1733",
+  "pack": "bilgi",
+  "text": "Hazreti Musa'nın kardeşi ve yardımcısı olan peygamber kimdir?"
+ },
+ {
+  "key": "39885763",
+  "pack": "bilgi",
+  "text": "Hazreti Hârûn"
+ },
+ {
+  "key": "70f1e429",
+  "pack": "bilgi",
+  "text": "Hazreti Şuayb"
+ },
+ {
+  "key": "08fea431",
+  "pack": "bilgi",
+  "text": "Hazreti Lût"
+ },
+ {
+  "key": "e741f9ab",
+  "pack": "bilgi",
+  "text": "Peygamberimizin süt annesi kimdir?"
+ },
+ {
+  "key": "d904a7f5",
+  "pack": "bilgi",
+  "text": "Hazreti Halîme"
+ },
+ {
+  "key": "eb756562",
+  "pack": "bilgi",
+  "text": "Hazreti Ümmü Eymen"
+ },
+ {
+  "key": "31cc4023",
+  "pack": "bilgi",
+  "text": "Hazreti Sevde"
+ },
+ {
+  "key": "f68d1263",
+  "pack": "bilgi",
+  "text": "Hicret hangi yılda gerçekleşti?"
+ },
+ {
+  "key": "f6a101a9",
+  "pack": "bilgi",
+  "text": "622"
+ },
+ {
+  "key": "34a9f9fc",
+  "pack": "bilgi",
+  "text": "571"
+ },
+ {
+  "key": "0c9ee5b4",
+  "pack": "bilgi",
+  "text": "632"
+ },
+ {
+  "key": "f4458fe7",
+  "pack": "bilgi",
+  "text": "Hazreti Yusuf'u kuyuya kimler attı?"
+ },
+ {
+  "key": "3a7223dd",
+  "pack": "bilgi",
+  "text": "Kardeşleri"
+ },
+ {
+  "key": "4de5bec5",
+  "pack": "bilgi",
+  "text": "Kervancılar"
+ },
+ {
+  "key": "37702e9f",
+  "pack": "bilgi",
+  "text": "Mısır askerleri"
+ },
+ {
+  "key": "359bc07e",
+  "pack": "bilgi",
+  "text": "Mağarada uzun yıllar uyuyan gençlerin kıssası hangi surededir?"
+ },
+ {
+  "key": "4d54630b",
+  "pack": "bilgi",
+  "text": "Kehf"
+ },
+ {
+  "key": "d4180911",
+  "pack": "bilgi",
+  "text": "Yûsuf"
+ },
+ {
+  "key": "1f058078",
+  "pack": "bilgi",
+  "text": "Meryem"
+ },
+ {
+  "key": "24245a76",
+  "pack": "bilgi",
+  "text": "Asr Suresi'ne göre ziyanda olmayanlar birbirlerine neyi tavsiye eder?"
+ },
+ {
+  "key": "5fe611e7",
+  "pack": "bilgi",
+  "text": "Hakkı ve sabrı"
+ },
+ {
+  "key": "ecf83d87",
+  "pack": "bilgi",
+  "text": "Zenginliği"
+ },
+ {
+  "key": "2af280f5",
+  "pack": "bilgi",
+  "text": "Şöhreti"
+ },
+ {
+  "key": "cd75d806",
+  "pack": "bilgi",
+  "text": "Kur'an'ın en kısa suresi hangisidir?"
+ },
+ {
+  "key": "073aa0ed",
+  "pack": "bilgi",
+  "text": "Kevser Suresi üç ayettir."
+ },
+ {
+  "key": "dc6c3114",
+  "pack": "bilgi",
+  "text": "Kalpler ancak Allah'ı anmakla huzur bulur ayeti hangi surededir?"
+ },
+ {
+  "key": "ff412bff",
+  "pack": "bilgi",
+  "text": "Ra'd"
+ },
+ {
+  "key": "26f5bd63",
+  "pack": "bilgi",
+  "text": "Ra'd Suresi, 28. ayet."
+ },
+ {
+  "key": "df1acb0b",
+  "pack": "bilgi",
+  "text": "Hazreti Musa çocukken kimin sarayında büyüdü?"
+ },
+ {
+  "key": "19d1243c",
+  "pack": "bilgi",
+  "text": "Firavun'un"
+ },
+ {
+  "key": "00355530",
+  "pack": "bilgi",
+  "text": "Nemrut'un"
+ },
+ {
+  "key": "f271c28e",
+  "pack": "bilgi",
+  "text": "Ebrehe'nin"
+ },
+ {
+  "key": "9ada0e16",
+  "pack": "bilgi",
+  "text": "İlk dört halifeden ikincisi kimdir?"
+ },
+ {
+  "key": "b0ba697c",
+  "pack": "bilgi",
+  "text": "Hazreti Osman"
+ },
+ {
+  "key": "f1d9712c",
+  "pack": "bilgi",
+  "text": "Peygamberimiz hangi şehirde vefat etti?"
+ },
+ {
+  "key": "b60169bb",
+  "pack": "bilgi",
+  "text": "Peygamberimize peygamberlikten önce de verilen güvenilir anlamındaki lakap nedir?"
+ },
+ {
+  "key": "d9f6cfcd",
+  "pack": "bilgi",
+  "text": "el-Emîn"
+ },
+ {
+  "key": "4c51cc2d",
+  "pack": "bilgi",
+  "text": "el-Fârûk"
+ },
+ {
+  "key": "a531e7c7",
+  "pack": "bilgi",
+  "text": "es-Sıddîk"
+ },
+ {
+  "key": "611f5008",
+  "pack": "durum",
+  "text": "Doğum gününde istediğin oyuncak yerine kocaman bir çorap paketi geldi! Ne yaparsın, ne dersin?"
+ },
+ {
+  "key": "35c92e80",
+  "pack": "durum",
+  "text": "Hediyeyi verene teşekkür etmek de şükürdür. Peygamberimiz İnsanlara teşekkür etmeyen Allah'a şükretmiş olmaz buyurdu."
+ },
+ {
+  "key": "8e3f5f0b",
+  "pack": "durum",
+  "text": "Annen en sevmediğin yemeği yaptı: ıspanak! Sofrada ne yaparsın?"
+ },
+ {
+  "key": "409eaa9f",
+  "pack": "durum",
+  "text": "Peygamberimiz hiçbir yemeği ayıplamazdı. Canı isterse yer, istemezse sessizce bırakırdı."
+ },
+ {
+  "key": "04de4688",
+  "pack": "durum",
+  "text": "Yağmur yağdı ve beklediğin piknik iptal oldu. Ne dersin?"
+ },
+ {
+  "key": "36fad641",
+  "pack": "durum",
+  "text": "Yağmur da Allah'ın bir rahmetidir. İstediğimiz olmasa da Elhamdülillah diyebiliriz."
+ },
+ {
+  "key": "a6b37c8c",
+  "pack": "durum",
+  "text": "Arkadaşının yepyeni bir telefonu var, seninki eski ve çizik. İçinden ne geçer?"
+ },
+ {
+  "key": "b931a7ff",
+  "pack": "durum",
+  "text": "Peygamberimiz Sizden aşağıda olana bakın, üstünüzde olana bakmayın. Bu, Allah'ın nimetlerini küçümsememeniz için daha uygundur buyurdu."
+ },
+ {
+  "key": "4435a1f3",
+  "pack": "durum",
+  "text": "Sabah uyandın: gözlerin görüyor, kulakların duyuyor, bacakların koşuyor. Bunlardan hangisi olmasa en çok zorlanırdın?"
+ },
+ {
+  "key": "c537f4f0",
+  "pack": "durum",
+  "text": "Her sabah uyandığımızda Elhamdülillah demek, bu nimetleri hatırlamanın en güzel yoludur."
+ },
+ {
+  "key": "d4ca4bd7",
+  "pack": "durum",
+  "text": "Elektrikler kesildi; tablet yok, televizyon yok, mum ışığında oturuyorsunuz. Ne yaparsınız?"
+ },
+ {
+  "key": "58c2a04d",
+  "pack": "durum",
+  "text": "Bazen bir nimetin değerini o nimet gidince anlarız. Bu, ailece sohbet etmek için güzel bir fırsat olabilir."
+ },
+ {
+  "key": "7cafd60f",
+  "pack": "durum",
+  "text": "Ninen sana kendi ördüğü kocaman, rengârenk bir kazak gönderdi. Biraz kaşındırıyor! Ninene ne dersin?"
+ },
+ {
+  "key": "b3dae3bf",
+  "pack": "durum",
+  "text": "Emeğe teşekkür etmek çok kıymetlidir. Hediyenin arkasındaki sevgiyi görmek de şükürdür."
+ },
+ {
+  "key": "a7eeae70",
+  "pack": "durum",
+  "text": "Kardeşin, saatlerce yaptığın legodan kuleyi bir tekmede yıktı! Ne yaparsın?"
+ },
+ {
+  "key": "f6fdb0e6",
+  "pack": "durum",
+  "text": "Asıl pehlivan, öfkelendiği zaman kendine hâkim olandır."
+ },
+ {
+  "key": "de7bbe06",
+  "pack": "durum",
+  "text": "Bayram sabahı herkes hazır, sadece senin tek ayakkabın kayıp ve herkes sana sesleniyor. Ne yaparsın?"
+ },
+ {
+  "key": "37676ec6",
+  "pack": "durum",
+  "text": "Sabır sadece beklemek değil, telaşlıyken de sakin kalabilmektir."
+ },
+ {
+  "key": "42c7ebb4",
+  "pack": "durum",
+  "text": "Oruçlusun, iftara 10 dakika var ve en sevdiğin tatlı gözünün önünde duruyor. Bu 10 dakikayı nasıl geçirirsin?"
+ },
+ {
+  "key": "832d5c47",
+  "pack": "durum",
+  "text": "İftar vakti dua vaktidir. Beklerken dua etmek sabrı tatlandırır."
+ },
+ {
+  "key": "34ef41d7",
+  "pack": "durum",
+  "text": "Oyunda üst üste kaybediyorsun ve kardeşin seninle dalga geçiyor. Ne yaparsın?"
+ },
+ {
+  "key": "cfa6470f",
+  "pack": "durum",
+  "text": "Kaybetmek de oyunun bir parçasıdır. Öfkelenince sakinleşmek için Peygamberimiz ayaktaysak oturmayı tavsiye etti."
+ },
+ {
+  "key": "d4cbc44a",
+  "pack": "durum",
+  "text": "Doktorda sıra çok uzun, bir saat bekleyeceksiniz. Zamanı nasıl değerlendirirsin?"
+ },
+ {
+  "key": "83a17bb4",
+  "pack": "durum",
+  "text": "Beklerken zikir yapmak, hikâye anlatmak ya da sohbet etmek zamanı bereketlendirir."
+ },
+ {
+  "key": "635d8e10",
+  "pack": "durum",
+  "text": "Bütün gün yağmur yağdı ve dışarı çıkamıyorsun. Çok sıkıldın! Ne yaparsın?"
+ },
+ {
+  "key": "21176c9c",
+  "pack": "durum",
+  "text": "Sabır, sıkıldığımızda bile güzel bir şeyler bulabilmektir."
+ },
+ {
+  "key": "197d6ff6",
+  "pack": "durum",
+  "text": "Uzun bir araba yolculuğundasınız ve kardeşin 30 saniyede bir Geldik mi? diye soruyor. Ne yaparsın?"
+ },
+ {
+  "key": "37073bcd",
+  "pack": "durum",
+  "text": "Kardeşine sabır göstermek, ona bir oyun önermek ya da ilahi söylemek yolculuğu güzelleştirir."
+ },
+ {
+  "key": "6a3d2f27",
+  "pack": "durum",
+  "text": "Sınıfa yeni gelen bir öğrenci teneffüste tek başına duruyor. Ne yaparsın?"
+ },
+ {
+  "key": "09ac210a",
+  "pack": "durum",
+  "text": "Güler yüz göstermek bile sadakadır."
+ },
+ {
+  "key": "bbfb4201",
+  "pack": "durum",
+  "text": "Sokakta, susuzluktan dili dışarıda bir kedi gördün. Ne yaparsın?"
+ },
+ {
+  "key": "092eda4e",
+  "pack": "durum",
+  "text": "Peygamberimiz, susamış bir köpeğe su veren adamı Allah'ın bağışladığını anlattı."
+ },
+ {
+  "key": "bbd9ce42",
+  "pack": "durum",
+  "text": "Kardeşin hasta ve bugün tablet onun sırasıydı. Sen alabilirsin, kimse bir şey demez. Ne yaparsın?"
+ },
+ {
+  "key": "be32fc23",
+  "pack": "durum",
+  "text": "Hastayı sevindirmek ve ona hizmet etmek çok güzel bir iyiliktir."
+ },
+ {
+  "key": "f3e836fe",
+  "pack": "durum",
+  "text": "Arkadaşın sınavdan düşük aldı ve ağlıyor, bazıları da ona gülüyor. Ne yaparsın?"
+ },
+ {
+  "key": "93ecc6d4",
+  "pack": "durum",
+  "text": "Müslüman, müslümanın kardeşidir. Onu yalnız bırakmaz."
+ },
+ {
+  "key": "e260cb8a",
+  "pack": "durum",
+  "text": "Deden telefonda aynı şeyi sana beşinci kez soruyor. Ne yaparsın?"
+ },
+ {
+  "key": "4c574689",
+  "pack": "durum",
+  "text": "Peygamberimiz Küçüklerimize merhamet etmeyen, büyüklerimize saygı göstermeyen bizden değildir buyurdu."
+ },
+ {
+  "key": "56aef654",
+  "pack": "durum",
+  "text": "Bahçede kanadı kırık bir kuş buldun. Ne yaparsın?"
+ },
+ {
+  "key": "8bb90eee",
+  "pack": "durum",
+  "text": "Peygamberimiz yavrusu alınan bir kuşun telaşını görünce Yavrusunu ona geri verin buyurdu."
+ },
+ {
+  "key": "b3fd3338",
+  "pack": "durum",
+  "text": "Mahallede yaşlı bir teyze ağır alışveriş poşetleriyle yürüyor. Ne yaparsın?"
+ },
+ {
+  "key": "cbf800d2",
+  "pack": "durum",
+  "text": "Büyüklere yardım etmek, merhametin en güzel hâllerinden biridir."
+ },
+ {
+  "key": "b73edbcf",
+  "pack": "durum",
+  "text": "Topla oynarken vazoyu kırdın ve kimse görmedi. Annen Bunu kim kırdı? diye soruyor. Ne dersin?"
+ },
+ {
+  "key": "d2da9bbd",
+  "pack": "durum",
+  "text": "Doğruluk iyiliğe, iyilik de cennete götürür. Hatanı söylemek cesaret ister!"
+ },
+ {
+  "key": "932d5b52",
+  "pack": "durum",
+  "text": "Bakkal sana yanlışlıkla fazla para üstü verdi. Kimsenin haberi yok! Ne yaparsın?"
+ },
+ {
+  "key": "e0cdef7d",
+  "pack": "durum",
+  "text": "Peygamberimize daha peygamber olmadan önce bile el-Emîn, yani güvenilir denirdi."
+ },
+ {
+  "key": "644bdf4a",
+  "pack": "durum",
+  "text": "Arkadaşın yaptığı resmi gösterip Güzel mi? diye soruyor. Pek beğenmedin. Ne dersin?"
+ },
+ {
+  "key": "0d8a342a",
+  "pack": "durum",
+  "text": "Doğruyu söylemek kırıcı olmayı gerektirmez. Beğendiğin bir yanını güzel bir dille söyleyebilirsin."
+ },
+ {
+  "key": "ec344ad7",
+  "pack": "durum",
+  "text": "Ödevini yapmadın. Öğretmen sorunca Köpeğim yedi! demek aklına geldi. Ne yaparsın?"
+ },
+ {
+  "key": "62212caa",
+  "pack": "durum",
+  "text": "Peygamberimiz şaka yapardı, ama şakasında bile doğrudan başka bir şey söylemezdi."
+ },
+ {
+  "key": "324be47a",
+  "pack": "durum",
+  "text": "Oyunda kimse görmeden puanını biraz artırabilirsin. Ne yaparsın?"
+ },
+ {
+  "key": "e9f6a3e2",
+  "pack": "durum",
+  "text": "Allah her şeyi görür. Kimse görmese de dürüst olmak gerçek doğruluktur."
+ },
+ {
+  "key": "cea4ad44",
+  "pack": "durum",
+  "text": "Kardeşin bir şeyi kırdı ve senden Söyleme ne olur! diye rica ediyor. Ne yaparsın?"
+ },
+ {
+  "key": "65732962",
+  "pack": "durum",
+  "text": "Kardeşini gizlice suçlamak yerine, onu doğruyu kendisinin söylemesi için cesaretlendirebilirsin."
+ },
+ {
+  "key": "bac62028",
+  "pack": "durum",
+  "text": "Elinde tek bir çikolata var ve kardeşin de çok istiyor. Ne yaparsın?"
+ },
+ {
+  "key": "26e7dac7",
+  "pack": "durum",
+  "text": "Kendin için istediğini kardeşin için de istemek imanın güzelliğidir."
+ },
+ {
+  "key": "8901163a",
+  "pack": "durum",
+  "text": "Arkadaşın yeni boyalarını ödünç istiyor ama biraz dağınık biridir. Ne yaparsın?"
+ },
+ {
+  "key": "6c6066ac",
+  "pack": "durum",
+  "text": "Paylaşırken eşyaya özen göstermesini nazikçe rica edebilirsin. Paylaşmak ve dikkatli olmak birlikte olabilir."
+ },
+ {
+  "key": "c95bb522",
+  "pack": "durum",
+  "text": "Harçlığını oyuncak almak için biriktiriyordun. Camide ihtiyaç sahipleri için yardım toplanıyor. Ne yaparsın?"
+ },
+ {
+  "key": "7904a2a9",
+  "pack": "durum",
+  "text": "Peygamberimiz Yarım hurma ile de olsa ateşten korunun buyurdu. Az da olsa vermek değerlidir."
+ },
+ {
+  "key": "a9ed5cd7",
+  "pack": "durum",
+  "text": "Misafir çocuk senin en sevdiğin oyuncakla oynamak istiyor. Ne yaparsın?"
+ },
+ {
+  "key": "36a905b4",
+  "pack": "durum",
+  "text": "Misafire ikram sadece yemekle olmaz; oyuncağımızı paylaşmak da bir ikramdır."
+ },
+ {
+  "key": "17bdcfd2",
+  "pack": "durum",
+  "text": "Okulda beslenmesini unutan bir arkadaşın var ve aç. Ne yaparsın?"
+ },
+ {
+  "key": "efee245b",
+  "pack": "durum",
+  "text": "Peygamberimiz İki kişilik yemek üç kişiye, üç kişilik yemek dört kişiye yeter buyurdu."
+ },
+ {
+  "key": "5c3d8da4",
+  "pack": "durum",
+  "text": "Pizzadan son dilim kaldı ve herkes ona bakıyor! Ne yaparsın?"
+ },
+ {
+  "key": "4bec47f8",
+  "pack": "durum",
+  "text": "Başkasını kendine tercih etmeye îsâr denir. Kur'an'da Medineli Ensar bu güzel ahlakla övülür."
+ },
+ {
+  "key": "d1d153b7",
+  "pack": "durum",
+  "text": "Annen yorgun gelmiş, sen de çizgi film izliyorsun. Seni sofrayı kurmaya çağırıyor. Ne yaparsın?"
+ },
+ {
+  "key": "60369b79",
+  "pack": "durum",
+  "text": "Kur'an, anne babaya öf bile denmemesini öğütler."
+ },
+ {
+  "key": "f289c83d",
+  "pack": "durum",
+  "text": "Baban aynı hikâyeyi sana üçüncü kez anlatıyor. Ne yaparsın?"
+ },
+ {
+  "key": "240713f1",
+  "pack": "durum",
+  "text": "Anne babamızı sabırla dinlemek, onlara iyiliğin bir parçasıdır."
+ },
+ {
+  "key": "91d3a740",
+  "pack": "durum",
+  "text": "Yetişkinler cevaplasın! Çocuğun bir hata yaptı ve gelip sana itiraf etti. Ne yaparsın?"
+ },
+ {
+  "key": "bb1cf9f9",
+  "pack": "durum",
+  "text": "Hazreti Enes, Peygamberimize on yıl hizmet ettiğini ve ondan bir kez bile öf duymadığını anlatır."
+ },
+ {
+  "key": "fab7fd6f",
+  "pack": "durum",
+  "text": "Annenin doğum günü yarın ve hiç paran yok. Ne yaparsın?"
+ },
+ {
+  "key": "ffa290e4",
+  "pack": "durum",
+  "text": "En güzel hediye bir dua, sıcak bir sarılma ya da senin emek verdiğin bir iştir."
+ },
+ {
+  "key": "0c8bb7bb",
+  "pack": "durum",
+  "text": "Dedenle ninen telefonla arıyor, sen de oyunun en heyecanlı yerindesin. Ne yaparsın?"
+ },
+ {
+  "key": "88d84de1",
+  "pack": "durum",
+  "text": "Peygamberimiz rızkının bol ve ömrünün bereketli olmasını isteyenin akrabasını gözetmesini öğütledi."
+ },
+ {
+  "key": "8d42fac8",
+  "pack": "durum",
+  "text": "Yetişkinler cevaplasın! Çocuğun sana en sevdiği oyunu anlatmak istiyor ama sen telefonla meşgulsün. Ne yaparsın?"
+ },
+ {
+  "key": "d0ca6f4a",
+  "pack": "durum",
+  "text": "Peygamberimiz çocuklarla ilgilenir, torunlarını sırtına alıp onlarla oynardı."
+ },
+ {
+  "key": "0d10889d",
+  "pack": "durum",
+  "text": "Parkta oynadın, ellerin çamur içinde ve çok acıktın. Ne yaparsın?"
+ },
+ {
+  "key": "0c340a67",
+  "pack": "durum",
+  "text": "Yemekten önce ve sonra elleri yıkamak hem sağlık hem de güzel bir adaptır."
+ },
+ {
+  "key": "b0be76be",
+  "pack": "durum",
+  "text": "Odan o kadar dağınık ki terliğini bulamıyorsun. Ne yaparsın?"
+ },
+ {
+  "key": "69e80094",
+  "pack": "durum",
+  "text": "Temizlik imanın yarısıdır. Düzenli bir oda, temiz bir kalbe yakışır."
+ },
+ {
+  "key": "71fccbca",
+  "pack": "durum",
+  "text": "Piknik bitti ve diğerleri çöplerini çimlere bırakıp gidiyor. Ne yaparsın?"
+ },
+ {
+  "key": "1499292b",
+  "pack": "durum",
+  "text": "Peygamberimiz yoldan insanlara eziyet veren bir şeyi kaldırmanın sadaka olduğunu söyledi."
+ },
+ {
+  "key": "4f9c31e5",
+  "pack": "durum",
+  "text": "Sabah çok uykulusun ve dişlerini fırçalamadan çıkmak istiyorsun. Ne yaparsın?"
+ },
+ {
+  "key": "e4ace866",
+  "pack": "durum",
+  "text": "Peygamberimiz misvakı çok sever ve sık sık kullanırdı."
+ },
+ {
+  "key": "a4da75e5",
+  "pack": "durum",
+  "text": "Kardeşin abdest alırken musluğu sonuna kadar açmış, su şırıl şırıl akıyor. Ne dersin?"
+ },
+ {
+  "key": "5b2965a1",
+  "pack": "durum",
+  "text": "Peygamberimiz çok az bir suyla abdest alırdı. Suyu israf etmemek de temizliğin parçasıdır."
+ },
+ {
+  "key": "5f595cac",
+  "pack": "durum",
+  "text": "Okulda tuvaletler çok kirli ve kimse bir şey yapmıyor. Ne yaparsın?"
+ },
+ {
+  "key": "8268324a",
+  "pack": "durum",
+  "text": "Ortak alanları temiz tutmak hepimizin görevidir. Öğretmene güzel bir dille haber vermek de bir çözümdür."
+ },
+ {
+  "key": "d0881aba",
+  "pack": "durum",
+  "text": "Öğretmen bir konu anlattı ama hiç anlamadın. Sınıfta herkes anlamış gibi görünüyor. Ne yaparsın?"
+ },
+ {
+  "key": "8656df34",
+  "pack": "durum",
+  "text": "Sormak ayıp değil, öğrenmenin kapısıdır. Bilmediğini soran, bilgisini büyütür."
+ },
+ {
+  "key": "68d5ac5d",
+  "pack": "durum",
+  "text": "Dedenin eski bir kitabı var ama eski harflerle yazılmış, hiçbir şey anlamıyorsun. Ne yaparsın?"
+ },
+ {
+  "key": "90fb522b",
+  "pack": "durum",
+  "text": "Merak edip soran, büyüklerin hazinesine ulaşır. Dedene sormak onu da çok sevindirir."
+ },
+ {
+  "key": "10908060",
+  "pack": "durum",
+  "text": "Bahçede bir salyangoz gördün ve kabuğunun nasıl büyüdüğünü merak ettin. Ne yaparsın?"
+ },
+ {
+  "key": "2db621f0",
+  "pack": "durum",
+  "text": "Merak, öğrenmenin tohumudur. Kitaplara bakmak, gözlem yapmak ve not almak da sormanın bir yoludur."
+ },
+ {
+  "key": "a61335a7",
+  "pack": "durum",
+  "text": "Kardeşin sana durmadan Neden? diye soruyor ve sen biraz sıkıldın. Ne yaparsın?"
+ },
+ {
+  "key": "aad5dbcb",
+  "pack": "durum",
+  "text": "Soru soran kalbi kırmamak gerekir. Bilmiyorsan Birlikte öğrenelim demek en güzel cevaptır."
+ },
+ {
+  "key": "3412639b",
+  "pack": "durum",
+  "text": "Arkadaşın bilmediği bir şeyi biliyormuş gibi anlatıyor ve yanlış söylüyor. Ne yaparsın?"
+ },
+ {
+  "key": "d3914c21",
+  "pack": "durum",
+  "text": "Yanlışı nazikçe düzeltmek ve gerektiğinde Bilmiyorum diyebilmek de doğruluktur."
+ },
+ {
+  "key": "36e4703a",
+  "pack": "durum",
+  "text": "Bu hafta yeni bir şey öğrenme şansın var: yüzme, bir sure ya da bir el işi. Hangisini seçersin, neden?"
+ },
+ {
+  "key": "dab5427f",
+  "pack": "durum",
+  "text": "Rabbim, ilmimi artır duası, öğrenmeyi dua ile istemeyi öğretir."
+ },
+ {
+  "key": "0c8448e8",
+  "pack": "durum",
+  "text": "Annenin doğum günü için resim yapmaya başladın ama çok uzun sürüyor ve sıkıldın. Ne yaparsın?"
+ },
+ {
+  "key": "74af0003",
+  "pack": "durum",
+  "text": "Sevdiğin için verdiğin emek, hediyenin en kıymetli yanıdır."
+ },
+ {
+  "key": "af27631d",
+  "pack": "durum",
+  "text": "Komşunuz birkaç günlüğüne gidiyor ve kedisine bakacak kimse yok. Senden yardım istediler. Ne yaparsın?"
+ },
+ {
+  "key": "dd37e8fc",
+  "pack": "durum",
+  "text": "Sevgi sadece insanlara değil, bütün canlılara gösterilir."
+ },
+ {
+  "key": "87efb8b3",
+  "pack": "durum",
+  "text": "Ninen telefonda seni çok özlediğini söyledi ama sen oyunun ortasındasın. Ne yaparsın?"
+ },
+ {
+  "key": "02f5c9ae",
+  "pack": "durum",
+  "text": "Sevdiklerimize vakit ayırmak, sevginin en güzel dilidir."
+ },
+ {
+  "key": "64052106",
+  "pack": "durum",
+  "text": "Kardeşin en sevdiğin oyuncağı yanlışlıkla kırdı ve çok üzgün, ağlıyor. Ne yaparsın?"
+ },
+ {
+  "key": "d3ee7512",
+  "pack": "durum",
+  "text": "Sevgi, kızgınken bile kalbi yumuşak tutabilmektir."
+ },
+ {
+  "key": "e0667df5",
+  "pack": "durum",
+  "text": "Kahvaltıyı hep annen ya da baban hazırlıyor. Bir sabah herkesten erken uyandın. Ne yaparsın?"
+ },
+ {
+  "key": "586f9c0b",
+  "pack": "durum",
+  "text": "Sevdiklerimizin yükünü hafifletmek, sevgiyi göstermenin en güzel yoludur."
+ },
+ {
+  "key": "dfbb0c45",
+  "pack": "durum",
+  "text": "Sınıfa yeni gelen çocukla kimse ilgilenmiyor. Ne yaparsın?"
+ },
+ {
+  "key": "35689eec",
+  "pack": "durum",
+  "text": "Peygamberimiz Birbirinizi sevmedikçe iman etmiş olmazsınız buyurdu."
+ },
+ {
+  "key": "1daf6a08",
+  "pack": "durum",
+  "text": "Piknik günü yağmur yağdı. Kardeşin Yağmur kötü! diye ağlıyor. Ona ne anlatırsın?"
+ },
+ {
+  "key": "2170c0a8",
+  "pack": "durum",
+  "text": "Her şeyin bir hikmeti vardır. Yağmur, tarlalara ve ağaçlara can verir."
+ },
+ {
+  "key": "70a93d1c",
+  "pack": "durum",
+  "text": "Aşı olmaya gidiyorsun ve korkuyorsun. Annen Senin iyiliğin için diyor. Ne düşünürsün?"
+ },
+ {
+  "key": "34e9dd55",
+  "pack": "durum",
+  "text": "Bazen zor gelen bir şeyin arkasında büyük bir iyilik saklıdır."
+ },
+ {
+  "key": "41553148",
+  "pack": "durum",
+  "text": "Öğretmenin ödevini yeniden yapmanı istedi. İlk başta kızdın. Neden istemiş olabilir?"
+ },
+ {
+  "key": "6a41afe3",
+  "pack": "durum",
+  "text": "Sebebini anlamaya çalışan, kızmak yerine öğrenir."
+ },
+ {
+  "key": "e75d406d",
+  "pack": "durum",
+  "text": "Sonbaharda ağaçlar yapraklarını döküyor. Küçük kardeşin ağacın öldüğünü sanıyor. Ona ne anlatırsın?"
+ },
+ {
+  "key": "45eb00ab",
+  "pack": "durum",
+  "text": "Ağaç kışın dinlenir, baharda yeniden yeşerir. Bakmak başka, anlamak başkadır."
+ },
+ {
+  "key": "fbb8bfbc",
+  "pack": "durum",
+  "text": "Arkadaşın bugün sana çok ters davrandı. Hemen kızar mısın, yoksa sebebini mi sorarsın?"
+ },
+ {
+  "key": "511f86b1",
+  "pack": "durum",
+  "text": "Kızmadan önce sebebini sormak, kalple bakmaktır."
+ },
+ {
+  "key": "10cb41f4",
+  "pack": "durum",
+  "text": "Bir arı sana yaklaştı ve kaçmak istedin. Arıların dünyaya ne faydası var, biliyor musun?"
+ },
+ {
+  "key": "523f8b36",
+  "pack": "durum",
+  "text": "Arılar çiçekleri tozlaştırır ve bal yapar; Kur'an'da arının adını taşıyan Nahl Suresi vardır. Her canlının bir görevi vardır."
+ },
+ {
+  "key": "8ef8ea9a",
+  "pack": "durum",
+  "text": "Sınıfta birçok arkadaşının yeni bir telefonu var, seninki yok. Ne hissedersin, ne yaparsın?"
+ },
+ {
+  "key": "2500729a",
+  "pack": "durum",
+  "text": "Peygamberimiz Zenginlik mal çokluğu değil, gönül zenginliğidir buyurdu."
+ },
+ {
+  "key": "0ced6c3c",
+  "pack": "durum",
+  "text": "Bayramda kardeşine senden daha büyük bir hediye geldi. Ne yaparsın?"
+ },
+ {
+  "key": "2678a026",
+  "pack": "durum",
+  "text": "Kardeşinin sevincine sevinmek, kıskançlığı yenmenin en güzel yoludur."
+ },
+ {
+  "key": "052ae8e5",
+  "pack": "durum",
+  "text": "Akşam yemeğinde pek sevmediğin bir yemek var ama dolapta abur cubur da var. Ne yaparsın?"
+ },
+ {
+  "key": "e710c847",
+  "pack": "durum",
+  "text": "Sofradaki nimete şükredip yetinmek, kalbi zenginleştirir."
+ },
+ {
+  "key": "856456a4",
+  "pack": "durum",
+  "text": "Oyuncak dükkânında bir şey gördün ve Hemen alalım! diye tutturdun. Ama evde bir sürü oyuncağın var. Ne düşünürsün?"
+ },
+ {
+  "key": "fd9685fe",
+  "pack": "durum",
+  "text": "Her istediğimize sahip olmasak da, sahip olduklarımızla mutlu olabiliriz."
+ },
+ {
+  "key": "48489aff",
+  "pack": "durum",
+  "text": "Arkadaşın yarışmada birinci oldu, sen ikinci. Herkes onu tebrik ediyor. Ne yaparsın?"
+ },
+ {
+  "key": "681910cf",
+  "pack": "durum",
+  "text": "Başkasının başarısına sevinebilmek, kalbin zenginliğidir."
+ },
+ {
+  "key": "aba01334",
+  "pack": "durum",
+  "text": "Harçlığını biriktirdin. Hepsiyle kendine bir şey mi alırsın, bir kısmını ihtiyacı olana mı verirsin?"
+ },
+ {
+  "key": "583a57ef",
+  "pack": "durum",
+  "text": "Paylaşılan nimet bereketlenir. Azdan az, çoktan çok vermek güzeldir."
+ },
+ {
+  "key": "276beecf",
+  "pack": "durum",
+  "text": "Evde büyük bir temizlik var ve herkes çalışıyor. Sen de odanda oyun oynamak istiyorsun. Ne yaparsın?"
+ },
+ {
+  "key": "a0c9d855",
+  "pack": "durum",
+  "text": "Birlikte çalışınca iş çabuk biter, yük hafifler."
+ },
+ {
+  "key": "2de692ae",
+  "pack": "durum",
+  "text": "Takımınızda biri çok yavaş ve herkes ona kızıyor. Ne yaparsın?"
+ },
+ {
+  "key": "d37b884d",
+  "pack": "durum",
+  "text": "Sürü, en yavaş kuşuyla birlikte varır. Takım birlikte kazanır."
+ },
+ {
+  "key": "c4ec1836",
+  "pack": "durum",
+  "text": "İki arkadaşın kavga etti ve ikisi de seni kendi tarafına çekmek istiyor. Ne yaparsın?"
+ },
+ {
+  "key": "04733e78",
+  "pack": "durum",
+  "text": "Küsleri barıştırmak ve aradaki birliği korumak çok değerli bir iyiliktir."
+ },
+ {
+  "key": "407932c0",
+  "pack": "durum",
+  "text": "Ailece kocaman bir yapboz yapıyorsunuz ama sen tek başına bitirmek istiyorsun. Ne yaparsın?"
+ },
+ {
+  "key": "95f3bf0f",
+  "pack": "durum",
+  "text": "Birlikte yapılan iş, tek başına bitirilen işten daha güzeldir."
+ },
+ {
+  "key": "9bce4640",
+  "pack": "durum",
+  "text": "Akşam yemeğinde herkes telefonuna bakıyor, kimse konuşmuyor. Ne önerirsin?"
+ },
+ {
+  "key": "3b450c60",
+  "pack": "durum",
+  "text": "Aynı sofrada birlikte olmak, ailenin en güzel anlarındandır."
+ },
+ {
+  "key": "7eb3cf74",
+  "pack": "durum",
+  "text": "Camide cemaatle namaz kılınırken herkes omuz omuza durur. Sence bunun anlamı ne?"
+ },
+ {
+  "key": "da28a2f3",
+  "pack": "durum",
+  "text": "Kur'an Hep birlikte Allah'ın ipine sımsıkı sarılın, ayrılmayın buyurur."
+ },
+ {
+  "key": "4199a274",
+  "pack": "durum",
+  "text": "Gece balkona çıktın ve gökyüzü yıldızlarla dolu. Sence kaç yıldız var? Ne düşünürsün?"
+ },
+ {
+  "key": "12be7de5",
+  "pack": "durum",
+  "text": "Göklerin ve yerin yaratılışında akıl sahipleri için ibretler vardır."
+ },
+ {
+  "key": "4192f59c",
+  "pack": "durum",
+  "text": "Bir karınca ordusunun yiyecek taşıdığını izliyorsun. Bu düzeni görünce ne düşünürsün?"
+ },
+ {
+  "key": "16f5c551",
+  "pack": "durum",
+  "text": "Küçücük bir karıncada bile büyük bir düzen vardır; bunu düşünmek tefekkürdür."
+ },
+ {
+  "key": "5b2f76b4",
+  "pack": "durum",
+  "text": "Bir çiçeğin içine yakından baktın: renkleri, desenleri, kokusu... Ne hissedersin?"
+ },
+ {
+  "key": "3b7a33d2",
+  "pack": "durum",
+  "text": "Her çiçek, yaratılıştaki güzelliğin küçük bir işaretidir. Durup bakan hayran kalır."
+ },
+ {
+  "key": "dbfab701",
+  "pack": "durum",
+  "text": "Yeni doğan bir bebeğin minicik ellerine baktın. Aklına neler gelir?"
+ },
+ {
+  "key": "a84ec0de",
+  "pack": "durum",
+  "text": "Hayat başlı başına bir hayret sebebidir. Bunu düşünmek insanı şükre götürür."
+ },
+ {
+  "key": "c6ca7744",
+  "pack": "durum",
+  "text": "Deniz kenarında dalgaları izliyorsun. Dalgalar hiç durmuyor. Ne düşünürsün?"
+ },
+ {
+  "key": "92762a9a",
+  "pack": "durum",
+  "text": "Durup dinlemek ve düşünmek, kalbi Allah'ı anmaya yöneltir."
+ },
+ {
+  "key": "6d833288",
+  "pack": "durum",
+  "text": "Bir elmayı ikiye kestin ve çekirdeklerini gördün. Bu küçük çekirdekten ne çıkabilir?"
+ },
+ {
+  "key": "61eb9a5b",
+  "pack": "durum",
+  "text": "Minicik bir çekirdekten koca bir ağaç çıkar. Bu, düşünenler için büyük bir işarettir."
+ },
+ {
+  "key": "420ac152",
+  "pack": "durum",
+  "text": "Bir yarışmayı kazandın ve herkes seni övüyor. Kaybeden arkadaşın da orada. Ne yaparsın?"
+ },
+ {
+  "key": "13f7fb77",
+  "pack": "durum",
+  "text": "Peygamberimiz Allah için tevazu göstereni Allah yüceltir buyurdu."
+ },
+ {
+  "key": "aaa83d62",
+  "pack": "durum",
+  "text": "Bir hata yaptın ve özür dilemen gerekiyor ama utanıyorsun. Ne yaparsın?"
+ },
+ {
+  "key": "2783678a",
+  "pack": "durum",
+  "text": "Özür dileyebilmek, alçakgönüllü bir kalbin işaretidir."
+ },
+ {
+  "key": "63970f71",
+  "pack": "durum",
+  "text": "Yaptığın resim çok beğenildi, ama fikir aslında kardeşindi. Ne dersin?"
+ },
+ {
+  "key": "e6a0fac5",
+  "pack": "durum",
+  "text": "Hakkı sahibine vermek ve Biz yaptık diyebilmek tevazudur."
+ },
+ {
+  "key": "e250e90a",
+  "pack": "durum",
+  "text": "Okulda bir çocukla eski ayakkabıları yüzünden dalga geçiliyor. Ne yaparsın?"
+ },
+ {
+  "key": "50cea990",
+  "pack": "durum",
+  "text": "Kimseyi küçük görmemek gerekir; insanın değeri eşyasında değil, kalbindedir."
+ },
+ {
+  "key": "775a3e76",
+  "pack": "durum",
+  "text": "Sınıfta temizlik sırası sana geldi ve herkes bakıyor. Ne yaparsın?"
+ },
+ {
+  "key": "c08ba113",
+  "pack": "durum",
+  "text": "Kur'an Rahmân'ın kulları yeryüzünde vakar ve tevazu ile yürürler buyurur. İşin küçüğü yoktur."
+ },
+ {
+  "key": "1f7b2b9e",
+  "pack": "durum",
+  "text": "Bir oyunun kurallarını en iyi sen biliyorsun ama küçük kardeşin anlatmak istiyor. Ne yaparsın?"
+ },
+ {
+  "key": "5e238189",
+  "pack": "durum",
+  "text": "Söz hakkını başkasına bırakmak, ben yerine biz demektir."
+ },
+ {
+  "key": "0a2a362d",
+  "pack": "oyun",
+  "text": "Allah'ın bize verdiği nimetleri sayın!"
+ },
+ {
+  "key": "0861990d",
+  "pack": "oyun",
+  "text": "Vücudumuzdaki nimetleri sayın! (göz, kulak.)"
+ },
+ {
+  "key": "dc4afc99",
+  "pack": "oyun",
+  "text": "Şu an sofrada ya da mutfakta olan nimetleri sayın!"
+ },
+ {
+  "key": "07fa35e0",
+  "pack": "oyun",
+  "text": "Meyve ve sebze nimetlerini sayın!"
+ },
+ {
+  "key": "3e8beed8",
+  "pack": "oyun",
+  "text": "Sabır gerektiren durumları sayın! (sıra beklemek.)"
+ },
+ {
+  "key": "0133f046",
+  "pack": "oyun",
+  "text": "Sinirlenince sakinleşmek için yapabileceklerimizi sayın!"
+ },
+ {
+  "key": "6ee6038d",
+  "pack": "oyun",
+  "text": "Hayvanlara nasıl merhamet edebiliriz? Sayın!"
+ },
+ {
+  "key": "524f0f2d",
+  "pack": "oyun",
+  "text": "Bugün birine yapabileceğimiz iyilikleri sayın!"
+ },
+ {
+  "key": "5260da76",
+  "pack": "oyun",
+  "text": "Bildiğiniz peygamber isimlerini sayın!"
+ },
+ {
+  "key": "f2c682ed",
+  "pack": "oyun",
+  "text": "Bildiğiniz sure isimlerini sayın!"
+ },
+ {
+  "key": "b435f40d",
+  "pack": "oyun",
+  "text": "Esmâ-i Hüsnâ'dan bildiğiniz isimleri sayın!"
+ },
+ {
+  "key": "0e733e3b",
+  "pack": "oyun",
+  "text": "Kur'an'da adı geçen hayvanları sayın!"
+ },
+ {
+  "key": "2ba893a6",
+  "pack": "oyun",
+  "text": "Hazreti Muhammed'in (sallallahu aleyhi ve sellem) aile fertlerinin isimlerini sayın!"
+ },
+ {
+  "key": "3ef86af3",
+  "pack": "oyun",
+  "text": "Güvenilir bir insanın özelliklerini sayın!"
+ },
+ {
+  "key": "5c85c1f8",
+  "pack": "oyun",
+  "text": "Bize emanet edilen şeyleri sayın! (gözlerimiz, ödünç kitap.)"
+ },
+ {
+  "key": "f894376c",
+  "pack": "oyun",
+  "text": "Paylaşabileceğimiz şeyleri sayın!"
+ },
+ {
+  "key": "c41c9bb7",
+  "pack": "oyun",
+  "text": "Sadaka sayılan iyilikleri sayın! (gülümsemek.)"
+ },
+ {
+  "key": "5276504a",
+  "pack": "oyun",
+  "text": "Anne babamızın bizim için yaptıklarını sayın!"
+ },
+ {
+  "key": "21e7d024",
+  "pack": "oyun",
+  "text": "Anne babamızı mutlu edecek şeyleri sayın!"
+ },
+ {
+  "key": "9f16cca6",
+  "pack": "oyun",
+  "text": "Temiz tutmamız gereken şeyleri sayın!"
+ },
+ {
+  "key": "899610d0",
+  "pack": "oyun",
+  "text": "Abdestte yıkanan ve mesh edilen yerleri sayın!"
+ },
+ {
+  "key": "4953bfc0",
+  "pack": "oyun",
+  "text": "Merak ettiğiniz soruları sayın! (Gökyüzü neden mavi?.)"
+ },
+ {
+  "key": "e6901b85",
+  "pack": "oyun",
+  "text": "Sevdiklerimizi mutlu eden şeyleri sayın!"
+ },
+ {
+  "key": "4703ff3b",
+  "pack": "oyun",
+  "text": "Faydasını bildiğiniz hayvanları sayın! (Arı bal yapar.)"
+ },
+ {
+  "key": "14451534",
+  "pack": "oyun",
+  "text": "Parayla alınamayan güzel şeyleri sayın!"
+ },
+ {
+  "key": "0b12d91e",
+  "pack": "oyun",
+  "text": "Ailece birlikte yaptığımız işleri sayın!"
+ },
+ {
+  "key": "d257fb8f",
+  "pack": "oyun",
+  "text": "Gökyüzünde görebildiğimiz şeyleri sayın!"
+ },
+ {
+  "key": "d5c5dc9a",
+  "pack": "oyun",
+  "text": "Özür dilemenin ve teşekkür etmenin yollarını sayın!"
+ },
+ {
+  "key": "536f8f64",
+  "pack": "oyun",
+  "text": "Kur'an-ı Kerim'de 114 sure vardır.,"
+ },
+ {
+  "key": "509236dd",
+  "pack": "oyun",
+  "text": "Hazreti Yunus'u bir kedi yuttu.,Hazreti Yunus'u büyük bir balık yuttu."
+ },
+ {
+  "key": "65da9a76",
+  "pack": "oyun",
+  "text": "Günde 5 vakit namaz kılınır.,"
+ },
+ {
+  "key": "ebcf1a0b",
+  "pack": "oyun",
+  "text": "Ramazan Bayramı'ndan önce bir ay oruç tutulur.,"
+ },
+ {
+  "key": "0b2bcc64",
+  "pack": "oyun",
+  "text": "Peygamberimiz Medine'de doğdu.,Peygamberimiz Mekke'de doğdu, Medine'ye hicret etti."
+ },
+ {
+  "key": "003d8f42",
+  "pack": "oyun",
+  "text": "Hapşırınca Elhamdülillah denir.,"
+ },
+ {
+  "key": "c041c77e",
+  "pack": "oyun",
+  "text": "Yemeğe sol elle başlanır.,Yemek sağ elle yenir."
+ },
+ {
+  "key": "6d3cc07c",
+  "pack": "oyun",
+  "text": "Kâbe Medine'dedir.,Kâbe Mekke'dedir."
+ },
+ {
+  "key": "f4fffb40",
+  "pack": "oyun",
+  "text": "Hazreti Musa'nın asası yılana dönüştü.,"
+ },
+ {
+  "key": "6af8ae94",
+  "pack": "oyun",
+  "text": "Temizlik imanın yarısıdır.,"
+ },
+ {
+  "key": "7b792071",
+  "pack": "oyun",
+  "text": "Kur'an'ın ilk suresi İhlâs'tır.,İlk sure Fâtiha'dır."
+ },
+ {
+  "key": "c38f0bab",
+  "pack": "oyun",
+  "text": "Gülümsemek de sadakadır.,"
+ },
+ {
+  "key": "c7e7b3af",
+  "pack": "oyun",
+  "text": "Hazreti İbrahim'i ateş yaktı.,Allah'ın emriyle ateş ona serin ve esenlik oldu."
+ },
+ {
+  "key": "f4f906b7",
+  "pack": "oyun",
+  "text": "Kur'an'da adı karınca olan bir sure vardır.,Neml Suresi, karınca demektir."
+ },
+ {
+  "key": "463df0ed",
+  "pack": "oyun",
+  "text": "Hüdhüd bir balıktır.,Hüdhüd, Hazreti Süleyman'a haber getiren bir kuştur."
+ },
+ {
+  "key": "ebead681",
+  "pack": "oyun",
+  "text": "Hazreti Meryem'in adı Kur'an'da geçer.,"
+ },
+ {
+  "key": "3a5f79bf",
+  "pack": "oyun",
+  "text": "Akşam ezanı okununca iftar açılır.,"
+ },
+ {
+  "key": "694fcd92",
+  "pack": "oyun",
+  "text": "Komşuya iyilik yapmak önemli değildir.,Peygamberimiz komşu hakkı üzerinde çok durmuştur."
+ },
+ {
+  "key": "9a0c54c7",
+  "pack": "oyun",
+  "text": "Peygamberimizin ilk eşi Hazreti Hatice'dir.,"
+ },
+ {
+  "key": "5d94a721",
+  "pack": "oyun",
+  "text": "Hazreti Nuh büyük bir gemi yaptı.,"
+ },
+ {
+  "key": "e2fa90da",
+  "pack": "oyun",
+  "text": "Abdestte ayaklar en başta yıkanır.,Ayaklar en son yıkanır."
+ },
+ {
+  "key": "3f35aa18",
+  "pack": "oyun",
+  "text": "Bir hayvana su vermek sevaptır.,"
+ },
+ {
+  "key": "49e1e573",
+  "pack": "oyun",
+  "text": "Ezanı ilk okuyan sahabi Hazreti Bilâl'dir.,"
+ },
+ {
+  "key": "80668ba2",
+  "pack": "oyun",
+  "text": "Ramazan ayı yılda iki kez gelir.,Ramazan yılda bir kez gelir."
+ },
+ {
+  "key": "0d92b966",
+  "pack": "oyun",
+  "text": "Ayaklar en son yıkanır.,Ağız çalkalanır, burna su verilir.,Baş, ıslak elle mesh edilir."
+ },
+ {
+  "key": "3f7e2032",
+  "pack": "oyun",
+  "text": "Yemeğe Bismillah diyerek başlanır.,Yemek sağ elle yenir.,İsraf etmeyiz; tabağa yiyebileceğimiz kadar alırız."
+ },
+ {
+  "key": "b211c152",
+  "pack": "oyun",
+  "text": "Eve girerken Selâmün aleyküm denir.,Ayakkabılar kapıda çıkarılır, ev temiz tutulur.,Kapı yavaşça kapatılır, kimse rahatsız edilmez."
+ },
+ {
+  "key": "a7b784e5",
+  "pack": "oyun",
+  "text": "Hapşıran Elhamdülillah der.,Duyan Yerhamükellah (Allah sana rahmet etsin) der.,Hapşıran da Yehdînâ ve yehdîkümullah (Allah bize ve size hidayet versin) diye karşılık verir."
+ },
+ {
+  "key": "36744220",
+  "pack": "oyun",
+  "text": "Misafir ayağa kalkılarak, güler yüzle karşılanır.,Hoş geldin denir, hâli hatırı sorulur.,Misafire ikram edilir."
+ },
+ {
+  "key": "fc696472",
+  "pack": "oyun",
+  "text": "Uyumadan önce dua edilir: Bismikellâhümme emûtü ve ahyâ.,Sünnet olan, sağ tarafa yatmaktır.,Abdestli yatmak güzel bir sünnettir."
+ },
+ {
+  "key": "eb12db29",
+  "pack": "oyun",
+  "text": "Hediye verene teşekkür edilir.,Hediye ayıplanmaz; güzel bir söz söylenir.,Peygamberimiz Hediyeleşin, birbirinizi sevin buyurdu."
+ },
+ {
+  "key": "ef2390cc",
+  "pack": "oyun",
+  "text": "Su sağ elle içilir.,Oturarak ve üç nefeste içmek sünnettir.,Başlarken Bismillah, bitince Elhamdülillah denir."
+ },
+ {
+  "key": "63b8c551",
+  "pack": "oyun",
+  "text": "Konuşmaya selamla başlanır.,Karşımızdakini sözünü kesmeden dinleriz.,Sesimizi yumuşak tutarız."
+ },
+ {
+  "key": "7e49eee8",
+  "pack": "oyun",
+  "text": "Camiye sağ ayakla girilir.,Camide sessiz ve sakin olunur.,Girerken dua edilir; vakit uygunsa iki rekât tahiyyetü'l-mescid namazı kılınır."
+ }
+]
