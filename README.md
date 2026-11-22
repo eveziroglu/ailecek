@@ -117,7 +117,7 @@ Betik görselleri küçültüp WebP'ye çevirir, oyunun okuduğu `gorsel/gorsel.
 
 ## Telefona yükleme ve çevrimdışı
 
-Oyun kendi adresinde yayınlandığında (GitHub Pages: `.github/workflows/pages.yml`, main dalına her gönderimde yayınlar; bir kez Settings › Pages › Source: GitHub Actions seçilmelidir) telefona uygulama gibi yüklenir ve bir kez açıldıktan sonra internetsiz çalışır: `manifest.webmanifest`, `sw.js` ve `ikon/`. Ayarlar'da **Telefona yükle** düğmesi çıkar (iPhone'da Safari › Paylaş › Ana Ekrana Ekle talimatı gösterilir). claude.ai önizlemesinde bu özellik kapalıdır. Yeni sürüm yayınlarken `sw.js` içindeki `SURUM` değerini değiştirin.
+Oyun kendi adresinde yayınlandığında (GitHub Pages: `.github/workflows/pages.yml`, main dalına her gönderimde yayınlar; bir kez Settings › Pages › Source: GitHub Actions seçilmelidir) telefona uygulama gibi yüklenir ve bir kez açıldıktan sonra internetsiz çalışır: `manifest.webmanifest`, `sw.js` ve `ikon/`. Ayarlar'daki **Telefona ekle** düğmesi yüklemeyi başlatır ya da tarayıcıya göre talimat gösterir (iPhone'da Safari › Paylaş › Ana Ekrana Ekle). claude.ai linkinde aynı düğme ana ekrana kısayol eklemeyi anlatır; çevrimdışı çalışma orada kapalıdır. Yeni sürüm yayınlarken `sw.js` içindeki `SURUM` değerini değiştirin.
 
 ## Çalıştırma
 
