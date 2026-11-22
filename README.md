@@ -45,6 +45,27 @@ Oyun geceleri uzun soluklu bir aile macerasına dönüşür:
 - **Kandil zinciri:** Ailenin kaç hafta üst üste oyun gecesi yaptığını gösterir.
 - Gece sonunda kazanılan yıldızlar, açılan durak, yeni kartlar ve rozetler bir özet ekranında kutlanır.
 
+
+## Kalp Bahçesi (üçüncü sezon)
+
+Birinci sezon bitince Kuşların Yolculuğu ile birlikte açılır; aile istediğini seçer. İmam Gazâlî'nin İhyâu Ulûmi'd-Dîn (Mühlikât ve Münciyât) ve Kimyâ-yı Saâdet eserlerinden esinlenmiştir. Kalp bir bahçedir: yedi köşede birer yabani ot (kalp hastalığı) biter, aile yerine çiçek (ilacı) diker.
+
+| Köşe | Ot → Çiçek |
+|---|---|
+| Kibir → Tevazu | Diken → Menekşe |
+| Kırıcı söz → Güzel söz | Pıtrak → Gül |
+| Öfke → Sabır | Isırgan → Lavanta |
+| Haset → Sevinmek ve dua | Sarmaşık → Papatya |
+| Cimrilik → Cömertlik | Kuru dal → Nar fidanı |
+| Hırs → Kanaat | Ayrık otu → Kekik |
+| Gösteriş → İhlas | Yapma çiçek → Yasemin |
+
+- **Köşe gecesi:** Hüdhüd otu bir hikâyeyle tanıtır; gecede bir Kalp Doktoru turu ve o köşenin hikmetli hikâyesi çıkar, Sen Olsan ve Hızlı Tur kartları köşeye özeldir. Derinlik Anı'nda ayet, hadis, kalp muhasebesi ve haftalık bakım görevi seçimi vardır; tohum ekilir.
+- **Bakım sohbeti:** Bir sonraki gece (ya da ana sayfadaki düğmeyle) herkes haftadan bir an anlatır, çiçek açar. Puan ve ceza yoktur; “Bir hafta daha sulayalım” her zaman seçilebilir, ot geri büyümez.
+- **Sıra:** İlk üç köşe sabittir, sonraki üçü serbesttir, İhlas köşesi en sondadır ve Gizli İyilik Haftası ile birlikte oynanır (muhasebede cevaplar söylenmez).
+- **Final, Kalb-i selîm:** Bahçe turu, havuz aynası, herkesin birbirinde açan çiçeği söylemesi, Şuarâ 88-89, dua ve Kalp Bahçesi belgesi. Kalbin hâli hakkında hüküm verilmez.
+- Kod `kalp.js` içindedir (içerik ve S3 modülü); köşe listesi `icerik.js` içindeki `KALP_KOSELER`'dedir. Tasarım belgesi ayrıca tutulur.
+
 ## Kuşların Yolculuğu (ikinci sezon)
 
 Ferîdüddîn-i Attâr'ın Mantıku't-Tayr'ından esinlenen ikinci sezon, Kandil Gecesi tamamlanınca (ya da "Tüm durakları aç" ayarıyla) açılır.
