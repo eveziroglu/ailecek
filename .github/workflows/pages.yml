@@ -27,8 +27,8 @@ jobs:
       - name: Yayın klasörünü hazırla
         run: |
           mkdir -p _site/gorsel _site/ses
-          cp index.html icerik.js icerik-kuslar.js kuslar.js sw.js manifest.webmanifest _site/
-          cp -r ikon _site/
+          cp index.html hakkinda.html gizlilik.html icerik.js icerik-kuslar.js kuslar.js sw.js manifest.webmanifest _site/
+          cp -r ikon tanitim yazi _site/
           cp gorsel/gorsel.json _site/gorsel/
           find gorsel -maxdepth 1 \( -name '*.webp' -o -name '*.svg' \) -exec cp {} _site/gorsel/ \;
           if [ -f ses/ses.json ]; then cp ses/ses.json _site/ses/; fi

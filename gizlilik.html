@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="tr">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gizlilik ve Kullanım · Ailecek</title>
+<meta name="description" content="Ailecek hesap açtırmaz, reklam göstermez ve veri toplamaz. Aile bilgileri yalnızca sizin cihazınızda saklanır.">
+<meta name="theme-color" content="#2747B5">
+<link rel="icon" href="ikon/ikon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="yazi/yazi.css">
+<style>
+:root { --bg: #F4F6FB; --card: #FFFFFF; --soft: #E9EDF7; --ink: #18204A; --muted: #4E5880; --line: #D3DCEC; --cini: #2747B5; --zumrut: #1C7A4C; --kandil: #EAA214; --on-kandil: #1D1A0E;
+  --display: "Baloo 2", system-ui, sans-serif; --body: Figtree, system-ui, sans-serif; color-scheme: light; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #0F1430; --card: #1A2148; --soft: #222A57; --ink: #EEF1FB; --muted: #A9B2D8; --line: #343E74; --cini: #86A2FF; --zumrut: #52CC8D; --kandil: #FFC54D; color-scheme: dark; } }
+:root[data-theme="dark"] { --bg: #0F1430; --card: #1A2148; --soft: #222A57; --ink: #EEF1FB; --muted: #A9B2D8; --line: #343E74; --cini: #86A2FF; --zumrut: #52CC8D; --kandil: #FFC54D; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 500 17px/1.6 var(--body); -webkit-text-size-adjust: 100%; }
+a { color: var(--cini); }
+a:focus-visible { outline: 3px solid var(--cini); outline-offset: 3px; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 16px max(16px, env(safe-area-inset-right)) 48px max(16px, env(safe-area-inset-left)); }
+header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 16px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font: 800 24px/1 var(--display); }
+.brand span { color: var(--kandil); }
+.brand svg { width: 34px; height: 34px; }
+.btn { display: inline-flex; align-items: center; min-height: 42px; padding: 0 16px; border-radius: 14px; background: var(--kandil); color: var(--on-kandil); font: 700 16px/1 var(--display); text-decoration: none; box-shadow: 0 4px 0 color-mix(in srgb, var(--kandil) 60%, #000); }
+h1 { font: 800 clamp(32px, 6vw, 44px)/1.08 var(--display); margin: 16px 0 6px; }
+.date { color: var(--muted); font-weight: 600; margin: 0 0 24px; }
+.ozet { background: var(--card); border-radius: 22px; padding: 22px; box-shadow: 0 5px 0 var(--line); }
+.ozet ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.ozet li { padding-left: 30px; position: relative; font-weight: 600; }
+.ozet li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--zumrut); font-weight: 800; }
+h2 { font: 800 25px/1.2 var(--display); margin: 36px 0 8px; }
+h3 { font: 700 19px/1.3 var(--display); margin: 20px 0 4px; }
+p, li { color: var(--ink); }
+.muted { color: var(--muted); }
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 16px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 8px; border-bottom: 1px solid var(--line); }
+th { font-weight: 700; color: var(--muted); font-size: 14px; }
+.not { background: var(--soft); border-radius: 18px; padding: 16px 18px; margin-top: 14px; }
+footer { margin-top: 40px; color: var(--muted); font-size: 15px; display: flex; flex-wrap: wrap; gap: 8px 18px; }
+@media (max-width: 520px) { table, thead, tbody, tr, th, td { display: block; } thead { display: none; } td { border: 0; padding: 2px 0; } tr { padding: 10px 0; border-bottom: 1px solid var(--line); } td:first-child { font-weight: 700; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <a class="brand" href="hakkinda.html" aria-label="Ailecek hakkında">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="14" y="14" width="36" height="36" rx="6" fill="#2747B5"/><rect x="14" y="14" width="36" height="36" rx="6" fill="#2747B5" transform="rotate(45 32 32)"/><path d="M32 21 L43 30 V43 H21 V30 Z" fill="#fff"/><path d="M32 40.5 C27 37 24.5 34.6 24.5 32.2 C24.5 30.3 26 29 27.8 29 C29.4 29 30.8 30 32 31.6 C33.2 30 34.6 29 36.2 29 C38 29 39.5 30.3 39.5 32.2 C39.5 34.6 37 37 32 40.5Z" fill="#EAA214"/></svg>
+      <b style="font-weight:800">Aile<span>cek</span></b>
+    </a>
+    <a class="btn" href="./">Oyna</a>
+  </header>
+
+  <main>
+    <h1>Gizlilik ve Kullanım</h1>
+    <p class="date">Son güncelleme: 22 Kasım 2026</p>
+
+    <div class="ozet">
+      <ul>
+        <li>Hesap açmanız, giriş yapmanız ya da e-posta vermeniz gerekmez.</li>
+        <li>Reklam yoktur; ziyaretçi takibi, analiz ya da çerez kullanılmaz.</li>
+        <li>Girdiğiniz isimler ve oyun ilerlemesi yalnızca sizin cihazınızda saklanır; bize gönderilmez.</li>
+        <li>Verilerinizi istediğiniz an tek dokunuşla silebilirsiniz.</li>
+      </ul>
+    </div>
+
+    <h2>1. Cihazınızda saklananlar</h2>
+    <p>Oyunun çalışması için bazı bilgiler tarayıcınızın yerel depolama alanında (localStorage) tutulur. Bu bilgiler cihazınızdan çıkmaz ve bizim tarafımızdan görülemez.</p>
+    <table>
+      <thead><tr><th>Bilgi</th><th>Neden</th></tr></thead>
+      <tbody>
+        <tr><td>Aile üyelerinin adları, yaş grupları, simgeleri ve kuşları</td><td>Sıranın kimde olduğunu göstermek ve soruları yaşa göre seçmek</td></tr>
+        <tr><td>Oyun ilerlemesi: duraklar, kartlar, rozetler, fidanlar</td><td>Yolculuğa kaldığınız yerden devam etmek</td></tr>
+        <tr><td>Gizli İyilik Haftası kartları ve İyilik Defteri</td><td>Hafta boyunca görevleri hatırlamak ve törende açmak</td></tr>
+        <tr><td>Ayarlar ve yarım kalan geri bildirim taslağı</td><td>Tercihlerinizi korumak</td></tr>
+      </tbody>
+    </table>
+    <p><b>Silmek için:</b> Oyunda Ayarlar › Verileri sıfırla'ya dokunun. Tarayıcınızın site verilerini temizlemek de aynı sonucu verir. Uygulamayı ana ekrandan kaldırdığınızda bu veriler de silinebilir.</p>
+
+    <h2>2. Barındırma</h2>
+    <p>Oyun, GitHub Pages üzerinde yayınlanan bir web sayfasıdır. Her web sitesinde olduğu gibi, sayfayı açtığınızda barındırma hizmeti teknik nedenlerle (güvenlik ve hizmetin sürmesi için) IP adresinizi kısa süreli işleyebilir. Bu işlem GitHub'ın kendi gizlilik bildirimine tabidir; Ailecek bu kayıtlara erişmez ve kullanmaz.</p>
+    <p>Yazı tipleri ve tüm oyun dosyaları aynı adresten yüklenir; üçüncü taraf bir hizmete istek gönderilmez.</p>
+
+    <h2>3. Sesli anlatım</h2>
+    <p>Hüdhüd'ün sesi iki yoldan biriyle çalışır:</p>
+    <ul>
+      <li><b>Cihaz sesi:</b> Okuma, telefonunuzun ya da tarayıcınızın kendi ses motoruyla yapılır. Bazı tarayıcılarda, özellikle Chrome'un "Google" adlı çevrimiçi seslerinde, okunacak metin seslendirme için tarayıcı üreticisinin sunucusuna gönderilebilir. Bu metinler soru ve açıklamalardır; sırası gelen kişinin adı da okunabilir. Gizli kartlar (pandomim kelimesi, gizli iyilik görevi, hoca cevabı) hiçbir zaman okunmaz.</li>
+      <li><b>Hazır kayıtlar:</b> Oyunla birlikte gelen ses dosyaları cihazınızda çalınır; hiçbir metin gönderilmez ve isimler okunmaz.</li>
+    </ul>
+    <p>Sesli anlatımı Ayarlar'dan tamamen kapatabilirsiniz.</p>
+
+    <h2>4. Geri bildirim</h2>
+    <p>Geri bildirim formu cevaplarınızı yalnızca cihazınızda bir mesaja dönüştürür. Mesaj, siz <b>WhatsApp ile gönder</b>, <b>paylaş</b> ya da <b>kopyala</b> seçeneklerinden birini kullanıp göndermeyi onaylarsanız sizin seçtiğiniz kişiye ve uygulama üzerinden iletilir. Mesaja aile üyelerinin adları eklenmez; yalnızca kişi sayısı, yaş grupları, cihaz türü ve oyunda ne kadar ilerlendiği yazılır. İletim sırasında kullandığınız uygulamanın (örneğin WhatsApp) gizlilik koşulları geçerlidir.</p>
+
+    <h2>5. Çocuklar</h2>
+    <p>Ailecek, ebeveynlerin çocuklarıyla birlikte oynaması için tasarlanmıştır. Çocuklardan ya da yetişkinlerden kişisel veri toplanmaz. Aile üyeleri için gerçek ad yerine takma ad kullanabilirsiniz.</p>
+
+    <h2>6. Kullanım koşulları</h2>
+    <h3>Ücretsiz ve olduğu gibi</h3>
+    <p>Ailecek ücretsizdir ve "olduğu gibi" sunulur. Oyunun kesintisiz ya da hatasız çalışacağı garanti edilmez. Oyun sırasında hareketli bölümlerde (Kalk-Otur, Hayvan Yürüyüşü gibi) çocukların güvenli bir alanda oynamasına lütfen dikkat edin.</p>
+    <h3>Dini içerik</h3>
+    <p>İçerik, Ehl-i Sünnet anlayışına uygun olarak eğitim ve aile sohbeti amacıyla hazırlanmıştır; ayet mealleri ve hadisler kaynaklarıyla birlikte verilir. Oyun bir fetva ya da ilmihal kaynağı değildir; dini konulardaki sorularınız için bir hocaya danışın. Bu deneme sürümünün dini içeriği uzman kontrolünü beklemektedir. Bir hata fark ederseniz bize bildirmeniz bizi çok sevindirir.</p>
+    <h3>Haklar</h3>
+    <p>Oyunun metinleri, tasarımı ve çizimleri Ailecek'e aittir. Kişisel ve ailevi kullanım serbesttir. İzin almadan ticari amaçla çoğaltılamaz. Yazı tipleri (Baloo 2 ve Figtree) SIL Open Font License ile kullanılmaktadır.</p>
+
+    <h2>7. Değişiklikler ve iletişim</h2>
+    <p>Bu metin oyun geliştikçe güncellenebilir; değişiklik olduğunda yukarıdaki tarih yenilenir.</p>
+    <p class="not">Soru, öneri ve hata bildirimleri için oyundaki <b>Geri bildirim</b> formunu kullanabilir ya da <a href="https://github.com/eveziroglu/ailecek/issues" rel="noopener">GitHub üzerinden</a> yazabilirsiniz.</p>
+  </main>
+
+  <footer>
+    <a href="./">Oyun</a><a href="hakkinda.html">Ailecek hakkında</a><a href="./#kaynaklar">Kaynaklar</a>
+  </footer>
+</div>

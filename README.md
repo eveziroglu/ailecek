@@ -115,6 +115,13 @@ Betik görselleri küçültüp WebP'ye çevirir, oyunun okuduğu `gorsel/gorsel.
 - **İlk açılış:** Oyunu ilk kez açan aileye Hüdhüd oyunu dört adımda anlatır (Ayarlar › Nasıl oynanır? ile yeniden izlenir).
 - **Geri bildirim:** Ana sayfa, Ayarlar ve gece sonu ekranındaki form; puan, sevilen bölümler ve üç açık soru. Cevaplar isimsiz bir mesaja çevrilip WhatsApp, paylaşma menüsü ya da kopyalama ile gönderilir. Linkle deneyen aileler giriş yapmadan oynadığı için cevaplar bir sunucuda toplanmaz.
 
+## Tanıtım, gizlilik ve kaynaklar
+
+- `hakkinda.html`: Oyunu tanıtan sayfa (ekran görüntüleri `tanitim/`). Linki paylaşıldığında WhatsApp ve sosyal medyada `tanitim/onizleme.jpg` önizlemesi görünür.
+- `gizlilik.html`: Gizlilik ve kullanım koşulları. Oyun hesap açtırmaz, veri toplamaz, üçüncü taraf hizmete istek göndermez.
+- Kaynaklar: Oyun içindeki ekran (Ayarlar › Kaynaklar ya da `#kaynaklar`); ayet ve hadislerin kaynak listesi içerik dosyalarından üretilir.
+- Yazı tipleri (Baloo 2, Figtree; SIL Open Font License) `yazi/` klasöründen yüklenir.
+
 ## Telefona ekleme ve çevrimdışı
 
 Oyun kendi adresinde yayınlandığında (GitHub Pages: `.github/workflows/pages.yml`, main dalına her gönderimde yayınlar; bir kez Settings › Pages › Source: GitHub Actions seçilmelidir) telefona uygulama gibi yüklenir ve bir kez açıldıktan sonra internetsiz çalışır: `manifest.webmanifest`, `sw.js` ve `ikon/`. Ayarlar'daki **Telefona ekle** düğmesi yüklemeyi başlatır ya da tarayıcıya göre talimat gösterir (iPhone'da Safari › Paylaş › Ana Ekrana Ekle). Oyun başka bir sayfanın içinde açıldığında aynı düğme ana ekrana kısayol eklemeyi anlatır; çevrimdışı çalışma orada kapalıdır. Yeni sürüm yayınlarken `sw.js` içindeki `SURUM` değerini değiştirin.

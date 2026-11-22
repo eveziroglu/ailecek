@@ -1,9 +1,11 @@
 /* Ailecek çevrimdışı çalışma.
    Uygulama dosyaları ilk açılışta önbelleğe alınır; görseller, ses paketleri ve yazı tipleri
    kullanıldıkça eklenir. Yeni sürüm yayınlanınca SURUM değişir ve eski önbellek silinir. */
-const SURUM = "ailecek-2026-11-22b";
+const SURUM = "ailecek-2026-11-22d";
 const KABUK = ["./", "index.html", "icerik.js", "icerik-kuslar.js", "kuslar.js", "manifest.webmanifest",
-  "ikon/ikon-192.png", "ikon/ikon-512.png", "ikon/apple-touch-icon.png", "gorsel/gorsel.json", "ses/ses.json"];
+  "ikon/ikon-192.png", "ikon/ikon-512.png", "ikon/apple-touch-icon.png", "gorsel/gorsel.json", "ses/ses.json",
+  "yazi/yazi.css", "yazi/baloo2-latin-4a324d.woff2", "yazi/baloo2-latin-ext-0d1ee7.woff2", "yazi/figtree-latin-dab710.woff2", "yazi/figtree-latin-ext-c15953.woff2",
+  "hakkinda.html", "gizlilik.html"];
 
 self.addEventListener("install", e => {
   e.waitUntil(caches.open(SURUM).then(c => Promise.all(KABUK.map(u => c.add(u).catch(() => {})))).then(() => self.skipWaiting()));
@@ -14,10 +16,9 @@ self.addEventListener("activate", e => {
 self.addEventListener("fetch", e => {
   const req = e.request; if (req.method !== "GET") return;
   const url = new URL(req.url);
-  const font = /fonts\.(googleapis|gstatic)\.com$/.test(url.hostname);
-  if (url.origin !== location.origin && !font) return;
+  if (url.origin !== location.origin) return;
   /* Sayfa ve oyun dosyaları: önce ağ (yeni sürüm hemen gelsin), ağ yoksa önbellek */
-  const kod = url.origin === location.origin && (req.mode === "navigate" || /\.(html|js|json|webmanifest)$/.test(url.pathname) || url.pathname.endsWith("/"));
+  const kod = url.origin === location.origin && (req.mode === "navigate" || /\.(html|js|json|webmanifest|css)$/.test(url.pathname) || url.pathname.endsWith("/"));
   if (kod) {
     e.respondWith(fetch(req).then(r => { if (r.status === 200) { const k = r.clone(); caches.open(SURUM).then(c => c.put(req, k)); } return r; })
       .catch(() => caches.match(req).then(m => m || (req.mode === "navigate" ? caches.match("index.html") : Response.error()))));
