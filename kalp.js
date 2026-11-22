@@ -1,5 +1,5 @@
 /* Sürüm etiketi: node surum.mjs ile güncellenir; index.html ile aynı olmalı. */
-const KALP_SURUM = "20261122-1351";
+const KALP_SURUM = "20261122-1443";
 /* ============ ÜÇÜNCÜ SEZON: KALP BAHÇESİ ============
    İlham: İmam Gazâlî, İhyâu Ulûmi'd-Dîn (Mühlikât ve Münciyât bölümleri) ve Kimyâ-yı Saâdet.
    Kalp bir bahçedir: her köşede bir yabani ot (kalp hastalığı) biter, aile onun yerine bir çiçek (ilacı) diker.
@@ -294,6 +294,15 @@ const S3 = (() => {
         </div>
       </section>`;
   }
+  /* Ana sayfadaki tek satırlık özet */
+  function homeRow() {
+    if (!unlocked()) return "";
+    const n = acikSay(), b = bekleyen(), sira = siradaki();
+    const baslik = n === 7 ? (st().finalDone ? "Bahçeniz çiçek açtı" : "Final sizi bekliyor!") : b ? `${b.cicek} büyüyor, bakım sohbeti hazır` : sira ? `Sıradaki köşe: ${sira.ot}` : "Bahçeniz sizi bekliyor";
+    return yolSatiri({ act: b ? "k3-bakim" : "k3-bahce", arg: b ? b.id : "", ikon: b ? ASAMA[asama(b.id)][0] : n === 7 ? "💐" : "🌱", renk: "--zumrut",
+      etiket: Object.keys(st().koseler).length ? `Kalp Bahçesi · ${n}/7 çiçek` : "Yeni sezon · Kalp Bahçesi", baslik,
+      noktalar: KALP_KOSELER.map(k => acik(k.id) ? "on" : ekili(k.id) ? "now" : "") });
+  }
   const certButton = () => `<button class="ak-btn ak-btn--night ak-btn--lg" data-act="k3-bahce">🌱 Kalp Bahçesi'ne gir</button>`;
 
   /* ---------- Bahçe ekranı ---------- */
@@ -426,5 +435,5 @@ const S3 = (() => {
     "k3-final": a => { const [s, m] = a.split(":"); final(+s, +m); }
   };
 
-  return { isKose, koseOf, kaynak, theme, pool, intro, label, reward, slides, planla, homeCard, certButton, badgeValue, lines, actions, unlocked, st };
+  return { isKose, koseOf, kaynak, theme, pool, intro, label, reward, slides, planla, homeCard, homeRow, certButton, badgeValue, lines, actions, unlocked, st };
 })();

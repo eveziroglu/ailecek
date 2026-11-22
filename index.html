@@ -19,7 +19,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Ailecek">
-<link rel="stylesheet" href="yazi/yazi.css?v=20261122-1351">
+<link rel="stylesheet" href="yazi/yazi.css?v=20261122-1443">
 <style>
 /* Ailecek tasarım sistemi: tasarim/project/ altındaki tokens.json ve bundle.css'ten üretilir (python3 tasarim/esitle.py). Elle düzenlemeyin. */
 /* @tokenlar:başla */
@@ -572,6 +572,21 @@ blockquote cite { display: block; margin-top: 8px; font: 600 13px/18px var(--fon
 .journey-bar i { flex: 1; height: 10px; border-radius: 5px; background: var(--surface-300); }
 .journey-bar i.on { background: var(--kandil); }
 .journey-bar i.now { background: color-mix(in srgb, var(--kandil) 45%, var(--surface-300)); animation: ak-pulse 1.2s infinite; }
+.sure-sec { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; width: 100%; }
+.sure-btn { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 10px 4px; border-radius: 16px; border: 2px solid var(--line); background: var(--surface-200); color: var(--ink); font: inherit; cursor: pointer; }
+.sure-btn b { font: 700 17px/1.1 var(--font-display); }
+.sure-btn small { font-size: 12px; font-weight: 700; opacity: .75; }
+.sure-btn[aria-pressed="true"] { border-color: var(--c, var(--cini)); background: color-mix(in srgb, var(--c, var(--cini)) 16%, var(--surface-200)); box-shadow: 0 0 0 3px color-mix(in srgb, var(--c, var(--cini)) 30%, transparent); }
+.yol-satir { display: flex; align-items: center; gap: 12px; width: 100%; padding: 14px; border: 0; border-radius: var(--radius-lg); background: var(--surface-200); box-shadow: 0 4px 0 var(--line), inset 5px 0 0 var(--c); color: var(--ink); font: inherit; text-align: left; cursor: pointer; }
+.yol-satir__ikon { flex: none; width: 52px; height: 52px; border-radius: 16px; display: grid; place-items: center; font-size: 30px; background: color-mix(in srgb, var(--c) 16%, var(--surface-100)); }
+.yol-satir__metin { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.yol-satir__metin b { font: 700 18px/1.2 var(--font-display); }
+.yol-satir__metin small { font-weight: 700; color: var(--muted, var(--ink)); opacity: .8; }
+.yol-satir__ok, .aile-ozet__ok { flex: none; font: 700 30px/1 var(--font-display); color: var(--c, var(--cini)); }
+.yol-satir .journey-bar { margin-top: 2px; }
+.aile-ozet { display: flex; flex-direction: row; align-items: center; gap: 12px; width: 100%; border: 0; font: inherit; color: inherit; cursor: pointer; }
+.aile-ozet__ikon { flex: none; width: 64px; }
+.aile-ozet__ikon svg { width: 64px; height: auto; }
 .mini-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
 .mini-stat { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px 12px; border: 0; border-radius: var(--radius-md); background: var(--surface-200); box-shadow: 0 4px 0 var(--line); color: var(--ink); text-align: center; }
 .mini-stat i { font-style: normal; font-size: 30px; line-height: 1.1; }
@@ -648,15 +663,15 @@ blockquote cite { display: block; margin-top: 8px; font: 600 13px/18px var(--fon
 </div>
 <div id="sheet-root"></div>
 
-<script src="icerik.js?v=20261122-1351"></script>
-<script src="icerik-kuslar.js?v=20261122-1351"></script>
-<script src="kuslar.js?v=20261122-1351"></script>
-<script src="kalp.js?v=20261122-1351"></script>
+<script src="icerik.js?v=20261122-1443"></script>
+<script src="icerik-kuslar.js?v=20261122-1443"></script>
+<script src="kuslar.js?v=20261122-1443"></script>
+<script src="kalp.js?v=20261122-1443"></script>
 <script>
 /* ---- Sürüm ve hata koruması ----
    Telefon yeni sayfayla eski önbellekteki bir dosyayı birlikte yüklerse oyun sessizce takılabilir.
    Sürümler uyuşmazsa önbellek temizlenip sayfa bir kez yeniden yüklenir. Bir düğme hata verirse uyarı çıkar. */
-const OYUN_SURUM = "20261122-1351";
+const OYUN_SURUM = "20261122-1443";
 (() => {
   const uyumlu = typeof ICERIK_SURUM !== "undefined" && ICERIK_SURUM === OYUN_SURUM && typeof KUSLAR_SURUM !== "undefined" && KUSLAR_SURUM === OYUN_SURUM && typeof KALP_SURUM !== "undefined" && KALP_SURUM === OYUN_SURUM;
   if (uyumlu) return;
@@ -1108,8 +1123,52 @@ function screenHome() {
       <button class="ak-btn ak-btn--kandil ak-btn--lg ak-btn--pulse" data-act="setup">Oyun Gecesini Başlat</button>
     </section>
     ${familyStrip()}
-    ${journeyHome()}
     ${week ? weekPanel() : ""}
+    ${yolculuklar()}
+    <button class="ak-card aile-ozet" data-act="ailemiz">
+      <span class="aile-ozet__ikon">${treeSVG(fruitTotal())}</span>
+      <span class="stack" style="gap:4px;min-width:0;text-align:left">
+        <span class="ak-label">Ailemiz</span>
+        <b style="font:700 20px/1.2 var(--font-display)">🍎 ${fruitTotal()} nar · 🌱 ${gardenTotal} fidan · 🏅 ${Object.keys(P.badges).length} rozet</b>
+        <small class="muted bold">Nar ağacı, bahçe, kartlar, rozetler ve ebeveyn bilgileri</small>
+      </span>
+      <span class="aile-ozet__ok" aria-hidden="true">›</span>
+    </button>
+    <p class="small bold muted center" style="margin:0">Oyunu nasıl buldunuz? <button class="link" style="padding:0;font-size:inherit" data-act="feedback">Görüşünüzü yazın</button></p>`, greetSay);
+}
+
+/* Ana sayfadaki yolculuk listesi: açık her sezon tek satır */
+function yolculuklar() {
+  const cur = currentLand(), done = landsDone(), total = DURAKLAR.length, curT = cur && THEMES[cur.tema];
+  const s1 = yolSatiri({ act: "map", ikon: "🧭", etiket: `Ailemizin Yolculuğu · ${done}/${total} durak`,
+    baslik: cur ? `Sıradaki durak: ${curT.ico} ${cur.ad}` : `${FINAL_DURAK.ico} ${FINAL_DURAK.ad}${P.badges.kandil ? " tamamlandı" : " sizi bekliyor"}`,
+    noktalar: DURAKLAR.map(d => P.lands[d.tema] ? "on" : cur && d.tema === cur.tema ? "now" : "") });
+  return `<section class="stack" style="gap:10px">
+    <div class="section-head"><h2>Yolculuklarımız</h2></div>
+    ${s1}${S2.homeRow()}${S3.homeRow()}
+    ${!S2.unlocked() ? `<p class="small bold muted" style="margin:0">Yedi durak tamamlanınca iki yeni sezon açılır: Kuşların Yolculuğu ve Kalp Bahçesi.</p>` : ""}
+  </section>`;
+}
+function yolSatiri(o) {
+  return `<button class="yol-satir" data-act="${o.act}" ${o.arg ? `data-arg="${o.arg}"` : ""} style="--c:var(${o.renk || "--cini"})">
+    <span class="yol-satir__ikon">${o.ikon}</span>
+    <span class="yol-satir__metin"><span class="ak-label">${o.etiket}</span><b>${o.baslik}</b>
+      ${o.noktalar ? `<span class="journey-bar">${o.noktalar.map(c => `<i class="${c}"></i>`).join("")}</span>` : ""}
+      ${o.not ? `<small>${o.not}</small>` : ""}</span>
+    <span class="yol-satir__ok" aria-hidden="true">›</span>
+  </button>`;
+}
+
+/* Ailemiz: ana sayfadan taşınan ilerleme ve bilgi kartları */
+function screenAilemiz() {
+  closeSheet(); G = null; checkBadges();
+  render(`
+    <section class="ak-card" style="gap:6px"><span class="ak-label">Ailemiz</span><h1 style="font:800 28px/1.1 var(--font-display);margin:0">Ailemizin hatırası</h1></section>
+    <div class="mini-stats">
+      <button class="mini-stat" data-act="album"><i>🃏</i><b>${P.cards.length}/${allCards().length}</b><small>Kıssa Kartı</small></button>
+      <button class="mini-stat" data-act="badges"><i>🏅</i><b>${Object.keys(P.badges).length}/${ROZETLER.length}</b><small>Rozet</small></button>
+      <div class="mini-stat"><i>🪔</i><b>${streak()}</b><small>Haftalık zincir</small></div>
+    </div>
     <section class="ak-card tree-card">
       ${treeSVG(fruitTotal())}
       <div class="stack" style="gap:6px">
@@ -1124,17 +1183,20 @@ function screenHome() {
       <div class="fam-strip"><div class="stack" style="gap:4px;flex:1"><b style="font:700 19px/1.2 var(--font-display)">Görüşünüz bizim için değerli</b><small class="muted bold">Oyunu nasıl buldunuz? Birkaç dakikanızı alır.</small></div>
       <button class="mini gold" data-act="feedback">Geri bildirim</button></div>
     </section>
-    <details class="ak-card" style="gap:0">
+    <details class="ak-card" style="gap:0" open>
       <summary class="bold" style="cursor:pointer">Ebeveynler için</summary>
       <ul class="small" style="margin:12px 0 0;padding-left:1.2em;display:grid;gap:6px;font-weight:600">
         <li>Masaya tek telefon koyun. Sırası gelen çarkı çevirir, Hüdhüd soruları sesli okur.</li>
+        <li>Gece süresini oyunun başında seçebilirsiniz: Kısa (yaklaşık 15 dakika), Tam (yaklaşık 40 dakika) ya da yatmadan önce için Sakin.</li>
         <li>Gizli kartlar (pandomim kelimesi, gizli iyilik görevi, hoca cevabı) hiçbir zaman sesli okunmaz.</li>
         <li>Gece sonunda herkes bir hafta sürecek gizli iyilik görevi seçer. Yedinci gün Açılış Töreni yapılır.</li>
         <li>Pandomimde peygamberler ve sahabeler canlandırılmaz; sadece hayvanlar, nesneler ve davranışlar.</li>
         <li>Veriler yalnızca bu cihazda saklanır. Ayarlardan sesleri kapatabilir, verileri sıfırlayabilirsiniz.</li>
       </ul>
       <p class="small bold" style="margin:12px 0 0;display:flex;flex-wrap:wrap;gap:6px 16px"><a href="hakkinda.html" target="_blank" rel="noopener">Ailecek hakkında</a><button class="link" style="padding:0;font-size:inherit" data-act="kaynaklar">Kaynaklar</button><a href="gizlilik.html" target="_blank" rel="noopener">Gizlilik ve kullanım</a></p>
-    </details>`, greetSay);
+    </details>
+    <button class="ak-btn ak-btn--lg" data-act="home">Ana sayfa</button>`, "Ailemizin hatırası burada: nar ağacı, bahçe, kartlar ve rozetler.");
+  try { history.replaceState(null, "", "#ailemiz"); } catch (e) {}
 }
 
 function familyStrip() {
@@ -1273,28 +1335,6 @@ function toast(e, eyebrow, title) {
 }
 const bump1 = key => { P[key] = (P[key] || 0) + 1; saveP(); checkBadges(); };
 
-function journeyHome() {
-  return S2.homeCard() + S3.homeCard() + journeyHome1();
-}
-function journeyHome1() {
-  const cur = currentLand(), done = landsDone(), total = DURAKLAR.length;
-  const curT = cur && THEMES[cur.tema];
-  return `
-    <section class="ak-card journey-card">
-      <div style="min-width:0">
-        <span class="ak-label">Ailemizin Yolculuğu · ${done}/${total} durak</span>
-        <h2 style="margin-top:6px">${cur ? `Sıradaki durak: ${curT.ico} ${cur.ad}` : `${FINAL_DURAK.ico} ${FINAL_DURAK.ad} sizi bekliyor!`}</h2>
-        <div class="journey-bar">${DURAKLAR.map(d => `<i class="${P.lands[d.tema] ? "on" : cur && d.tema === cur.tema ? "now" : ""}"></i>`).join("")}</div>
-      </div>
-      <button class="ak-btn ak-btn--kandil" data-act="map" aria-label="Haritayı aç">🧭</button>
-    </section>
-    <div class="mini-stats">
-      <button class="mini-stat" data-act="album"><i>🃏</i><b>${P.cards.length}/${allCards().length}</b><small>Kıssa Kartı</small></button>
-      <button class="mini-stat" data-act="badges"><i>🏅</i><b>${Object.keys(P.badges).length}/${ROZETLER.length}</b><small>Rozet</small></button>
-      <div class="mini-stat"><i>🪔</i><b>${streak()}</b><small>Haftalık zincir</small></div>
-    </div>`;
-}
-
 function screenMap() {
   closeSheet(); checkBadges();
   const n = DURAKLAR.length, stepY = 150, top = 90, H = top + (n + 1) * stepY - 40;
@@ -1376,7 +1416,8 @@ function screenAlbum(cat) {
         ? `<button class="ak-kcard ${news.has(c.w) ? "is-new" : ""}" style="--c:var(${c.c})" data-act="card" data-arg="${esc(c.w)}"><i>${c.e}</i><b>${esc(c.w)}</b></button>`
         : `<div class="ak-kcard is-missing" aria-label="Henüz bulunmadı"><i>?</i><b>${CARD_CATS[c.cat]}</b></div>`).join("")}</div>
       <p class="small muted bold">Pandomimde, ses taklidinde ve hayvan yürüyüşünde bilinen her kart albüme eklenir.</p>
-    </section>`, YOLCULUK_SOZ.albüm);
+    </section>
+    <button class="ak-btn ak-btn--ghost" data-act="ailemiz">‹ Ailemiz</button>`, YOLCULUK_SOZ.albüm);
   if (P.newCards.length) { P.newCards = []; saveP(); }
 }
 function screenCard(w) {
@@ -1396,7 +1437,8 @@ function screenBadges() {
     ${guide(YOLCULUK_SOZ.rozetler)}
     <div class="section-head"><h2>Rozetler</h2><span class="muted small bold">${Object.keys(P.badges).length}/${ROZETLER.length}</span></div>
     <div class="badges">${ROZETLER.map(b => { const got = P.badges[b.id], v = Math.min(badgeValue(b), b.hedef);
-      return `<div class="ak-badge ${got ? "" : "is-locked"}"><i>${b.e}</i><div style="min-width:0"><b>${esc(b.ad)}</b><small>${got ? dateTR(got) + " tarihinde kazanıldı" : esc(b.nasil)}</small>${got ? "" : `<div class="ak-badge__bar"><span style="width:${v / b.hedef * 100}%"></span></div>`}</div></div>`; }).join("")}</div>`, YOLCULUK_SOZ.rozetler);
+      return `<div class="ak-badge ${got ? "" : "is-locked"}"><i>${b.e}</i><div style="min-width:0"><b>${esc(b.ad)}</b><small>${got ? dateTR(got) + " tarihinde kazanıldı" : esc(b.nasil)}</small>${got ? "" : `<div class="ak-badge__bar"><span style="width:${v / b.hedef * 100}%"></span></div>`}</div></div>`; }).join("")}</div>
+    <button class="ak-btn ak-btn--ghost" data-act="ailemiz">‹ Ailemiz</button>`, YOLCULUK_SOZ.rozetler);
 }
 function nightRewards() {
   /* Gece sonu: durak yıldızları, haftalık zincir, kartlar ve rozetler */
@@ -1514,17 +1556,25 @@ function screenThemes() {
 const WHEEL_BASE = ["pandomim", "bilgi", "ses", "bilmece", "senolsan", "hikaye", "hoca", "saskin"];
 const wheelList = () => (G && S2.isVadi(G.theme) ? [...WHEEL_BASE, "bahane"] : WHEEL_BASE).filter(t => GAMES[t]);
 const GROUPS = ["hayvan", "sirala", "kalkotur", "kalpdoktoru", "farkli", "hizli"].filter(t => GAMES[t]);
+/* Gece süresi: Kısa (6 tur), Tam (aile büyüklüğüne göre 6-12 tur), Sakin (6 tur, hareketli ve sesli oyun yok; yatmadan önce) */
+const SURELER = {
+  kisa: { ad: "Kısa", alt: "yaklaşık 15 dk", tur: () => 6 },
+  tam: { ad: "Tam", alt: "yaklaşık 40 dk", tur: n => Math.max(6, Math.min(12, n * 2 + 2)) },
+  sakin: { ad: "Sakin", alt: "yatmadan önce", tur: () => 6 }
+};
+const SAKIN_GRUP = ["sirala", "farkli", "kalpdoktoru"];
+let geceSure = SURELER[store.get("geceSure", "tam")] ? store.get("geceSure", "tam") : "tam";
 function startGame(themeKey) {
   if (themeKey === "random") themeKey = rnd(DURAKLAR.filter(d => landUnlocked(d.tema)).map(d => d.tema));
   const players = family.map(p => ({ ...p })), n = players.length;
-  const total = Math.max(6, Math.min(12, n * 2 + 2));
+  const total = SURELER[geceSure].tur(n);
   /* Bir gecede en fazla üç grup turu var: her gece farklı grup oyunları gelsin diye sıra karıştırılır. */
-  const plan = [], gruplar = shuffle([...GROUPS]); let p = 0, g = 0;
+  const plan = [], gruplar = shuffle(GROUPS.filter(t => geceSure !== "sakin" || SAKIN_GRUP.includes(t))); let p = 0, g = 0;
   for (let t = 0; t < total; t++) {
     if ((t + 1) % 4 === 0) plan.push({ group: true, type: gruplar[g++ % gruplar.length] });
     else plan.push({ player: players[p++ % n] });
   }
-  G = { theme: themeKey, players, plan, i: 0, fidan: 0, used: {}, lastType: null, saskinCount: 0, newCards: [], newBadges: [] };
+  G = { theme: themeKey, players, plan, i: 0, fidan: 0, used: {}, lastType: null, saskinCount: 0, newCards: [], newBadges: [], sure: geceSure };
   S3.planla(G);
   try { navigator.wakeLock && navigator.wakeLock.request("screen").catch(() => {}); } catch (e) {}
   const t = TH(themeKey), line = S2.isVadi(themeKey) ? S2.intro(themeKey) : S3.isKose(themeKey) ? S3.intro(themeKey) : `Bu gece ${t.name}! Hazır mısınız?`, durak = DURAKLAR.find(d => d.tema === themeKey);
@@ -1536,6 +1586,7 @@ function startGame(themeKey) {
       ${sahne(S2.isVadi(themeKey) ? "vadi:" + themeKey.slice(2) : S3.isKose(themeKey) ? "ot:" + themeKey.slice(2) : "durak:" + themeKey) || `<span class="mega bounce">${t.ico}</span>`}
       <p class="q-text">${esc(t.desc)}</p>
       ${guide(line, { noSpeak: true })}
+      <div class="sure-sec" role="group" aria-label="Gece süresi">${Object.entries(SURELER).map(([k, v]) => `<button class="sure-btn" data-act="sure" data-arg="${k}" aria-pressed="${k === geceSure}"><b>${v.ad}</b><small>${v.alt}</small></button>`).join("")}</div>
       <button class="ak-btn ak-btn--kandil ak-btn--lg ak-btn--pulse" data-act="turn">Başlayalım</button>
     </section>`, line);
 }
@@ -1546,6 +1597,7 @@ function chooseType(player) {
   if (!adult && lvl >= 1 && G.players.length > 1) w.hoca = 1.4;
   if (adult && hasKid && G.saskinCount < 2) w.saskin = 1.8;
   if (S2.isVadi(G.theme) && G.players.length > 1) w.bahane = 3.2;
+  if (G.sure === "sakin") { delete w.ses; w.pandomim = 1.6; w.hikaye = (w.hikaye || 1) * 1.6; }
   delete w[G.lastType];
   const e = Object.entries(w), sum = e.reduce((a, [, v]) => a + v, 0);
   let r = Math.random() * sum;
@@ -2328,7 +2380,8 @@ function screenDefter() {
       ${guide(lineText, { soft: true })}
     </section>
     ${week ? `<button class="ak-btn ak-btn--kandil ak-btn--lg" data-act="week">Devam eden haftayı aç</button>` : ""}
-    ${weeks}`, line);
+    ${weeks}
+    <button class="ak-btn ak-btn--ghost" data-act="ailemiz">‹ Ailemiz</button>`, line);
 }
 
 function screenEnd() {
@@ -2442,9 +2495,9 @@ function doInstall() {
 /* ============ İLK AÇILIŞ TANITIMI ============ */
 const TANITIM = [
   { e: "📱", t: "Masaya tek telefon", s: "Selâmün aleyküm! Ben Hüdhüd. Telefonu masanın ortasına koyun. Ben soruları sesli okurum, siz de ekrana değil birbirinize bakarsınız." },
-  { e: "🎡", t: "Sırası gelen çarkı çevirir", s: "Çark pandomim, ses taklidi, bilgi sorusu gibi kısa bir oyun seçer. Herkes yaşına göre oynar. Rekabet yok, aile tek takımdır; doğru cevaplar bahçemize fidan diker." },
+  { e: "🎡", t: "Sırası gelen çarkı çevirir", s: "Çark pandomim, ses taklidi, bilgi sorusu gibi kısa bir oyun seçer. Herkes yaşına göre oynar. Rekabet yok, aile tek takımdır. Gecenin başında süreyi seçin: Kısa, Tam ya da yatmadan önce Sakin." },
   { e: "💌", t: "Gece sonunda gizli iyilik", s: "Herkes bir zarf açar ve bir hafta boyunca gizlice birine iyilik yapar. Yedinci gün Açılış Töreni'nde kim kime iyilik yapmış, birlikte tahmin edersiniz." },
-  { e: "🪶", t: "Yolculuk ve kuşlar", s: "Her gece haritada bir durak açılır. Yedi durak bitince Kuşların Yolculuğu başlar: herkes bir kuş seçer ve Kaf Dağı'na birlikte uçarız." }
+  { e: "🧭", t: "Yolculuklar", s: "Her gece haritada bir durak açılır. Yedi durak bitince iki yeni sezon açılır: Kuşların Yolculuğu'nda Kaf Dağı'na uçarız, Kalp Bahçesi'nde kalbimizdeki otları söküp çiçek ekeriz." }
 ];
 function screenTour(i = 0) {
   closeSheet(); G = null;
@@ -2569,6 +2622,8 @@ const actions = {
   ...tourActions,
   install: doInstall,
   kaynaklar: screenKaynaklar,
+  ailemiz: screenAilemiz,
+  sure: a => { if (!SURELER[a] || !G) return; geceSure = a; store.set("geceSure", a); sfx.pop(); startGame(G.theme); },
   map: screenMap, land: openLand, album: a => screenAlbum(a || null), card: screenCard, badges: screenBadges,
   freeall() { P.freeAll = !P.freeAll; saveP(); openSettings(false); }
 };
@@ -2597,8 +2652,9 @@ document.addEventListener("keydown", e => { if (e.key === "Escape") closeSheet()
 
 renderStats();
 if (location.hash === "#kaynaklar") screenKaynaklar();
+else if (location.hash === "#ailemiz") screenAilemiz();
 else if (!store.get("tanitim", false) && !store.get("family", null)) screenTour(0); else screenHome();
-addEventListener("hashchange", () => { if (location.hash === "#kaynaklar") screenKaynaklar(); });
+addEventListener("hashchange", () => { if (location.hash === "#kaynaklar") screenKaynaklar(); else if (location.hash === "#ailemiz") screenAilemiz(); });
 /* Görsel listesi geldiğinde ana sayfa hâlâ açıksa görsellerle yeniden çiz */
 gorselReady.then(() => { if (Object.keys(GORSEL).length && !G && document.querySelector(".hero")) screenHome(); });
 </script>
