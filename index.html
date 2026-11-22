@@ -384,6 +384,13 @@ blockquote cite { display: block; margin-top: 8px; font: 600 13px/18px var(--fon
 .choices { display: flex; flex-direction: column; gap: 10px; width: 100%; }
 .choice { width: 100%; text-align: left; padding: 14px 16px; border-radius: var(--radius-md); border: 2px solid color-mix(in srgb, var(--on-gece) 22%, transparent); background: color-mix(in srgb, var(--on-gece) 8%, transparent); color: var(--on-gece); font: 600 17px/1.35 var(--font-display); }
 .choice[aria-pressed="true"] { border-color: var(--yildiz); background: color-mix(in srgb, var(--yildiz) 18%, transparent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--yildiz) 30%, transparent); }
+.fb-q { display: grid; gap: 8px; }
+.fb-q > b { font: 700 18px/1.2 var(--font-display); }
+.fb-q textarea { width: 100%; min-height: 84px; padding: 12px 14px; border-radius: var(--radius-md); border: 2px solid var(--line); background: var(--surface-200); color: var(--ink); font: 600 16px/1.4 var(--font-body); resize: vertical; }
+.fb-faces { display: flex; gap: 8px; justify-content: space-between; }
+.fb-faces button { flex: 1; aspect-ratio: 1; max-width: 64px; border-radius: 50%; border: 2px solid var(--line); background: var(--surface-200); font-size: 30px; cursor: pointer; }
+.fb-faces button[aria-pressed="true"] { border-color: var(--cini); background: color-mix(in srgb, var(--cini) 14%, var(--surface-200)); transform: scale(1.08); }
+.fb-send { display: grid; gap: 10px; }
 .own { width: 100%; min-height: 88px; padding: 12px 14px; border-radius: var(--radius-md); border: 2px dashed color-mix(in srgb, var(--on-gece) 35%, transparent); background: transparent; color: var(--on-gece); font: 600 16px/1.4 var(--font-body); resize: vertical; }
 .own::placeholder { color: var(--on-gece); opacity: .6; }
 .feel { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; width: 100%; }
@@ -833,7 +840,8 @@ function allSpeechLines() {
     "Dur! Heykel ol!", "Harika heykellerdiniz! Ailece iki fidan kazandınız.",
     "Çocuklar! Şimdi bazı hatalar yapılacak. Her hatada Yakaladım diye bağırın!", "Doğrusu nasıl?",
     "Aferin! Hocamız da çok güzel sordu.", "Hocamız kazandı!",
-    "Bu gece bahçemize fidanlar diktik! Şimdi telefonu bırakıp biraz sohbet edelim.", "Maşallah, ne güzel bir geceydi!");
+    "Bu gece bahçemize fidanlar diktik! Şimdi telefonu bırakıp biraz sohbet edelim.", "Maşallah, ne güzel bir geceydi!",
+    TANITIM.map(t => t.s), "Görüşleriniz oyunu daha güzel yapacak. Birkaç dakika yeter!");
   Object.values(THEMES).forEach(t => add("tema", `Bu gece ${t.name}! Hazır mısınız?`, t.ayet.text, "Peygamberimiz buyurdu: " + t.hadis.text, t.soru, t.gorev));
   add("gizli", DEAL_LINE, "Telefonu sırası gelene verin. Kimse bakmasın!", "Zarflar mühürlendi! Bir hafta boyunca gizli dostunuza iyilik yapın. Yedinci gün Açılış Töreni var.",
     "Telefonu kartın sahibine verin. Sadece o baksın!", CER_LINE, "Bu hafta sana kim gizli iyilik yaptı?", "Önce fark ettiğin iyilikleri anlat, sonra tahminini seç!",
@@ -952,6 +960,10 @@ function screenHome() {
       </div>
     </section>
     ${gardenHTML()}
+    <section class="ak-card" style="gap:10px">
+      <div class="fam-strip"><div class="stack" style="gap:4px;flex:1"><b style="font:700 19px/1.2 var(--font-display)">Görüşünüz bizim için değerli</b><small class="muted bold">Oyunu nasıl buldunuz? Birkaç dakikanızı alır.</small></div>
+      <button class="mini gold" data-act="feedback">Geri bildirim</button></div>
+    </section>
     <details class="ak-card" style="gap:0">
       <summary class="bold" style="cursor:pointer">Ebeveynler için</summary>
       <ul class="small" style="margin:12px 0 0;padding-left:1.2em;display:grid;gap:6px;font-weight:600">
@@ -1004,6 +1016,9 @@ function openSettings(confirmReset) {
       <h3 class="set-h">Yolculuk</h3>
       <div class="setting"><div><b>Tüm durakları aç</b><small>Büyükler için: birinci sezonun bütün duraklarını ve Kuşların Yolculuğu'nun vadilerini sırayı beklemeden açar.</small></div><button class="switch" role="switch" aria-checked="${P.freeAll}" aria-label="Tüm durakları aç" data-act="freeall"></button></div>
       <div class="setting"><div><b>İyilik Defteri</b><small>${defter.length} hafta, ${fruitTotal()} gizli iyilik</small></div><button class="mini gold" data-act="defter">Aç</button></div>
+      <h3 class="set-h">Yardım ve geri bildirim</h3>
+      <div class="setting"><div><b>Nasıl oynanır?</b><small>Hüdhüd oyunu dört adımda anlatır.</small></div><button class="mini gold" data-act="tour-again">İzle</button></div>
+      <div class="setting"><div><b>Görüşünüzü gönderin</b><small>Kısa bir form; cevaplar WhatsApp ya da paylaşma ile gönderilir.</small></div><button class="mini gold" data-act="feedback">Aç</button></div>
       <h3 class="set-h">Veriler</h3>
       <div class="setting" style="border:0">
         <div><b class="danger">Verileri sıfırla</b><small>Aile, bahçe, yolculuk, albüm, rozetler, defter ve iyilik haftası silinir.</small></div>
@@ -1977,11 +1992,93 @@ function screenEnd() {
       ${R && R.unlocked || R && R.finalOpen ? `<button class="ak-btn ak-btn--kandil ak-btn--lg" data-act="${G && S2.isVadi(G.theme) ? "s2-map" : "map"}">Haritayı Aç</button>` : ""}
       ${week ? `<p class="small bold muted">İyilik Haftası ana sayfada sizi bekliyor. Yaptığınız iyilikleri oradan işaretleyin.</p>` : ""}
       <button class="ak-btn ak-btn--lg" data-act="home">Ana sayfa</button>
+      <button class="link" data-act="feedback">Bu geceyi nasıl buldunuz? Görüşünüzü yazın</button>
     </section>
     ${gardenHTML()}`, { text: msg, ai: ["Maşallah, ne güzel bir geceydi!", R && R.unlocked && YOLCULUK_SOZ.durakAcildi, badges.length && YOLCULUK_SOZ.rozet] });
   confetti(34); sfx.win(); later(happy, 300);
   G = null;
 }
+
+/* ============ İLK AÇILIŞ TANITIMI ============ */
+const TANITIM = [
+  { e: "📱", t: "Masaya tek telefon", s: "Selâmün aleyküm! Ben Hüdhüd. Telefonu masanın ortasına koyun. Ben soruları sesli okurum, siz de ekrana değil birbirinize bakarsınız." },
+  { e: "🎡", t: "Sırası gelen çarkı çevirir", s: "Çark pandomim, ses taklidi, bilgi sorusu gibi kısa bir oyun seçer. Herkes yaşına göre oynar. Rekabet yok, aile tek takımdır; doğru cevaplar bahçemize fidan diker." },
+  { e: "💌", t: "Gece sonunda gizli iyilik", s: "Herkes bir zarf açar ve bir hafta boyunca gizlice birine iyilik yapar. Yedinci gün Açılış Töreni'nde kim kime iyilik yapmış, birlikte tahmin edersiniz." },
+  { e: "🪶", t: "Yolculuk ve kuşlar", s: "Her gece haritada bir durak açılır. Yedi durak bitince Kuşların Yolculuğu başlar: herkes bir kuş seçer ve Kaf Dağı'na birlikte uçarız." }
+];
+function screenTour(i = 0) {
+  closeSheet(); G = null;
+  const t = TANITIM[i], last = i === TANITIM.length - 1;
+  render(`
+    <section class="ak-card center" style="min-height:min(560px,78vh);justify-content:center">
+      <span class="ak-label">Nasıl oynanır · ${i + 1}/${TANITIM.length}</span>
+      <span class="mega bounce" style="font-size:88px">${t.e}</span>
+      <h2 style="font:700 28px/32px var(--font-display);margin:0">${t.t}</h2>
+      ${guide(t.s, { noSpeak: true })}
+      <button class="ak-btn ak-btn--kandil ak-btn--lg" data-act="${last ? "tour-end" : "tour"}" data-arg="${i + 1}">${last ? "Hadi başlayalım!" : "İleri"}</button>
+      ${last ? "" : `<button class="link muted" data-act="tour-end" data-arg="skip">Tanıtımı geç</button>`}
+    </section>`, t.s);
+}
+const tourActions = {
+  tour: a => screenTour(+a),
+  "tour-end"(a) { store.set("tanitim", true); a === "skip" ? screenHome() : screenSetup("oyun"); },
+  "tour-again": () => screenTour(0)
+};
+
+/* ============ GERİ BİLDİRİM ============
+   Linkle deneyen aileler giriş yapmadan oynar; cevaplar hazır bir mesaja çevrilip
+   WhatsApp, paylaşma menüsü ya da kopyalama ile gönderilir. İsimler mesaja konmaz. */
+const FB_YUZ = [["😕", "Pek sevmedik"], ["🙂", "İdare eder"], ["😊", "Güzeldi"], ["😄", "Çok sevdik"], ["🤩", "Bayıldık"]];
+const FB_SEVILEN = ["Kıssa Pandomimi", "Ses Taklidi", "Bil Bakalım", "Sen Olsan?", "Küçük Hoca", "Şaşkın Ebeveyn", "Hızlı Tur", "Kalk-Otur", "Hayvan Yürüyüşü", "Gizli İyilik Haftası", "Kuşların Yolculuğu", "Hüdhüd'ün sesi", "Yolculuk Haritası ve kartlar"];
+const FB_SORU = [["takildi", "Nerede sıkıldınız ya da takıldınız?", "Örneğin: çok yazı vardı, şu oyunu anlamadık…"], ["dini", "Dini açıdan dikkatinizi çeken bir şey oldu mu?", "Yanlış ya da eksik bulduğunuz bir bilgi, ifade ya da görsel"], ["oneri", "Başka eklemek istediğiniz bir şey var mı?", "Öneri, istek, çocukların yorumu…"]];
+let fb = store.get("geriBildirim", null) || { yuz: -1, sevilen: [], takildi: "", dini: "", oneri: "" };
+const fbSave = () => store.set("geriBildirim", fb);
+function screenFeedback() {
+  closeSheet(); G = null;
+  const line = "Görüşleriniz oyunu daha güzel yapacak. Birkaç dakika yeter!";
+  render(`
+    ${guide(line, { noSpeak: true })}
+    <section class="ak-card">
+      <h2 style="font:700 24px/28px var(--font-display);margin:0">Geri bildirim</h2>
+      <div class="fb-q"><b>Oyun nasıldı?</b>
+        <div class="fb-faces">${FB_YUZ.map(([e, t], i) => `<button aria-pressed="${fb.yuz === i}" aria-label="${t}" title="${t}" data-act="fb-yuz" data-arg="${i}">${e}</button>`).join("")}</div>
+        <small class="muted bold" id="fb-yuz-t">${fb.yuz >= 0 ? FB_YUZ[fb.yuz][1] : "Bir yüz seçin"}</small>
+      </div>
+      <div class="fb-q"><b>En çok ne sevildi?</b><small class="muted bold">Birden fazla seçebilirsiniz.</small>
+        <div class="ak-chips" style="justify-content:flex-start">${FB_SEVILEN.map((t, i) => `<button class="ak-chip ak-chip--select" aria-pressed="${fb.sevilen.includes(t)}" data-act="fb-sev" data-arg="${i}">${esc(t)}</button>`).join("")}</div>
+      </div>
+      ${FB_SORU.map(([k, q, ph]) => `<label class="fb-q"><b>${q}</b><textarea data-fb="${k}" maxlength="800" placeholder="${esc(ph)}">${esc(fb[k])}</textarea></label>`).join("")}
+      <p class="small bold muted" style="margin:0">Mesaja isimler eklenmez; yalnızca kaç kişi ve hangi yaş gruplarıyla oynadığınız yazılır.</p>
+      <div class="fb-send">
+        <a class="ak-btn ak-btn--lg" style="--c:#1C7A4C;--on:#fff;text-decoration:none" target="_blank" rel="noopener" data-act="fb-wa">WhatsApp ile gönder</a>
+        ${navigator.share ? `<button class="ak-btn ak-btn--ghost" data-act="fb-share">Başka bir uygulamayla paylaş</button>` : ""}
+        <button class="ak-btn ak-btn--ghost" data-act="fb-copy">Metni kopyala</button>
+      </div>
+      <p class="small bold" id="fb-msg" hidden style="color:var(--zumrut)"></p>
+    </section>`);
+}
+function fbText() {
+  const yas = AGES.map(a => [a.label, family.filter(p => p.age === a.id).length]).filter(([, n]) => n).map(([l, n]) => `${n} kişi ${l.toLocaleLowerCase("tr")}`).join(", ");
+  const cihaz = /iPhone|iPad/.test(navigator.userAgent) ? "iPhone/iPad" : /Android/.test(navigator.userAgent) ? "Android" : "Bilgisayar";
+  const s2 = P.s2 ? Object.keys(P.s2.vadis || {}).length : 0;
+  const L = ["🕌 Ailecek geri bildirimi", ""];
+  L.push(`Genel: ${fb.yuz >= 0 ? FB_YUZ[fb.yuz].join(" ") : "seçilmedi"}`);
+  if (fb.sevilen.length) L.push(`En çok sevilen: ${fb.sevilen.join(", ")}`);
+  FB_SORU.forEach(([k, q]) => { if (fb[k].trim()) L.push("", q, fb[k].trim()); });
+  L.push("", `Aile: ${family.length} kişi (${yas})`, `Oynanan gece: ${P.nights || 0} · Durak: ${landsDone()}/${DURAKLAR.length} · Vadi: ${s2}/${VADILER.length}`, `Cihaz: ${cihaz}`);
+  return L.join("\n");
+}
+function fbDone(msg) { const el = document.getElementById("fb-msg"); if (el) { el.textContent = msg; el.style.color = "var(--zumrut)"; el.hidden = false; } sfx.win(); }
+function fbEmpty() { if (fb.yuz < 0 && !fb.sevilen.length && !FB_SORU.some(([k]) => fb[k].trim())) { const el = document.getElementById("fb-msg"); el.textContent = "Göndermeden önce en az bir soruyu cevaplayın."; el.style.color = "var(--nar)"; el.hidden = false; sfx.no(); return true; } return false; }
+const fbActions = {
+  feedback: screenFeedback,
+  "fb-yuz"(i) { fb.yuz = +i; fbSave(); sfx.pop(); document.querySelectorAll('[data-act="fb-yuz"]').forEach(b => b.setAttribute("aria-pressed", b.dataset.arg === i)); document.getElementById("fb-yuz-t").textContent = FB_YUZ[+i][1]; },
+  "fb-sev"(i, el) { const t = FB_SEVILEN[+i], on = !fb.sevilen.includes(t); fb.sevilen = on ? [...fb.sevilen, t] : fb.sevilen.filter(x => x !== t); fbSave(); sfx.pop(); el.setAttribute("aria-pressed", on); },
+  /* <a> bağlantısı: tıklama işlenirken adres yazılır, tarayıcı sonra açar (açılır pencere engeline takılmaz) */
+  "fb-wa"(a, el) { if (fbEmpty()) { el.removeAttribute("href"); return; } el.href = "https://wa.me/?text=" + encodeURIComponent(fbText()); fbDone("WhatsApp açılıyor. Mesajı göndereceğiniz kişiyi seçin. Teşekkürler!"); },
+  "fb-share"() { if (fbEmpty()) return; navigator.share({ title: "Ailecek geri bildirimi", text: fbText() }).then(() => fbDone("Teşekkürler!")).catch(() => {}); },
+  "fb-copy"() { if (fbEmpty()) return; const t = fbText(); (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(() => fbDone("Metin kopyalandı. İstediğiniz yere yapıştırıp gönderebilirsiniz.")).catch(() => { const ta = document.createElement("textarea"); ta.value = t; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); fbDone("Metin kopyalandı."); } catch (e) {} ta.remove(); }); }
+};
 
 /* ============ OLAYLAR ============ */
 const split = a => { const k = a.indexOf(":"); return [+a.slice(0, k), a.slice(k + 1)]; };
@@ -1999,7 +2096,7 @@ const actions = {
   vstyle(k) { voiceStyle = k; store.set("voiceStyle", k); openSettings(false); voiceOn = true; store.set("voice", true); say(SAMPLE_LINE); },
   voice() { voiceOn = !voiceOn; store.set("voice", voiceOn); if (!voiceOn) hush(); else say("Sesli anlatım açık."); openSettings(false); },
   "reset-ask": () => openSettings(true),
-  reset() { ["family", "garden", "week", "defter", "secrets", "ilerleme"].forEach(k => store.set(k, null)); P = { nights: 0, correct: 0, pandomim: 0, ses: 0, hayvan: 0, hocaWins: 0, detective: 0, lands: {}, cards: [], newCards: [], badges: {}, weeks: [], freeAll: false }; family = DEFAULT_FAMILY.map(p => ({ ...p })); gardenTotal = 0; week = null; defter = []; lastPlantCount = 0; lastFruitCount = 0; closeSheet(); screenHome(); },
+  reset() { ["family", "garden", "week", "defter", "secrets", "ilerleme", "geriBildirim"].forEach(k => store.set(k, null)); P = { nights: 0, correct: 0, pandomim: 0, ses: 0, hayvan: 0, hocaWins: 0, detective: 0, lands: {}, cards: [], newCards: [], badges: {}, weeks: [], freeAll: false }; family = DEFAULT_FAMILY.map(p => ({ ...p })); gardenTotal = 0; week = null; defter = []; lastPlantCount = 0; lastFruitCount = 0; fb = { yuz: -1, sevilen: [], takildi: "", dini: "", oneri: "" }; closeSheet(); screenHome(); },
   "m-add"() { if (family.length >= 8) return; const used = new Set(family.map(p => p.av)); family.push({ name: "", age: "c", av: AVATARS.find(a => !used.has(a)) || AVATARS[0] }); store.set("family", family); sfx.pop(); setupConfirm = -1; screenSetup(); later(() => { const el = document.getElementById("name-" + (family.length - 1)); el && el.focus(); }, 60); },
   "m-out-ask"(i) { setupConfirm = +i; screenSetup(); },
   "m-back"() { screenSetup(); },
@@ -2024,6 +2121,8 @@ const actions = {
   "cer-intro": cerIntro, "cer-guess": cerGuess, "cer-pick": (a, el) => cerPick(a, el), "cer-reveal": cerReveal, "cer-thank": a => cerThank(+a), "cer-next": cerNext,
   defter: screenDefter,
   ...S2.actions,
+  ...fbActions,
+  ...tourActions,
   map: screenMap, land: openLand, album: a => screenAlbum(a || null), card: screenCard, badges: screenBadges,
   freeall() { P.freeAll = !P.freeAll; saveP(); openSettings(false); }
 };
@@ -2044,13 +2143,14 @@ document.addEventListener("change", e => {
 document.addEventListener("input", e => {
   const el = e.target;
   if (el.id === "own") { const has = el.value.trim().length > 2; if (has) { G.deal.sel = null; document.querySelectorAll("#choices .choice").forEach(b => b.setAttribute("aria-pressed", "false")); } document.getElementById("seal-btn").disabled = !has && G.deal.sel == null; return; }
+  if (el.dataset.fb) { fb[el.dataset.fb] = el.value; fbSave(); return; }
   if (!el.dataset.field) return;
   family[+el.dataset.i][el.dataset.field] = el.value; store.set("family", family);
 });
 document.addEventListener("keydown", e => { if (e.key === "Escape") closeSheet(); });
 
 renderStats();
-screenHome();
+if (!store.get("tanitim", false) && !store.get("family", null)) screenTour(0); else screenHome();
 /* Görsel listesi geldiğinde ana sayfa hâlâ açıksa görsellerle yeniden çiz */
 gorselReady.then(() => { if (Object.keys(GORSEL).length && !G && document.querySelector(".hero")) screenHome(); });
 </script>
