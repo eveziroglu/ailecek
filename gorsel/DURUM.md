@@ -1,6 +1,6 @@
 # Görsel durumu
 
-0 / 104 görsel hazır. Bu dosya `node gorsel/hazirla.mjs` ile yeniden yazılır; elle düzenlemeyin.
+0 / 106 görsel hazır. Bu dosya `node gorsel/hazirla.mjs` ile yeniden yazılır; elle düzenlemeyin.
 
 Görseli `gorsel/kaynak/` klasörüne aşağıdaki dosya adıyla koyun (uzantı png, jpg, webp ya da svg olabilir), sonra betiği yeniden çalıştırın.
 
@@ -73,7 +73,7 @@ Flat vector children's book illustration inspired by 16th-century Iznik tiles an
 
 </details>
 
-## Oyun ikonları (0/13)
+## Oyun ikonları (0/15)
 
 Oyun kartlarının başlığı ve çark.
 
@@ -92,8 +92,10 @@ Oyun kartlarının başlığı ve çark.
 | ✗ | `ikon-bilmece` | Bilmece | 512 × 512 |
 | ✗ | `ikon-sirala` | Kıssa Sıralama | 512 × 512 |
 | ✗ | `ikon-farkli` | Hangisi Farklı? | 512 × 512 |
+| ✗ | `ikon-kalpdoktoru` | Kalp Doktoru | 512 × 512 |
+| ✗ | `ikon-hikaye` | Hikmetli Hikâye | 512 × 512 |
 
-<details><summary>Eksiklerin komutları (13)</summary>
+<details><summary>Eksiklerin komutları (15)</summary>
 
 **ikon-pandomim** · Kıssa Pandomimi
 
@@ -171,6 +173,18 @@ Flat vector children's book illustration inspired by 16th-century Iznik tiles an
 
 ```text
 Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, a single four small circles where one is a different shape, a star, centered inside a mihrab arch shaped badge filled with pomegranate red #C4362E and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people
+```
+
+**ikon-kalpdoktoru** · Kalp Doktoru
+
+```text
+Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, a small green sprout with two leaves growing from a soft heart-shaped mound of earth, a single water drop above it, centered inside a mihrab arch shaped badge filled with emerald #1C7A4C and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people
+```
+
+**ikon-hikaye** · Hikmetli Hikâye
+
+```text
+Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, an open storybook with a single golden wheat ear rising from its pages, centered inside a mihrab arch shaped badge filled with cobalt blue #2747B5 and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people
 ```
 
 </details>
