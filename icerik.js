@@ -1,5 +1,5 @@
 /* Sürüm etiketi: node surum.mjs ile güncellenir; index.html ile aynı olmalı. */
-const ICERIK_SURUM = "20261122-1351";
+const ICERIK_SURUM = "20261122-1443";
 /* Ailecek oyun içeriği.
    Yeni kart eklemek için ilgili listeye bir satır eklemeniz yeterli.
    Bil Bakalım'da ilk seçenek doğru cevaptır (oyunda karıştırılır).

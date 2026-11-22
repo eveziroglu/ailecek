@@ -35,6 +35,11 @@ Hüdhüd'ün sesi varsayılan olarak tatlı bir **küçük kız** tonundadır. U
 | 🌱 Kalp Doktoru | Grup oyunu: bir durum okunur, aile kalpte hangi yabani otun (kibir, öfke, haset…) bittiğini teşhis eder, sonra ilacını (tevazu, sabır, sevinmek…) konuşur. Gazâlî'nin kalp hastalıkları ve ilaçları benzetmesinden esinlenmiştir. 28 kart; yetişkin kartlarında büyükler muayene olur. Kalp Bahçesi sezonunun ilk parçasıdır. |
 | 📖 Hikmetli Hikâye | Hüdhüd kısa bir hikâye okur (11 hikâye: özgün temsiller ve kaynağı belirtilen halk hikâyeleri), sırası gelen soruyu cevaplar, sonra hikmet okunur. Hikmette geçen hadisler kaynaklarıyla Kaynaklar sayfasındadır. |
 
+## Ana sayfa ve gece süresi
+
+- **Ana sayfa sadedir:** Oyun Gecesini Başlat, aile şeridi, (varsa) İyilik Haftası, açık sezonların her biri için tek satır (Ailemizin Yolculuğu, Kuşların Yolculuğu, Kalp Bahçesi) ve Ailemiz kartı. Nar ağacı, bahçe, Kıssa Kartları, rozetler, geri bildirim ve ebeveyn bilgileri **Ailemiz** sayfasındadır (`#ailemiz`).
+- **Gece süresi:** Gecenin başlangıç kartında seçilir ve hatırlanır. **Kısa** 6 tur (yaklaşık 15 dakika), **Tam** aile büyüklüğüne göre 6-12 tur (yaklaşık 40 dakika), **Sakin** 6 tur ve yatmadan önce içindir: Ses Taklidi, Hayvan Yürüyüşü, Kalk-Otur ve Hızlı Tur çıkmaz; hikâye ve sakin oyunlar ağırlıklıdır.
+
 ## Yolculuk ve koleksiyon
 
 Oyun geceleri uzun soluklu bir aile macerasına dönüşür:
@@ -104,7 +109,7 @@ Anahtarlar: `OPENAI_API_KEY` / `ELEVENLABS_API_KEY` ortam değişkenlerine. Yeni
 İhlası yaşayarak öğretmek için tasarlanmış, bir hafta süren gizli iyilik oyunu.
 
 1. **Zarflar:** Herkes sırayla telefonu alır, zarfını açar ve gizli dostunu görür. Yaşına uygun **üç farklı türde görev** arasından birini seçer (yardım, sevindirme, dua, hizmet, güzel söz) ya da **kendi iyiliğini yazar**. Görev mühürlenir.
-2. **İyilik Haftası:** Ana sayfada haftanın kaçıncı günü olduğu, kaç iyiliğin yapıldığı ve her gün değişen bir "gizli kalma ipucu" görünür. Herkes "Kartım" ile görevine gizlice tekrar bakabilir, iyiliğini yapınca "Yaptım" deyip nasıl hissettiğini seçer. Kimin kime iyilik yaptığı hiçbir yerde görünmez.
+2. **İyilik Haftası:** Hafta sürerken ana sayfada haftanın kaçıncı günü olduğu, kaç iyiliğin yapıldığı ve her gün değişen bir "gizli kalma ipucu" görünür. Herkes "Kartım" ile görevine gizlice tekrar bakabilir, iyiliğini yapınca "Yaptım" deyip nasıl hissettiğini seçer. Kimin kime iyilik yaptığı hiçbir yerde görünmez.
 3. **Açılış Töreni:** Yedinci gün (ya da istenen bir gün) her aile üyesi "Bana kim iyilik yaptı?" diye tahmin eder. Mühür açılır: doğru bilen **Dedektif**, bilinmeyen **Usta Gizli Dost** olur. Yapılamamış görevler için "Bu hafta yapabilirsin, sorun değil" denir. Sonra iyiliği alan kişi bir teşekkür seçer: sarılma, dua, yıldız ya da çiçek.
 4. **Nar Ağacı ve İyilik Defteri:** Yapılan her gizli iyilik ailenin nar ağacına bir nar ekler. Geçmiş haftaların tüm iyilikleri teşekkürleriyle birlikte İyilik Defteri'nde saklanır.
 
@@ -139,7 +144,7 @@ Betik görselleri küçültüp WebP'ye çevirir, oyunun okuduğu `gorsel/gorsel.
 ## Geri bildirim ve tanıtım
 
 - **İlk açılış:** Oyunu ilk kez açan aileye Hüdhüd oyunu dört adımda anlatır (Ayarlar › Nasıl oynanır? ile yeniden izlenir).
-- **Geri bildirim:** Ana sayfa, Ayarlar ve gece sonu ekranındaki form; puan, sevilen bölümler ve üç açık soru. Cevaplar isimsiz bir mesaja çevrilip WhatsApp, paylaşma menüsü ya da kopyalama ile gönderilir. Linkle deneyen aileler giriş yapmadan oynadığı için cevaplar bir sunucuda toplanmaz.
+- **Geri bildirim:** Ana sayfa, Ailemiz sayfası, Ayarlar ve gece sonu ekranındaki form; puan, sevilen bölümler ve üç açık soru. Cevaplar isimsiz bir mesaja çevrilip WhatsApp, paylaşma menüsü ya da kopyalama ile gönderilir. Linkle deneyen aileler giriş yapmadan oynadığı için cevaplar bir sunucuda toplanmaz.
 
 ## Tanıtım, gizlilik ve kaynaklar
 

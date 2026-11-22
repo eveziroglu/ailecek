@@ -1,5 +1,5 @@
 /* Sürüm etiketi: node surum.mjs ile güncellenir; index.html ile aynı olmalı. */
-const KUSLAR_SURUM = "20261122-1351";
+const KUSLAR_SURUM = "20261122-1443";
 /* Kuşların Yolculuğu: Ailecek'in ikinci sezonu.
    Veri: icerik-kuslar.js. Bu dosya index.html'deki ortak fonksiyonları (render, guide, say, P, G, family…)
    yalnızca fonksiyonların içinde kullanır; index.html'in ana betiğinden önce yüklenir. */
@@ -127,6 +127,17 @@ const S2 = (() => {
         </div>
         <button class="link" style="color:var(--on-gece);align-self:center" data-act="setup" data-arg="ayar">Kuşları ve aileyi düzenle</button>
       </section>`;
+  }
+  /* Ana sayfadaki tek satırlık özet */
+  function homeRow() {
+    if (!unlocked()) return "";
+    tidy();
+    const cur = current(), d = doneCount(), eksik = missingBirds();
+    if (!hasBirds()) return yolSatiri({ act: "s2-davet", ikon: "🪶", renk: "--firuze", etiket: "Yeni sezon · Kuşların Yolculuğu", baslik: "Hüdhüd'ün davetini açın", not: "Yedi vadiden Kaf Dağı'na" });
+    return yolSatiri({ act: "s2-map", ikon: cur ? cur.e : "🏔️", renk: "--firuze", etiket: `Kuşların Yolculuğu · ${d}/${VADILER.length} vadi`,
+      baslik: cur ? `Sıradaki vadi: ${esc(cur.ad)}` : st().finalDone ? "Kaf Dağı'na ulaştınız" : "Kaf Dağı sizi bekliyor!",
+      noktalar: VADILER.map(v => st().vadis[v.id] ? "on" : cur && cur.id === v.id ? "now" : ""),
+      not: eksik.length ? `🪶 ${eksik.map(p => esc(p.name)).join(", ")} kuşunu seçsin` : "" });
   }
   const certButton = () => `<button class="ak-btn ak-btn--night ak-btn--lg" data-act="s2-davet">🪶 Kuşların Yolculuğu'na başla</button>`;
 
@@ -256,6 +267,7 @@ const S2 = (() => {
           </button>
         </div>
       </section>
+      <div class="btn-row"><button class="ak-btn" data-act="s2-gorev">Bahane Görevleri</button><button class="ak-btn ak-btn--ghost" data-act="home">Ana sayfa</button></div>
       <div style="text-align:center"><button class="link muted" data-act="s2-davet">Kuşları yeniden seç</button></div>`, S2_SOZ.harita);
   }
   function openVadi(id) {
@@ -416,5 +428,5 @@ const S2 = (() => {
     "s2-final": a => { const [s, m] = a.split(":"); final(+s, +m); }
   };
 
-  return { isVadi, theme, pool, intro, label, reward, slides, homeCard, certButton, playBahane, badgeValue, lines, actions, unlocked, st, birdOf, tidy, birdPicker };
+  return { isVadi, theme, pool, intro, label, reward, slides, homeCard, homeRow, certButton, playBahane, badgeValue, lines, actions, unlocked, st, birdOf, tidy, birdPicker };
 })();
