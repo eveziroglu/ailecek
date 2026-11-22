@@ -32,6 +32,8 @@ Hüdhüd'ün sesi varsayılan olarak tatlı bir **küçük kız** tonundadır. U
 | ❓ Bilmece | Hüdhüd bir bilmece okur; önce sırası gelen, sonra herkes tahmin eder. İpucu ve cevap düğmesi var. Yaşa göre 36 bilmece; cevaplar nesne, hayvan, ibadet ve davranıştır (Allah, peygamberler ve sahabeler asla bilmece cevabı olmaz). |
 | 🔢 Kıssa Sıralama | Grup oyunu: bir kıssanın ya da güzel bir alışkanlığın olayları karışık gelir, aile doğru sıraya dizer (10 sıralama). |
 | 🔍 Hangisi Farklı? | Grup oyunu: dört şeyden gruba uymayanı bulun; cevaptan sonra nedeni anlatılır (11 grup). |
+| 🌱 Kalp Doktoru | Grup oyunu: bir durum okunur, aile kalpte hangi yabani otun (kibir, öfke, haset…) bittiğini teşhis eder, sonra ilacını (tevazu, sabır, sevinmek…) konuşur. Gazâlî'nin kalp hastalıkları ve ilaçları benzetmesinden esinlenmiştir. 28 kart; yetişkin kartlarında büyükler muayene olur. Kalp Bahçesi sezonunun ilk parçasıdır. |
+| 📖 Hikmetli Hikâye | Hüdhüd kısa bir hikâye okur (11 hikâye: özgün temsiller ve kaynağı belirtilen halk hikâyeleri), sırası gelen soruyu cevaplar, sonra hikmet okunur. Hikmette geçen hadisler kaynaklarıyla Kaynaklar sayfasındadır. |
 
 ## Yolculuk ve koleksiyon
 

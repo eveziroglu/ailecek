@@ -1,5 +1,5 @@
 /* Sürüm etiketi: node surum.mjs ile güncellenir; index.html ile aynı olmalı. */
-const ICERIK_SURUM = "20261122-1045";
+const ICERIK_SURUM = "20261122-1247";
 /* Ailecek oyun içeriği.
    Yeni kart eklemek için ilgili listeye bir satır eklemeniz yeterli.
    Bil Bakalım'da ilk seçenek doğru cevaptır (oyunda karıştırılır).
@@ -27,7 +27,9 @@ const GAMES = {
   hayvan: { name: "Hayvan Yürüyüşü", color: "--zumrut", ico: "🐾", short: "Hayvan gibi yürü, DUR deyince don!" },
   bilmece: { name: "Bilmece", color: "--lale", ico: "❓", short: "Bilmecem bilmece, bil bakalım ne?" },
   sirala: { name: "Kıssa Sıralama", color: "--firuze", ico: "🔢", short: "Olayları doğru sıraya dizin!" },
-  farkli: { name: "Hangisi Farklı?", color: "--nar", ico: "🔍", short: "Gruba uymayanı bulun!" }
+  farkli: { name: "Hangisi Farklı?", color: "--nar", ico: "🔍", short: "Gruba uymayanı bulun!" },
+  kalpdoktoru: { name: "Kalp Doktoru", color: "--zumrut", ico: "🌱", short: "Kalpte hangi ot bitti? İlacını bulalım!" },
+  hikaye: { name: "Hikmetli Hikâye", color: "--cini", ico: "📖", short: "Dinle, düşün, hikmeti bul!" }
 };
 
 const THEMES = {
@@ -554,4 +556,101 @@ const FARKLI = [
   { l: 2, o: [["Hz. Bilâl", ""], ["Hz. Musa", ""], ["Hz. Nuh", ""], ["Hz. İsa", ""]], n: "Hz. Musa, Hz. Nuh ve Hz. İsa peygamberdir; Hz. Bilâl ise ilk ezanı okuyan sahabidir.", din: true },
   { l: 2, o: [["Paris", ""], ["Mekke", ""], ["Medine", ""], ["Kudüs", ""]], n: "Mekke'de Kâbe, Medine'de Mescid-i Nebevî, Kudüs'te Mescid-i Aksâ vardır; bu üç mescid müslümanlar için özeldir. Paris'te böyle bir mescid yoktur.", din: true },
   { l: 2, o: [["Dinozor", "🦖"], ["Fil", "🐘"], ["Deve", "🐫"], ["İnek", "🐄"]], n: "Fil, deve ve inek Kur'an'da adı geçen hayvanlardır; dinozor geçmez.", din: true }
+];
+
+/* ===== Kalp Bahçesi: kalbin yedi köşesi =====
+   İlham: Gazâlî, İhyâu Ulûmi'd-Dîn (Mühlikât ve Münciyât) ve Kimyâ-yı Saâdet. Her kalp hastalığı bir yabani ot,
+   ilacı bir çiçektir. Bahçe benzetmesi bizimdir. Kalp Doktoru oyunu ve Kalp Bahçesi sezonu bu listeyi kullanır. */
+const KALP_KOSELER = [
+  { id: "kibir", hastalik: "Kibir", ot: "Diken", otE: "🌵", cicek: "Menekşe", cicekE: "💜", ilac: "Tevazu" },
+  { id: "dil", hastalik: "Kırıcı söz", ot: "Pıtrak", otE: "🌰", cicek: "Gül", cicekE: "🌹", ilac: "Güzel söz" },
+  { id: "ofke", hastalik: "Öfke", ot: "Isırgan", otE: "🍃", cicek: "Lavanta", cicekE: "🪻", ilac: "Sabır" },
+  { id: "haset", hastalik: "Haset", ot: "Sarmaşık", otE: "🌿", cicek: "Papatya", cicekE: "🌼", ilac: "Kardeşinin sevincine sevinmek" },
+  { id: "cimrilik", hastalik: "Cimrilik", ot: "Kuru dal", otE: "🪵", cicek: "Nar fidanı", cicekE: "🌳", ilac: "Cömertlik" },
+  { id: "hirs", hastalik: "Hırs", ot: "Ayrık otu", otE: "🌾", cicek: "Kekik", cicekE: "🌱", ilac: "Kanaat" },
+  { id: "riya", hastalik: "Gösteriş", ot: "Yapma çiçek", otE: "🎀", cicek: "Yasemin", cicekE: "🤍", ilac: "İhlas: Allah için yapmak" }
+];
+
+/* ===== Kalp Doktoru (grup oyunu) =====
+   k: köşe, s: durum, i: ilaç önerisi. l: 0 en küçükler için de uygun. y: yetişkin kartı (büyükler teşhis edilir).
+   Kartlar kimseyi etiketlemez; ot her kalpte biter, hep birlikte sökülür. */
+const KALP_DOKTORU = [
+  { l: 0, k: "kibir", s: "Oyunda kazanınca “Ben herkesten iyiyim, siz hiç bilmiyorsunuz!” dedi.", i: "Kazanınca “Güzel oynadınız” demek ve kaybedeni sevindirmek." },
+  { l: 1, k: "kibir", s: "Takım oyununda kendinden küçükleri seçmedi, “Onlar oyunu bilmez” dedi.", i: "Küçükleri de oyuna almak, onlara oyunu sabırla öğretmek." },
+  { l: 1, k: "kibir", s: "Sınıfta bir arkadaşının yanlış cevabına herkesle birlikte güldü.", i: "Herkesin hata yapabileceğini hatırlamak ve arkadaşına destek olmak." },
+  { l: 3, y: true, k: "kibir", s: "Toplantıda başkalarını dinlemeden “Doğrusu benim dediğim” dedi.", i: "Önce dinlemek ve “Haklı olabilirsin” diyebilmek." },
+  { l: 0, k: "dil", s: "Kardeşinin çizdiği resme “Bu ne biçim çizim!” dedi.", i: "Resmin güzel bir yerini bulup söylemek: “Renklerini çok sevdim!”" },
+  { l: 1, k: "dil", s: "Arkadaşları, o gün okula gelmeyen bir çocuk hakkında gülerek konuştu; o da katıldı.", i: "Konuyu değiştirmek ya da o arkadaşın güzel bir huyunu söylemek." },
+  { l: 2, k: "dil", s: "Vazoyu kendisi kırdı ama “Kedi kırdı” dedi.", i: "Doğruyu söylemek. Doğru söyleyenin kalbi rahat eder." },
+  { l: 3, y: true, k: "dil", s: "Akşam yemeğinde işteki bir arkadaşını çekiştirdi.", i: "Arkadaşını iyilikle anmak ya da hiç söz etmemek." },
+  { l: 0, k: "ofke", s: "Oyunu kaybedince kartları etrafa dağıttı.", i: "Durmak, derin nefes almak ve “Bir dahaki sefere” demek." },
+  { l: 0, k: "ofke", s: "Kardeşi lego kulesini yanlışlıkla yıkınca ona vurdu.", i: "Önce durup nefes almak, sonra “Üzüldüm, birlikte yeniden yapalım” demek." },
+  { l: 1, k: "ofke", s: "Ödevi zor gelince defterini fırlattı.", i: "Biraz ara vermek, sakinleşince yardım istemek." },
+  { l: 3, y: true, k: "ofke", s: "Trafikte öndeki araç yavaş gidince korna çalıp bağırdı.", i: "“Eûzü billâh” demek, derin nefes almak ve sabırla beklemek." },
+  { l: 0, k: "haset", s: "Kardeşi doğum gününde hediye alınca “Bana neden yok?” deyip hediyeyi elinden aldı.", i: "Kardeşine “Güle güle kullan” demek ve onun sevincine ortak olmak." },
+  { l: 1, k: "haset", s: "Arkadaşı resim yarışmasında birinci olunca “Zaten kopya çekti” dedi.", i: "“Tebrik ederim, Allah daha nice başarılar versin” demek." },
+  { l: 1, k: "haset", s: "Öğretmen bir arkadaşını övünce bütün gün onunla konuşmadı.", i: "Arkadaşını tebrik etmek ve “Ben de onun gibi çalışayım” diye imrenmek." },
+  { l: 3, y: true, k: "haset", s: "Arkadaşının terfi haberine sevinmiş gibi yaptı ama içi çok sıkıldı.", i: "Onun için içten dua etmek. Kardeşine dua eden, kalbindeki sarmaşığı söker." },
+  { l: 0, k: "cimrilik", s: "Çikolatasını kimse görmesin diye odasında saklayarak yedi.", i: "Çikolatasını bölüp kardeşine ikram etmek." },
+  { l: 0, k: "cimrilik", s: "Misafir çocuk oyuncağıyla oynamak isteyince “Hepsi benim!” dedi.", i: "Bir oyuncağını seçip misafire vermek, birlikte oynamak." },
+  { l: 1, k: "cimrilik", s: "Arkadaşı kalemini unutmuş. Onun üç kalemi var ama hiçbirini vermedi.", i: "Kalemlerinden birini seve seve vermek." },
+  { l: 3, y: true, k: "cimrilik", s: "Çocuğunun “Benimle oynar mısın?” sorusuna telefondan başını kaldırmadan “Sonra” dedi.", i: "Telefonu bırakıp vaktini çocuğuyla paylaşmak. Vakit de bir ikramdır." },
+  { l: 0, k: "hirs", s: "Bayramda üç hediye aldı ama dördüncüyü alamadığı için surat astı.", i: "Elindeki hediyeler için “Elhamdülillah” demek." },
+  { l: 1, k: "hirs", s: "Markette her raftan bir şey istedi, alınmayınca ağladı.", i: "“Bende zaten var” diyebilmek ve ihtiyacı olanı seçmek." },
+  { l: 1, k: "hirs", s: "Arkadaşının tableti daha yeni diye kendi tabletini hiç beğenmemeye başladı.", i: "Kendi tabletinin çalıştığına şükretmek; bakılacaksa daha azı olana bakmak." },
+  { l: 3, y: true, k: "hirs", s: "Dolabı kıyafetle dolu olduğu hâlde “Giyecek hiçbir şeyim yok” deyip indirim sitelerinde saatler geçirdi.", i: "Elindekilere şükretmek ve “Buna gerçekten ihtiyacım var mı?” diye sormak." },
+  { l: 1, k: "riya", s: "Annesi bakarken odasını topladı, annesi gidince bıraktı.", i: "Kimse bakmasa da yapmak; çünkü Allah her zaman görür." },
+  { l: 1, k: "riya", s: "Gizli bir iyilik yaptı, sonra herkese tek tek anlattı.", i: "İyiliği yapıp kimseye söylememek; yasemin gibi sessizce açmak." },
+  { l: 2, k: "riya", s: "Öğretmen bakarken yerdeki çöpleri topladı, öğretmen çıkınca bıraktı.", i: "İyiliği öğretmen görsün diye değil, Allah rızası için yapmak." },
+  { l: 3, y: true, k: "riya", s: "Yardım kampanyasına bağış yaptı, fotoğrafını çekip hemen paylaştı.", i: "Niyetini yoklamak: başkalarını teşvik için mi, övülmek için mi? Mümkünse iyiliği gizli yapmak." }
+];
+
+/* ===== Hikmetli Hikâye =====
+   k: ilgili kalp köşesi (yoksa genel). h: hikâye, s: soru, c: hikmet, r: hikmette geçen hadisin kaynağı.
+   kaynak: "Özgün temsil" ya da "Halk hikâyesi". Kaynağı belli olmayan hikâyeler Gazâlî'ye ya da hadise dayandırılmaz. */
+const HIKMETLI = [
+  { k: "kibir", ad: "İki başak", e: "🌾", kaynak: "Özgün temsil",
+    h: "Bir tarlada iki başak yan yana büyüdü. Biri başını hep dik tutardı: “Bakın, en uzun benim!” Öteki başını yavaş yavaş eğiyordu. Hasat zamanı çiftçi geldi; eğilen başağı eline aldı ve gülümsedi. İçi dolu dolu buğdaydı. Dik duran başağın içi ise bomboştu.",
+    s: "Sence dolu başak neden eğiliyor?",
+    c: "İnsanın bildiği ve sahip olduğu şeyler arttıkça daha alçakgönüllü olur. Allah için tevazu göstereni Allah yüceltir.", r: "Müslim, Birr 69" },
+  { k: "dil", ad: "Rüzgârdaki tüyler", e: "🪶", kaynak: "Halk hikâyesi",
+    h: "Bir köyde biri, komşusu hakkında doğru olmayan bir söz yaymış. Sonra pişman olmuş ve köyün yaşlısına gidip “Nasıl düzeltebilirim?” diye sormuş. Yaşlı adam ona bir tüy yastık vermiş: “Tepeye çık, yastığı aç, tüyleri rüzgâra bırak.” O da öyle yapmış. Ertesi gün yaşlı adam “Şimdi git, o tüylerin hepsini topla” demiş. “Ama tüyler her yere dağıldı!” “Söz de öyledir. Bir kez ağızdan çıktı mı, her yere dağılır.”",
+    s: "Söylenen bir söz neden rüzgârdaki tüylere benziyor? Peki güzel bir söz dağılırsa ne olur?",
+    c: "Konuşmadan önce düşünelim: Doğru mu? Güzel mi? Faydalı mı? Peygamberimiz (s.a.v.) “Allah'a ve ahiret gününe iman eden ya hayır söylesin ya da sussun” buyurmuştur.", r: "Buhârî, Edeb 31; Müslim, Îmân 74" },
+  { k: "ofke", ad: "Taşan süt", e: "🥛", kaynak: "Özgün temsil",
+    h: "Ocakta bir tencere süt ısınıyordu. Önce sessizdi. Sonra yavaş yavaş köpürmeye başladı; köpük yükseldi, yükseldi… ve taştı! Ocağın üstü yandı, mutfak kokuyla doldu, temizlemek saatler sürdü. Anneanne gülümsedi: “Süt taşmadan önce ocağın altını kısmak gerekir. Köpürdüğünü görür görmez.”",
+    s: "Öfkemiz köpürmeye başlayınca “ocağın altını kısmak” için ne yapabiliriz?",
+    c: "Durmak, nefes almak, oturmak ve “Eûzü billâh” demek öfkeyi söndürür. Peygamberimiz (s.a.v.) gerçek güçlünün, öfkelendiğinde kendine hâkim olan kişi olduğunu bildirmiştir.", r: "Buhârî, Edeb 76; Müslim, Birr 107" },
+  { k: "haset", ad: "Papatya tarlası", e: "🌼", kaynak: "Özgün temsil",
+    h: "Bir tarlada tek bir papatya açtı. Çok güzeldi ama yalnızdı. Ertesi gün yanında bir papatya daha açtı. İlk papatya üzülmedi, sevindi: “Hoş geldin!” Sonra bir tane daha, bir tane daha… Bir hafta sonra bütün tarla bembeyaz oldu. Arılar uzaklardan geldi, kelebekler tarlayı doldurdu.",
+    s: "Yanındakinin de çiçek açması papatyadan bir şey eksiltti mi? Kardeşinin sevinci senden bir şey eksiltir mi?",
+    c: "Kardeşimizin sevincine sevinmek kalbi genişletir. Peygamberimiz (s.a.v.), kişi kendisi için istediğini kardeşi için de istemedikçe tam iman etmiş olmayacağını bildirmiştir.", r: "Buhârî, Îmân 7; Müslim, Îmân 71" },
+  { k: "cimrilik", ad: "Nar ağacı", e: "🌳", kaynak: "Özgün temsil",
+    h: "Bir bahçede yaşlı bir nar ağacı vardı. Her sonbahar dalları kıpkırmızı narlarla dolardı. Narlarını kuşlara, yoldan geçenlere, komşu çocuklarına verirdi. Yanındaki kuru dal bir gün sordu: “Hepsini dağıtıyorsun, sana ne kalıyor?” Nar ağacı gülümsedi: “Verdikçe dallarıma kuşlar konuyor, gölgemde çocuklar oynuyor. Hiç yalnız kalmıyorum.”",
+    s: "Nar ağacı narlarını verince neyi kazandı? Sen bir şeyini paylaştığında neler kazanırsın?",
+    c: "Paylaşmak insanı fakirleştirmez, Allah bereket verir. Peygamberimiz (s.a.v.) “Sadaka malı eksiltmez” buyurmuştur.", r: "Müslim, Birr 69" },
+  { k: "hirs", ad: "Kavanozdaki el", e: "🫙", kaynak: "Halk hikâyesi",
+    h: "Küçük bir çocuk, elini dar ağızlı bir fındık kavanozuna soktu ve avucunu fındıkla doldurdu. Ama elini çıkarmaya çalışınca çıkaramadı; dolu yumruk kavanozun ağzından geçmiyordu. Ağlamaya başladı. Dedesi yanına geldi: “Avucundakilerin yarısını bırak, elin rahatça çıkar. Yarım avuç fındık da sana yeter.” Çocuk biraz bıraktı ve eli kolayca çıktı.",
+    s: "Çocuk neden elini çıkaramadı? Biz de bazen “hepsini” isteyince neyi kaçırırız?",
+    c: "Elimizdekiyle yetinmek kalbi rahatlatır. Peygamberimiz (s.a.v.), asıl zenginliğin gönül zenginliği olduğunu bildirmiştir.", r: "Buhârî, Rikâk 15; Müslim, Zekât 120" },
+  { k: "riya", ad: "Gece açan yasemin", e: "🤍", kaynak: "Özgün temsil",
+    h: "Pazarda iki çiçek satılıyordu. Biri parlak, yaldızlı bir yapma çiçekti; gelen geçen “Ne kadar parlak!” diyordu. Diğeri küçük bir saksıda, beyaz, süssüz bir yasemindi; kimse ona bakmıyordu. Bir aile yasemini alıp bahçesine dikti. O gece, herkes uyurken, karanlıkta yasemin açtı. Kimse görmedi. Ama sabah olunca bütün sokak mis gibi kokuyordu. Yapma çiçek ise vitrinde parlamaya devam etti; tek bir arı bile ona konmadı.",
+    s: "Arılar neden yapma çiçeğe konmadı? Yasemin kimse görmezken açtı, kokusu yine de neden her yere yayıldı?",
+    c: "İyiliğin değeri niyetindedir. Allah için yapılan iyilik, kimse görmese de güzelliğini yayar. Peygamberimiz (s.a.v.) “Ameller niyetlere göredir” buyurmuştur.", r: "Buhârî, Bed'ü'l-vahy 1; Müslim, İmâre 155" },
+  { ad: "Mum mumu yakar", e: "🕯️", kaynak: "Özgün temsil",
+    h: "Karanlık bir odada bir mum yanıyordu. Yanına sönük bir mum getirdiler. Yanan mum düşündü: “Onu yakarsam benim ışığım azalır mı?” Yine de alevini ona uzattı. Sönük mum tutuştu. Yanan mumun ışığı hiç azalmadı; oda ise iki kat aydınlandı. Sonra ikinci mum üçüncüyü yaktı, üçüncü dördüncüyü… Bir süre sonra oda gündüz gibi oldu.",
+    s: "Mum ışığını paylaşınca ne kaybetti? Biz neleri böyle paylaşabiliriz?",
+    c: "Bilgi, sevgi ve iyilik paylaştıkça azalmaz, çoğalır." },
+  { ad: "Çatlak testi", e: "🏺", kaynak: "Halk hikâyesi",
+    h: "Bir sucunun iki testisi vardı. Biri sağlamdı, öteki çatlak. Çatlak testi her gün yolda suyunun yarısını döküyor ve çok utanıyordu: “Ben hiçbir işe yaramıyorum.” Bir gün sucu ona yolun kenarını gösterdi. Çatlak testinin geçtiği tarafta rengârenk çiçekler açmıştı! “Senin döktüğün suyla buraya tohum ektim. Her gün sen onları suladın.”",
+    s: "Çatlak testi kendini neden işe yaramaz sandı? Senin eksik sandığın bir yanın nasıl bir güzelliğe dönüşebilir?",
+    c: "Herkesin bir eksiği vardır ve Allah her birimize başka bir güzellik vermiştir. Ne kendimizi ne de başkalarını küçük görürüz." },
+  { ad: "Yaşlı adamın fidanı", e: "🌰", kaynak: "Halk hikâyesi",
+    h: "Yaşlı bir adam bahçesine ceviz fidanı dikiyordu. Yoldan geçen biri güldü: “Ceviz ağacı yıllar sonra meyve verir. Sen o günleri göremezsin ki!” Yaşlı adam gülümsedi: “Bizden öncekiler dikti, biz yedik. Şimdi biz dikelim, bizden sonrakiler yesin.”",
+    s: "Yaşlı adam meyvesini yiyemeyecekse neden fidan dikti?",
+    c: "İyilik yalnızca bugün için yapılmaz. Peygamberimiz (s.a.v.), bir müslümanın diktiği ağaçtan insanlar ve hayvanlar yedikçe bunun ona sadaka olacağını bildirmiştir.", r: "Buhârî, Hars 1; Müslim, Müsâkât 7" },
+  { ad: "Su damlası ve kaya", e: "💧", kaynak: "Özgün temsil",
+    h: "Dağda kocaman bir kaya vardı. Üstüne her gün tek bir su damlası düşüyordu: tıp… tıp… Kaya güldü: “Minicik bir damla bana ne yapabilir?” Damla cevap vermedi, düşmeye devam etti. Günler, aylar, yıllar geçti. Bir sabah kaya baktı ki üstünde küçük bir çukur açılmış! Damla güçlü olduğu için değil, hiç vazgeçmediği için kayayı oymuştu.",
+    s: "Damla kayayı nasıl oydu? Sen hangi işi her gün biraz biraz yaparak başarabilirsin?",
+    c: "Az ama devamlı yapılan iyilik çok değerlidir. Peygamberimiz (s.a.v.), Allah'a en sevimli amelin az da olsa devamlı olanı olduğunu bildirmiştir.", r: "Buhârî, Rikâk 18; Müslim, Müsâfirîn 216" }
 ];

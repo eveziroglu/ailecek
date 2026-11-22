@@ -18,7 +18,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Ailecek">
-<link rel="stylesheet" href="yazi/yazi.css?v=20261122-1045">
+<link rel="stylesheet" href="yazi/yazi.css?v=20261122-1247">
 <style>
 /* Ailecek tasarım sistemi: tasarim/project/ altındaki tokens.json ve bundle.css'ten üretilir (python3 tasarim/esitle.py). Elle düzenlemeyin. */
 /* @tokenlar:başla */
@@ -615,14 +615,14 @@ blockquote cite { display: block; margin-top: 8px; font: 600 13px/18px var(--fon
 </div>
 <div id="sheet-root"></div>
 
-<script src="icerik.js?v=20261122-1045"></script>
-<script src="icerik-kuslar.js?v=20261122-1045"></script>
-<script src="kuslar.js?v=20261122-1045"></script>
+<script src="icerik.js?v=20261122-1247"></script>
+<script src="icerik-kuslar.js?v=20261122-1247"></script>
+<script src="kuslar.js?v=20261122-1247"></script>
 <script>
 /* ---- Sürüm ve hata koruması ----
    Telefon yeni sayfayla eski önbellekteki bir dosyayı birlikte yüklerse oyun sessizce takılabilir.
    Sürümler uyuşmazsa önbellek temizlenip sayfa bir kez yeniden yüklenir. Bir düğme hata verirse uyarı çıkar. */
-const OYUN_SURUM = "20261122-1045";
+const OYUN_SURUM = "20261122-1247";
 (() => {
   const uyumlu = typeof ICERIK_SURUM !== "undefined" && ICERIK_SURUM === OYUN_SURUM && typeof KUSLAR_SURUM !== "undefined" && KUSLAR_SURUM === OYUN_SURUM;
   if (uyumlu) return;
@@ -952,6 +952,8 @@ function allSpeechLines() {
   add("oyunlar", "Bilmecem bilmece!", "İpucu:", "Cevap:", "Maşallah! Bilmeceyi bildiniz.", "Olsun! Bir dahaki bilmeceyi bileceğinize eminim.",
     BILMECELER.map(b => [b.s, b.i, b.c, b.info]), "Olayları doğru sıraya dizin!", "Maşallah! Hepsi doğru sırada. Ailece iki fidan kazandınız.", "Olsun! Doğru sıra şöyle:",
     SIRALAMA.map(x => x.o), "Hangisi diğerlerinden farklı?", "Maşallah, buldunuz!", "Olsun!", FARKLI.map(f => [f.o.map(o => o[0]), f.n]));
+  add("kalp", "Kalp doktoru!", "Bu kalpte hangi ot bitti?", "Doğru teşhis!", "Bu sefer başka bir ot.", "Herkes bir öneri söylesin: Bu durumda ne yapılabilir?", "Kalp doktorunun reçetesi:",
+    KALP_KOSELER.map(k => `${k.ot}, ${k.hastalik}`), KALP_DOKTORU.map(x => [x.s, x.i]), "Hikmetli hikâye!", HIKMETLI.map(x => [x.ad, x.h, x.s, x.c]));
   Object.values(THEMES).forEach(t => add("tema", `Bu gece ${t.name}! Hazır mısınız?`, t.ayet.text, "Peygamberimiz s.a.v. buyurdu: " + t.hadis.text, t.soru, t.gorev));
   add("gizli", DEAL_LINE, "Telefonu sırası gelene verin. Kimse bakmasın!", "Zarflar mühürlendi! Bir hafta boyunca gizli dostunuza iyilik yapın. Yedinci gün Açılış Töreni var.",
     "Telefonu kartın sahibine verin. Sadece o baksın!", CER_LINE, "Bu hafta sana kim gizli iyilik yaptı?", "Önce fark ettiğin iyilikleri anlat, sonra tahminini seç!",
@@ -1457,16 +1459,17 @@ function screenThemes() {
 }
 
 /* ============ OYUN AKIŞI ============ */
-const WHEEL_BASE = ["pandomim", "bilgi", "ses", "bilmece", "senolsan", "hoca", "saskin"];
+const WHEEL_BASE = ["pandomim", "bilgi", "ses", "bilmece", "senolsan", "hikaye", "hoca", "saskin"];
 const wheelList = () => (G && S2.isVadi(G.theme) ? [...WHEEL_BASE, "bahane"] : WHEEL_BASE).filter(t => GAMES[t]);
-const GROUPS = ["hayvan", "sirala", "kalkotur", "farkli", "hizli"].filter(t => GAMES[t]);
+const GROUPS = ["hayvan", "sirala", "kalkotur", "kalpdoktoru", "farkli", "hizli"].filter(t => GAMES[t]);
 function startGame(themeKey) {
   if (themeKey === "random") themeKey = rnd(DURAKLAR.filter(d => landUnlocked(d.tema)).map(d => d.tema));
   const players = family.map(p => ({ ...p })), n = players.length;
   const total = Math.max(6, Math.min(12, n * 2 + 2));
-  const plan = []; let p = 0, g = 0;
+  /* Bir gecede en fazla üç grup turu var: her gece farklı grup oyunları gelsin diye sıra karıştırılır. */
+  const plan = [], gruplar = shuffle([...GROUPS]); let p = 0, g = 0;
   for (let t = 0; t < total; t++) {
-    if ((t + 1) % 4 === 0) plan.push({ group: true, type: GROUPS[g++ % GROUPS.length] });
+    if ((t + 1) % 4 === 0) plan.push({ group: true, type: gruplar[g++ % gruplar.length] });
     else plan.push({ player: players[p++ % n] });
   }
   G = { theme: themeKey, players, plan, i: 0, fidan: 0, used: {}, lastType: null, saskinCount: 0, newCards: [], newBadges: [] };
@@ -1486,7 +1489,7 @@ function startGame(themeKey) {
 function chooseType(player) {
   const adult = player.age === "y", lvl = ageOf(player.age).lvl;
   const hasKid = G.players.some(p => p.age !== "y");
-  const w = { pandomim: 3, ses: 2.2, bilgi: 1.8, bilmece: 2, senolsan: lvl === 0 ? .6 : 1.1 };
+  const w = { pandomim: 3, ses: 2.2, bilgi: 1.8, bilmece: 2, senolsan: lvl === 0 ? .6 : 1.1, hikaye: lvl === 0 ? .7 : 1.2 };
   if (!adult && lvl >= 1 && G.players.length > 1) w.hoca = 1.4;
   if (adult && hasKid && G.saskinCount < 2) w.saskin = 1.8;
   if (S2.isVadi(G.theme) && G.players.length > 1) w.bahane = 3.2;
@@ -1553,7 +1556,8 @@ const GROUP_LINES = {
   kalkotur: "Herkes ayağa kalksın! Cümle doğruysa zıplayın, yanlışsa yere çömelin!",
   hizli: "Hızlı tur! Otuz saniyede hep birlikte bağırarak sayacağız!",
   sirala: "Kıssa sıralama! Olaylar karışık geldi. Hep birlikte doğru sıraya dizeceğiz!",
-  farkli: "Hangisi farklı? Dört şeyden biri gruba uymuyor. Hep birlikte bulacağız!"
+  farkli: "Hangisi farklı? Dört şeyden biri gruba uymuyor. Hep birlikte bulacağız!",
+  kalpdoktoru: "Kalp doktoru zamanı! Kalp bir bahçedir; bazen içinde yabani otlar biter. Hep birlikte otu bulup ilacını söyleyeceğiz!"
 };
 const DEAL_LINE = "Şimdi herkes gizli bir dost alacak. Bir hafta boyunca ona kimseye belli etmeden iyilik yapacaksınız! Bu iyilikleri Allah rızası için yapıyoruz.";
 const CER_LINE = "Açılış Töreni başlıyor! Bu hafta kim kime gizli iyilik yaptı, şimdi öğreneceğiz.";
@@ -1570,7 +1574,7 @@ function screenGroupIntro(t) {
 }
 function play() {
   const t = G.plan[G.i]; G.lastType = t.type;
-  ({ pandomim: playPandomim, ses: playSes, bilgi: playBilgi, senolsan: playSenOlsan, hizli: playHizli, saskin: playSaskin, kalkotur: playKalkOtur, hoca: playHoca, hayvan: playHayvan, bahane: S2.playBahane, bilmece: playBilmece, sirala: playSirala, farkli: playFarkli })[t.type](t);
+  ({ pandomim: playPandomim, ses: playSes, bilgi: playBilgi, senolsan: playSenOlsan, hizli: playHizli, saskin: playSaskin, kalkotur: playKalkOtur, hoca: playHoca, hayvan: playHayvan, bahane: S2.playBahane, bilmece: playBilmece, sirala: playSirala, farkli: playFarkli, kalpdoktoru: playKalpDoktoru, hikaye: playHikaye })[t.type](t);
 }
 function nextTurn() { G.i++; if (G.i >= G.plan.length) screenDeep(0); else screenTurn(); }
 function runTimer(sec, onEnd) {
@@ -1757,6 +1761,76 @@ function farkliSec(i) {
   const msg = (ok ? "Maşallah, buldunuz! " : "Olsun! ") + x.n;
   document.getElementById("after").innerHTML = `${guide(msg, { noSpeak: true })}${doneBtn()}`;
   later(() => say({ text: msg, ai: [ok ? "Maşallah, buldunuz!" : "Olsun!", x.n] }), 300);
+}
+
+/* ---- Kalp Doktoru (grup) ----
+   Gazâlî'nin hastalık ve ilaç benzetmesi: önce teşhis (hangi ot?), sonra ilaç (hangi çiçek, ne yapılabilir?). */
+function playKalpDoktoru() {
+  const yl = youngestLvl();
+  const cocuk = KALP_DOKTORU.filter(x => !x.y && (yl === 0 ? x.l === 0 : yl === 1 ? x.l <= 1 : true));
+  const yetiskin = KALP_DOKTORU.filter(x => x.y);
+  const x = yetiskin.length && Math.random() < .25 ? pick(yetiskin, "kalpY") : pick(cocuk, "kalp");
+  const kose = KALP_KOSELER.find(k => k.id === x.k);
+  const diger = shuffle(KALP_KOSELER.filter(k => k.id !== x.k && !(yl === 0 && k.id === "riya"))).slice(0, 2);
+  const opts = shuffle([kose, ...diger]);
+  G.cur = { x, kose, opts };
+  render(card("kalpdoktoru", `
+    ${x.y ? `<span class="ak-chip ak-chip--tint" style="--c:var(--kandil);align-self:center">👀 Yetişkin kartı: bu sefer büyükler muayene oluyor!</span>` : ""}
+    <span class="ak-label" style="text-align:center">Muayene</span>
+    <p class="q-text">${esc(x.s)}</p>
+    <h3 style="font:600 19px/1.2 var(--font-display);margin:0;text-align:center">Bu kalpte hangi ot bitti?</h3>
+    <div class="ak-options ak-options--pics" id="opts">
+      ${opts.map((k, i) => `<button class="ak-option" data-act="kalp-tani" data-arg="${i}"><span class="ak-option__pic">${k.otE}</span>${esc(k.ot)}<small style="display:block;font-size:13px;opacity:.75">${esc(k.hastalik)}</small><span class="ak-option__mark"></span></button>`).join("")}
+    </div>
+    <div id="after" class="stack center" style="width:100%"></div>`),
+    { text: `Kalp doktoru! ${x.s} Bu kalpte hangi ot bitti? ${opts.map(k => `${k.ot}, ${k.hastalik}`).join("; ")}?`, ai: ["Kalp doktoru!", x.s, "Bu kalpte hangi ot bitti?", ...opts.map(k => `${k.ot}, ${k.hastalik}`)] });
+}
+function kalpTani(i) {
+  const { kose, opts } = G.cur, btns = document.querySelectorAll("#opts .ak-option");
+  if (btns[0].disabled) return;
+  btns.forEach((b, j) => { b.disabled = true; if (opts[j] === kose) { b.classList.add("is-correct"); b.querySelector(".ak-option__mark").textContent = "✓"; } else if (j !== i) b.classList.add("is-dim"); });
+  const ok = opts[i] === kose;
+  if (ok) { grow(1); confetti(12); } else { btns[i].classList.add("is-wrong"); btns[i].querySelector(".ak-option__mark").textContent = "✗"; sfx.no(); }
+  const teshis = `${ok ? "Doğru teşhis!" : "Bu sefer başka bir ot."} Bu kalpte ${kose.ot.toLocaleLowerCase("tr")} bitmiş: ${kose.hastalik.toLocaleLowerCase("tr")}. İlacı ${kose.cicek.toLocaleLowerCase("tr")}: ${kose.ilac.toLocaleLowerCase("tr")}.`;
+  document.getElementById("after").innerHTML = `
+    <div style="display:flex;align-items:center;gap:12px;justify-content:center"><span class="mega" style="font-size:44px">${kose.otE}</span><span style="font-size:28px">➜</span><span class="mega bounce" style="font-size:52px">${kose.cicekE}</span></div>
+    ${guide(teshis, { noSpeak: true })}
+    <h3 style="font:600 19px/1.2 var(--font-display);margin:0;text-align:center">Herkes bir öneri söylesin: Bu durumda ne yapılabilir?</h3>
+    <button class="ak-btn ak-btn--lg" data-act="kalp-oneri">Önerilerimizi söyledik</button>`;
+  later(() => say({ text: `${teshis} Herkes bir öneri söylesin: Bu durumda ne yapılabilir?`, ai: [ok ? "Doğru teşhis!" : "Bu sefer başka bir ot.", "Herkes bir öneri söylesin: Bu durumda ne yapılabilir?"] }), 300);
+}
+function kalpOneri() {
+  const { x, kose } = G.cur; grow(1); confetti(10); sfx.pop();
+  const msg = `Kalp doktorunun reçetesi: ${x.i}`;
+  document.getElementById("after").innerHTML = `<span class="ak-stamp">${kose.cicekE} ${esc(kose.cicek)} açtı</span>${guide(msg)}${doneBtn()}`;
+  later(() => say({ text: msg, ai: ["Kalp doktorunun reçetesi:", x.i] }), 200);
+}
+
+/* ---- Hikmetli Hikâye ---- */
+function playHikaye(t) {
+  const x = pick(HIKMETLI, "hikaye");
+  G.cur = { x, kim: t.player };
+  render(card("hikaye", `
+    <span class="mega bounce">${x.e}</span>
+    <h2 style="font:700 26px/30px var(--font-display);margin:0;text-align:center">${esc(x.ad)}</h2>
+    <span class="ak-chip" style="align-self:center">👂 Hüdhüd okuyor, herkes dinlesin</span>
+    <p style="margin:0;font-weight:600;font-size:18px;line-height:1.55">${esc(x.h)}</p>
+    <div id="after" class="stack center" style="width:100%"><button class="ak-btn ak-btn--lg" data-act="hik-soru">Soruyu göster</button></div>`),
+    { text: `Hikmetli hikâye: ${x.ad}. ${x.h}`, ai: ["Hikmetli hikâye!", x.ad, x.h] });
+}
+function hikSoru() {
+  const { x, kim } = G.cur; sfx.flip();
+  document.getElementById("after").innerHTML = `
+    <p class="q-text">${esc(x.s)}</p>
+    <span class="ak-chip" style="align-self:center">Önce ${esc(kim.name)} cevaplasın, sonra herkes</span>
+    <button class="ak-btn ak-btn--kandil ak-btn--lg" data-act="hik-hikmet">Hikmeti göster</button>`;
+  say({ text: `${kim.name}, ${x.s}`, ai: [x.s] });
+}
+function hikHikmet() {
+  const { x } = G.cur; grow(1); confetti(12);
+  document.getElementById("after").innerHTML = `<span class="ak-stamp">💡 Hikmet</span>${guide(x.c)}
+    <p class="small muted bold" style="margin:0;text-align:center">${esc(x.kaynak)}${x.r ? " · Hadis: " + esc(x.r) : ""}</p>${doneBtn()}`;
+  later(() => say({ text: x.c, ai: [x.c] }), 200);
 }
 
 /* ---- Sen Olsan? ---- */
@@ -2245,6 +2319,7 @@ function screenKaynaklar() {
     ${blok("Tema geceleri", "Her oyun gecesinin Derinlik Anı'nda okunur.", temalar)}
     ${blok("Gizli İyilik Haftası", "", gizli)}
     ${blok("Kuşların Yolculuğu", "Her vadi gecesinde okunur. Hikâyeler Ferîdüddîn-i Attâr'ın Mantıku't-Tayr eserinden esinlenmiştir.", vadiler)}
+    ${blok("Hikmetli Hikâye", "Hikâyeler özgün temsil ya da kaynağı belli olmayan halk hikâyesidir; Gazâlî'ye veya hadise dayandırılmaz. Hikmet bölümünde geçen hadislerin kaynakları:", HIKMETLI.filter(x => x.r).map(x => `<div><b>${esc(x.ad)}</b><p class="small" style="margin:2px 0 0;font-weight:600">${esc(x.c)} (${esc(x.r)})</p></div>`))}
     ${blok("Kıssa Kartları", "Kartların arkasında kaynağıyla verilen bilgiler.", kartlar)}`);
   try { history.replaceState(null, "", "#kaynaklar"); } catch (e) {}
 }
@@ -2417,7 +2492,7 @@ const actions = {
   answer: a => answer(+a), best: a => best(+a), "count-up": countUp,
   "kalk-show": () => kalkStep(true), "kalk-next": a => kalkNext(a === "1"),
   "bil-ipucu": bilIpucu, "bil-cevap": bilCevap, "bil-son": a => bilSon(a === "1"),
-  "sira-sec": a => siraSec(+a), "sira-sifirla": siraSifirla, "farkli-sec": a => farkliSec(+a),
+  "sira-sec": a => siraSec(+a), "sira-sifirla": siraSifirla, "farkli-sec": a => farkliSec(+a), "kalp-tani": a => kalpTani(+a), "kalp-oneri": kalpOneri, "hik-soru": hikSoru, "hik-hikmet": hikHikmet,
   "hay-go": hayGo, "hay-next": hayNext,
   "sas-go": sasGo, caught, "sas-done": sasDone, hoca: a => hoca(a === "1"),
   deep: a => screenDeep(+a), end: screenEnd,
