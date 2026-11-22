@@ -1,6 +1,6 @@
 # Görsel durumu
 
-0 / 101 görsel hazır. Bu dosya `node gorsel/hazirla.mjs` ile yeniden yazılır; elle düzenlemeyin.
+0 / 104 görsel hazır. Bu dosya `node gorsel/hazirla.mjs` ile yeniden yazılır; elle düzenlemeyin.
 
 Görseli `gorsel/kaynak/` klasörüne aşağıdaki dosya adıyla koyun (uzantı png, jpg, webp ya da svg olabilir), sonra betiği yeniden çalıştırın.
 
@@ -73,7 +73,7 @@ Flat vector children's book illustration inspired by 16th-century Iznik tiles an
 
 </details>
 
-## Oyun ikonları (0/10)
+## Oyun ikonları (0/13)
 
 Oyun kartlarının başlığı ve çark.
 
@@ -89,8 +89,11 @@ Oyun kartlarının başlığı ve çark.
 | ✗ | `ikon-kalkotur` | Kalk-Otur | 512 × 512 |
 | ✗ | `ikon-hayvan` | Hayvan Yürüyüşü | 512 × 512 |
 | ✗ | `ikon-bahane` | Bahane Avcısı | 512 × 512 |
+| ✗ | `ikon-bilmece` | Bilmece | 512 × 512 |
+| ✗ | `ikon-sirala` | Kıssa Sıralama | 512 × 512 |
+| ✗ | `ikon-farkli` | Hangisi Farklı? | 512 × 512 |
 
-<details><summary>Eksiklerin komutları (10)</summary>
+<details><summary>Eksiklerin komutları (13)</summary>
 
 **ikon-pandomim** · Kıssa Pandomimi
 
@@ -150,6 +153,24 @@ Flat vector children's book illustration inspired by 16th-century Iznik tiles an
 
 ```text
 Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, a single long feather crossing a small question bubble, centered inside a mihrab arch shaped badge filled with cobalt blue #2747B5 and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people
+```
+
+**ikon-bilmece** · Bilmece
+
+```text
+Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, a single a single curled scroll with a small question mark shape made of a crescent and a dot, centered inside a mihrab arch shaped badge filled with tulip purple #7340BD and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people
+```
+
+**ikon-sirala** · Kıssa Sıralama
+
+```text
+Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, a single three small rounded cards in a row with one, two and three dots, centered inside a mihrab arch shaped badge filled with turquoise #0B7A77 and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people
+```
+
+**ikon-farkli** · Hangisi Farklı?
+
+```text
+Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, a single four small circles where one is a different shape, a star, centered inside a mihrab arch shaped badge filled with pomegranate red #C4362E and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people
 ```
 
 </details>
