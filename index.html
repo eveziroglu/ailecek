@@ -520,6 +520,8 @@ blockquote cite { display: block; margin-top: 8px; font: 600 13px/18px var(--fon
 .flash { position: fixed; inset: 0; z-index: 48; pointer-events: none; background: var(--cini); animation: flash .5s forwards; }
 @keyframes flash { from { opacity: .4; } to { opacity: 0; } }
 .foot { text-align: center; font: 600 12px/18px var(--font-body); color: var(--ink-muted); }
+.foot-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 10px; margin-top: 6px; padding-bottom: 8px; }
+.foot-links a, .foot-links button { color: var(--cini); font: inherit; background: none; border: 0; padding: 4px 2px; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 
 
 /* ============ Kuşların Yolculuğu ============ */
@@ -608,6 +610,7 @@ blockquote cite { display: block; margin-top: 8px; font: 600 13px/18px var(--fon
   </header>
   <main id="app" aria-live="polite"></main>
   <p class="foot">Prototip sürüm. Ayet ve hadisler yayından önce bir hoca tarafından kontrol edilmelidir.</p>
+  <nav class="foot foot-links" aria-label="Bilgi sayfaları"><a href="hakkinda.html" target="_blank" rel="noopener">Ailecek hakkında</a><span aria-hidden="true">·</span><a href="gizlilik.html" target="_blank" rel="noopener">Gizlilik ve kullanım</a><span aria-hidden="true">·</span><button data-act="kaynaklar">Kaynaklar</button></nav>
 </div>
 <div id="sheet-root"></div>
 
@@ -1096,6 +1099,8 @@ function openSettings(confirmReset) {
       <h3 class="set-h">Yardım ve geri bildirim</h3>
       ${installSetting()}
       <div class="setting"><div><b>Kaynaklar</b><small>Oyundaki ayet ve hadislerin kaynak listesi.</small></div><button class="mini gold" data-act="kaynaklar">Aç</button></div>
+      <div class="setting"><div><b>Ailecek hakkında</b><small>Oyunu tanıtan sayfa; başka ailelerle paylaşmak için de uygun.</small></div><a class="mini gold" style="text-decoration:none;display:inline-flex;align-items:center" href="hakkinda.html" target="_blank" rel="noopener">Aç</a></div>
+      <div class="setting"><div><b>Gizlilik ve kullanım</b><small>Hangi bilgilerin nerede saklandığı ve kullanım koşulları.</small></div><a class="mini gold" style="text-decoration:none;display:inline-flex;align-items:center" href="gizlilik.html" target="_blank" rel="noopener">Aç</a></div>
       <div class="setting"><div><b>Nasıl oynanır?</b><small>Hüdhüd oyunu dört adımda anlatır.</small></div><button class="mini gold" data-act="tour-again">İzle</button></div>
       <div class="setting"><div><b>Görüşünüzü gönderin</b><small>Kısa bir form; cevaplar WhatsApp ya da paylaşma ile gönderilir.</small></div><button class="mini gold" data-act="feedback">Aç</button></div>
       <h3 class="set-h">Veriler</h3>

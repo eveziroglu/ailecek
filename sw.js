@@ -1,7 +1,7 @@
 /* Ailecek çevrimdışı çalışma.
    Uygulama dosyaları ilk açılışta önbelleğe alınır; görseller, ses paketleri ve yazı tipleri
    kullanıldıkça eklenir. Yeni sürüm yayınlanınca SURUM değişir ve eski önbellek silinir. */
-const SURUM = "ailecek-2026-11-22d";
+const SURUM = "ailecek-2026-11-22e";
 const KABUK = ["./", "index.html", "icerik.js", "icerik-kuslar.js", "kuslar.js", "manifest.webmanifest",
   "ikon/ikon-192.png", "ikon/ikon-512.png", "ikon/apple-touch-icon.png", "gorsel/gorsel.json", "ses/ses.json",
   "yazi/yazi.css", "yazi/baloo2-latin-4a324d.woff2", "yazi/baloo2-latin-ext-0d1ee7.woff2", "yazi/figtree-latin-dab710.woff2", "yazi/figtree-latin-ext-c15953.woff2",
