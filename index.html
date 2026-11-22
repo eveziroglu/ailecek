@@ -19,7 +19,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Ailecek">
-<link rel="stylesheet" href="yazi/yazi.css?v=20261122-1509">
+<link rel="stylesheet" href="yazi/yazi.css?v=20261122-1526">
 <style>
 /* Ailecek tasarım sistemi: tasarim/project/ altındaki tokens.json ve bundle.css'ten üretilir (python3 tasarim/esitle.py). Elle düzenlemeyin. */
 /* @tokenlar:başla */
@@ -663,15 +663,15 @@ blockquote cite { display: block; margin-top: 8px; font: 600 13px/18px var(--fon
 </div>
 <div id="sheet-root"></div>
 
-<script src="icerik.js?v=20261122-1509"></script>
-<script src="icerik-kuslar.js?v=20261122-1509"></script>
-<script src="kuslar.js?v=20261122-1509"></script>
-<script src="kalp.js?v=20261122-1509"></script>
+<script src="icerik.js?v=20261122-1526"></script>
+<script src="icerik-kuslar.js?v=20261122-1526"></script>
+<script src="kuslar.js?v=20261122-1526"></script>
+<script src="kalp.js?v=20261122-1526"></script>
 <script>
 /* ---- Sürüm ve hata koruması ----
    Telefon yeni sayfayla eski önbellekteki bir dosyayı birlikte yüklerse oyun sessizce takılabilir.
    Sürümler uyuşmazsa önbellek temizlenip sayfa bir kez yeniden yüklenir. Bir düğme hata verirse uyarı çıkar. */
-const OYUN_SURUM = "20261122-1509";
+const OYUN_SURUM = "20261122-1526";
 (() => {
   const uyumlu = typeof ICERIK_SURUM !== "undefined" && ICERIK_SURUM === OYUN_SURUM && typeof KUSLAR_SURUM !== "undefined" && KUSLAR_SURUM === OYUN_SURUM && typeof KALP_SURUM !== "undefined" && KALP_SURUM === OYUN_SURUM;
   if (uyumlu) return;
@@ -1009,7 +1009,7 @@ function allSpeechLines() {
     "Çocuklar! Şimdi bazı hatalar yapılacak. Her hatada Yakaladım diye bağırın!", "Doğrusu nasıl?",
     "Aferin! Hocamız da çok güzel sordu.", "Hocamız kazandı!", "Aile kartı!", "Ne güzel! Aile anıları en güzel hazinemiz.",
     "Bu gece bahçemize fidanlar diktik! Şimdi telefonu bırakıp biraz sohbet edelim.", "Maşallah, ne güzel bir geceydi!",
-    TANITIM.map(t => t.s), GUNUN_SORUSU, RAMAZAN.sorular, "Görüşleriniz oyunu daha güzel yapacak. Birkaç dakika yeter!");
+    TANITIM.map(t => t.s), typeof GUNUN_SORUSU !== "undefined" ? GUNUN_SORUSU : [], typeof RAMAZAN !== "undefined" ? RAMAZAN.sorular : [], "Görüşleriniz oyunu daha güzel yapacak. Birkaç dakika yeter!");
   add("oyunlar", "Bilmecem bilmece!", "İpucu:", "Cevap:", "Maşallah! Bilmeceyi bildiniz.", "Olsun! Bir dahaki bilmeceyi bileceğinize eminim.",
     BILMECELER.map(b => [b.s, b.i, b.c, b.info]), "Olayları doğru sıraya dizin!", "Maşallah! Hepsi doğru sırada. Ailece iki fidan kazandınız.", "Olsun! Doğru sıra şöyle:",
     SIRALAMA.map(x => x.o), "Hangisi diğerlerinden farklı?", "Maşallah, buldunuz!", "Olsun!", FARKLI.map(f => [f.o.map(o => o[0]), f.n]));
@@ -1153,6 +1153,7 @@ function hicri(t) {
   return null;
 }
 function ozelGun(t = window.__tarih ? new Date(window.__tarih) : new Date()) {
+  if (typeof OZEL_GUNLER === "undefined") return null;
   const h = hicri(t); if (!h) return t.getDay() === 5 ? { ...CUMA, cuma: true } : null;
   const g = OZEL_GUNLER.find(o => o.ay === h.ay && (o.regaip ? h.gun <= 7 && t.getDay() === 4 : o.gunler ? o.gunler.includes(h.gun) : o.gun === h.gun));
   if (g) return g;
@@ -1174,6 +1175,7 @@ function ozelGunKart(o) {
 let gunKaydir = 0;
 const gununSorusu = () => { const gun = Math.floor((Date.now() - new Date().getTimezoneOffset() * 60000) / DAY); return GUNUN_SORUSU[((gun + gunKaydir) % GUNUN_SORUSU.length + GUNUN_SORUSU.length) % GUNUN_SORUSU.length]; };
 function gununSorusuKart() {
+  if (typeof GUNUN_SORUSU === "undefined") return "";
   const oz = ozelGun(), ram = oz && oz.ramazan && !gunKaydir;
   const q = ram ? oz.soru : gununSorusu();
   return `<section class="ak-card gunun-sorusu" style="gap:8px">

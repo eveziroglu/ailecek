@@ -1,5 +1,5 @@
 /* Sürüm etiketi: node surum.mjs ile güncellenir; index.html ile aynı olmalı. */
-const KUSLAR_SURUM = "20261122-1509";
+const KUSLAR_SURUM = "20261122-1526";
 /* Kuşların Yolculuğu: Ailecek'in ikinci sezonu.
    Veri: icerik-kuslar.js. Bu dosya index.html'deki ortak fonksiyonları (render, guide, say, P, G, family…)
    yalnızca fonksiyonların içinde kullanır; index.html'in ana betiğinden önce yüklenir. */
