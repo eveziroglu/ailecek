@@ -2018,7 +2018,7 @@ if (KENDI_ADRES && "serviceWorker" in navigator) addEventListener("load", () => 
 addEventListener("beforeinstallprompt", e => { e.preventDefault(); installEvt = e; });
 addEventListener("appinstalled", () => { installEvt = null; toast("📲", "Ailecek", "Ana ekrana eklendi"); });
 function installSetting() {
-  if (YUKLU) return `<div class="setting"><div><b>Telefona yüklendi</b><small>Oyun ana ekranınızda; internet olmadan da açılır.</small></div></div>`;
+  if (YUKLU) return `<div class="setting"><div><b>Telefona eklendi</b><small>Oyun ana ekranınızda; internet olmadan da açılır.</small></div></div>`;
   return `<div class="setting"><div><b>Telefona ekle</b><small>${KENDI_ADRES ? "Ana ekrana uygulama gibi eklenir, internet olmadan da açılır." : "Oyunu ana ekrana kısayol olarak ekleyin, tek dokunuşla açılsın."}</small></div><button class="mini gold" data-act="install">Ekle</button></div>`;
 }
 function doInstall() {
