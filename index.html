@@ -18,7 +18,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Ailecek">
-<link rel="stylesheet" href="yazi/yazi.css">
+<link rel="stylesheet" href="yazi/yazi.css?v=20261122-1045">
 <style>
 /* Ailecek tasarım sistemi: tasarim/project/ altındaki tokens.json ve bundle.css'ten üretilir (python3 tasarim/esitle.py). Elle düzenlemeyin. */
 /* @tokenlar:başla */
@@ -444,6 +444,8 @@ blockquote cite { display: block; margin-top: 8px; font: 600 13px/18px var(--fon
 .stepper b { font: 700 44px/1 var(--font-display); min-width: 2ch; text-align: center; font-variant-numeric: tabular-nums; }
 .stepper button { width: 56px; height: 56px; border-radius: 50%; border: 0; background: var(--surface-300); box-shadow: 0 4px 0 var(--line); font: 700 28px/1 var(--font-display); }
 .player-row { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 12px; align-items: center; padding: 10px; border-radius: var(--radius-md); background: var(--surface-300); }
+.hata-uyari { position: fixed; left: max(12px, env(safe-area-inset-left, 0px)); right: max(12px, env(safe-area-inset-right, 0px)); bottom: calc(12px + env(safe-area-inset-bottom, 0px)); z-index: 60; display: flex; gap: 12px; align-items: center; justify-content: space-between; padding: 12px 14px; border-radius: var(--radius-md); background: var(--gece); color: var(--on-gece); font-weight: 700; box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+.hata-uyari button { border: 0; border-radius: var(--radius-sm); padding: 10px 14px; background: var(--kandil); color: var(--on-kandil); font: 700 16px/1 var(--font-display); }
 .fam-row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; padding: 12px; border-radius: var(--radius-md); background: var(--surface-300); }
 .fam-row .player-row { padding: 0; background: none; }
 .member-tools { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
@@ -613,10 +615,35 @@ blockquote cite { display: block; margin-top: 8px; font: 600 13px/18px var(--fon
 </div>
 <div id="sheet-root"></div>
 
-<script src="icerik.js"></script>
-<script src="icerik-kuslar.js"></script>
-<script src="kuslar.js"></script>
+<script src="icerik.js?v=20261122-1045"></script>
+<script src="icerik-kuslar.js?v=20261122-1045"></script>
+<script src="kuslar.js?v=20261122-1045"></script>
 <script>
+/* ---- Sürüm ve hata koruması ----
+   Telefon yeni sayfayla eski önbellekteki bir dosyayı birlikte yüklerse oyun sessizce takılabilir.
+   Sürümler uyuşmazsa önbellek temizlenip sayfa bir kez yeniden yüklenir. Bir düğme hata verirse uyarı çıkar. */
+const OYUN_SURUM = "20261122-1045";
+(() => {
+  const uyumlu = typeof ICERIK_SURUM !== "undefined" && ICERIK_SURUM === OYUN_SURUM && typeof KUSLAR_SURUM !== "undefined" && KUSLAR_SURUM === OYUN_SURUM;
+  if (uyumlu) return;
+  let denendi = false;
+  try { denendi = sessionStorage.getItem("ailecek:onarim") === OYUN_SURUM; sessionStorage.setItem("ailecek:onarim", OYUN_SURUM); } catch (e) {}
+  if (denendi) return;
+  const temizle = [];
+  try { if (window.caches) temizle.push(caches.keys().then(ks => Promise.all(ks.map(k => caches.delete(k))))); } catch (e) {}
+  try { if (navigator.serviceWorker) temizle.push(navigator.serviceWorker.getRegistrations().then(rs => Promise.all(rs.map(r => r.unregister())))); } catch (e) {}
+  Promise.all(temizle).catch(() => {}).finally(() => location.reload());
+})();
+let hataGosterildi = false;
+function hataUyarisi() {
+  if (hataGosterildi) return; hataGosterildi = true;
+  const el = document.createElement("div"); el.className = "hata-uyari ak"; el.setAttribute("role", "alert");
+  el.innerHTML = '<span>Bir sorun oluştu. Sayfayı yenilemek çoğu zaman düzeltir.</span><button type="button">Yenile</button>';
+  el.querySelector("button").addEventListener("click", () => location.reload());
+  document.body.appendChild(el);
+}
+addEventListener("error", e => { if (e.error) hataUyarisi(); });
+
 /* ============ YARDIMCILAR ============ */
 const store = {
   get(k, d) { try { const v = localStorage.getItem("ailecek:" + k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
@@ -1431,8 +1458,8 @@ function screenThemes() {
 
 /* ============ OYUN AKIŞI ============ */
 const WHEEL_BASE = ["pandomim", "bilgi", "ses", "bilmece", "senolsan", "hoca", "saskin"];
-const wheelList = () => G && S2.isVadi(G.theme) ? [...WHEEL_BASE, "bahane"] : WHEEL_BASE;
-const GROUPS = ["hayvan", "sirala", "kalkotur", "farkli", "hizli"];
+const wheelList = () => (G && S2.isVadi(G.theme) ? [...WHEEL_BASE, "bahane"] : WHEEL_BASE).filter(t => GAMES[t]);
+const GROUPS = ["hayvan", "sirala", "kalkotur", "farkli", "hizli"].filter(t => GAMES[t]);
 function startGame(themeKey) {
   if (themeKey === "random") themeKey = rnd(DURAKLAR.filter(d => landUnlocked(d.tema)).map(d => d.tema));
   const players = family.map(p => ({ ...p })), n = players.length;

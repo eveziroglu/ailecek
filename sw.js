@@ -1,10 +1,10 @@
 /* Ailecek çevrimdışı çalışma.
    Uygulama dosyaları ilk açılışta önbelleğe alınır; görseller, ses paketleri ve yazı tipleri
    kullanıldıkça eklenir. Yeni sürüm yayınlanınca SURUM değişir ve eski önbellek silinir. */
-const SURUM = "ailecek-2026-11-22g";
-const KABUK = ["./", "index.html", "icerik.js", "icerik-kuslar.js", "kuslar.js", "manifest.webmanifest",
+const SURUM = "ailecek-20261122-1045";
+const KABUK = ["./", "index.html", "icerik.js?v=20261122-1045", "icerik-kuslar.js?v=20261122-1045", "kuslar.js?v=20261122-1045", "manifest.webmanifest",
   "ikon/ikon-192.png", "ikon/ikon-512.png", "ikon/apple-touch-icon.png", "gorsel/gorsel.json", "ses/ses.json",
-  "yazi/yazi.css", "yazi/baloo2-latin-4a324d.woff2", "yazi/baloo2-latin-ext-0d1ee7.woff2", "yazi/figtree-latin-dab710.woff2", "yazi/figtree-latin-ext-c15953.woff2",
+  "yazi/yazi.css?v=20261122-1045", "yazi/baloo2-latin-4a324d.woff2", "yazi/baloo2-latin-ext-0d1ee7.woff2", "yazi/figtree-latin-dab710.woff2", "yazi/figtree-latin-ext-c15953.woff2",
   "hakkinda.html", "gizlilik.html"];
 
 self.addEventListener("install", e => {
@@ -20,7 +20,7 @@ self.addEventListener("fetch", e => {
   /* Sayfa ve oyun dosyaları: önce ağ (yeni sürüm hemen gelsin), ağ yoksa önbellek */
   const kod = url.origin === location.origin && (req.mode === "navigate" || /\.(html|js|json|webmanifest|css)$/.test(url.pathname) || url.pathname.endsWith("/"));
   if (kod) {
-    e.respondWith(fetch(req).then(r => { if (r.status === 200) { const k = r.clone(); caches.open(SURUM).then(c => c.put(req, k)); } return r; })
+    e.respondWith(fetch(req, { cache: "no-cache" }).then(r => { if (r.status === 200) { const k = r.clone(); caches.open(SURUM).then(c => c.put(req, k)); } return r; })
       .catch(() => caches.match(req).then(m => m || (req.mode === "navigate" ? caches.match("index.html") : Response.error()))));
     return;
   }
