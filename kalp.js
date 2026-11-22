@@ -1,5 +1,5 @@
 /* Sürüm etiketi: node surum.mjs ile güncellenir; index.html ile aynı olmalı. */
-const KALP_SURUM = "20261122-1455";
+const KALP_SURUM = "20261122-1509";
 /* ============ ÜÇÜNCÜ SEZON: KALP BAHÇESİ ============
    İlham: İmam Gazâlî, İhyâu Ulûmi'd-Dîn (Mühlikât ve Münciyât bölümleri) ve Kimyâ-yı Saâdet.
    Kalp bir bahçedir: her köşede bir yabani ot (kalp hastalığı) biter, aile onun yerine bir çiçek (ilacı) diker.

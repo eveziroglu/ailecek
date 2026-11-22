@@ -19,7 +19,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Ailecek">
-<link rel="stylesheet" href="yazi/yazi.css?v=20261122-1455">
+<link rel="stylesheet" href="yazi/yazi.css?v=20261122-1509">
 <style>
 /* Ailecek tasarım sistemi: tasarim/project/ altındaki tokens.json ve bundle.css'ten üretilir (python3 tasarim/esitle.py). Elle düzenlemeyin. */
 /* @tokenlar:başla */
@@ -663,15 +663,15 @@ blockquote cite { display: block; margin-top: 8px; font: 600 13px/18px var(--fon
 </div>
 <div id="sheet-root"></div>
 
-<script src="icerik.js?v=20261122-1455"></script>
-<script src="icerik-kuslar.js?v=20261122-1455"></script>
-<script src="kuslar.js?v=20261122-1455"></script>
-<script src="kalp.js?v=20261122-1455"></script>
+<script src="icerik.js?v=20261122-1509"></script>
+<script src="icerik-kuslar.js?v=20261122-1509"></script>
+<script src="kuslar.js?v=20261122-1509"></script>
+<script src="kalp.js?v=20261122-1509"></script>
 <script>
 /* ---- Sürüm ve hata koruması ----
    Telefon yeni sayfayla eski önbellekteki bir dosyayı birlikte yüklerse oyun sessizce takılabilir.
    Sürümler uyuşmazsa önbellek temizlenip sayfa bir kez yeniden yüklenir. Bir düğme hata verirse uyarı çıkar. */
-const OYUN_SURUM = "20261122-1455";
+const OYUN_SURUM = "20261122-1509";
 (() => {
   const uyumlu = typeof ICERIK_SURUM !== "undefined" && ICERIK_SURUM === OYUN_SURUM && typeof KUSLAR_SURUM !== "undefined" && KUSLAR_SURUM === OYUN_SURUM && typeof KALP_SURUM !== "undefined" && KALP_SURUM === OYUN_SURUM;
   if (uyumlu) return;
@@ -1240,11 +1240,40 @@ function akEkle() {
   store.set("aileKartlari", aileKartlari); sfx.pop(); toast("🏡", "Aile Kartı", "Kart eklendi"); screenAileKartlari();
 }
 
+/* Haftalık ebeveyn özeti: son yedi gün */
+function temaSorusu(k) {
+  if (THEMES[k]) return THEMES[k].soru;
+  if (S3.isKose(k)) return KALP_ICERIK[k.slice(2)].muhasebe;
+  if (S2.isVadi(k)) { const h = VADI_HIKAYELERI.find(x => x.vadi === k.slice(2)); return h && h.soru; }
+  return null;
+}
+function haftalikOzet() {
+  const son = (P.geceler || []).filter(g => Date.now() - g.t < 7 * DAY);
+  const iyilik = week ? week.cards.filter(c => c.done).length : 0;
+  if (!son.length) return `<section class="ak-card" style="gap:8px"><span class="ak-label">Bu hafta</span>
+    <b style="font:700 19px/1.25 var(--font-display)">Bu hafta henüz oyun gecesi yapmadınız.</b>
+    <p class="small bold muted" style="margin:0">Kısa bir gece yaklaşık 15 dakika sürer. Akşam yemeğinde ana sayfadaki günün sorusuyla da başlayabilirsiniz.</p></section>`;
+  const temalar = [...new Set(son.map(g => (TH(g.tema) || {}).name).filter(Boolean))];
+  const fidan = son.reduce((a, g) => a + (g.fidan || 0), 0);
+  const say = {}; son.forEach(g => g.oyunlar.forEach(o => say[o] = (say[o] || 0) + 1));
+  const enCok = Object.entries(say).sort((a, b) => b[1] - a[1]).slice(0, 3).map(([o]) => GAMES[o] && GAMES[o].name).filter(Boolean);
+  const soru = temaSorusu(son[son.length - 1].tema);
+  return `<section class="ak-card" style="gap:10px"><span class="ak-label">Bu hafta · ebeveyn özeti</span>
+    <b style="font:700 20px/1.25 var(--font-display)">${son.length} oyun gecesi · ${fidan} fidan${iyilik ? ` · ${iyilik} gizli iyilik` : ""}</b>
+    <ul class="small" style="margin:0;padding-left:1.2em;display:grid;gap:6px;font-weight:600">
+      <li>Konuştuğunuz konular: ${esc(temalar.join(", "))}</li>
+      ${enCok.length ? `<li>En çok oynanan: ${esc(enCok.join(", "))}</li>` : ""}
+    </ul>
+    ${soru ? `<div class="tip" style="text-align:left"><b>Sofrada sohbeti sürdürün</b>${esc(soru)}</div>` : ""}
+  </section>`;
+}
+
 /* Ailemiz: ana sayfadan taşınan ilerleme ve bilgi kartları */
 function screenAilemiz() {
   closeSheet(); G = null; checkBadges();
   render(`
     <section class="ak-card" style="gap:6px"><span class="ak-label">Ailemiz</span><h1 style="font:800 28px/1.1 var(--font-display);margin:0">Ailemizin hatırası</h1></section>
+    ${haftalikOzet()}
     <div class="mini-stats">
       <button class="mini-stat" data-act="album"><i>🃏</i><b>${P.cards.length}/${allCards().length}</b><small>Kıssa Kartı</small></button>
       <button class="mini-stat" data-act="badges"><i>🏅</i><b>${Object.keys(P.badges).length}/${ROZETLER.length}</b><small>Rozet</small></button>
@@ -1526,6 +1555,9 @@ function nightRewards() {
   /* Gece sonu: durak yıldızları, haftalık zincir, kartlar ve rozetler */
   if (!G || G.counted) return null;
   G.counted = true;
+  /* Haftalık ebeveyn özeti için gecenin kısa kaydı (cihazda, son 60 gece) */
+  (P.geceler ||= []).push({ t: Date.now(), tema: G.theme, sure: G.sure, fidan: G.fidan, oyunlar: G.plan.map(t => t.type).filter(Boolean) });
+  if (P.geceler.length > 60) P.geceler = P.geceler.slice(-60);
   const turns = G.plan.length, stars = G.fidan >= turns * 1.2 ? 3 : G.fidan >= turns * .7 ? 2 : 1;
   if (S3.isKose(G.theme)) {
     P.nights++; const wk3 = weekKey(Date.now()); if (!P.weeks.includes(wk3)) P.weeks.push(wk3); saveP();
@@ -1999,6 +2031,7 @@ function kalpOneri() {
 
 /* ---- Aile Kartı: ailenin kendi yazdığı sorular ve sohbet kartları ---- */
 function playAile(t) {
+  if (!aileKartlari.length) { t.type = "bilgi"; return playBilgi(t); }
   const x = pick(aileKartlari, "aile"); G.cur = { x, kim: t.player };
   render(card("aile", `
     <span class="mega bounce">🏡</span>

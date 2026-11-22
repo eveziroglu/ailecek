@@ -23,7 +23,7 @@ Hüdhüd'ün sesi varsayılan olarak tatlı bir **küçük kız** tonundadır. U
 | 🎭 Kıssa Pandomimi | Kart çevrilir, kıssalardaki hayvanlar, nesneler ve davranışlar canlandırılır (60 sn). Peygamberler ve sahabeler canlandırılmaz. |
 | 🔊 Ses Taklidi | Herkes gözünü kapatır, oynayan sadece ses çıkarır: horoz, gök gürültüsü, deniz dalgaları… (45 sn) |
 | 🐾 Hayvan Yürüyüşü | Grup oyunu: ritim çalarken herkes Kur'an'da geçen bir hayvan gibi yürür, Hüdhüd “DUR!” deyince heykel olunur. Hakem en küçük çocuktur. Varsayılan ritim ayak sesidir; davul Ayarlar'dan açılır. |
-| 💡 Bil Bakalım | Yaşa göre 4 seviyede soru. Küçükler için resimli. |
+| 💡 Bil Bakalım | Yaşa göre 4 seviyede soru (seviye başına 30). Küçükler için resimli. |
 | 🤔 Sen Olsan? | Komik ama düşündüren durumlar. Hakem en küçük çocuktur, en güzel cevabı o seçer. |
 | ⚡ Hızlı Tur | Herkes birlikte, 30 saniyede hedef sayıya ulaşmaya çalışır. |
 | 🙃 Şaşkın Ebeveyn | Yetişkin bilerek hata yapar (abdest, sofra adabı…), çocuklar yakalar. |
@@ -39,6 +39,13 @@ Hüdhüd'ün sesi varsayılan olarak tatlı bir **küçük kız** tonundadır. U
 
 - **Ana sayfa sadedir:** Oyun Gecesini Başlat, aile şeridi, (varsa) İyilik Haftası, açık sezonların her biri için tek satır (Ailemizin Yolculuğu, Kuşların Yolculuğu, Kalp Bahçesi) ve Ailemiz kartı. Nar ağacı, bahçe, Kıssa Kartları, rozetler, geri bildirim ve ebeveyn bilgileri **Ailemiz** sayfasındadır (`#ailemiz`).
 - **Gece süresi:** Gecenin başlangıç kartında seçilir ve hatırlanır. **Kısa** 6 tur (yaklaşık 15 dakika), **Tam** aile büyüklüğüne göre 6-12 tur (yaklaşık 40 dakika), **Sakin** 6 tur ve yatmadan önce içindir: Ses Taklidi, Hayvan Yürüyüşü, Kalk-Otur ve Hızlı Tur çıkmaz; hikâye ve sakin oyunlar ağırlıklıdır.
+
+## Aile kartları, günün sorusu, özel günler ve haftalık özet
+
+- **Aile Kartları:** Ailemiz › Aile Kartlarımız'dan ebeveynler kendi sorularını (cevaplı) ya da sohbet kartlarını (herkes anlatsın) ekler; kart varsa çarkta “Aile Kartı” dilimi çıkar. Örnek fikirler hazırdır. Kartlar yalnızca cihazda saklanır.
+- **Günün sorusu:** Ana sayfada akşam yemeği için her gün değişen bir soru (40 soru); “Başka soru” ve “Hüdhüd okusun” düğmeleri var. Ramazan'da iftar sofrası soruları gelir.
+- **Özel günler:** Regaip, Miraç, Berat ve Mevlid kandilleri, Kadir Gecesi, Ramazan (her gün), Ramazan ve Kurban bayramları, arefe, hicri yılbaşı, Aşure günü ve Cuma için Hüdhüd'ün karşılaması ve kısa bilgi, sohbet soruları ve aile etkinliği önerisi. Hicri tarih telefonun takviminden (Ümmü'l-Kurâ) hesaplanır; Diyanet takvimiyle bir gün fark olabilir.
+- **Haftalık özet:** Ailemiz sayfasının başında son yedi günün oyun geceleri, konuşulan konular, en çok oynanan oyunlar ve sofrada sohbeti sürdürmek için bir soru.
 
 ## Yolculuk ve koleksiyon
 
