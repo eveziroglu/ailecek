@@ -1,5 +1,5 @@
 /* Sürüm etiketi: node surum.mjs ile güncellenir; index.html ile aynı olmalı. */
-const KALP_SURUM = "20261122-1804";
+const KALP_SURUM = "20261122-1901";
 /* ============ ÜÇÜNCÜ SEZON: KALP BAHÇESİ ============
    İlham: İmam Gazâlî, İhyâu Ulûmi'd-Dîn (Mühlikât ve Münciyât bölümleri) ve Kimyâ-yı Saâdet.
    Kalp bir bahçedir: her köşede bir yabani ot (kalp hastalığı) biter, aile onun yerine bir çiçek (ilacı) diker.
@@ -418,7 +418,7 @@ const S3 = (() => {
         </section>`, KALP_SOZ.belge);
       confetti(40); sfx.win();
     }
-    else frame("Bahçe tamam", `<span class="mega bounce" style="font-size:72px">🌷</span><div class="ak-on-night" style="width:100%">${guide(KALP_SOZ.son, { noSpeak: true })}</div><button class="ak-btn ak-btn--kandil ak-btn--lg" data-act="home">Ana sayfa</button><button class="link" style="color:var(--on-gece)" data-act="k3-bahce">Bahçeye dön</button>`, KALP_SOZ.son);
+    else frame("Bahçe tamam", `<span class="mega bounce" style="font-size:72px">💐</span><div class="ak-on-night" style="width:100%">${guide(KALP_SOZ.son, { noSpeak: true })}</div><button class="ak-btn ak-btn--kandil ak-btn--lg" data-act="home">Ana sayfa</button><button class="link" style="color:var(--on-gece)" data-act="k3-bahce">Bahçeye dön</button>`, KALP_SOZ.son);
   }
 
   /* ---------- Yapay zekâ sesi için sabit cümleler ---------- */

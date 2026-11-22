@@ -38,7 +38,7 @@ Hüdhüd'ün sesi varsayılan olarak tatlı bir **küçük kız** tonundadır. U
 
 ## Ana sayfa ve gece süresi
 
-- **Ana sayfa sadedir:** Oyun Gecesini Başlat, aile şeridi, (varsa) İyilik Haftası, açık sezonların her biri için tek satır (Ailemizin Yolculuğu, Kuşların Yolculuğu, Kalp Bahçesi) ve Ailemiz kartı. Nar ağacı, bahçe, Kıssa Kartları, rozetler, geri bildirim ve ebeveyn bilgileri **Ailemiz** sayfasındadır (`#ailemiz`).
+- **Ana sayfa sadedir:** Oyun Gecesini Başlat, aile şeridi, (varsa) İyilik Haftası, açık sezonların her biri için tek satır (Ailemizin Yolculuğu, Kuşların Yolculuğu, Kalp Bahçesi) ve Ailemiz kartı. Nar ağacı, bahçe, Hazine Kartları, rozetler, geri bildirim ve ebeveyn bilgileri **Ailemiz** sayfasındadır (`#ailemiz`).
 - **Gece süresi:** Gecenin başlangıç kartında seçilir ve hatırlanır. **Kısa** 6 tur (yaklaşık 15 dakika), **Tam** aile büyüklüğüne göre 6-12 tur (yaklaşık 40 dakika), **Sakin** 6 tur ve yatmadan önce içindir: Ses Taklidi, Hayvan Yürüyüşü, Kalk-Otur ve Hızlı Tur çıkmaz; hikâye ve sakin oyunlar ağırlıklıdır.
 
 ## Aile kartları, günün sorusu, özel günler ve haftalık özet
@@ -53,7 +53,7 @@ Hüdhüd'ün sesi varsayılan olarak tatlı bir **küçük kız** tonundadır. U
 Oyun geceleri uzun soluklu bir aile macerasına dönüşür:
 
 - **Yolculuk Haritası:** Yedi tema sırayla birer duraktır: Şükür Vadisi, Sabır Kıyısı, Merhamet Bahçesi, Doğruluk Tepesi, Paylaşma Çarşısı, Aile Ocağı, Temizlik Pınarı. Her oyun gecesi bir durağı tamamlar ve dikilen fidana göre 1-3 yıldız verir; tamamlanan durak bir sonrakini açar. Durak tekrar oynanıp yıldız artırılabilir. Yolun sonunda **Kandil Gecesi** ve ailenin isimlerinin yazılı olduğu bir yolculuk belgesi vardır. Ayarlardan "Tüm durakları aç" ile sıra beklemeden oynanabilir.
-- **Kıssa Kartları albümü:** Pandomimde, ses taklidinde ve hayvan yürüyüşünde bilinen her hayvan ve nesne, kıssasıyla birlikte albüme kart olarak eklenir (52 kart). Kartlara dokununca Hüdhüd kıssasını anlatır.
+- **Hazine Kartları albümü:** Pandomimde, ses taklidinde ve hayvan yürüyüşünde bilinen her hayvan ve nesne, arkasındaki kaynaklı bilgiyle birlikte albüme kart olarak eklenir (52 kart). Kartlara dokununca Hüdhüd kıssasını anlatır.
 - **Aile rozetleri:** 16 rozet (İlk Gece, Pandomim Ustası, Bilge Aile, Küçük Hocalar, Dedektif Ailesi, Gizli Dostlar, Koleksiyoncu, Kandil Gecesi…). Kazanılmamış rozetlerde nasıl kazanılacağı ve ilerleme görünür.
 - **Kandil zinciri:** Ailenin kaç hafta üst üste oyun gecesi yaptığını gösterir.
 - Gece sonunda kazanılan yıldızlar, açılan durak, yeni kartlar ve rozetler bir özet ekranında kutlanır.
@@ -157,7 +157,7 @@ Görseller [sanat yönetimi belgesindeki](https://claude.ai/artifact/8E2eWgjX2Aq
 node gorsel/hazirla.mjs
 ```
 
-Betik görselleri küçültüp WebP'ye çevirir, oyunun okuduğu `gorsel/gorsel.json` dosyasını yazar ve `gorsel/DURUM.md` dosyasına hangi görsellerin hazır, hangilerinin eksik olduğunu eksiklerin tam komutlarıyla birlikte yazar. Listede 101 görsel vardır: 8 kuş avatarı, 10 oyun ikonu, 8 durak sahnesi ve harita zemini, 7 vadi sahnesi ve Kaf Dağı, 52 Kıssa Kartı, 6 Hüdhüd hâli, 8 arayüz ikonu. Hüdhüd hâlleri ve arayüz ikonları şimdilik kullanılmaz. `ffmpeg` gerekir.
+Betik görselleri küçültüp WebP'ye çevirir, oyunun okuduğu `gorsel/gorsel.json` dosyasını yazar ve `gorsel/DURUM.md` dosyasına hangi görsellerin hazır, hangilerinin eksik olduğunu eksiklerin tam komutlarıyla birlikte yazar. Listede 101 görsel vardır: 8 kuş avatarı, 10 oyun ikonu, 8 durak sahnesi ve harita zemini, 7 vadi sahnesi ve Kaf Dağı, 52 Hazine Kartı, 6 Hüdhüd hâli, 8 arayüz ikonu. Hüdhüd hâlleri ve arayüz ikonları şimdilik kullanılmaz. `ffmpeg` gerekir.
 
 ## Geri bildirim ve tanıtım
 
