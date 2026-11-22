@@ -566,6 +566,21 @@ blockquote cite { display: block; margin-top: 8px; font: 600 13px/18px var(--fon
 .cert h2 { font: 700 30px/1.15 var(--font-display); color: var(--yildiz); }
 .cert .names { font: 700 22px/1.4 var(--font-display); }
 
+/* ---------- Cila: ekran girişleri, dokunma ve üzerine gelme geri bildirimi ---------- */
+.screen { animation: fade .22s ease-out; }
+.screen > * { animation: rise .5s cubic-bezier(.2, 1.25, .4, 1) both; }
+.screen > *:nth-child(2) { animation-delay: .06s; }
+.screen > *:nth-child(3) { animation-delay: .12s; }
+.screen > *:nth-child(4) { animation-delay: .18s; }
+.screen > *:nth-child(n+5) { animation-delay: .24s; }
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } }
+.ak-option, .ak-kcard, .ak-chip, .mini, .tool, .theme, .ak-station, .counter, .av-grid button, .fb-faces button, .add-member { transition: transform .12s ease, box-shadow .12s ease, filter .12s ease; -webkit-tap-highlight-color: transparent; }
+.ak-option:active, .ak-kcard:active, .ak-chip:active, .mini:active, .tool:active, .av-grid button:active, .fb-faces button:active, .add-member:active { transform: translateY(2px) scale(.97); }
+@media (hover: hover) {
+  .ak-btn:hover, .mini:hover { filter: brightness(1.06); }
+  .ak-option:hover, .ak-kcard:hover, .theme:hover, .tool:hover { transform: translateY(-2px); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .float, .confetti, .flash { display: none; }
@@ -677,25 +692,70 @@ const memberColor = name => { const i = family.findIndex(p => p.name === name); 
 /* ============ SES ============ */
 let ac = null;
 function audio() { try { ac = ac || new (window.AudioContext || window.webkitAudioContext)(); if (ac.state === "suspended") ac.resume(); } catch (e) {} return ac; }
-function tone(f, d, type = "sine", when = 0, vol = 0.16) {
-  if (!soundOn || !audio()) return;
-  try { const t = ac.currentTime + when, o = ac.createOscillator(), g = ac.createGain(); o.type = type; o.frequency.value = f; g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, t + d); o.connect(g).connect(ac.destination); o.start(t); o.stop(t + d + 0.05); } catch (e) {}
+/* ---------- Efekt sesleri: tarayıcıda üretilir, dosya gerektirmez ----------
+   Ortak çıkış: hafif sıkıştırıcı ve kısa bir oda yankısı; sesler daha yumuşak ve bir arada duyulur. */
+let bus = null;
+function out() {
+  if (bus && bus.ac === ac) return bus.in;
+  const comp = ac.createDynamicsCompressor(); comp.threshold.value = -18; comp.ratio.value = 3; comp.attack.value = .004; comp.release.value = .2;
+  const master = ac.createGain(); master.gain.value = .9; master.connect(comp).connect(ac.destination);
+  const len = Math.floor(ac.sampleRate * .35), ir = ac.createBuffer(2, len, ac.sampleRate);
+  for (let c = 0; c < 2; c++) { const d = ir.getChannelData(c); for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 3); }
+  const rev = ac.createConvolver(); rev.buffer = ir; const send = ac.createGain(); send.gain.value = .18;
+  const input = ac.createGain(); input.connect(master); input.connect(send).connect(rev).connect(master);
+  bus = { ac, in: input };
+  return input;
 }
+let noiseBuf = null;
+function noise(when, d, type, f1, f2, vol = .2, q = 1.2) {
+  if (!soundOn || !audio()) return;
+  try {
+    if (!noiseBuf || noiseBuf.sampleRate !== ac.sampleRate) { noiseBuf = ac.createBuffer(1, ac.sampleRate, ac.sampleRate); const n = noiseBuf.getChannelData(0); for (let i = 0; i < n.length; i++) n[i] = Math.random() * 2 - 1; }
+    const t = ac.currentTime + when, src = ac.createBufferSource(), fl = ac.createBiquadFilter(), g = ac.createGain();
+    src.buffer = noiseBuf; fl.type = type; fl.Q.value = q; fl.frequency.setValueAtTime(f1, t); fl.frequency.exponentialRampToValueAtTime(f2, t + d);
+    g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + Math.min(.01, d / 4)); g.gain.exponentialRampToValueAtTime(.0001, t + d);
+    src.connect(fl).connect(g).connect(out()); src.start(t); src.stop(t + d + .05);
+  } catch (e) {}
+}
+function tone(f, d, type = "sine", when = 0, vol = 0.16, f2 = 0) {
+  if (!soundOn || !audio()) return;
+  try {
+    const t = ac.currentTime + when, o = ac.createOscillator(), g = ac.createGain(); o.type = type; o.frequency.setValueAtTime(f, t);
+    if (f2) o.frequency.exponentialRampToValueAtTime(f2, t + d * .8);
+    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + 0.012); g.gain.exponentialRampToValueAtTime(0.0001, t + d);
+    o.connect(g).connect(out()); o.start(t); o.stop(t + d + 0.05);
+  } catch (e) {}
+}
+/* Çan: temel ton ve çana özgü üst ton, yavaş sönümlü */
+function bell(f, when = 0, d = .6, vol = .13) { tone(f, d, "sine", when, vol); tone(f * 2.76, d * .45, "sine", when, vol * .28); tone(f * 5.4, d * .2, "sine", when, vol * .1); }
 function thump(when = 0, f = 110, vol = 0.5) {
   if (!soundOn || !audio()) return;
-  try { const t = ac.currentTime + when, o = ac.createOscillator(), g = ac.createGain(); o.frequency.setValueAtTime(f, t); o.frequency.exponentialRampToValueAtTime(40, t + 0.18); g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.22); o.connect(g).connect(ac.destination); o.start(t); o.stop(t + 0.25); } catch (e) {}
+  try { const t = ac.currentTime + when, o = ac.createOscillator(), g = ac.createGain(); o.frequency.setValueAtTime(f, t); o.frequency.exponentialRampToValueAtTime(40, t + 0.18); g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.22); o.connect(g).connect(out()); o.start(t); o.stop(t + 0.25); } catch (e) {}
 }
+/* Titreşim (destekleyen telefonlarda), efekt sesleri açıkken */
+const titres = p => { try { if (soundOn && navigator.vibrate && !matchMedia("(prefers-reduced-motion: reduce)").matches) navigator.vibrate(p); } catch (e) {} };
+const PENTA = [523.25, 587.33, 659.25, 783.99, 880, 1046.5, 1174.66, 1318.5];
 const sfx = {
-  ok() { tone(660, .14); tone(880, .14, "sine", .1); tone(1175, .3, "sine", .2); },
-  no() { tone(300, .18, "triangle"); tone(220, .35, "triangle", .15); },
-  tick() { tone(1300, .04, "square", 0, .07); },
-  end() { tone(523, .2, "triangle"); tone(392, .45, "triangle", .2); },
-  pop() { tone(900, .06); tone(1400, .08, "sine", .05); },
-  flip() { tone(400, .08, "triangle"); tone(700, .1, "triangle", .06); },
-  stop() { thump(0, 160, .7); tone(880, .5, "square", 0, .1); },
-  win() { [523, 659, 784, 1046].forEach((f, i) => tone(f, .25, "triangle", i * .12)); },
-  seal() { thump(0, 90, .6); tone(1568, .4, "sine", .05, .08); },
-  roll() { for (let i = 0; i < 14; i++) thump(i * .07, 120 + i * 4, .25); thump(1.05, 80, .7); }
+  /* Doğru: iki parlak çan ve hafif pırıltı */
+  ok() { titres(20); bell(783.99, 0, .5); bell(1174.66, .09, .7); noise(.09, .25, "highpass", 6000, 9000, .025); },
+  /* Yanlış: yumuşak, inen iki not; azarlamaz */
+  no() { titres([30, 50, 30]); tone(392, .2, "triangle", 0, .12, 370); tone(311, .38, "triangle", .16, .12, 262); },
+  /* Çark tıkırtısı: tahta çivi sesi */
+  tick() { noise(0, .03, "bandpass", 2600, 1800, .22, 4); tone(1900, .025, "sine", 0, .03); },
+  /* Süre bitti: yumuşak iki çan */
+  end() { bell(659.25, 0, .5, .11); bell(493.88, .18, .8, .11); },
+  /* Seçim: baloncuk patlaması */
+  pop() { tone(380, .09, "sine", 0, .16, 980); noise(0, .04, "bandpass", 1800, 2600, .05, 3); },
+  /* Kart çevirme: kâğıt hışırtısı */
+  flip() { noise(0, .16, "bandpass", 900, 3200, .12, .8); tone(520, .06, "triangle", .1, .05); },
+  /* Çark durdu: davul ve çan */
+  stop() { titres(35); thump(0, 150, .55); bell(880, .02, .9, .12); },
+  /* Kutlama: yükselen beşli dizi ve pırıltı */
+  win() { titres([15, 40, 15]); [0, 2, 3, 5, 7].forEach((k, i) => bell(PENTA[k], i * .085, .55, .1)); noise(.32, .45, "highpass", 5000, 10000, .03); },
+  /* Mühür: tok vuruş ve kâğıt */
+  seal() { titres(45); thump(0, 95, .6); noise(0, .12, "lowpass", 900, 300, .18); bell(1567.98, .07, .5, .06); },
+  /* Davul ruloları */
+  roll() { for (let i = 0; i < 14; i++) thump(i * .07, 120 + i * 4, .25); thump(1.05, 80, .7); bell(1046.5, 1.08, .8, .08); }
 };
 let drumId = null;
 function startDrum() { stopDrum(); let n = 0; drumId = setInterval(() => { thump(0, n % 2 ? 90 : 130, n % 2 ? .3 : .55); n++; }, 380); }
@@ -1029,7 +1089,7 @@ function openSettings(confirmReset) {
       <h3 class="set-h">Ses</h3>
       <div class="setting"><div><b>Sesli anlatım</b><small>Hüdhüd soruları ve durumları yüksek sesle okur.</small></div><button class="switch" role="switch" aria-checked="${voiceOn}" aria-label="Sesli anlatım" data-act="voice"></button></div>
       ${voiceSettings()}
-      <div class="setting"><div><b>Efekt sesleri</b><small>Tık, mühür ve davul sesleri.</small></div><button class="switch" role="switch" aria-checked="${soundOn}" aria-label="Efekt sesleri" data-act="sound"></button></div>
+      <div class="setting"><div><b>Efekt sesleri</b><small>Tık, mühür ve davul sesleri; destekleyen telefonlarda titreşim.</small></div><button class="switch" role="switch" aria-checked="${soundOn}" aria-label="Efekt sesleri" data-act="sound"></button></div>
       <h3 class="set-h">Yolculuk</h3>
       <div class="setting"><div><b>Tüm durakları aç</b><small>Büyükler için: birinci sezonun bütün duraklarını ve Kuşların Yolculuğu'nun vadilerini sırayı beklemeden açar.</small></div><button class="switch" role="switch" aria-checked="${P.freeAll}" aria-label="Tüm durakları aç" data-act="freeall"></button></div>
       <div class="setting"><div><b>İyilik Defteri</b><small>${defter.length} hafta, ${fruitTotal()} gizli iyilik</small></div><button class="mini gold" data-act="defter">Aç</button></div>
