@@ -1,5 +1,5 @@
 /* Sürüm etiketi: node surum.mjs ile güncellenir; index.html ile aynı olmalı. */
-const ICERIK_SURUM = "20261122-1453";
+const ICERIK_SURUM = "20261122-1455";
 /* Ailecek oyun içeriği.
    Yeni kart eklemek için ilgili listeye bir satır eklemeniz yeterli.
    Bil Bakalım'da ilk seçenek doğru cevaptır (oyunda karıştırılır).
@@ -736,3 +736,100 @@ const HIKMETLI = [
     s: "Damla kayayı nasıl oydu? Sen hangi işi her gün biraz biraz yaparak başarabilirsin?",
     c: "Az ama devamlı yapılan iyilik çok değerlidir. Peygamberimiz (s.a.v.), Allah'a en sevimli amelin az da olsa devamlı olanı olduğunu bildirmiştir.", r: "Buhârî, Rikâk 18; Müslim, Müsâfirîn 216" }
 ];
+
+/* ===== Günün sorusu =====
+   Oyun geceleri arasında akşam yemeğinde konuşmak için. Ana sayfada her gün bir tanesi görünür. */
+const GUNUN_SORUSU = [
+  "Bugün seni en çok ne sevindirdi?",
+  "Bugün kime teşekkür etmek istersin?",
+  "Bugün birine nasıl yardım ettin?",
+  "Bugün zor gelen bir şey oldu mu? Nasıl sabrettin?",
+  "Bugün hangi nimeti fark ettin?",
+  "Bir süper gücün olsa onu hangi iyilik için kullanırdın?",
+  "Sırayla, sofradaki herkesin bir güzel huyunu söyleyelim.",
+  "Bugün bir hata yaptın mı? Ondan ne öğrendin?",
+  "Hangi peygamber kıssasını en çok seviyorsun, neden?",
+  "Bu hafta ailece hangi iyiliği yapabiliriz?",
+  "Büyüyünce nasıl biri olmak istersin?",
+  "Bugün kimi güldürdün?",
+  "Evimizde en çok hangi nimete şükretmeliyiz?",
+  "Dünyada bir şeyi güzelleştirebilseydin ne olurdu?",
+  "Bugün birine güzel bir söz söyledin mi?",
+  "Hangi duayı ezbere biliyorsun? Birlikte okuyalım mı?",
+  "Bugün öğrendiğin yeni bir şey var mı?",
+  "Kardeşin ya da bir arkadaşın için ne dua edersin?",
+  "Sence iyi bir arkadaş nasıl olur?",
+  "En sevdiğin hayvan hangisi? Allah onu nasıl yaratmış, en ilginç yanı ne?",
+  "Komşularımız için ne yapabiliriz?",
+  "Ailemizin en güzel anısı hangisi?",
+  "Bugün kimden özür dilemek istersin?",
+  "Bir gün boyunca anne ya da baba sen olsan ne yapardın?",
+  "Bugün yaptığın en güzel şey neydi?",
+  "Yaşlılara nasıl yardım edebiliriz?",
+  "Bugün ne için “Elhamdülillah” dedin?",
+  "Seni en çok ne sakinleştirir?",
+  "Kimse görmeden yapabileceğin bir iyilik düşün; ama kime yapacağını söyleme!",
+  "Peygamberimizin (s.a.v.) hangi güzel ahlakını örnek almak istersin?",
+  "Bugün doğayı korumak için ne yaptın?",
+  "Başkası için bir dilek dileyebilsen ne dilerdin?",
+  "Bu hafta sana en çok kim yardım etti?",
+  "Bugün kızdığın bir an oldu mu? Nasıl sakinleştin?",
+  "Hangi söz seni çok mutlu eder?",
+  "Yarın kimi sevindirmek istersin?",
+  "Bugün okulda ya da işte en ilginç şey neydi?",
+  "Bu akşam yatmadan önce kimin için dua edeceksin?",
+  "Sence Allah'ın en çok sevdiği iyiliklerden biri hangisi?",
+  "Bugün kendini en çok ne zaman güçlü hissettin?"
+];
+
+/* ===== Özel günler =====
+   Hicri tarih telefonun takviminden (Ümmü'l-Kurâ) hesaplanır; Diyanet takvimiyle bir gün fark olabilir.
+   Kandil geceleri bir önceki günün akşamıdır: ay ve gün, o akşamın hicri tarihidir. */
+const OZEL_GUNLER = [
+  { id: "regaip", e: "🌙", ad: "Regaip Kandili", ay: 7, regaip: true, gece: true,
+    bilgi: "Üç ayların ilk kandili; Recep ayının ilk cuma gecesidir.",
+    sorular: ["Üç aylar boyunca ailece hangi güzel alışkanlığı edinelim?", "Bu gece kimin için dua etmek istersin?", "Allah'ın bize verdiği hangi nimete bu gece özellikle şükredelim?"],
+    oneri: "Üç aylar boyunca her akşam yemekten sonra ailece kısa bir dua öğrenmeye niyet edin." },
+  { id: "mirac", e: "🌙", ad: "Miraç Kandili", ay: 7, gun: 26, gece: true,
+    bilgi: "Peygamberimizin (s.a.v.) Mescid-i Haram'dan Mescid-i Aksâ'ya, oradan da semaya yükseltildiği gecedir (İsrâ, 1). Beş vakit namaz bu yolculukta farz kılındı.",
+    sorular: ["Namaz bize bir hediye olarak verildi. Sence neden hediye?", "Mescid-i Aksâ nerededir, onun hakkında ne biliyoruz?", "Namazı daha güzel kılmak için ne yapabiliriz?"],
+    oneri: "Bu akşam bir vakit namazı ailece birlikte kılın; küçükler de yanınızda dursun." },
+  { id: "berat", e: "🌙", ad: "Berat Kandili", ay: 8, gun: 14, gece: true,
+    bilgi: "Şaban ayının on beşinci gecesidir. Müslümanlar bu geceyi dua, tövbe ve ibadetle geçirmeye çalışır.",
+    sorular: ["Bugüne kadar yaptığımız bir hatadan dolayı kimden helallik isteyelim?", "Önümüzdeki yıl için ailece hangi iyiliğe niyet edelim?", "Ramazan'a bir ay kaldı. Ramazan'a nasıl hazırlanalım?"],
+    oneri: "Aile içinde birbirinizden helallik isteyin ve küslükleri bu gece bitirin." },
+  { id: "kadir", e: "✨", ad: "Kadir Gecesi", ay: 9, gun: 26, gece: true,
+    bilgi: "Kur'an'ın indirilmeye başlandığı gecedir. Kadir Suresi'nde bin aydan daha hayırlı olduğu bildirilir (Kadir, 1-3).",
+    sorular: ["Kur'an'dan en sevdiğin sure hangisi?", "Bin aydan hayırlı bir gece! Sence bu gece en güzel ne yapılır?", "Bu gece ailece hangi duayı birlikte okuyalım?"],
+    oneri: "Ailece kısa bir sure okuyun ya da dinleyin; herkes içinden kendi duasını etsin." },
+  { id: "mevlid", e: "🌙", ad: "Mevlid Kandili", ay: 3, gun: 11, gece: true,
+    bilgi: "Peygamberimizin (s.a.v.) dünyaya gelişinin yıldönümüdür.",
+    sorular: ["Peygamberimiz (s.a.v.) hakkında bildiğin en güzel bilgi hangisi?", "Onun hangi güzel ahlakını bu hafta örnek alalım?", "Peygamberimize (s.a.v.) salavat getirmeyi birlikte öğrenelim mi?"],
+    oneri: "Bu akşam Peygamberimizin (s.a.v.) hayatından kısa bir olayı anlatın ve ailece salavat getirin." },
+  { id: "ramazanbayrami", e: "🎉", ad: "Ramazan Bayramı", ay: 10, gunler: [1, 2, 3],
+    bilgi: "Ramazan orucunu tamamlamanın sevinci. Büyükler ziyaret edilir, küslükler biter.",
+    sorular: ["Bu bayram hangi büyüğümüzü ziyaret edelim?", "Ramazan'da öğrendiğin en güzel şey neydi?", "Bayram harçlığından bir kısmıyla kimi sevindirebilirsin?"],
+    oneri: "Bir büyüğünüzü ziyaret edin ya da arayın; küs olduğunuz biri varsa barışın." },
+  { id: "arefe", e: "🤲", ad: "Kurban Bayramı Arefesi", ay: 12, gun: 9,
+    bilgi: "Hacıların Arafat'ta toplandığı gündür. Yarın Kurban Bayramı başlıyor.",
+    sorular: ["Hac nedir, hacılar neler yapar?", "Bayramda kimleri sevindirmek istersin?", "Hz. İbrahim'in teslimiyetinden ne öğreniyoruz?"],
+    oneri: "Bayram sabahı için ailece bir iyilik planı yapın: kimi ziyaret edeceksiniz, kime ikram edeceksiniz?" },
+  { id: "kurbanbayrami", e: "🎉", ad: "Kurban Bayramı", ay: 12, gunler: [10, 11, 12, 13],
+    bilgi: "Kurban, Allah'a yakınlaşmak ve paylaşmak demektir. Kurban eti ihtiyaç sahipleri, akraba ve komşularla paylaşılır.",
+    sorular: ["Kurban bize paylaşmayı nasıl öğretiyor?", "Bu bayram kiminle neyi paylaşabiliriz?", "Hz. İbrahim ve Hz. İsmail'in kıssasından ne öğreniyoruz?"],
+    oneri: "Bayramda bir komşunuza ya da ihtiyaç sahibine ailece bir ikram götürün." },
+  { id: "hicriyil", e: "🌙", ad: "Hicri Yılbaşı", ay: 1, gun: 1,
+    bilgi: "Hicri takvim, Peygamberimizin (s.a.v.) Mekke'den Medine'ye hicretini başlangıç alır.",
+    sorular: ["Hicret ne demektir, neden önemlidir?", "Yeni yılda ailece hangi güzel alışkanlığa başlayalım?", "Medineliler (Ensar) muhacirlere nasıl yardım etti?"],
+    oneri: "Yeni yıl için ailece bir iyilik niyeti yazın ve görünür bir yere asın." },
+  { id: "asure", e: "🍲", ad: "Aşure Günü", ay: 1, gun: 10,
+    bilgi: "Muharrem ayının onuncu günüdür. Bu gün oruç tutmak sünnettir; komşulara aşure ikram etmek güzel bir gelenektir.",
+    sorular: ["Aşurenin içinde neler var? Her biri bir nimet!", "Bu gün hangi komşumuza ikram götürelim?", "Hz. Nuh'un gemisi kıssasını hatırlıyor musun?"],
+    oneri: "Ailece aşure pişirin ya da bir tatlı yapıp komşulara dağıtın." }
+];
+const RAMAZAN = { e: "🌙", ad: "Ramazan",
+  bilgi: "Oruç ayı. Akşam iftar sofrası ailenin en güzel buluşma anıdır.",
+  sorular: ["Bugün oruç tutarken en zor an hangisiydi?", "İftar sofrasında kime teşekkür edelim?", "Bugün kime iftarlık bir ikram götürebiliriz?", "Ramazan'da hangi kötü alışkanlığı bırakmak istersin?", "Orucun bize öğrettiği en güzel şey ne?", "Bu Ramazan ailece hangi sureyi ezberleyelim?", "Aç olan insanları düşününce ne hissediyorsun?", "Sahurda kalkmak zor mu? Seni ne kolaylaştırıyor?", "Bugün sabrettiğin bir an oldu mu?", "Ramazan'ın en sevdiğin yanı ne?"],
+  oneri: "İftardan sonra kısa bir oyun gecesi için Kısa ya da Sakin süreyi seçebilirsiniz." };
+const CUMA = { e: "🕌", ad: "Cuma", bilgi: "Haftanın bayramı. Cuma akşamı ailece oyun gecesi için güzel bir zaman.",
+  sorular: ["Bu hafta yaptığın en güzel iyilik neydi?", "Haftaya kimi sevindirmek istersin?"], oneri: "Hayırlı Cumalar!" };

@@ -19,7 +19,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Ailecek">
-<link rel="stylesheet" href="yazi/yazi.css?v=20261122-1453">
+<link rel="stylesheet" href="yazi/yazi.css?v=20261122-1455">
 <style>
 /* Ailecek tasarım sistemi: tasarim/project/ altındaki tokens.json ve bundle.css'ten üretilir (python3 tasarim/esitle.py). Elle düzenlemeyin. */
 /* @tokenlar:başla */
@@ -663,15 +663,15 @@ blockquote cite { display: block; margin-top: 8px; font: 600 13px/18px var(--fon
 </div>
 <div id="sheet-root"></div>
 
-<script src="icerik.js?v=20261122-1453"></script>
-<script src="icerik-kuslar.js?v=20261122-1453"></script>
-<script src="kuslar.js?v=20261122-1453"></script>
-<script src="kalp.js?v=20261122-1453"></script>
+<script src="icerik.js?v=20261122-1455"></script>
+<script src="icerik-kuslar.js?v=20261122-1455"></script>
+<script src="kuslar.js?v=20261122-1455"></script>
+<script src="kalp.js?v=20261122-1455"></script>
 <script>
 /* ---- Sürüm ve hata koruması ----
    Telefon yeni sayfayla eski önbellekteki bir dosyayı birlikte yüklerse oyun sessizce takılabilir.
    Sürümler uyuşmazsa önbellek temizlenip sayfa bir kez yeniden yüklenir. Bir düğme hata verirse uyarı çıkar. */
-const OYUN_SURUM = "20261122-1453";
+const OYUN_SURUM = "20261122-1455";
 (() => {
   const uyumlu = typeof ICERIK_SURUM !== "undefined" && ICERIK_SURUM === OYUN_SURUM && typeof KUSLAR_SURUM !== "undefined" && KUSLAR_SURUM === OYUN_SURUM && typeof KALP_SURUM !== "undefined" && KALP_SURUM === OYUN_SURUM;
   if (uyumlu) return;
@@ -1009,7 +1009,7 @@ function allSpeechLines() {
     "Çocuklar! Şimdi bazı hatalar yapılacak. Her hatada Yakaladım diye bağırın!", "Doğrusu nasıl?",
     "Aferin! Hocamız da çok güzel sordu.", "Hocamız kazandı!", "Aile kartı!", "Ne güzel! Aile anıları en güzel hazinemiz.",
     "Bu gece bahçemize fidanlar diktik! Şimdi telefonu bırakıp biraz sohbet edelim.", "Maşallah, ne güzel bir geceydi!",
-    TANITIM.map(t => t.s), "Görüşleriniz oyunu daha güzel yapacak. Birkaç dakika yeter!");
+    TANITIM.map(t => t.s), GUNUN_SORUSU, RAMAZAN.sorular, "Görüşleriniz oyunu daha güzel yapacak. Birkaç dakika yeter!");
   add("oyunlar", "Bilmecem bilmece!", "İpucu:", "Cevap:", "Maşallah! Bilmeceyi bildiniz.", "Olsun! Bir dahaki bilmeceyi bileceğinize eminim.",
     BILMECELER.map(b => [b.s, b.i, b.c, b.info]), "Olayları doğru sıraya dizin!", "Maşallah! Hepsi doğru sırada. Ailece iki fidan kazandınız.", "Olsun! Doğru sıra şöyle:",
     SIRALAMA.map(x => x.o), "Hangisi diğerlerinden farklı?", "Maşallah, buldunuz!", "Olsun!", FARKLI.map(f => [f.o.map(o => o[0]), f.n]));
@@ -1113,7 +1113,9 @@ function screenHome() {
   if (location.hash) try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {}
   const day = weekDay();
   const tipNow = IPUCLARI[(Math.max(day, 1) - 1) % IPUCLARI.length];
-  const greet = week ? (day >= 7 ? "Açılış Töreni zamanı geldi! Gizli dostlarınızı merak ediyorum." : `İyilik Haftası'nın ${day}. günü. ${tipNow}`) : "Selâmün aleyküm! Ben Hüdhüd. Bu akşam ailecek oynayalım mı?";
+  const oz = ozelGun();
+  const ozSelam = oz && (oz.cuma ? "Selâmün aleyküm! Hayırlı Cumalar! Bu akşam ailecek oynayalım mı?" : oz.ramazan ? `Selâmün aleyküm! ${oz.ad}. Hayırlı Ramazanlar!` : /Bayramı$/.test(oz.ad) ? `Selâmün aleyküm! ${oz.ad.replace(/Bayramı$/, "Bayramınız")} mübarek olsun!` : `Selâmün aleyküm! ${oz.gece ? "Bu akşam " : "Bugün "}${oz.ad}.${oz.id === "kadir" ? " Kadir Geceniz mübarek olsun!" : oz.gece ? " Kandiliniz mübarek olsun!" : ""}`);
+  const greet = week ? (day >= 7 ? "Açılış Töreni zamanı geldi! Gizli dostlarınızı merak ediyorum." : `İyilik Haftası'nın ${day}. günü. ${tipNow}`) : ozSelam || "Selâmün aleyküm! Ben Hüdhüd. Bu akşam ailecek oynayalım mı?";
   const greetSay = week && day < 7 ? { text: greet, ai: ["İyilik Haftası devam ediyor!", tipNow] } : greet;
   render(`
     <section class="hero ak-on-night">
@@ -1123,6 +1125,8 @@ function screenHome() {
       <button class="ak-btn ak-btn--kandil ak-btn--lg ak-btn--pulse" data-act="setup">Oyun Gecesini Başlat</button>
     </section>
     ${familyStrip()}
+    ${ozelGunKart(ozelGun())}
+    ${gununSorusuKart()}
     ${week ? weekPanel() : ""}
     ${yolculuklar()}
     <button class="ak-card aile-ozet" data-act="ailemiz">
@@ -1135,6 +1139,48 @@ function screenHome() {
       <span class="aile-ozet__ok" aria-hidden="true">›</span>
     </button>
     <p class="small bold muted center" style="margin:0">Oyunu nasıl buldunuz? <button class="link" style="padding:0;font-size:inherit" data-act="feedback">Görüşünüzü yazın</button></p>`, greetSay);
+}
+
+/* Özel günler: hicri tarih telefonun takviminden hesaplanır (Diyanet takvimiyle bir gün fark olabilir) */
+function hicri(t) {
+  for (const ca of ["islamic-umalqura", "islamic"]) {
+    try {
+      const parts = new Intl.DateTimeFormat("en-u-ca-" + ca, { day: "numeric", month: "numeric" }).formatToParts(t);
+      const ay = +parts.find(x => x.type === "month").value, gun = +parts.find(x => x.type === "day").value;
+      if (ay >= 1 && ay <= 12 && gun >= 1 && gun <= 30) return { ay, gun };
+    } catch (e) {}
+  }
+  return null;
+}
+function ozelGun(t = window.__tarih ? new Date(window.__tarih) : new Date()) {
+  const h = hicri(t); if (!h) return t.getDay() === 5 ? { ...CUMA, cuma: true } : null;
+  const g = OZEL_GUNLER.find(o => o.ay === h.ay && (o.regaip ? h.gun <= 7 && t.getDay() === 4 : o.gunler ? o.gunler.includes(h.gun) : o.gun === h.gun));
+  if (g) return g;
+  if (h.ay === 9) return { ...RAMAZAN, ad: `Ramazan'ın ${h.gun}. günü`, soru: RAMAZAN.sorular[(h.gun - 1) % RAMAZAN.sorular.length], ramazan: true };
+  return t.getDay() === 5 ? { ...CUMA, cuma: true } : null;
+}
+function ozelGunKart(o) {
+  if (!o || o.cuma) return "";
+  return `<section class="ak-card ozel-gun" style="gap:8px">
+    <span class="ak-label">${o.e} ${o.gece ? "Bu akşam" : "Bugün"} · ${esc(o.ad)}</span>
+    <p class="small bold" style="margin:0">${esc(o.bilgi)}</p>
+    ${o.ramazan ? "" : `<ul class="small" style="margin:0;padding-left:1.2em;display:grid;gap:4px;font-weight:600">${o.sorular.map(q => `<li>${esc(q)}</li>`).join("")}</ul>`}
+    <p class="small muted bold" style="margin:0">💡 ${esc(o.oneri)}</p>
+    <small class="muted" style="font-size:12px">Tarih telefonun hicri takviminden hesaplanır; Diyanet takvimiyle bir gün fark olabilir.</small>
+  </section>`;
+}
+
+/* Günün sorusu: oyun geceleri arasında akşam yemeğinde konuşmak için her gün bir soru */
+let gunKaydir = 0;
+const gununSorusu = () => { const gun = Math.floor((Date.now() - new Date().getTimezoneOffset() * 60000) / DAY); return GUNUN_SORUSU[((gun + gunKaydir) % GUNUN_SORUSU.length + GUNUN_SORUSU.length) % GUNUN_SORUSU.length]; };
+function gununSorusuKart() {
+  const oz = ozelGun(), ram = oz && oz.ramazan && !gunKaydir;
+  const q = ram ? oz.soru : gununSorusu();
+  return `<section class="ak-card gunun-sorusu" style="gap:8px">
+    <span class="ak-label">${ram ? "🌙 İftar sofrasında günün sorusu" : "🍽️ Akşam yemeğinde günün sorusu"}</span>
+    <p class="q-text" style="text-align:left;margin:0" id="gunun-soru">${esc(q)}</p>
+    <div class="btn-row" style="justify-content:flex-start"><button class="mini gold" data-act="gun-oku">🔈 Hüdhüd okusun</button><button class="mini" data-act="gun-baska">Başka soru</button></div>
+  </section>`;
 }
 
 /* Ana sayfadaki yolculuk listesi: açık her sezon tek satır */
@@ -2678,6 +2724,7 @@ const actions = {
   install: doInstall,
   kaynaklar: screenKaynaklar,
   ailemiz: screenAilemiz, ailekartlari: () => screenAileKartlari(),
+  "gun-oku": () => { const el = document.getElementById("gunun-soru"); say(el ? el.textContent : gununSorusu()); }, "gun-baska": () => { gunKaydir++; const el = document.getElementById("gunun-soru"); if (el) el.textContent = gununSorusu(); sfx.pop(); },
   "ak-tur": a => { akTur = a === "sohbet" ? "sohbet" : "soru"; screenAileKartlari(); },
   "ak-ornek": a => { const el = document.getElementById("ak-metin"); if (el) { el.value = AILE_ORNEK[+a]; el.focus(); } if (akTur === "soru") { akTur = "sohbet"; screenAileKartlari(); const e2 = document.getElementById("ak-metin"); if (e2) e2.value = AILE_ORNEK[+a]; } },
   "ak-ekle": akEkle, "ak-sil": a => { aileKartlari.splice(+a, 1); store.set("aileKartlari", aileKartlari); screenAileKartlari(); },
