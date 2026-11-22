@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="tr">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ailecek · Ailece oyun gecesi</title>
+<meta name="description" content="Anne babaların ve çocukların İslami değerleri oynayarak, gülerek ve yaşayarak öğrendiği aile oyunu. Üyelik yok, reklam yok, veri toplamaz.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ailecek · Ailece oyun gecesi">
+<meta property="og:description" content="İslami değerleri oynayarak, gülerek ve yaşayarak öğreten aile oyunu. Tek telefon, bütün aile.">
+<meta property="og:image" content="https://eveziroglu.github.io/ailecek/tanitim/onizleme.jpg">
+<meta property="og:url" content="https://eveziroglu.github.io/ailecek/hakkinda.html">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2747B5">
+<link rel="icon" href="ikon/ikon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="ikon/apple-touch-icon.png">
+<link rel="stylesheet" href="yazi/yazi.css">
+<style>
+:root {
+  --bg: #F4F6FB; --card: #FFFFFF; --soft: #E9EDF7; --ink: #18204A; --muted: #4E5880; --line: #D3DCEC;
+  --cini: #2747B5; --firuze: #0B7A77; --zumrut: #1C7A4C; --nar: #C4362E; --kandil: #EAA214; --lale: #7340BD;
+  --gece: #1C235C; --on-gece: #EEF1FB; --yildiz: #FFD37A; --on-kandil: #1D1A0E;
+  --display: "Baloo 2", system-ui, sans-serif; --body: Figtree, system-ui, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0F1430; --card: #1A2148; --soft: #222A57; --ink: #EEF1FB; --muted: #A9B2D8; --line: #343E74;
+  --cini: #86A2FF; --firuze: #43D0CA; --zumrut: #52CC8D; --nar: #FF8478; --kandil: #FFC54D; --lale: #B99BFF;
+  --gece: #0B1030; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #0F1430; --card: #1A2148; --soft: #222A57; --ink: #EEF1FB; --muted: #A9B2D8; --line: #343E74;
+  --cini: #86A2FF; --firuze: #43D0CA; --zumrut: #52CC8D; --nar: #FF8478; --kandil: #FFC54D; --lale: #B99BFF;
+  --gece: #0B1030; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 500 17px/1.55 var(--body); -webkit-text-size-adjust: 100%; }
+a { color: var(--cini); }
+.wrap { max-width: 1040px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right)); }
+header.top { display: flex; align-items: center; justify-content: space-between; padding-block: 16px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font: 800 26px/1 var(--display); }
+.brand span { color: var(--kandil); }
+.brand svg { width: 38px; height: 38px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 0 26px; border-radius: 18px; border: 0; background: var(--kandil); color: var(--on-kandil); font: 700 20px/1 var(--display); text-decoration: none; box-shadow: 0 5px 0 color-mix(in srgb, var(--kandil) 60%, #000); transition: transform .12s, box-shadow .12s; }
+.btn:active { transform: translateY(4px); box-shadow: 0 1px 0 color-mix(in srgb, var(--kandil) 60%, #000); }
+.btn--small { min-height: 42px; padding: 0 16px; font-size: 16px; border-radius: 14px; }
+.btn:focus-visible, a:focus-visible { outline: 3px solid var(--cini); outline-offset: 3px; }
+.hero { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 32px; align-items: center; padding-block: 24px 48px; }
+.eyebrow { font: 700 13px/1 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--firuze); }
+h1 { font: 800 clamp(38px, 6vw, 60px)/1.04 var(--display); margin: 12px 0 16px; letter-spacing: -.01em; }
+h1 em { font-style: normal; color: var(--cini); }
+.lead { font-size: 19px; color: var(--muted); margin: 0 0 24px; max-width: 34ch; }
+.trust { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 20px; color: var(--muted); font-weight: 700; font-size: 15px; padding: 0; list-style: none; }
+.trust li::before { content: "✓ "; color: var(--zumrut); }
+.phones { position: relative; height: 520px; }
+.phone { position: absolute; width: 230px; border-radius: 34px; border: 8px solid var(--gece); background: var(--gece); box-shadow: 0 24px 48px rgba(24, 32, 74, .22); overflow: hidden; }
+.phone img { display: block; width: 100%; height: auto; border-radius: 26px; }
+.phone--a { left: 4%; top: 0; transform: rotate(-4deg); z-index: 2; }
+.phone--b { right: 2%; top: 60px; transform: rotate(5deg); }
+section { padding-block: 44px; }
+h2 { font: 800 clamp(28px, 4vw, 38px)/1.1 var(--display); margin: 0 0 8px; }
+.sub { color: var(--muted); margin: 0 0 28px; max-width: 60ch; }
+.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; counter-reset: s; padding: 0; margin: 0; list-style: none; }
+.steps li { background: var(--card); border-radius: 22px; padding: 22px; box-shadow: 0 5px 0 var(--line); counter-increment: s; }
+.steps li::before { content: counter(s); display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--cini); color: #fff; font: 800 22px/1 var(--display); margin-bottom: 12px; }
+:root[data-theme="dark"] .steps li::before { color: var(--bg); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .steps li::before { color: var(--bg); } }
+.steps b, .feat b { display: block; font: 700 21px/1.2 var(--display); margin-bottom: 6px; }
+.steps p, .feat p { margin: 0; color: var(--muted); font-size: 16px; }
+.feats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.feat { background: var(--card); border-radius: 22px; padding: 22px; box-shadow: 0 5px 0 var(--line); border-top: 6px solid var(--c); }
+.feat .pic { font-size: 34px; line-height: 1; margin-bottom: 10px; }
+.season { background: var(--gece); color: var(--on-gece); border-radius: 30px; padding: 32px; display: grid; grid-template-columns: minmax(0, 1fr) 230px; gap: 28px; align-items: center; }
+.season .eyebrow { color: var(--yildiz); }
+.season p { color: color-mix(in srgb, var(--on-gece) 82%, transparent); margin: 0 0 12px; }
+.season .phone { position: static; transform: none; border-color: #0B1030; }
+.birds { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; padding: 0; list-style: none; }
+.birds li { background: color-mix(in srgb, var(--on-gece) 12%, transparent); border-radius: 999px; padding: 4px 12px; font-weight: 700; font-size: 14px; }
+.promise { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.promise div { background: var(--soft); border-radius: 22px; padding: 22px; }
+.promise b { display: block; font: 700 19px/1.25 var(--display); margin-bottom: 6px; }
+.promise p { margin: 0; color: var(--muted); font-size: 16px; }
+.cta { text-align: center; background: var(--card); border-radius: 30px; padding: 40px 24px; box-shadow: 0 5px 0 var(--line); }
+.cta p { color: var(--muted); margin: 0 0 22px; }
+footer { padding-block: 32px 48px; color: var(--muted); font-size: 15px; display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: space-between; }
+footer nav { display: flex; flex-wrap: wrap; gap: 10px 18px; }
+@media (max-width: 820px) {
+  .hero { grid-template-columns: 1fr; padding-top: 8px; }
+  .phones { height: 400px; max-width: 420px; width: 100%; margin: 0 auto; }
+  .phone { width: 180px; border-width: 6px; border-radius: 28px; }
+  .phone img { border-radius: 22px; }
+  .steps, .feats, .promise { grid-template-columns: 1fr; }
+  .season { grid-template-columns: 1fr; padding: 24px; }
+  .season .phone { width: 200px; margin: 0 auto; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="./" aria-label="Ailecek oyununu aç">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="14" y="14" width="36" height="36" rx="6" fill="#2747B5"/><rect x="14" y="14" width="36" height="36" rx="6" fill="#2747B5" transform="rotate(45 32 32)"/><path d="M32 21 L43 30 V43 H21 V30 Z" fill="#fff"/><path d="M32 40.5 C27 37 24.5 34.6 24.5 32.2 C24.5 30.3 26 29 27.8 29 C29.4 29 30.8 30 32 31.6 C33.2 30 34.6 29 36.2 29 C38 29 39.5 30.3 39.5 32.2 C39.5 34.6 37 37 32 40.5Z" fill="#EAA214"/></svg>
+      <b style="font-weight:800">Aile<span>cek</span></b>
+    </a>
+    <a class="btn btn--small" href="./">Oyna</a>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div>
+        <span class="eyebrow">Ailece oyun gecesi</span>
+        <h1>İslami değerleri <em>oynayarak</em> öğrenen aileler için</h1>
+        <p class="lead">Masaya tek telefon konur, bütün aile oyuna katılır. Pandomim, ses taklidi, bilgi soruları ve bir hafta süren gizli iyilikler: çocuklar gülerek öğrenir, aile birlikte yaşar.</p>
+        <a class="btn" href="./">Hemen oyna</a>
+        <ul class="trust">
+          <li>Üyelik yok</li><li>Reklam yok</li><li>Veri toplamaz</li><li>Ücretsiz</li>
+        </ul>
+      </div>
+      <div class="phones" aria-hidden="true">
+        <div class="phone phone--a"><img src="tanitim/anasayfa.webp" alt="" width="390" height="780"></div>
+        <div class="phone phone--b"><img src="tanitim/cark.webp" alt="" width="390" height="780"></div>
+      </div>
+    </div>
+
+    <section aria-labelledby="nasil">
+      <h2 id="nasil">Nasıl oynanır?</h2>
+      <p class="sub">Kurulum yok, kural kitabı yok. Rehberimiz Hüdhüd kuşu her şeyi sesli anlatır; okuma bilmeyen çocuklar da oyuna katılır.</p>
+      <ol class="steps">
+        <li><b>Aileyi tanıtın</b><p>İsimleri ve yaşları girin. Sorular her yaşa göre ayrı hazırlanmıştır.</p></li>
+        <li><b>Çarkı çevirin</b><p>Sırası gelen çarkı çevirir; kısa ve hareketli bir oyun çıkar. Aile tek takımdır, rekabet yoktur.</p></li>
+        <li><b>Gizli iyiliği başlatın</b><p>Gece sonunda herkes bir zarf açar ve bir hafta boyunca gizlice birine iyilik yapar.</p></li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="neler">
+      <h2 id="neler">Neler var?</h2>
+      <p class="sub">Şükür, sabır, merhamet, doğruluk, paylaşmak, anne babaya iyilik ve temizlik temalarında oyun geceleri.</p>
+      <div class="feats">
+        <div class="feat" style="--c:var(--nar)"><div class="pic" aria-hidden="true">🎭</div><b>Gülerek öğrenmek</b><p>Kıssalardan hayvanları canlandırma, ses taklidi, bilgi soruları, "Sen olsan ne yapardın?" durumları ve çocukların hocalık yaptığı turlar.</p></div>
+        <div class="feat" style="--c:var(--lale)"><div class="pic" aria-hidden="true">💌</div><b>Gizli İyilik Haftası</b><p>Kimse kimin kime iyilik yaptığını bilmez. Yedinci gün Açılış Töreni'nde birlikte tahmin edilir; ihlas yaşanarak öğrenilir.</p></div>
+        <div class="feat" style="--c:var(--zumrut)"><div class="pic" aria-hidden="true">🗺️</div><b>Yolculuk ve koleksiyon</b><p>Her gece haritada bir durak açılır. Kıssa kartları albümde birikir, aile birlikte rozet kazanır.</p></div>
+        <div class="feat" style="--c:var(--kandil)"><div class="pic" aria-hidden="true">📖</div><b>Kaynağıyla bilgi</b><p>Her gecenin sonunda temaya uygun bir ayet ve hadis kaynağıyla okunur, ardından aile sohbeti başlar.</p></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="kuslar">
+      <div class="season">
+        <div>
+          <span class="eyebrow">İkinci sezon</span>
+          <h2 id="kuslar">Kuşların Yolculuğu</h2>
+          <p>Ferîdüddîn-i Attâr'ın Mantıku't-Tayr eserinden esinlenen bir yolculuk. Her aile üyesi bir kuş seçer; her kuşun yenmesi gereken bir bahanesi vardır.</p>
+          <p>Hüdhüd'ün rehberliğinde yedi vadiden geçilir, her vadide bir hikâye dinlenir ve Kaf Dağı'na birlikte ulaşılır.</p>
+          <ul class="birds" aria-label="Kuşlar"><li>Bülbül</li><li>Papağan</li><li>Tavus</li><li>Keklik</li><li>Şahin</li><li>Serçe</li><li>Baykuş</li><li>Hüma</li></ul>
+        </div>
+        <div class="phone" aria-hidden="true"><img src="tanitim/meclis.webp" alt="" width="390" height="780"></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="soz">
+      <h2 id="soz">Ailelere sözümüz</h2>
+      <p class="sub">Çocuklara yönelik bir oyunda güven her şeyden önce gelir.</p>
+      <div class="promise">
+        <div><b>Saygılı içerik</b><p>Allah'ın isim ve sıfatları hiçbir resim ya da sembolle gösterilmez. Peygamberler ve sahabeler canlandırılmaz.</p></div>
+        <div><b>Sevgi dili</b><p>Korkutma, ceza ve utandırma yok. Yapılmamış bir iyilik için "Bu hafta yapabilirsin" denir.</p></div>
+        <div><b>Gizlilik</b><p>Hesap açılmaz, veri toplanmaz. Aile bilgileri yalnızca sizin telefonunuzda kalır. <a href="gizlilik.html">Ayrıntılar</a></p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="cta">
+        <h2>Bu akşam ailecek oynayın</h2>
+        <p>Telefonda açılır, uygulama gibi ana ekrana eklenir, internet olmadan da çalışır.</p>
+        <a class="btn" href="./">Oyunu aç</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 Ailecek · Deneme sürümü; dini içerik uzman kontrolünü bekliyor.</span>
+    <nav aria-label="Alt bağlantılar"><a href="./">Oyun</a><a href="./#kaynaklar">Kaynaklar</a><a href="gizlilik.html">Gizlilik ve kullanım</a></nav>
+  </footer>
+</div>

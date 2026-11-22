@@ -5,6 +5,13 @@
 <title>Ailecek Oyun Gecesi</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Ailece oynanan, gülerek İslami değerler öğreten oyun gecesi.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ailecek · Ailece oyun gecesi">
+<meta property="og:description" content="İslami değerleri oynayarak, gülerek ve yaşayarak öğreten aile oyunu. Tek telefon, bütün aile.">
+<meta property="og:image" content="https://eveziroglu.github.io/ailecek/tanitim/onizleme.jpg">
+<meta property="og:url" content="https://eveziroglu.github.io/ailecek/">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#2747B5">
 <link rel="icon" href="ikon/ikon.svg" type="image/svg+xml">
@@ -12,9 +19,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Ailecek">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Figtree:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="yazi/yazi.css">
 <style>
 /* Ailecek tasarım sistemi: tasarim/project/ altındaki tokens.json ve bundle.css'ten üretilir (python3 tasarim/esitle.py). Elle düzenlemeyin. */
 /* @tokenlar:başla */
@@ -946,6 +951,7 @@ function render(html, speak) {
 
 function screenHome() {
   G = null;
+  if (location.hash) try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {}
   const day = weekDay();
   const tipNow = IPUCLARI[(Math.max(day, 1) - 1) % IPUCLARI.length];
   const greet = week ? (day >= 7 ? "Açılış Töreni zamanı geldi! Gizli dostlarınızı merak ediyorum." : `İyilik Haftası'nın ${day}. günü. ${tipNow}`) : "Selâmün aleyküm! Ben Hüdhüd. Bu akşam ailecek oynayalım mı?";
@@ -983,6 +989,7 @@ function screenHome() {
         <li>Pandomimde peygamberler ve sahabeler canlandırılmaz; sadece hayvanlar, nesneler ve davranışlar.</li>
         <li>Veriler yalnızca bu cihazda saklanır. Ayarlardan sesleri kapatabilir, verileri sıfırlayabilirsiniz.</li>
       </ul>
+      <p class="small bold" style="margin:12px 0 0;display:flex;flex-wrap:wrap;gap:6px 16px"><a href="hakkinda.html" target="_blank" rel="noopener">Ailecek hakkında</a><button class="link" style="padding:0;font-size:inherit" data-act="kaynaklar">Kaynaklar</button><a href="gizlilik.html" target="_blank" rel="noopener">Gizlilik ve kullanım</a></p>
     </details>`, greetSay);
 }
 
@@ -1028,6 +1035,7 @@ function openSettings(confirmReset) {
       <div class="setting"><div><b>İyilik Defteri</b><small>${defter.length} hafta, ${fruitTotal()} gizli iyilik</small></div><button class="mini gold" data-act="defter">Aç</button></div>
       <h3 class="set-h">Yardım ve geri bildirim</h3>
       ${installSetting()}
+      <div class="setting"><div><b>Kaynaklar</b><small>Oyundaki ayet ve hadislerin kaynak listesi.</small></div><button class="mini gold" data-act="kaynaklar">Aç</button></div>
       <div class="setting"><div><b>Nasıl oynanır?</b><small>Hüdhüd oyunu dört adımda anlatır.</small></div><button class="mini gold" data-act="tour-again">İzle</button></div>
       <div class="setting"><div><b>Görüşünüzü gönderin</b><small>Kısa bir form; cevaplar WhatsApp ya da paylaşma ile gönderilir.</small></div><button class="mini gold" data-act="feedback">Aç</button></div>
       <h3 class="set-h">Veriler</h3>
@@ -2010,6 +2018,30 @@ function screenEnd() {
   G = null;
 }
 
+/* ============ KAYNAKLAR ============
+   Oyundaki ayet ve hadislerin kaynak listesi; içerik dosyalarından üretilir, her zaman günceldir. */
+function screenKaynaklar() {
+  closeSheet(); G = null;
+  const blok = (baslik, alt, satirlar) => `<section class="ak-card" style="gap:10px"><h2 style="font:700 21px/1.2 var(--font-display);margin:0">${baslik}</h2>${alt ? `<p class="small bold muted" style="margin:0">${alt}</p>` : ""}<div class="stack" style="gap:12px">${satirlar.join("")}</div></section>`;
+  const nas = (tur, text, ref, ust) => `<div style="border-left:4px solid var(--line);padding-left:12px">${ust ? `<span class="ak-label" style="display:block;margin-bottom:2px">${esc(ust)}</span>` : ""}<p style="margin:0;font-weight:600">“${esc(text)}”</p><p class="small muted" style="margin:2px 0 0;font-weight:700">${tur} · ${esc(ref)}</p></div>`;
+  const temalar = Object.values(THEMES).flatMap(t => [nas("Ayet", t.ayet.text, t.ayet.ref, t.name), nas("Hadis", t.hadis.text, t.hadis.ref)]);
+  const gizli = [nas("Ayet", GIZLI_AYET.text, GIZLI_AYET.ref, "Gizli İyilik Haftası"), nas("Hadis", GIZLI_HADIS.text, GIZLI_HADIS.ref)];
+  const vadiler = VADILER.map(v => nas(v.nas.tur === "hadis" ? "Hadis" : "Ayet", v.nas.text, v.nas.ref, v.ad));
+  const kartlar = allCards().filter(c => /\([^)]*(\d|Buhârî|Müslim|Tirmizî|Ebû Dâvûd|Ahmed)[^)]*\)\s*$/.test(c.info || "")).map(c => `<div><b>${esc(c.w)}</b><p class="small" style="margin:2px 0 0;font-weight:600">${esc(c.info)}</p></div>`);
+  render(`
+    <section class="ak-card" style="gap:10px">
+      <span class="ak-label">Kaynaklar</span>
+      <h1 style="font:800 30px/1.1 var(--font-display);margin:0">Ayet ve hadislerin kaynakları</h1>
+      <p class="small bold muted" style="margin:0">Oyunda okunan ayet mealleri ve hadisler kaynaklarıyla birlikte aşağıdadır. Mealler çocukların anlayabileceği biçimde sadeleştirilmiştir; ayetlerin tam meali ve tefsiri için Diyanet İşleri Başkanlığı'nın Kur'an Yolu tefsirine başvurabilirsiniz. Bu deneme sürümünün dini içeriği uzman kontrolünü beklemektedir.</p>
+      <button class="ak-btn ak-btn--ghost" data-act="home">Ana sayfaya dön</button>
+    </section>
+    ${blok("Tema geceleri", "Her oyun gecesinin Derinlik Anı'nda okunur.", temalar)}
+    ${blok("Gizli İyilik Haftası", "", gizli)}
+    ${blok("Kuşların Yolculuğu", "Her vadi gecesinde okunur. Hikâyeler Ferîdüddîn-i Attâr'ın Mantıku't-Tayr eserinden esinlenmiştir.", vadiler)}
+    ${blok("Kıssa Kartları", "Kartların arkasında kaynağıyla verilen bilgiler.", kartlar)}`);
+  try { history.replaceState(null, "", "#kaynaklar"); } catch (e) {}
+}
+
 /* ============ TELEFONA YÜKLEME VE ÇEVRİMDIŞI ============
    Yalnızca oyun kendi adresinde açıldığında çalışır (ör. GitHub Pages). claude.ai içindeki
    önizlemede (iframe) devre dışıdır; orada oyun her zamanki gibi açılır. */
@@ -2189,6 +2221,7 @@ const actions = {
   ...fbActions,
   ...tourActions,
   install: doInstall,
+  kaynaklar: screenKaynaklar,
   map: screenMap, land: openLand, album: a => screenAlbum(a || null), card: screenCard, badges: screenBadges,
   freeall() { P.freeAll = !P.freeAll; saveP(); openSettings(false); }
 };
@@ -2216,7 +2249,9 @@ document.addEventListener("input", e => {
 document.addEventListener("keydown", e => { if (e.key === "Escape") closeSheet(); });
 
 renderStats();
-if (!store.get("tanitim", false) && !store.get("family", null)) screenTour(0); else screenHome();
+if (location.hash === "#kaynaklar") screenKaynaklar();
+else if (!store.get("tanitim", false) && !store.get("family", null)) screenTour(0); else screenHome();
+addEventListener("hashchange", () => { if (location.hash === "#kaynaklar") screenKaynaklar(); });
 /* Görsel listesi geldiğinde ana sayfa hâlâ açıksa görsellerle yeniden çiz */
 gorselReady.then(() => { if (Object.keys(GORSEL).length && !G && document.querySelector(".hero")) screenHome(); });
 </script>
