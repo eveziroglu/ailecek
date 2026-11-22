@@ -2012,7 +2012,6 @@ function screenEnd() {
    önizlemede (iframe) devre dışıdır; orada oyun her zamanki gibi açılır. */
 const KENDI_ADRES = window.top === window && /^https?:$/.test(location.protocol);
 const YUKLU = matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
-const IOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
 let installEvt = null;
 if (KENDI_ADRES && "serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
 addEventListener("beforeinstallprompt", e => { e.preventDefault(); installEvt = e; });
@@ -2021,18 +2020,43 @@ function installSetting() {
   if (YUKLU) return `<div class="setting"><div><b>Telefona eklendi</b><small>Oyun ana ekranınızda; internet olmadan da açılır.</small></div></div>`;
   return `<div class="setting"><div><b>Telefona ekle</b><small>${KENDI_ADRES ? "Ana ekrana uygulama gibi eklenir, internet olmadan da açılır." : "Oyunu ana ekrana kısayol olarak ekleyin, tek dokunuşla açılsın."}</small></div><button class="mini gold" data-act="install">Ekle</button></div>`;
 }
+/* Tarayıcıya göre ana ekrana ekleme adımları. İlk eşleşen, kullanıcının tarayıcısıdır. */
+const EKLE_ADIM = [
+  { id: "uygulama", ad: "WhatsApp, Instagram ya da başka bir uygulamanın içi", test: ua => /WhatsApp|Instagram|FBAN|FBAV|Line\/|Telegram|Claude/i.test(ua),
+    adim: ["Bu ekran bir uygulamanın içinde açıldı; buradan ana ekrana eklenemez.", "Sağ üstteki menüden (üç nokta ya da paylaş simgesi) <b>Tarayıcıda aç</b> / <b>Safari'de aç</b>'ı seçin.", "Açılan tarayıcıda Ayarlar › Telefona ekle'ye yeniden dokunun."] },
+  { id: "ios-chrome", ad: "iPhone · Chrome", test: ua => /iPhone|iPad|iPod/.test(ua) && /CriOS/.test(ua),
+    adim: ["Adres çubuğunun sağındaki <b>Paylaş</b> simgesine dokunun (yukarı ok olan kare).", "Listeyi aşağı kaydırıp <b>Ana Ekrana Ekle</b>'yi seçin.", "Sağ üstteki <b>Ekle</b>'ye dokunun."] },
+  { id: "ios-diger", ad: "iPhone · Firefox, Edge ve diğerleri", test: ua => /iPhone|iPad|iPod/.test(ua) && /FxiOS|EdgiOS|OPiOS|YaBrowser/.test(ua),
+    adim: ["Tarayıcının menüsünü açın (üç çizgi ya da üç nokta).", "<b>Paylaş</b>'a, ardından <b>Ana Ekrana Ekle</b>'ye dokunun.", "Seçenek yoksa linki <b>Safari</b>'de açıp oradan ekleyin."] },
+  { id: "ios-safari", ad: "iPhone · Safari", test: ua => /iPhone|iPad|iPod/.test(ua),
+    adim: ["Alttaki <b>Paylaş</b> düğmesine dokunun (yukarı ok olan kare).", "Listeyi aşağı kaydırıp <b>Ana Ekrana Ekle</b>'yi seçin.", "Sağ üstteki <b>Ekle</b>'ye dokunun."] },
+  { id: "samsung", ad: "Android · Samsung İnternet", test: ua => /SamsungBrowser/.test(ua),
+    adim: ["Alttaki <b>menü</b> düğmesine (üç çizgi) dokunun.", "<b>Sayfayı ekle</b>'yi, ardından <b>Ana ekran</b>'ı seçin.", "<b>Ekle</b>'ye dokunarak onaylayın."] },
+  { id: "android-firefox", ad: "Android · Firefox", test: ua => /Android/.test(ua) && /Firefox/.test(ua),
+    adim: ["Sağ üstteki ya da alttaki <b>üç noktaya</b> dokunun.", "<b>Yükle</b> ya da <b>Ana ekrana ekle</b>'yi seçin.", "<b>Ekle</b>'ye dokunarak onaylayın."] },
+  { id: "android-edge", ad: "Android · Edge", test: ua => /Android/.test(ua) && /EdgA/.test(ua),
+    adim: ["Alttaki <b>üç çizgi</b> menüsüne dokunun.", "<b>Telefona ekle</b> ya da <b>Ana ekrana ekle</b>'yi seçin.", "<b>Ekle</b>'ye dokunarak onaylayın."] },
+  { id: "android-chrome", ad: "Android · Chrome", test: ua => /Android/.test(ua),
+    adim: ["Sağ üstteki <b>üç noktaya</b> dokunun.", "<b>Ana ekrana ekle</b> ya da <b>Uygulamayı yükle</b>'yi seçin.", "<b>Ekle</b>'ye dokunarak onaylayın."] },
+  { id: "mac-safari", ad: "Mac · Safari", test: ua => /Macintosh/.test(ua) && /Safari/.test(ua) && !/Chrome|Edg/.test(ua),
+    adim: ["Üst menüden <b>Dosya</b>'ya tıklayın.", "<b>Dock'a Ekle</b>'yi seçin.", "<b>Ekle</b>'ye tıklayın."] },
+  { id: "masaustu", ad: "Bilgisayar · Chrome ve Edge", test: () => true,
+    adim: ["Adres çubuğunun sağındaki <b>yükle</b> simgesine (ekran ve ok) tıklayın.", "Simge yoksa sağ üstteki üç noktadan <b>Kaydet ve paylaş › Uygulamayı yükle</b> (Edge'de <b>Uygulamalar › Bu siteyi uygulama olarak yükle</b>) seçin.", "<b>Yükle</b>'ye tıklayın."] }
+];
 function doInstall() {
   if (installEvt) { installEvt.prompt(); installEvt.userChoice.finally(() => { installEvt = null; openSettings(false); }); return; }
+  const ua = navigator.userAgent, ben = EKLE_ADIM.find(x => x.test(ua));
+  const liste = x => `<ol class="small" style="display:grid;gap:8px;padding-left:1.2em;font-weight:600;margin:6px 0 0">${x.adim.map(a => `<li>${a}</li>`).join("")}</ol>`;
   document.getElementById("sheet-root").innerHTML = `
   <div class="sheet-bg" data-act="close-sheet">
     <div class="sheet ak" role="dialog" aria-modal="true" aria-label="Telefona ekle">
       <div style="display:flex;justify-content:space-between;align-items:center"><h2>Telefona ekle</h2><button class="icon-btn" data-act="close-sheet" aria-label="Kapat">✕</button></div>
-      <ol class="small" style="display:grid;gap:10px;padding-left:1.2em;font-weight:600">
-        ${IOS ? `<li>Safari'de alttaki <b>Paylaş</b> düğmesine dokunun (yukarı ok olan kare).</li><li><b>Ana Ekrana Ekle</b>'yi seçin.</li><li>Sağ üstteki <b>Ekle</b>'ye dokunun.</li>`
-              : `<li>Chrome'da sağ üstteki <b>üç noktaya</b> dokunun.</li><li><b>Ana ekrana ekle</b> ya da <b>Uygulamayı yükle</b>'yi seçin.</li><li><b>Ekle</b>'ye dokunarak onaylayın.</li>`}
-      </ol>
-      ${IOS ? `<p class="small bold muted">Linki Claude ya da WhatsApp içinde açtıysanız önce sağ üstteki menüden <b>Safari'de aç</b>'ı seçin.</p>` : ""}
+      <p class="small bold" style="margin:0">Tarayıcınız: <span style="color:var(--cini)">${esc(ben.ad)}</span></p>
+      ${liste(ben)}
       <p class="small bold muted">${KENDI_ADRES ? "Ekledikten sonra oyunu bir kez internetle açın; sonra internet olmadan da çalışır." : "Bu linkte ana ekrana kısayol eklenir; oyun açılırken internet gerekir."}</p>
+      <details class="small" style="font-weight:600"><summary class="bold" style="cursor:pointer;color:var(--cini)">Başka bir tarayıcı mı kullanıyorsunuz?</summary>
+        ${EKLE_ADIM.filter(x => x !== ben).map(x => `<div style="margin-top:12px"><b>${esc(x.ad)}</b>${liste(x)}</div>`).join("")}
+      </details>
     </div>
   </div>`;
 }
