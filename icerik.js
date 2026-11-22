@@ -1,5 +1,5 @@
 /* Sürüm etiketi: node surum.mjs ile güncellenir; index.html ile aynı olmalı. */
-const ICERIK_SURUM = "20261122-1901";
+const ICERIK_SURUM = "20261122-2309";
 /* Ailecek oyun içeriği.
    Yeni kart eklemek için ilgili listeye bir satır eklemeniz yeterli.
    Bil Bakalım'da ilk seçenek doğru cevaptır (oyunda karıştırılır).
@@ -390,7 +390,7 @@ const HIZLI = {
 const SASKIN = [
   { s: "Abdest alıyormuş gibi yap. Ama: ayaklarını yüzünden önce yıka, ağzını çalkalamayı unut ve başını mesh etmek yerine saçını tara. Abartmak serbest!", h: ["Ayaklar en son yıkanır.","Ağız çalkalanır, burna su verilir.","Baş, ıslak elle mesh edilir."] },
   { s: "Sofraya otur ve yemeğe başla. Ama: Besmele çekme, sol elinle ye ve tabağının yarısını bırakıp “Doydum!” de.", h: ["Yemeğe “Bismillah” diyerek başlanır.","Yemek sağ elle yenir.","İsraf etmeyiz; tabağa yiyebileceğimiz kadar alırız."] },
-  { s: "Dışarı çıkıp eve gir. Ama: selam verme, ayakkabılarınla içeri yürü ve kapıyı çarp.", h: ["Eve girerken “Selâmün aleyküm” denir.","Ayakkabılar kapıda çıkarılır, ev temiz tutulur.","Kapı yavaşça kapatılır, kimse rahatsız edilmez."] },
+  { s: "Eve giriyormuş gibi yap. Ama: selam verme, ayakkabılarını çıkarıp kapının önüne dağınık fırlat ve kapıyı çarpar gibi yap.", h: ["Eve girerken “Selâmün aleyküm” denir.","Ayakkabılar kapının önüne düzgünce dizilir.","Kapı yavaşça kapatılır, kimse rahatsız edilmez."] },
   { s: "Çok yüksek sesle hapşır ve hiçbir şey deme. Biri “Yerhamükellah” derse “Ne?” diye cevap ver.", h: ["Hapşıran “Elhamdülillah” der.", "Duyan “Yerhamükellah” (Allah sana rahmet etsin) der.", "Hapşıran da “Yehdînâ ve yehdîkümullah” (Allah bize ve size hidayet versin) diye karşılık verir."] },
   { s: "Misafir karşılıyormuş gibi yap. Ama: yerinden kalkma, “Hoş geldin” deme ve telefonuna bakmaya devam et.", h: ["Misafir ayağa kalkılarak, güler yüzle karşılanır.","“Hoş geldin” denir, hâli hatırı sorulur.","Misafire ikram edilir. (Allah'a ve ahiret gününe iman eden misafirine ikram etsin. Buhârî, Müslim)"] },
   { s: "Yatıp uyuyormuş gibi yap. Ama: dua etmeden, sol tarafına dönüp hemen horlamaya başla.", h: ["Uyumadan önce dua edilir: “Bismikellâhümme emûtü ve ahyâ.”","Sünnet olan, sağ tarafa yatmaktır.","Abdestli yatmak güzel bir sünnettir."] },
