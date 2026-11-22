@@ -111,13 +111,13 @@ const VADI_HIKAYELERI = [
 /* Sekiz kuş: sezon başında her aile üyesi birini seçer (aynı kuşu iki kişi seçemez). */
 const KUSLAR = [
   { id: "bulbul", ad: "Bülbül", e: "🌹", karakter: "Romantik, duygulu, şarkıcı", bahane: "Gülüne âşıktır, onu bırakıp yola çıkamaz.", gorev: "Bu hafta en sevdiğin bir şeyden bir gün uzak dur ve onun yerine ailene vakit ayır." },
-  { id: "papagan", ad: "Papağan", e: "🦜", karakter: "Konuşkan, neşeli, gösterişli", bahane: "Ölümsüzlük suyunu arar, sonsuza dek yaşamak ister.", gorev: "Bu hafta oyunu kendi isteğinle zamanında bitir." },
-  { id: "tavus", ad: "Tavus", e: "🦚", karakter: "Güzel, özenli, biraz kendini beğenmiş", bahane: "Cennetteki eski yerine dönmekten başka bir şey düşünmez.", gorev: "Bu hafta karşılık beklemeden üç iyilik yap." },
+  { id: "papagan", ad: "Papağan", e: "🦜", karakter: "Konuşkan, neşeli, gösterişli", bahane: "Eğlencenin hiç bitmemesini ister, sonsuza dek oynamak ister.", gorev: "Bu hafta oyunu kendi isteğinle zamanında bitir." },
+  { id: "tavus", ad: "Tavus", e: "🦚", karakter: "Güzel, özenli, biraz kendini beğenmiş", bahane: "Güzelliğine hayrandır; tüyleri kirlenir diye yola çıkmaz.", gorev: "Bu hafta karşılık beklemeden üç iyilik yap." },
   { id: "keklik", ad: "Keklik", e: "💎", karakter: "Titiz, biriktirici", bahane: "Değerli taşlara, mücevherlere düşkündür.", gorev: "Bu hafta bir eşyanı kardeşinle ya da arkadaşınla paylaş." },
   { id: "sahin", ad: "Şahin", e: "🦅", karakter: "Güçlü, gururlu", bahane: "Sultanın kolunda yaşamaktan vazgeçmez.", gorev: "Bu hafta evdeki en küçüğün bir isteğini sevinerek yerine getir." },
   { id: "serce", ad: "Serçe", e: "🐦", karakter: "Minik, çekingen, sevimli", bahane: "“Ben çok küçük ve zayıfım, bu yol bana göre değil” der.", gorev: "Bu hafta daha önce hiç denemediğin bir işi dene." },
   { id: "baykus", ad: "Baykuş", e: "🦉", karakter: "Sessiz, yalnız, meraklı", bahane: "Yıkıntılarda gizli hazine bekler, köşesinden çıkmaz.", gorev: "Bu hafta aileye bir oyun ya da etkinlik teklif et." },
-  { id: "huma", ad: "Hüma", e: "✨", karakter: "İhtişamlı, övgüye düşkün", bahane: "Gölgesinin düştüğü kişinin padişah olduğunu söyler, şöhretine güvenir.", gorev: "Bu hafta birinden yeni bir şey öğren ve ona teşekkür et." }
+  { id: "huma", ad: "Hüma", e: "✨", karakter: "İhtişamlı, övgüye düşkün", bahane: "Herkesin kendisine hayran olmasını ister, şöhretine güvenir.", gorev: "Bu hafta birinden yeni bir şey öğren ve ona teşekkür et." }
 ];
 
 /* Bahane Avcısı: k = kuş id, b = canlandırılacak bahane, c = Hüdhüd'ün cevabı, h = hayattaki karşılığı, y = yetişkin sürümü */
@@ -143,7 +143,7 @@ const BAHANE_KARTLARI = [
   { k: "baykus", b: "Köşemden çıkmam, burada bir hazine var!", c: "Asıl hazine, birlikte uçtuğun dostlarındır.", h: "Odadan çıkıp aileye katılmak", y: "Çalışma odamdan çıkamam, işim var." },
   { k: "baykus", b: "Ben kimseyle konuşmam, selam bile vermem!", c: "Selam veren kuşun dostu çok olur.", h: "Selam verip sohbet etmek", y: "Komşularla tanışmama gerek yok." },
   { k: "baykus", b: "Kimse beni anlamıyor, ben tek başıma takılırım!", c: "Derdini paylaşan kuşun kanadı hafifler.", h: "Duygularını ailesiyle paylaşmak", y: "Kimseye dert anlatmam, kendim hallederim." },
-  { k: "huma", b: "Gölgem kimin üstüne düşerse o kral olur, ben zaten en iyisiyim!", c: "Kendini en iyi sanan yolda durur; öğrenmeye devam eden ileri gider.", h: "Öğrenmeye açık olmak", y: "Ben bunu zaten bilirim, anlatmana gerek yok." },
+  { k: "huma", b: "Herkes bana hayran, ben zaten en iyisiyim!", c: "Kendini en iyi sanan yolda durur; öğrenmeye devam eden ileri gider.", h: "Öğrenmeye açık olmak", y: "Ben bunu zaten bilirim, anlatmana gerek yok." },
   { k: "huma", b: "Ben hiç hata yapmam, hata hep başkasında!", c: "Hatasını kabul eden kuş daha yükseğe uçar.", h: "Özür dilemek", y: "Ben yanılmam, sen yanlış anladın." },
   { k: "huma", b: "Kaybedersem oyunu bozarım, ben hep kazanmalıyım!", c: "Kazanmak güzeldir, ama birlikte oynamak daha güzeldir.", h: "Kaybetmeyi kabullenmek", y: "Tartışmada son sözü hep ben söylerim." }
 ];
@@ -163,7 +163,7 @@ const VADILER = [
     giris: "İstiğna Vadisi'ndeyiz. Burada kuşlar azla yetinmeyi öğrenir. Kimseyi kıskanmayan kalp, en zengin kalptir.",
     nas: { tur: "hadis", text: "Zenginlik mal çokluğu değil, gönül zenginliğidir.", ref: "Buhârî, Rikâk 15; Müslim, Zekât 120" } },
   { id: "tevhid", ad: "Tevhid Vadisi", e: "🪿", color: "--firuze", kaynak: "annebaba", desc: "Birlikte olmak, ayrılmamak",
-    giris: "Tevhid Vadisi! Burada bütün kuşlar tek bir sürü gibi uçar. Birlikte olunca yol kısalır, yük hafifler. Kanat kanada verin!",
+    giris: "Tevhid Vadisi! Tevhid, Allah'ın bir olduğuna inanmaktır; O'na inanan kalpler de birbirine kenetlenir. Burada bütün kuşlar tek bir sürü gibi uçar. Birlikte olunca yol kısalır, yük hafifler. Kanat kanada verin!",
     nas: { tur: "ayet", text: "Hep birlikte Allah'ın ipine sımsıkı sarılın, ayrılmayın.", ref: "Âl-i İmrân Suresi, 103. ayet" } },
   { id: "hayret", ad: "Hayret Vadisi", e: "🌌", color: "--lale", kaynak: "sukur", desc: "Yaratılışa hayran kalmak",
     giris: "Hayret Vadisi'ne hoş geldiniz. Burada kuşlar gökyüzüne, denize, bir yaprağa bakıp hayran kalır. Durun ve dinleyin: her şey Allah'ı anar.",
@@ -201,12 +201,12 @@ const S2_SOZ = {
   bahaneKendi: "Kendi kuşunun bahanesini yendin!",
   finaleGecis: "Yedi vadiyi geçtiniz! Kanatlarınız yoruldu ama kalpleriniz büyüdü. İşte Kaf Dağı. Haydi, son kez birlikte uçalım.",
   f1: "Başardınız! Yola çıkan nice kuştan siz buraya kadar geldiniz.",
-  f2: "Hep bir güzelliği aradık. Acaba nerede?",
-  f3: "Şu göle bakın. Ne görüyorsunuz?",
-  f4: "Göle sırayla bakalım. Herkes kendi yansımasını görsün.",
+  f2: "Bu yolculukta neyi aradık? Allah'ın sevdiği güzel ahlakı.",
+  f3: "Şu berrak göle bakın. Yolculuğa başladığımız günü hatırlıyor musunuz?",
+  f4: "Göle sırayla bakalım: yol boyunca nasıl değiştiğimizi görelim.",
   yolaCikti: "Yola çıkman en zor adımdı, sen o adımı attın.",
   bahaneniYendin: "Bahaneni yendin!",
-  f5: "Aradığımız güzellik uzaklarda değildi. Yol boyunca birbirimize yaptığımız iyiliklerde büyüdü. Kalpleriniz artık daha geniş, kanatlarınız daha güçlü.",
+  f5: "Allah'ın sevdiği güzel ahlak, yol boyunca birbirimize yaptığımız iyiliklerde büyüdü. Kalpleriniz artık daha geniş, kanatlarınız daha güçlü. Asıl karşılığı ise Allah katındadır.",
   f6: "Şimdi herkes, yolculukta kendisine en çok yardım eden kuşa teşekkür etsin.",
   f7: "Kuşların Yolculuğu tamamlandı! Bu minyatür sizin.",
   f8: "Allah yolumuzu hep hayra çıkarsın. Bir dahaki yolculukta görüşmek üzere!"
@@ -235,7 +235,7 @@ Object.assign(SENOLSAN, {
     { e: "👵", s: "Ninen telefonda seni çok özlediğini söyledi ama sen oyunun ortasındasın. Ne yaparsın?", i: "Sevdiklerimize vakit ayırmak, sevginin en güzel dilidir." },
     { e: "🧸", s: "Kardeşin en sevdiğin oyuncağı yanlışlıkla kırdı ve çok üzgün, ağlıyor. Ne yaparsın?", i: "Sevgi, kızgınken bile kalbi yumuşak tutabilmektir." },
     { e: "🍳", s: "Kahvaltıyı hep annen ya da baban hazırlıyor. Bir sabah herkesten erken uyandın. Ne yaparsın?", i: "Sevdiklerimizin yükünü hafifletmek, sevgiyi göstermenin en güzel yoludur." },
-    { e: "💌", s: "Sınıfa yeni gelen çocukla kimse ilgilenmiyor. Ne yaparsın?", i: "Peygamberimiz “Birbirinizi sevmedikçe iman etmiş olmazsınız” buyurdu. (Müslim)" }
+    { e: "💌", s: "Sınıfa yeni gelen çocukla kimse ilgilenmiyor. Ne yaparsın?", i: "Peygamberimiz (s.a.v.) “Birbirinizi sevmedikçe iman etmiş olmazsınız” buyurdu. (Müslim)" }
   ],
   "v-marifet": [
     { e: "🌧️", s: "Piknik günü yağmur yağdı. Kardeşin “Yağmur kötü!” diye ağlıyor. Ona ne anlatırsın?", i: "Her şeyin bir hikmeti vardır. Yağmur, tarlalara ve ağaçlara can verir." },
@@ -246,7 +246,7 @@ Object.assign(SENOLSAN, {
     { e: "🐝", s: "Bir arı sana yaklaştı ve kaçmak istedin. Arıların dünyaya ne faydası var, biliyor musun?", i: "Arılar çiçekleri tozlaştırır ve bal yapar; Kur'an'da arının adını taşıyan Nahl Suresi vardır. Her canlının bir görevi vardır." }
   ],
   "v-istigna": [
-    { e: "📱", s: "Sınıfta birçok arkadaşının yeni bir telefonu var, seninki yok. Ne hissedersin, ne yaparsın?", i: "Peygamberimiz “Zenginlik mal çokluğu değil, gönül zenginliğidir” buyurdu. (Buhârî, Müslim)" },
+    { e: "📱", s: "Sınıfta birçok arkadaşının yeni bir telefonu var, seninki yok. Ne hissedersin, ne yaparsın?", i: "Peygamberimiz (s.a.v.) “Zenginlik mal çokluğu değil, gönül zenginliğidir” buyurdu. (Buhârî, Müslim)" },
     { e: "🎁", s: "Bayramda kardeşine senden daha büyük bir hediye geldi. Ne yaparsın?", i: "Kardeşinin sevincine sevinmek, kıskançlığı yenmenin en güzel yoludur." },
     { e: "🍲", s: "Akşam yemeğinde pek sevmediğin bir yemek var ama dolapta abur cubur da var. Ne yaparsın?", i: "Sofradaki nimete şükredip yetinmek, kalbi zenginleştirir." },
     { e: "🧸", s: "Oyuncak dükkânında bir şey gördün ve “Hemen alalım!” diye tutturdun. Ama evde bir sürü oyuncağın var. Ne düşünürsün?", i: "Her istediğimize sahip olmasak da, sahip olduklarımızla mutlu olabiliriz." },
@@ -270,7 +270,7 @@ Object.assign(SENOLSAN, {
     { e: "🍎", s: "Bir elmayı ikiye kestin ve çekirdeklerini gördün. Bu küçük çekirdekten ne çıkabilir?", i: "Minicik bir çekirdekten koca bir ağaç çıkar. Bu, düşünenler için büyük bir işarettir." }
   ],
   "v-fakr": [
-    { e: "🏅", s: "Bir yarışmayı kazandın ve herkes seni övüyor. Kaybeden arkadaşın da orada. Ne yaparsın?", i: "Peygamberimiz “Allah için tevazu göstereni Allah yüceltir” buyurdu. (Müslim)" },
+    { e: "🏅", s: "Bir yarışmayı kazandın ve herkes seni övüyor. Kaybeden arkadaşın da orada. Ne yaparsın?", i: "Peygamberimiz (s.a.v.) “Allah için tevazu göstereni Allah yüceltir” buyurdu. (Müslim)" },
     { e: "🙇", s: "Bir hata yaptın ve özür dilemen gerekiyor ama utanıyorsun. Ne yaparsın?", i: "Özür dileyebilmek, alçakgönüllü bir kalbin işaretidir." },
     { e: "🎨", s: "Yaptığın resim çok beğenildi, ama fikir aslında kardeşindi. Ne dersin?", i: "Hakkı sahibine vermek ve “Biz yaptık” diyebilmek tevazudur." },
     { e: "👟", s: "Okulda bir çocukla eski ayakkabıları yüzünden dalga geçiliyor. Ne yaparsın?", i: "Kimseyi küçük görmemek gerekir; insanın değeri eşyasında değil, kalbindedir." },
