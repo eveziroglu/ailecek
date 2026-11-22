@@ -26,49 +26,49 @@ Aile üyelerinin kuş simgesi (Kuşların Yolculuğu).
 **avatar-bulbul** · Bülbül
 
 ```text
-Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Round avatar medallion with a thin gold rim, a cute nightingale holding a small red rose bird portrait from the chest up, same art style and proportions as the Hudhud hoopoe mascot, plain soft background in pale pomegranate, no text, no letters, no people
+Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Round avatar medallion with a thin gold rim, a cute nightingale holding a small red rose, portrait from the chest up, same art style and proportions as the Hudhud hoopoe mascot, plain soft background in pale pomegranate, no text, no letters, no people
 ```
 
 **avatar-papagan** · Papağan
 
 ```text
-Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Round avatar medallion with a thin gold rim, a cute green parrot bird portrait from the chest up, same art style and proportions as the Hudhud hoopoe mascot, plain soft background in pale emerald, no text, no letters, no people
+Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Round avatar medallion with a thin gold rim, a cute green parrot, portrait from the chest up, same art style and proportions as the Hudhud hoopoe mascot, plain soft background in pale emerald, no text, no letters, no people
 ```
 
 **avatar-tavus** · Tavus
 
 ```text
-Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Round avatar medallion with a thin gold rim, a cute peacock with a fanned tail bird portrait from the chest up, same art style and proportions as the Hudhud hoopoe mascot, plain soft background in pale turquoise, no text, no letters, no people
+Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Round avatar medallion with a thin gold rim, a cute peacock with a fanned tail, portrait from the chest up, same art style and proportions as the Hudhud hoopoe mascot, plain soft background in pale turquoise, no text, no letters, no people
 ```
 
 **avatar-keklik** · Keklik
 
 ```text
-Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Round avatar medallion with a thin gold rim, a cute partridge with a tiny gemstone bird portrait from the chest up, same art style and proportions as the Hudhud hoopoe mascot, plain soft background in pale gold, no text, no letters, no people
+Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Round avatar medallion with a thin gold rim, a cute partridge with a tiny gemstone, portrait from the chest up, same art style and proportions as the Hudhud hoopoe mascot, plain soft background in pale gold, no text, no letters, no people
 ```
 
 **avatar-sahin** · Şahin
 
 ```text
-Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Round avatar medallion with a thin gold rim, a cute proud falcon bird portrait from the chest up, same art style and proportions as the Hudhud hoopoe mascot, plain soft background in pale cobalt, no text, no letters, no people
+Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Round avatar medallion with a thin gold rim, a cute proud falcon, portrait from the chest up, same art style and proportions as the Hudhud hoopoe mascot, plain soft background in pale cobalt, no text, no letters, no people
 ```
 
 **avatar-serce** · Serçe
 
 ```text
-Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Round avatar medallion with a thin gold rim, a cute tiny sparrow bird portrait from the chest up, same art style and proportions as the Hudhud hoopoe mascot, plain soft background in pale tulip purple, no text, no letters, no people
+Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Round avatar medallion with a thin gold rim, a cute tiny sparrow, portrait from the chest up, same art style and proportions as the Hudhud hoopoe mascot, plain soft background in pale tulip purple, no text, no letters, no people
 ```
 
 **avatar-baykus** · Baykuş
 
 ```text
-Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Round avatar medallion with a thin gold rim, a cute wise little owl bird portrait from the chest up, same art style and proportions as the Hudhud hoopoe mascot, plain soft background in pale night blue, no text, no letters, no people
+Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Round avatar medallion with a thin gold rim, a cute wise little owl, portrait from the chest up, same art style and proportions as the Hudhud hoopoe mascot, plain soft background in pale night blue, no text, no letters, no people
 ```
 
 **avatar-huma** · Hüma
 
 ```text
-Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Round avatar medallion with a thin gold rim, a cute golden mythical huma bird bird portrait from the chest up, same art style and proportions as the Hudhud hoopoe mascot, plain soft background in pale gold, no text, no letters, no people
+Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Round avatar medallion with a thin gold rim, a cute golden mythical huma bird, portrait from the chest up, same art style and proportions as the Hudhud hoopoe mascot, plain soft background in pale gold, no text, no letters, no people
 ```
 
 </details>
@@ -95,61 +95,61 @@ Oyun kartlarının başlığı ve çark.
 **ikon-pandomim** · Kıssa Pandomimi
 
 ```text
-Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, a single pair of theatre masks made of soft paper, one smiling centered inside a mihrab arch shaped badge filled with pomegranate red #C4362E and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people
+Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, a single pair of theatre masks made of soft paper, one smiling, centered inside a mihrab arch shaped badge filled with pomegranate red #C4362E and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people
 ```
 
 **ikon-bilgi** · Bil Bakalım
 
 ```text
-Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, a single glowing oil lamp with a small light bulb shaped flame centered inside a mihrab arch shaped badge filled with cobalt blue #2747B5 and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people
+Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, a single glowing oil lamp with a small light bulb shaped flame, centered inside a mihrab arch shaped badge filled with cobalt blue #2747B5 and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people
 ```
 
 **ikon-ses** · Ses Taklidi
 
 ```text
-Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, a single rooster crowing with curved sound waves centered inside a mihrab arch shaped badge filled with saffron gold #EAA214 and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people
+Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, a single rooster crowing with curved sound waves, centered inside a mihrab arch shaped badge filled with saffron gold #EAA214 and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people
 ```
 
 **ikon-senolsan** · Sen Olsan?
 
 ```text
-Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, a single two speech bubbles, one with a question mark shape made of a tulip centered inside a mihrab arch shaped badge filled with emerald #1C7A4C and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people
+Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, two speech bubbles, one with a question mark shape made of a tulip, centered inside a mihrab arch shaped badge filled with emerald #1C7A4C and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people
 ```
 
 **ikon-hoca** · Küçük Hoca
 
 ```text
-Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, a single small wooden rahle book stand with an open book and a pointer stick centered inside a mihrab arch shaped badge filled with turquoise #0B7A77 and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people
+Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, a single small wooden rahle book stand with an open book and a pointer stick, centered inside a mihrab arch shaped badge filled with turquoise #0B7A77 and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people
 ```
 
 **ikon-saskin** · Şaşkın Ebeveyn
 
 ```text
-Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, a single upside-down slipper and a tilted teacup, playful mess centered inside a mihrab arch shaped badge filled with tulip purple #7340BD and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people
+Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, a single upside-down slipper and a tilted teacup, playful mess, centered inside a mihrab arch shaped badge filled with tulip purple #7340BD and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people
 ```
 
 **ikon-hizli** · Hızlı Tur
 
 ```text
-Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, a single hourglass with sand pouring fast and small motion lines centered inside a mihrab arch shaped badge filled with saffron gold #EAA214 and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people
+Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, a single hourglass with sand pouring fast and small motion lines, centered inside a mihrab arch shaped badge filled with saffron gold #EAA214 and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people
 ```
 
 **ikon-kalkotur** · Kalk-Otur
 
 ```text
-Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, a single two small cushions, one bouncing up with a spring centered inside a mihrab arch shaped badge filled with cobalt blue #2747B5 and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people
+Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, two small cushions, one bouncing up with a spring, centered inside a mihrab arch shaped badge filled with cobalt blue #2747B5 and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people
 ```
 
 **ikon-hayvan** · Hayvan Yürüyüşü
 
 ```text
-Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, a single row of animal footprints: elephant, camel, frog centered inside a mihrab arch shaped badge filled with emerald #1C7A4C and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people
+Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, a row of animal footprints: elephant, camel, frog, centered inside a mihrab arch shaped badge filled with emerald #1C7A4C and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people
 ```
 
 **ikon-bahane** · Bahane Avcısı
 
 ```text
-Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, a single a single long feather crossing a small question bubble centered inside a mihrab arch shaped badge filled with cobalt blue #2747B5 and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people
+Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, a single long feather crossing a small question bubble, centered inside a mihrab arch shaped badge filled with cobalt blue #2747B5 and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people
 ```
 
 </details>
