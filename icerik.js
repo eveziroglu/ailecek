@@ -1,5 +1,5 @@
 /* Sürüm etiketi: node surum.mjs ile güncellenir; index.html ile aynı olmalı. */
-const ICERIK_SURUM = "20261122-1526";
+const ICERIK_SURUM = "20261122-1804";
 /* Ailecek oyun içeriği.
    Yeni kart eklemek için ilgili listeye bir satır eklemeniz yeterli.
    Bil Bakalım'da ilk seçenek doğru cevaptır (oyunda karıştırılır).
@@ -20,10 +20,10 @@ const GAMES = {
   bilgi: { name: "Bil Bakalım", color: "--cini", ico: "💡", short: "Doğru cevabı bul!" },
   ses: { name: "Ses Taklidi", color: "--kandil", ico: "🔊", short: "Herkes gözünü kapatsın, sadece ses!" },
   senolsan: { name: "Sen Olsan?", color: "--zumrut", ico: "🤔", short: "Sen olsan ne yapardın?" },
-  hoca: { name: "Küçük Hoca", color: "--firuze", ico: "🧑‍🏫", short: "Öğretmen sensin, soruyu sen sor!" },
+  hoca: { name: "Küçük Hoca", color: "--firuze", ico: "🎓", short: "Öğretmen sensin, soruyu sen sor!" },
   saskin: { name: "Şaşkın Ebeveyn", color: "--lale", ico: "🙃", short: "Hatalar yapacak, sen yakala!" },
   hizli: { name: "Hızlı Tur", color: "--kandil", ico: "⚡", short: "30 saniyede hep birlikte sayın!" },
-  kalkotur: { name: "Kalk-Otur", color: "--cini", ico: "🙋", short: "Doğruysa zıpla, yanlışsa çömel!" },
+  kalkotur: { name: "Kalk-Otur", color: "--cini", ico: "🦘", short: "Doğruysa zıpla, yanlışsa çömel!" },
   hayvan: { name: "Hayvan Yürüyüşü", color: "--zumrut", ico: "🐾", short: "Hayvan gibi yürü, DUR deyince don!" },
   bilmece: { name: "Bilmece", color: "--lale", ico: "❓", short: "Bilmecem bilmece, bil bakalım ne?" },
   sirala: { name: "Kıssa Sıralama", color: "--firuze", ico: "🔢", short: "Olayları doğru sıraya dizin!" },
@@ -125,7 +125,7 @@ const PANDOMIM = [
   { w: "Esen rüzgâr", e: "🌬️", kolay: true, info: "Allah rüzgârı Hz. Süleyman'ın emrine verdi. (Sebe, 12)" },
   { w: "Misvakla diş fırçalamak", e: "🪥", kolay: true, info: "Peygamberimiz (s.a.v.) misvakı çok severdi ve sık sık kullanırdı. (Buhârî)" },
   { w: "Fidan dikmek", e: "🌳", kolay: true, info: "Peygamberimiz (s.a.v.), kıyamet kopacağı sırada bile elinde bir fidan olanın onu dikmesini tavsiye etti. (Ahmed b. Hanbel)" },
-  { w: "Bayramda el öpmek", e: "🍬", kolay: true, info: "Bayramlarda büyükleri ziyaret etmek, el öpmek ve küçükleri sevindirmek güzel bir gelenektir." },
+  { w: "Bayramda el öpüp şeker almak", e: "🍬", kolay: true, info: "Bayramlarda büyükleri ziyaret etmek, el öpmek ve küçükleri sevindirmek güzel bir gelenektir." },
   { w: "Yoldaki taşı kaldırmak", e: "🪨", kolay: true, info: "Peygamberimiz (s.a.v.) yoldan insanlara eziyet veren bir şeyi kaldırmanın sadaka olduğunu söyledi. (Buhârî, Müslim)" }
 ];
 
@@ -140,23 +140,23 @@ const BILGI = {
     { q: "Ramazan'da ne yaparız?", o: [["Oruç tutarız","🌙"],["Kardan adam yaparız","⛄"],["Uçağa bineriz","✈️"]] },
     { q: "Hz. Nuh'un gemisine hangileri bindi?", o: [["Hayvanlar ve inananlar","🦒"],["Arabalar","🚗"],["Robotlar","🤖"]] },
     { q: "Camiye ne için gideriz?", o: [["Namaz kılmak","🕌"],["Top oynamak","⚽"],["Uyumak","🛏️"]] },
-    { q: "Namaz kılmadan önce ne yaparız?", o: [["Abdest alırız","💧"],["Dondurma yeriz","🍦"],["Dans ederiz","💃"]] },
+    { q: "Namaz kılmadan önce ne yaparız?", o: [["Abdest alırız","💧"],["Dondurma yeriz","🍦"],["Dans ederiz","🎶"]] },
   { q: "Dua ederken ellerimizi nasıl tutarız?", o: [["Avuçlarımızı açarız", "🤲"], ["Alkışlarız", "👏"], ["El sallarız", "👋"]] },
-    { q: "Kardeşin ağlarsa ne yaparız?", o: [["Sarılırız","🤗"],["Güleriz","😂"],["Kaçarız","🏃"]] },
+    { q: "Kardeşin ağlarsa ne yaparız?", o: [["Sarılırız","🤗"],["Güleriz","😂"],["Kaçarız","💨"]] },
     { q: "Bayramda büyüklerimizin neyini öperiz?", o: [["Elini","✋"],["Ayağını","🦶"],["Kulağını","👂"]] },
     { q: "Yerde çöp görürsek ne yaparız?", o: [["Çöp kutusuna atarız","🗑️"],["Tekmeleriz","⚽"],["Üstüne basarız","👟"]] },
     { q: "Hz. Yunus'u kim yuttu?", o: [["Büyük balık","🐋"],["Kedi","🐱"],["Kuş","🐦"]] },
     { q: "Bal yapan hayvan hangisi? Kur'an'da onun adını taşıyan bir sure var!", o: [["Arı","🐝"],["Kelebek","🦋"],["Uğur böceği","🐞"]] },
-    { q: "Uyumadan önce ne yaparız?", o: [["Dua ederiz","🤲"],["Zıplarız","🤸"],["Bağırırız","📢"]] },
+    { q: "Uyumadan önce ne yaparız?", o: [["Dua ederiz","🤲"],["Zıplarız","🦘"],["Bağırırız","📢"]] },
     { q: "Biri bize hediye verince ne deriz?", o: [["Teşekkür ederim","🎁"],["Bana ne","🙄"],["Hiçbir şey","😶"]] },
     { q: "Dişlerimizi neyle temizleriz?", o: [["Misvak ya da diş fırçası","🪥"],["Tarak","🪮"],["Kaşık","🥄"]] },
     { q: "Sabah uyanınca ne deriz?", o: [["Elhamdülillah","🌅"],["Of, yine mi sabah","😫"],["Hoşça kal","👋"]] },
     { q: "Müezzin ezanı nerede okur?", o: [["Camide","🕌"],["Uçakta","✈️"],["Gemide","🚢"]] },
-    { q: "Su içerken nasıl içeriz?", o: [["Oturarak, Bismillah diyerek","🥛"],["Koşarken","🏃"],["Baş aşağı","🙃"]] },
+    { q: "Su içerken nasıl içeriz?", o: [["Oturarak, Bismillah diyerek","🥛"],["Koşarken","💨"],["Baş aşağı","🙃"]] },
     { q: "Hangi elimizle yemek yeriz?", o: [["Sağ elimizle","🫱"],["Ayağımızla","🦶"],["Dirseğimizle","💪"]] },
     { q: "Misafir gelince ne yaparız?", o: [["İkram ederiz","🍵"],["Saklanırız","🙈"],["Kapıyı kapatırız","🚪"]] },
     { q: "Annemiz yorulunca ne yaparız?", o: [["Yardım ederiz","🧺"],["Daha çok dağıtırız","🧸"],["Ağlarız","😭"]] },
-    { q: "Bir şeyi kırınca ne yaparız?", o: [["Doğruyu söyleriz","🗣️"],["Saklarız","🫣"],["Kardeşimizi suçlarız","👉"]] },
+    { q: "Bir şeyi kırınca ne yaparız?", o: [["Doğruyu söyleriz","💬"],["Saklarız","🫣"],["Kardeşimizi suçlarız","👉"]] },
     { q: "Yuvasına yiyecek taşıyan, Kur'an'da adını taşıyan bir sure olan küçük hayvan hangisi?", o: [["Karınca","🐜"],["Penguen","🐧"],["Dinozor","🦖"]], info: "Neml, yani Karınca Suresi." },
     { q: "Oruçlu biri akşam ezanı okununca ne yapar?", o: [["İftar yapar","🍲"],["Uyur","😴"],["Okula gider","🎒"]] },
     { q: "Kurban Bayramı'nda hangi hayvan kurban edilir?", o: [["Koyun","🐑"],["Kedi","🐈"],["Tavuk","🐔"]], info: "Koyun, keçi, sığır ve deve kurban edilir." },
@@ -268,7 +268,7 @@ const SENOLSAN = {
     { e: "🥬", s: "Annen en sevmediğin yemeği yaptı: ıspanak! Sofrada ne yaparsın?", i: "Peygamberimiz (s.a.v.) hiçbir yemeği ayıplamazdı. Canı isterse yer, istemezse sessizce bırakırdı. (Buhârî, Müslim)" },
     { e: "☔", s: "Yağmur yağdı ve beklediğin piknik iptal oldu. Ne dersin?", i: "Yağmur da Allah'ın bir rahmetidir. İstediğimiz olmasa da “Elhamdülillah” diyebiliriz." },
     { e: "📱", s: "Arkadaşının yepyeni bir telefonu var, seninki eski ve çizik. İçinden ne geçer?", i: "Peygamberimiz (s.a.v.) “Sizden aşağıda olana bakın, üstünüzde olana bakmayın. Bu, Allah'ın nimetlerini küçümsememeniz için daha uygundur” buyurdu. (Müslim)" },
-    { e: "🏃", s: "Sabah uyandın: gözlerin görüyor, kulakların duyuyor, bacakların koşuyor. Bunlardan hangisi olmasa en çok zorlanırdın?", i: "Her sabah uyandığımızda “Elhamdülillah” demek, bu nimetleri hatırlamanın en güzel yoludur." },
+    { e: "🌅", s: "Sabah uyandın: gözlerin görüyor, kulakların duyuyor, bacakların koşuyor. Bunlardan hangisi olmasa en çok zorlanırdın?", i: "Her sabah uyandığımızda “Elhamdülillah” demek, bu nimetleri hatırlamanın en güzel yoludur." },
     { e: "🕯️", s: "Elektrikler kesildi; tablet yok, televizyon yok, mum ışığında oturuyorsunuz. Ne yaparsınız?", i: "Bazen bir nimetin değerini o nimet gidince anlarız. Bu, ailece sohbet etmek için güzel bir fırsat olabilir." },
     { e: "🧶", s: "Ninen sana kendi ördüğü kocaman, rengârenk bir kazak gönderdi. Biraz kaşındırıyor! Ninene ne dersin?", i: "Emeğe teşekkür etmek çok kıymetlidir. Hediyenin arkasındaki sevgiyi görmek de şükürdür." },
     { e: "🍞", s: "Kahvaltıda en sevmediğin peynir var, en sevdiğin reçel de bitmiş. Ne dersin?", i: "Sofradaki nimetleri görüp “Elhamdülillah” demek. Peygamberimiz (s.a.v.) hiçbir yemeği ayıplamazdı (Buhârî, Et'ime 21)." },
@@ -288,14 +288,14 @@ const SENOLSAN = {
     { e: "🌱", s: "Ektiğin tohum bir haftadır filiz vermedi. Ne yaparsın?", i: "Her şeyin bir vakti var. Sulamaya devam etmek sabırdır." }
   ],
   merhamet: [
-    { e: "🧍", s: "Sınıfa yeni gelen bir öğrenci teneffüste tek başına duruyor. Ne yaparsın?", i: "Güler yüz göstermek bile sadakadır. (Tirmizî)" },
+    { e: "🏫", s: "Sınıfa yeni gelen bir öğrenci teneffüste tek başına duruyor. Ne yaparsın?", i: "Güler yüz göstermek bile sadakadır. (Tirmizî)" },
     { e: "🐱", s: "Sokakta, susuzluktan dili dışarıda bir kedi gördün. Ne yaparsın?", i: "Peygamberimiz (s.a.v.), susamış bir köpeğe su veren adamı Allah'ın bağışladığını anlattı. (Buhârî, Müslim)" },
     { e: "🤒", s: "Kardeşin hasta ve bugün tablet onun sırasıydı. Sen alabilirsin, kimse bir şey demez. Ne yaparsın?", i: "Hastayı sevindirmek ve ona hizmet etmek çok güzel bir iyiliktir." },
     { e: "😢", s: "Arkadaşın sınavdan düşük aldı ve ağlıyor, bazıları da ona gülüyor. Ne yaparsın?", i: "Müslüman, müslümanın kardeşidir. Onu yalnız bırakmaz. (Buhârî, Müslim)" },
-    { e: "👴", s: "Deden telefonda aynı şeyi sana beşinci kez soruyor. Ne yaparsın?", i: "Peygamberimiz (s.a.v.) “Küçüklerimize merhamet etmeyen, büyüklerimize saygı göstermeyen bizden değildir” buyurdu. (Tirmizî)" },
+    { e: "☎️", s: "Deden telefonda aynı şeyi sana beşinci kez soruyor. Ne yaparsın?", i: "Peygamberimiz (s.a.v.) “Küçüklerimize merhamet etmeyen, büyüklerimize saygı göstermeyen bizden değildir” buyurdu. (Tirmizî)" },
     { e: "🐦", s: "Bahçede kanadı kırık bir kuş buldun. Ne yaparsın?", i: "Peygamberimiz (s.a.v.) yavrusu alınan bir kuşun telaşını görünce “Yavrusunu ona geri verin” buyurdu. (Ebû Dâvûd)" },
     { e: "🛍️", s: "Mahallede yaşlı bir teyze ağır alışveriş poşetleriyle yürüyor. Ne yaparsın?", i: "Büyüklere yardım etmek, merhametin en güzel hâllerinden biridir." },
-    { e: "🧓", s: "Komşunuz yaşlı amca hasta ve evden çıkamıyor. Ne yaparsın?", i: "Ona yemek götürmek ve hâlini sormak merhamettir. Hasta ziyareti çok sevaplı bir iştir." },
+    { e: "🏘️", s: "Komşunuz yaşlı amca hasta ve evden çıkamıyor. Ne yaparsın?", i: "Ona yemek götürmek ve hâlini sormak merhamettir. Hasta ziyareti çok sevaplı bir iştir." },
     { e: "🚌", s: "Otobüste yaşlı bir teyze ayakta kaldı, sen oturuyorsun. Ne yaparsın?", i: "Yerini vermek merhametin ve saygının güzel bir örneğidir." },
     { e: "🐶", s: "Arkadaşların bir köpeğe taş atıyor. Ne yaparsın?", i: "Onları nazikçe durdurmak. Hayvanlara eziyet etmek günahtır, onlara iyilik etmek sevaptır." }
   ],
@@ -544,7 +544,7 @@ const ROZETLER = [
   { id: "pandomim", e: "🎭", ad: "Pandomim Ustası", nasil: "On pandomim kartını bildirin.", olcut: "pandomim", hedef: 10 },
   { id: "ses", e: "🔊", ad: "Ses Sihirbazı", nasil: "On ses taklidini bildirin.", olcut: "ses", hedef: 10 },
   { id: "bilge", e: "💡", ad: "Bilge Aile", nasil: "Bil Bakalım'da 25 doğru cevap verin.", olcut: "correct", hedef: 25 },
-  { id: "hoca", e: "🧑‍🏫", ad: "Küçük Hocalar", nasil: "Küçük Hoca turunda büyükleri üç kez şaşırtın.", olcut: "hocaWins", hedef: 3 },
+  { id: "hoca", e: "🎓", ad: "Küçük Hocalar", nasil: "Küçük Hoca turunda büyükleri üç kez şaşırtın.", olcut: "hocaWins", hedef: 3 },
   { id: "heykel", e: "🗿", ad: "Heykel Ustaları", nasil: "Beş Hayvan Yürüyüşü tamamlayın.", olcut: "hayvan", hedef: 5 },
   { id: "dedektif", e: "🔍", ad: "Dedektif Ailesi", nasil: "Açılış Töreni'nde üç gizli dostu doğru tahmin edin.", olcut: "detective", hedef: 3 },
   { id: "gizli-dost", e: "💌", ad: "Gizli Dostlar", nasil: "On gizli iyilik yapın.", olcut: "deeds", hedef: 10 },
@@ -644,13 +644,13 @@ const FARKLI = [
    İlham: Gazâlî, İhyâu Ulûmi'd-Dîn (Mühlikât ve Münciyât) ve Kimyâ-yı Saâdet. Her kalp hastalığı bir yabani ot,
    ilacı bir çiçektir. Bahçe benzetmesi bizimdir. Kalp Doktoru oyunu ve Kalp Bahçesi sezonu bu listeyi kullanır. */
 const KALP_KOSELER = [
-  { id: "kibir", hastalik: "Kibir", ot: "Diken", otE: "🌵", cicek: "Menekşe", cicekE: "💜", ilac: "Tevazu" },
+  { id: "kibir", hastalik: "Kibir", ot: "Diken", otE: "🌵", cicek: "Menekşe", cicekE: "🌸", ilac: "Tevazu" },
   { id: "dil", hastalik: "Kırıcı söz", ot: "Pıtrak", otE: "🌰", cicek: "Gül", cicekE: "🌹", ilac: "Güzel söz" },
   { id: "ofke", hastalik: "Öfke", ot: "Isırgan", otE: "🍃", cicek: "Lavanta", cicekE: "🪻", ilac: "Sabır" },
   { id: "haset", hastalik: "Haset", ot: "Sarmaşık", otE: "🌿", cicek: "Papatya", cicekE: "🌼", ilac: "Kardeşinin sevincine sevinmek" },
   { id: "cimrilik", hastalik: "Cimrilik", ot: "Kuru dal", otE: "🪵", cicek: "Nar fidanı", cicekE: "🌳", ilac: "Cömertlik" },
   { id: "hirs", hastalik: "Hırs", ot: "Ayrık otu", otE: "🌾", cicek: "Kekik", cicekE: "🌱", ilac: "Kanaat" },
-  { id: "riya", hastalik: "Gösteriş", ot: "Yapma çiçek", otE: "🎀", cicek: "Yasemin", cicekE: "🤍", ilac: "İhlas: Allah için yapmak" }
+  { id: "riya", hastalik: "Gösteriş", ot: "Yapma çiçek", otE: "🎀", cicek: "Yasemin", cicekE: "💮", ilac: "İhlas: Allah için yapmak" }
 ];
 
 /* ===== Kalp Doktoru (grup oyunu) =====
@@ -715,7 +715,7 @@ const HIKMETLI = [
     h: "Küçük bir çocuk, elini dar ağızlı bir fındık kavanozuna soktu ve avucunu fındıkla doldurdu. Ama elini çıkarmaya çalışınca çıkaramadı; dolu yumruk kavanozun ağzından geçmiyordu. Ağlamaya başladı. Dedesi yanına geldi: “Avucundakilerin yarısını bırak, elin rahatça çıkar. Yarım avuç fındık da sana yeter.” Çocuk biraz bıraktı ve eli kolayca çıktı.",
     s: "Çocuk neden elini çıkaramadı? Biz de bazen “hepsini” isteyince neyi kaçırırız?",
     c: "Elimizdekiyle yetinmek kalbi rahatlatır. Peygamberimiz (s.a.v.), asıl zenginliğin gönül zenginliği olduğunu bildirmiştir.", r: "Buhârî, Rikâk 15; Müslim, Zekât 120" },
-  { k: "riya", ad: "Gece açan yasemin", e: "🤍", kaynak: "Özgün temsil",
+  { k: "riya", ad: "Gece açan yasemin", e: "💮", kaynak: "Özgün temsil",
     h: "Pazarda iki çiçek satılıyordu. Biri parlak, yaldızlı bir yapma çiçekti; gelen geçen “Ne kadar parlak!” diyordu. Diğeri küçük bir saksıda, beyaz, süssüz bir yasemindi; kimse ona bakmıyordu. Bir aile yasemini alıp bahçesine dikti. O gece, herkes uyurken, karanlıkta yasemin açtı. Kimse görmedi. Ama sabah olunca bütün sokak mis gibi kokuyordu. Yapma çiçek ise vitrinde parlamaya devam etti; tek bir arı bile ona konmadı.",
     s: "Arılar neden yapma çiçeğe konmadı? Yasemin kimse görmezken açtı, kokusu yine de neden her yere yayıldı?",
     c: "İyiliğin değeri niyetindedir. Allah için yapılan iyilik, kimse görmese de güzelliğini yayar. Peygamberimiz (s.a.v.) “Ameller niyetlere göredir” buyurmuştur.", r: "Buhârî, Bed'ü'l-vahy 1; Müslim, İmâre 155" },
@@ -727,7 +727,7 @@ const HIKMETLI = [
     h: "Bir sucunun iki testisi vardı. Biri sağlamdı, öteki çatlak. Çatlak testi her gün yolda suyunun yarısını döküyor ve çok utanıyordu: “Ben hiçbir işe yaramıyorum.” Bir gün sucu ona yolun kenarını gösterdi. Çatlak testinin geçtiği tarafta rengârenk çiçekler açmıştı! “Senin döktüğün suyla buraya tohum ektim. Her gün sen onları suladın.”",
     s: "Çatlak testi kendini neden işe yaramaz sandı? Senin eksik sandığın bir yanın nasıl bir güzelliğe dönüşebilir?",
     c: "Herkesin bir eksiği vardır ve Allah her birimize başka bir güzellik vermiştir. Ne kendimizi ne de başkalarını küçük görürüz." },
-  { ad: "Yaşlı adamın fidanı", e: "🌰", kaynak: "Halk hikâyesi",
+  { ad: "Yaşlı adamın fidanı", e: "🌱", kaynak: "Halk hikâyesi",
     h: "Yaşlı bir adam bahçesine ceviz fidanı dikiyordu. Yoldan geçen biri güldü: “Ceviz ağacı yıllar sonra meyve verir. Sen o günleri göremezsin ki!” Yaşlı adam gülümsedi: “Bizden öncekiler dikti, biz yedik. Şimdi biz dikelim, bizden sonrakiler yesin.”",
     s: "Yaşlı adam meyvesini yiyemeyecekse neden fidan dikti?",
     c: "İyilik yalnızca bugün için yapılmaz. Peygamberimiz (s.a.v.), bir müslümanın diktiği ağaçtan insanlar ve hayvanlar yedikçe bunun ona sadaka olacağını bildirmiştir.", r: "Buhârî, Hars 1; Müslim, Müsâkât 7" },
@@ -796,7 +796,7 @@ const OZEL_GUNLER = [
     oneri: "Bu akşam bir vakit namazı ailece birlikte kılın; küçükler de yanınızda dursun." },
   { id: "berat", e: "🌙", ad: "Berat Kandili", ay: 8, gun: 14, gece: true,
     bilgi: "Şaban ayının on beşinci gecesidir. Müslümanlar bu geceyi dua, tövbe ve ibadetle geçirmeye çalışır.",
-    sorular: ["Bugüne kadar yaptığımız bir hatadan dolayı kimden helallik isteyelim?", "Önümüzdeki yıl için ailece hangi iyiliğe niyet edelim?", "Ramazan'a bir ay kaldı. Ramazan'a nasıl hazırlanalım?"],
+    sorular: ["Bugüne kadar yaptığımız bir hatadan dolayı kimden helallik isteyelim?", "Önümüzdeki yıl için ailece hangi iyiliğe niyet edelim?", "Ramazan'a yaklaşık iki hafta kaldı. Ramazan'a nasıl hazırlanalım?"],
     oneri: "Aile içinde birbirinizden helallik isteyin ve küslükleri bu gece bitirin." },
   { id: "kadir", e: "✨", ad: "Kadir Gecesi", ay: 9, gun: 26, gece: true,
     bilgi: "Kur'an'ın indirilmeye başlandığı gecedir. Kadir Suresi'nde bin aydan daha hayırlı olduğu bildirilir (Kadir, 1-3).",
@@ -823,7 +823,7 @@ const OZEL_GUNLER = [
     sorular: ["Hicret ne demektir, neden önemlidir?", "Yeni yılda ailece hangi güzel alışkanlığa başlayalım?", "Medineliler (Ensar) muhacirlere nasıl yardım etti?"],
     oneri: "Yeni yıl için ailece bir iyilik niyeti yazın ve görünür bir yere asın." },
   { id: "asure", e: "🍲", ad: "Aşure Günü", ay: 1, gun: 10,
-    bilgi: "Muharrem ayının onuncu günüdür. Bu gün oruç tutmak sünnettir; komşulara aşure ikram etmek güzel bir gelenektir.",
+    bilgi: "Muharrem ayının onuncu günüdür. Bu günde, bir gün öncesi ya da sonrasıyla birlikte oruç tutmak sünnettir; komşulara aşure ikram etmek güzel bir gelenektir.",
     sorular: ["Aşurenin içinde neler var? Her biri bir nimet!", "Bu gün hangi komşumuza ikram götürelim?", "Hz. Nuh'un gemisi kıssasını hatırlıyor musun?"],
     oneri: "Ailece aşure pişirin ya da bir tatlı yapıp komşulara dağıtın." }
 ];

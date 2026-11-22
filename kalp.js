@@ -1,5 +1,5 @@
 /* Sürüm etiketi: node surum.mjs ile güncellenir; index.html ile aynı olmalı. */
-const KALP_SURUM = "20261122-1526";
+const KALP_SURUM = "20261122-1804";
 /* ============ ÜÇÜNCÜ SEZON: KALP BAHÇESİ ============
    İlham: İmam Gazâlî, İhyâu Ulûmi'd-Dîn (Mühlikât ve Münciyât bölümleri) ve Kimyâ-yı Saâdet.
    Kalp bir bahçedir: her köşede bir yabani ot (kalp hastalığı) biter, aile onun yerine bir çiçek (ilacı) diker.
@@ -46,7 +46,7 @@ const KALP_ICERIK = {
     muhasebe: "Bugün birine yol verdin mi, sıranı verdin mi, birine yardım ettin mi? Menekşen biraz büyüdü mü?",
     gorevler: ["Her gün evde birine sorulmadan bir hizmet etmek", "Evden çıkarken ve eve girerken selamı ilk veren olmak", "Kazandığın her oyunda rakibine “Güzel oynadın” demek"],
     dua: "Allah'ım, kalplerimizi tevazu ile süsle. Bize verdiğin her güzelliğin senden olduğunu unutturma.",
-    bakim: "Diken köşesine bir bakalım… Ne görüyorum! Dikenin yerinde mor bir menekşe açmış. Yere yakın ama kokusu bütün bahçeye yayılmış. Haydi anlatın: bu hafta menekşeyi kim, nasıl suladı?",
+    bakim: "Diken köşesine bir bakalım… Ne görüyorum! Dikenin yerinde küçük bir menekşe açmış. Yere yakın ama kokusu bütün bahçeye yayılmış. Haydi anlatın: bu hafta menekşeyi kim, nasıl suladı?",
     senolsan: [
       { e: "⚽", s: "Maçta en çok golü sen attın. Takım arkadaşların “Sen olmasan kaybederdik” diyor. Ne dersin?", i: "“Hep birlikte kazandık” demek tevazudur. Allah için tevazu göstereni Allah yüceltir (Müslim, Birr 69)." },
       { e: "🏫", s: "Sınıfa yeni gelen bir öğrenci Türkçeyi iyi konuşamıyor. Bazıları onunla dalga geçiyor. Ne yaparsın?", i: "Kimseyi küçük görmemek ve yeni arkadaşa yardım etmek kalpteki dikeni söker." },
@@ -69,7 +69,7 @@ const KALP_ICERIK = {
     dua: "Allah'ım, dilimizi doğru ve güzel sözle süsle. Sözlerimizle kimsenin kalbini kırmayalım.",
     bakim: "Pıtrak köşesine bakalım… Pıtrakların yerinde bir gül açmış! Güzel söz de gül gibidir, kokusu kalpte kalır. Bu hafta size söylenen en güzel söz hangisiydi?",
     senolsan: [
-      { e: "🗣️", s: "Arkadaşların, o gün okula gelmeyen bir çocuk hakkında gülerek konuşuyor. Ne yaparsın?", i: "Konuyu değiştirmek ya da o arkadaşın güzel bir huyunu söylemek, pıtrağı daha yapışmadan söker." },
+      { e: "💬", s: "Arkadaşların, o gün okula gelmeyen bir çocuk hakkında gülerek konuşuyor. Ne yaparsın?", i: "Konuyu değiştirmek ya da o arkadaşın güzel bir huyunu söylemek, pıtrağı daha yapışmadan söker." },
       { e: "🏺", s: "Vazoyu yanlışlıkla kırdın, kimse görmedi. Annen “Kim kırdı?” diye soruyor. Ne dersin?", i: "Doğruyu söylemek cesaret ister. Doğru söyleyenin kalbi rahat eder." },
       { e: "🖍️", s: "Kardeşin çok heyecanla bir resim yaptı ama pek güzel olmamış. Ne söylersin?", i: "Resmin güzel bir yerini bulup söylemek hem doğrudur hem de kalbi sevindirir." }
     ],

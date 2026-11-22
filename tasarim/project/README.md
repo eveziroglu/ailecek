@@ -59,7 +59,7 @@ Palet İznik çinilerinden gelir. Zemin serin beyaz, metin derin lacivert, vurgu
 
 ## İkonografi ve görseller
 
-- Oyun simgeleri sistem emojisidir: 🎭 Kıssa Pandomimi, 🔊 Ses Taklidi, 💡 Bil Bakalım, 🤔 Sen Olsan?, 🧑‍🏫 Küçük Hoca, 🙃 Şaşkın Ebeveyn, ⚡ Hızlı Tur, 🙋 Kalk-Otur, 🐾 Hayvan Yürüyüşü, 💌 Gizli İyilik.
+- Oyun simgeleri sistem emojisidir: 🎭 Kıssa Pandomimi, 🔊 Ses Taklidi, 💡 Bil Bakalım, 🤔 Sen Olsan?, 🎓 Küçük Hoca, 🙃 Şaşkın Ebeveyn, ⚡ Hızlı Tur, 🙋 Kalk-Otur, 🐾 Hayvan Yürüyüşü, 💌 Gizli İyilik.
 - Logo `assets/Logos/ailecek-mark.svg`; rehber karakter `assets/Characters/hudhud.svg` (uygulamada satır içi SVG olarak canlandırılır).
 - Fotoğraf kullanılmaz. Sahneler emoji, renk blokları ve yıldız deseniyle kurulur.
 

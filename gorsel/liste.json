@@ -853,9 +853,9 @@
  },
  {
   "dosya": "kart-bayram",
-  "anahtar": "kart:Bayramda el öpmek",
+  "anahtar": "kart:Bayramda el öpüp şeker almak",
   "grup": "Kıssa Kartları",
-  "ad": "Bayramda el öpmek",
+  "ad": "Bayramda el öpüp şeker almak",
   "boyut": [
    768,
    1024
@@ -1270,5 +1270,173 @@
   ],
   "kullanim": "Henüz kullanılmıyor",
   "komut": "Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful Single flat line icon, small oil lamp with flame, rounded line ends, one color deep ink #18204A, no text, no letters, no people"
+ },
+ {
+  "dosya": "ikon-hayret",
+  "anahtar": "oyun:hayret",
+  "grup": "Oyun ikonları",
+  "ad": "Hayret!",
+  "boyut": [
+   512,
+   512
+  ],
+  "kullanim": "Oyun kartlarının başlığı ve çark",
+  "komut": "Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, a small round magnifying glass over a striped seashell with a tiny sparkle beside it, centered inside a mihrab arch shaped badge filled with turquoise #0B7A77 and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people"
+ },
+ {
+  "dosya": "ikon-kainat",
+  "anahtar": "oyun:kainat",
+  "grup": "Oyun ikonları",
+  "ad": "Kâinat Anı",
+  "boyut": [
+   512,
+   512
+  ],
+  "kullanim": "Kâinat Anı kartının başlığı",
+  "komut": "Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, an open book whose pages turn into a leaf, a feather and a crescent moon, centered inside a mihrab arch shaped badge filled with cobalt blue #2747B5 and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people"
+ },
+ {
+  "dosya": "kainat-gokyuzu",
+  "anahtar": "kainat:gokyuzu",
+  "grup": "Kâinat Kitabı sayfaları",
+  "ad": "Gökyüzü, gece ve gündüz",
+  "boyut": [
+   1600,
+   1200
+  ],
+  "kullanim": "Kâinat Kitabı sayfasının açılış ekranı",
+  "komut": "Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Ottoman miniature style nature scene seen through a mihrab arch shaped window frame with Iznik tile border, evening sky over rooftops and cypress trees, the sun setting low on the horizon, first stars appearing, dominant color cobalt blue, stylized plants and clouds, layered flat planes, calm and full of wonder, no light rays or glowing sky at the center, no people, no human figures, no text, no letters --ar 4:3 --sref <Hüdhüd karakter sayfası>"
+ },
+ {
+  "dosya": "kainat-ay",
+  "anahtar": "kainat:ay",
+  "grup": "Kâinat Kitabı sayfaları",
+  "ad": "Ay",
+  "boyut": [
+   1600,
+   1200
+  ],
+  "kullanim": "Kâinat Kitabı sayfasının açılış ekranı",
+  "komut": "Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Ottoman miniature style nature scene seen through a mihrab arch shaped window frame with Iznik tile border, a thin crescent moon above a quiet courtyard with a fountain, small stars, night garden, dominant color deep ink and turquoise, stylized plants and clouds, layered flat planes, calm and full of wonder, no light rays or glowing sky at the center, no people, no human figures, no text, no letters --ar 4:3 --sref <Hüdhüd karakter sayfası>"
+ },
+ {
+  "dosya": "kainat-yagmur",
+  "anahtar": "kainat:yagmur",
+  "grup": "Kâinat Kitabı sayfaları",
+  "ad": "Yağmur ve bulut",
+  "boyut": [
+   1600,
+   1200
+  ],
+  "kullanim": "Kâinat Kitabı sayfasının açılış ekranı",
+  "komut": "Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Ottoman miniature style nature scene seen through a mihrab arch shaped window frame with Iznik tile border, gentle rain falling from soft clouds onto a vegetable garden, puddles, a hoopoe sheltering under a leaf, dominant color cobalt blue, stylized plants and clouds, layered flat planes, calm and full of wonder, no light rays or glowing sky at the center, no people, no human figures, no text, no letters --ar 4:3 --sref <Hüdhüd karakter sayfası>"
+ },
+ {
+  "dosya": "kainat-tohum",
+  "anahtar": "kainat:tohum",
+  "grup": "Kâinat Kitabı sayfaları",
+  "ad": "Tohum ve filiz",
+  "boyut": [
+   1600,
+   1200
+  ],
+  "kullanim": "Kâinat Kitabı sayfasının açılış ekranı",
+  "komut": "Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Ottoman miniature style nature scene seen through a mihrab arch shaped window frame with Iznik tile border, a bean seed sprouting in moist soil shown in a cross-section, tiny root going down and green shoot going up, dominant color emerald, stylized plants and clouds, layered flat planes, calm and full of wonder, no light rays or glowing sky at the center, no people, no human figures, no text, no letters --ar 4:3 --sref <Hüdhüd karakter sayfası>"
+ },
+ {
+  "dosya": "kainat-ari",
+  "anahtar": "kainat:ari",
+  "grup": "Kâinat Kitabı sayfaları",
+  "ad": "Arı",
+  "boyut": [
+   1600,
+   1200
+  ],
+  "kullanim": "Kâinat Kitabı sayfasının açılış ekranı",
+  "komut": "Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Ottoman miniature style nature scene seen through a mihrab arch shaped window frame with Iznik tile border, honeybees visiting purple and yellow flowers, a traditional straw beehive, dominant color saffron gold, stylized plants and clouds, layered flat planes, calm and full of wonder, no light rays or glowing sky at the center, no people, no human figures, no text, no letters --ar 4:3 --sref <Hüdhüd karakter sayfası>"
+ },
+ {
+  "dosya": "kainat-karinca",
+  "anahtar": "kainat:karinca",
+  "grup": "Kâinat Kitabı sayfaları",
+  "ad": "Karınca",
+  "boyut": [
+   1600,
+   1200
+  ],
+  "kullanim": "Kâinat Kitabı sayfasının açılış ekranı",
+  "komut": "Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Ottoman miniature style nature scene seen through a mihrab arch shaped window frame with Iznik tile border, a line of ants carrying seeds along a path between grass stalks toward a small nest mound, dominant color pomegranate red, stylized plants and clouds, layered flat planes, calm and full of wonder, no light rays or glowing sky at the center, no people, no human figures, no text, no letters --ar 4:3 --sref <Hüdhüd karakter sayfası>"
+ },
+ {
+  "dosya": "kainat-kuslar",
+  "anahtar": "kainat:kuslar",
+  "grup": "Kâinat Kitabı sayfaları",
+  "ad": "Kuşlar",
+  "boyut": [
+   1600,
+   1200
+  ],
+  "kullanim": "Kâinat Kitabı sayfasının açılış ekranı",
+  "komut": "Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Ottoman miniature style nature scene seen through a mihrab arch shaped window frame with Iznik tile border, swallows and sparrows flying in a wide sky over a hill with a single tree, dominant color turquoise, stylized plants and clouds, layered flat planes, calm and full of wonder, no light rays or glowing sky at the center, no people, no human figures, no text, no letters --ar 4:3 --sref <Hüdhüd karakter sayfası>"
+ },
+ {
+  "dosya": "kainat-su",
+  "anahtar": "kainat:su",
+  "grup": "Kâinat Kitabı sayfaları",
+  "ad": "Su",
+  "boyut": [
+   1600,
+   1200
+  ],
+  "kullanim": "Kâinat Kitabı sayfasının açılış ekranı",
+  "komut": "Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Ottoman miniature style nature scene seen through a mihrab arch shaped window frame with Iznik tile border, a clear stream flowing over pebbles into a pool, ferns and a drinking deer at a distance, dominant color cobalt blue, stylized plants and clouds, layered flat planes, calm and full of wonder, no light rays or glowing sky at the center, no people, no human figures, no text, no letters --ar 4:3 --sref <Hüdhüd karakter sayfası>"
+ },
+ {
+  "dosya": "kainat-renkler",
+  "anahtar": "kainat:renkler",
+  "grup": "Kâinat Kitabı sayfaları",
+  "ad": "Renkler ve gökkuşağı",
+  "boyut": [
+   1600,
+   1200
+  ],
+  "kullanim": "Kâinat Kitabı sayfasının açılış ekranı",
+  "komut": "Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Ottoman miniature style nature scene seen through a mihrab arch shaped window frame with Iznik tile border, a rainbow over a meadow full of colorful flowers and fruits in baskets, dominant color tulip purple, stylized plants and clouds, layered flat planes, calm and full of wonder, no light rays or glowing sky at the center, no people, no human figures, no text, no letters --ar 4:3 --sref <Hüdhüd karakter sayfası>"
+ },
+ {
+  "dosya": "kainat-agac",
+  "anahtar": "kainat:agac",
+  "grup": "Kâinat Kitabı sayfaları",
+  "ad": "Ağaç ve yaprak",
+  "boyut": [
+   1600,
+   1200
+  ],
+  "kullanim": "Kâinat Kitabı sayfasının açılış ekranı",
+  "komut": "Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Ottoman miniature style nature scene seen through a mihrab arch shaped window frame with Iznik tile border, a large plane tree in autumn with orange and yellow leaves falling onto the ground, dominant color saffron gold, stylized plants and clouds, layered flat planes, calm and full of wonder, no light rays or glowing sky at the center, no people, no human figures, no text, no letters --ar 4:3 --sref <Hüdhüd karakter sayfası>"
+ },
+ {
+  "dosya": "kainat-sofra",
+  "anahtar": "kainat:sofra",
+  "grup": "Kâinat Kitabı sayfaları",
+  "ad": "Sofraya gelen nimetler",
+  "boyut": [
+   1600,
+   1200
+  ],
+  "kullanim": "Kâinat Kitabı sayfasının açılış ekranı",
+  "komut": "Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Ottoman miniature style nature scene seen through a mihrab arch shaped window frame with Iznik tile border, a low wooden table seen from above with bread, apples cut in half showing the star of seeds, olives, honey and water, dominant color pomegranate red, stylized plants and clouds, layered flat planes, calm and full of wonder, no light rays or glowing sky at the center, no people, no human figures, no text, no letters --ar 4:3 --sref <Hüdhüd karakter sayfası>"
+ },
+ {
+  "dosya": "kainat-beden",
+  "anahtar": "kainat:beden",
+  "grup": "Kâinat Kitabı sayfaları",
+  "ad": "Bedenimiz",
+  "boyut": [
+   1600,
+   1200
+  ],
+  "kullanim": "Kâinat Kitabı sayfasının açılış ekranı",
+  "komut": "Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Ottoman miniature style nature scene seen through a mihrab arch shaped window frame with Iznik tile border, a gentle still life of a mirror, an apple, a flower and a glass of water on a windowsill, symbolizing the senses of sight, smell, taste and touch, no eyes or faces drawn, dominant color emerald, stylized plants and clouds, layered flat planes, calm and full of wonder, no light rays or glowing sky at the center, no people, no human figures, no text, no letters --ar 4:3 --sref <Hüdhüd karakter sayfası>"
  }
 ]

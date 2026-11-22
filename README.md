@@ -27,13 +27,14 @@ Hüdhüd'ün sesi varsayılan olarak tatlı bir **küçük kız** tonundadır. U
 | 🤔 Sen Olsan? | Komik ama düşündüren durumlar. Hakem en küçük çocuktur, en güzel cevabı o seçer. |
 | ⚡ Hızlı Tur | Herkes birlikte, 30 saniyede hedef sayıya ulaşmaya çalışır. |
 | 🙃 Şaşkın Ebeveyn | Yetişkin bilerek hata yapar (abdest, sofra adabı…), çocuklar yakalar. |
-| 🧑‍🏫 Küçük Hoca | Çocuk öğretmen olur ve büyüklere soru sorar. Cevap sadece çocukta. Büyükler bilemezse hoca kazanır. |
-| 🙋 Kalk-Otur | Herkes ayakta: cümle doğruysa zıplanır, yanlışsa çömelinir. 5 cümlelik hareketli grup turu. |
+| 🎓 Küçük Hoca | Çocuk öğretmen olur ve büyüklere soru sorar. Cevap sadece çocukta. Büyükler bilemezse hoca kazanır. |
+| 🦘 Kalk-Otur | Herkes ayakta: cümle doğruysa zıplanır, yanlışsa çömelinir. 5 cümlelik hareketli grup turu. |
 | ❓ Bilmece | Hüdhüd bir bilmece okur; önce sırası gelen, sonra herkes tahmin eder. İpucu ve cevap düğmesi var. Yaşa göre 36 bilmece; cevaplar nesne, hayvan, ibadet ve davranıştır (Allah, peygamberler ve sahabeler asla bilmece cevabı olmaz). |
 | 🔢 Kıssa Sıralama | Grup oyunu: bir kıssanın ya da güzel bir alışkanlığın olayları karışık gelir, aile doğru sıraya dizer (10 sıralama). |
 | 🔍 Hangisi Farklı? | Grup oyunu: dört şeyden gruba uymayanı bulun; cevaptan sonra nedeni anlatılır (11 grup). |
 | 🌱 Kalp Doktoru | Grup oyunu: bir durum okunur, aile kalpte hangi yabani otun (kibir, öfke, haset…) bittiğini teşhis eder, sonra ilacını (tevazu, sabır, sevinmek…) konuşur. Gazâlî'nin kalp hastalıkları ve ilaçları benzetmesinden esinlenmiştir. 28 kart; yetişkin kartlarında büyükler muayene olur. Kalp Bahçesi sezonunun ilk parçasıdır. |
 | 📖 Hikmetli Hikâye | Hüdhüd kısa bir hikâye okur (11 hikâye: özgün temsiller ve kaynağı belirtilen halk hikâyeleri), sırası gelen soruyu cevaplar, sonra hikmet okunur. Hikmette geçen hadisler kaynaklarıyla Kaynaklar sayfasındadır. |
+| 😮 Hayret! | Doğru mu, şaka mı? Hüdhüd kâinattan şaşırtıcı bir bilgi okur, herkes aynı anda oy verir (başparmak: doğru, eller başa: şaka), sonra cevap açılır. Turda 3 kart; toplam 36 kart. Kâinat Kitabı açılınca çarka eklenir, açık sayfanın kartları önce gelir. |
 
 ## Ana sayfa ve gece süresi
 
@@ -77,6 +78,16 @@ Birinci sezon bitince Kuşların Yolculuğu ile birlikte açılır; aile istedi�
 - **Sıra:** İlk üç köşe sabittir, sonraki üçü serbesttir, İhlas köşesi en sondadır ve Gizli İyilik Haftası ile birlikte oynanır (muhasebede cevaplar söylenmez).
 - **Final, Kalb-i selîm:** Bahçe turu, havuz aynası, herkesin birbirinde açan çiçeği söylemesi, Şuarâ 88-89, dua ve Kalp Bahçesi belgesi. Kalbin hâli hakkında hüküm verilmez.
 - Kod `kalp.js` içindedir (içerik ve S3 modülü); köşe listesi `icerik.js` içindeki `KALP_KOSELER`'dedir. Tasarım belgesi ayrıca tutulur.
+
+## Kâinat Kitabı (haftalık etkinlik)
+
+Sezon değil, Gizli İyilik Haftası gibi her sezonla birlikte yürüyen haftalık bir etkinliktir; birinci sezonun üçüncü durağından sonra açılır. Fikir: Kur'an okunan bir kitaptır, kâinat bakılan bir kitap. Aile her hafta doğadan bir sayfa okur.
+
+- **On iki sayfa:** Gökyüzü, Ay, Yağmur, Tohum, Arı, Karınca, Kuşlar, Su, Renkler, Ağaç ve yaprak, Sofra, Bedenimiz. Her sayfada bir ayet, üç gözlem görevi (Bak, Keşfet, Ailece dene), bir tefekkür sorusu ve bir “Biliyor muydun?” bilgisi vardır. Uygulama mevsime uygun sayfayı önerir.
+- **Hafta:** Ana sayfadaki kartta görevler işaretlenir, isteğe bağlı kısa bir not yazılır. Sonraki oyun gecesinde son turdan önce **Kâinat Anı** gelir: herkes gördüğünü anlatır, bilgi ve ayet okunur, tefekkür sorusu sorulur, sayfa ailenin kitabına tarih ve notla yazılır. Kâinat Anı ana sayfadan tek başına da açılabilir.
+- **Final, Kâinat Kitabımız:** On iki sayfa dolunca kitap baştan sona çevrilir, Âl-i İmrân 190-191 okunur ve aile belgesi verilir. Rozetler: Kâinat Okuru (1), Gezgin (6), Kâinat Kitabımız (12).
+- **İlkeler:** Kâinat Allah'ı temsil etmez, O'nun eseridir. “Doğa yaptı” denmez, “Allah böyle yaratmış” denir. Ayetler bilimin kanıtı olarak sunulmaz. Görevlerde hayvana ve bitkiye dokunulmaz.
+- Kod ve içerik `kainat.js` içindedir (KK modülü). `node kontrol.mjs` 7. kuralla bu içeriği de denetler.
 
 ## Kuşların Yolculuğu (ikinci sezon)
 
