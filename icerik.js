@@ -22,7 +22,10 @@ const GAMES = {
   saskin: { name: "Şaşkın Ebeveyn", color: "--lale", ico: "🙃", short: "Hatalar yapacak, sen yakala!" },
   hizli: { name: "Hızlı Tur", color: "--kandil", ico: "⚡", short: "30 saniyede hep birlikte sayın!" },
   kalkotur: { name: "Kalk-Otur", color: "--cini", ico: "🙋", short: "Doğruysa zıpla, yanlışsa çömel!" },
-  hayvan: { name: "Hayvan Yürüyüşü", color: "--zumrut", ico: "🐾", short: "Hayvan gibi yürü, DUR deyince don!" }
+  hayvan: { name: "Hayvan Yürüyüşü", color: "--zumrut", ico: "🐾", short: "Hayvan gibi yürü, DUR deyince don!" },
+  bilmece: { name: "Bilmece", color: "--lale", ico: "❓", short: "Bilmecem bilmece, bil bakalım ne?" },
+  sirala: { name: "Kıssa Sıralama", color: "--firuze", ico: "🔢", short: "Olayları doğru sıraya dizin!" },
+  farkli: { name: "Hangisi Farklı?", color: "--nar", ico: "🔍", short: "Gruba uymayanı bulun!" }
 };
 
 const THEMES = {
@@ -477,3 +480,76 @@ const YOLCULUK_SOZ = {
   rozetler: "Ailemizin rozetleri. Hangisini sıradaki hedefimiz yapalım?",
   final: "Tebrikler! Ailecek yolculuğunun bütün duraklarını tamamladınız. Allah hepinizden razı olsun!"
 };
+
+/* ===== Bilmece (çark oyunu) =====
+   l: 0 minikler (3-5), 1 çocuklar (6-8), 2 büyükler (9+). din: hoca kontrolüne giren bilmece.
+   Kural: Allah, peygamberler, sahabeler ve melekler asla bilmece cevabı olmaz; cevaplar nesne, hayvan, ibadet ve davranıştır. */
+const BILMECELER = [
+  { l: 0, s: "Çiçekten çiçeğe konarım, vız vız ederim; tatlı tatlı bal yaparım.", i: "Kur'an'da benim adımı taşıyan bir sure var.", c: "Arı", e: "🐝", din: true, info: "Nahl, yani Arı Suresi'nde arının balından insanlara şifa olduğu anlatılır." },
+  { l: 0, s: "Küçücüğüm ama çok çalışkanım; yazın kışlık yiyeceğimi yuvama taşırım.", i: "Hz. Süleyman'ın ordusunu görünce arkadaşlarımı uyardım.", c: "Karınca", e: "🐜", din: true, info: "Neml, yani Karınca Suresi'nde anlatılır." },
+  { l: 0, s: "Gün doğmadan uyanırım, ü-ü-ürü-üü diye herkesi kaldırırım.", i: "Sabahları ilk ben öterim.", c: "Horoz", e: "🐓" },
+  { l: 0, s: "Uzun hortumum, kocaman kulaklarım var; ağır ağır yürürüm.", i: "Kur'an'da benim adımı taşıyan bir sure var.", c: "Fil", e: "🐘", din: true, info: "Fil Suresi'nde Kâbe'nin nasıl korunduğu anlatılır." },
+  { l: 0, s: "Gökten damla damla inerim; çiçekler beni görünce sevinir.", i: "Gelmeden önce bulutlar toplanır.", c: "Yağmur", e: "🌧️" },
+  { l: 0, s: "Gündüz gökyüzündeyim, sıcacığım, parlarım; ben batınca akşam olur.", i: "Bana çıplak gözle bakılmaz.", c: "Güneş", e: "☀️" },
+  { l: 0, s: "Evimi sırtımda taşırım, yavaş yavaş yürürüm, hiç acele etmem.", i: "Korkunca başımı kabuğuma saklarım.", c: "Kaplumbağa", e: "🐢" },
+  { l: 0, s: "Kanatlarım rengârenk, çiçekten çiçeğe uçarım; önce tırtıldım, şimdi süslüyüm.", i: "Kozamdan çıktım.", c: "Kelebek", e: "🦋" },
+  { l: 0, s: "Sen gülersen ben de gülerim, el sallarsan ben de sallarım; ama hiç konuşmam.", i: "Sabah saçını tararken bana bakarsın.", c: "Ayna", e: "🪞" },
+  { l: 0, s: "Abdest alırken beni kullanırsın, susayınca beni içersin; israf edilmeyi hiç sevmem.", i: "Musluktan akarım.", c: "Su", e: "💧", din: true },
+  { l: 1, s: "Otuz üç tanem var, bir ipe dizilmişiz; parmaklar bizi çeker, dil Allah'ı anar.", i: "Namazdan sonra elinde tutarsın.", c: "Tespih", e: "📿", din: true },
+  { l: 1, s: "Yere serilirim, üzerimde namaz kılınır; yönüm hep Kâbe'ye döner.", i: "Desenli bir halıya benzerim.", c: "Seccade", e: "", din: true },
+  { l: 1, s: "Ağaçtan gelirim, dişleri temizlerim; Peygamberimiz (s.a.v.) beni çok severdi.", i: "Diş fırçasının dedesiyim.", c: "Misvak", e: "🪥", din: true, info: "Misvak kullanmak sünnettir." },
+  { l: 1, s: "Akşam ezanı okununca sofraya ilk ben gelirim; tatlıyım, çekirdeğim var.", i: "Orucunu benimle açarsın.", c: "Hurma", e: "🌴", din: true, info: "Peygamberimiz (s.a.v.) orucunu genellikle hurma ile açardı." },
+  { l: 1, s: "Herkes uyurken kalkarız, ezan okunmadan yeriz; bu yemekte bereket var.", i: "Ramazan'da imsaktan önce yenir.", c: "Sahur", e: "🌙", din: true, info: "Peygamberimiz (s.a.v.) “Sahur yapın, çünkü sahurda bereket vardır” buyurdu. (Buhârî, Müslim)" },
+  { l: 1, s: "İncecik bir yay gibi doğarım, büyüyüp yuvarlak olurum; beni görünce Ramazan'ın geldiğini anlarsın.", i: "Geceleri gökyüzündeyim.", c: "Hilal (Ay)", e: "🌙", din: true },
+  { l: 1, s: "Ağzım yok ama konuşurum, dilim yok ama anlatırım; beni okudukça bilgin artar.", i: "Sayfalarım var.", c: "Kitap", e: "📖" },
+  { l: 1, s: "Kırmızı kabuğumun içinde yüzlerce yakut gibi tanem var; birini düşürme, hepsi bereket.", i: "Ailecek'teki ağaçta beni toplarsın.", c: "Nar", e: "" },
+  { l: 1, s: "Kapıdan girerken söylenirim, birine rastlayınca söylenirim; söyleyene de duyana da esenlik getiririm.", i: "Cevabım “Aleyküm selam”dır.", c: "Selam", e: "👋", din: true },
+  { l: 1, s: "Yemeğe, işe, derse başlarken söylersin; söyleyince bereket gelir.", i: "“Bismillah” diye başlarım.", c: "Besmele", e: "", din: true },
+  { l: 1, s: "İpek gibi ağımı örerim, köşelerde beklerim; Kur'an'da adımı taşıyan bir sure var.", i: "Sekiz bacağım var.", c: "Örümcek", e: "🕷️", din: true, info: "Ankebût, yani Örümcek Suresi." },
+  { l: 1, s: "Çölde günlerce susuz yürürüm, sırtımda hörgücüm, yükleri taşırım.", i: "Çölün gemisi derler bana.", c: "Deve", e: "🐫" },
+  { l: 1, s: "Yüzüm var ağzım yok, kollarım var elim yok; durmadan yürürüm ama yerimden kımıldamam.", i: "Namaz vakitlerine bakarken bana da bakarsın.", c: "Saat", e: "🕰️" },
+  { l: 1, s: "Toprağa gömülürüm ama ölmem; su içer, filiz verir, ağaç olurum.", i: "Küçücük bir tanecikten başlarım.", c: "Tohum", e: "🌱" },
+  { l: 1, s: "Kapı çalınır, sofra kurulur; ben gelince ev şenlenir, giderken bereket bırakırım.", i: "Bana ikram edilir.", c: "Misafir", e: "🫖", din: true, info: "Peygamberimiz (s.a.v.) misafire ikram etmeyi öğütledi." },
+  { l: 2, s: "Ne kadar çok verirsen o kadar çoğalırım, ne kadar saklarsan o kadar azalırım.", i: "Kalpten kalbe geçerim.", c: "Sevgi", e: "❤️" },
+  { l: 2, s: "Söylemesi bazen zordur, ama söyleyince içini rahatlatırım; yalanın tam tersiyim.", i: "Beni söyleyene güvenilir.", c: "Doğruluk", e: "✅", din: true, info: "Peygamberimiz (s.a.v.) “Doğruluk iyiliğe götürür” buyurdu. (Buhârî, Müslim)" },
+  { l: 2, s: "Gizlice yapılırım, kimse bilmez; sağ elin verdiğini sol el görmez.", i: "Ailecek'te bir haftalık oyunum var.", c: "Gizli iyilik", e: "💌", din: true },
+  { l: 2, s: "Sana bırakılırım, sende kalırım ama senin değilim; beni korursan güvenilir olursun.", i: "Sahibine geri verilirim.", c: "Emanet", e: "🔐", din: true },
+  { l: 2, s: "Kızınca beni hatırla; beklersen, sakin kalırsan sonunda kazanan hep ben olurum.", i: "Ağacım acı, meyvem tatlıdır.", c: "Sabır", e: "🌱", din: true },
+  { l: 2, s: "Nimeti görünce kalpten gelirim, dilde “Elhamdülillah” olurum.", i: "Teşekkürün en güzeliyim.", c: "Şükür", e: "🤲", din: true },
+  { l: 2, s: "Paylaştıkça azalmam, aksine çoğalırım; okudukça, sordukça büyürüm.", i: "Okulda, kitapta, sohbette kazanılırım.", c: "İlim (bilgi)", e: "💡", din: true },
+  { l: 2, s: "Sabah dört ayakla, öğlen iki ayakla, akşam üç ayakla yürür.", i: "Sabah bebek, öğlen yetişkin, akşam bastonlu bir dede.", c: "İnsan", e: "" },
+  { l: 2, s: "Gece belirir, gündüz kaybolurum; on biri bir rüyada saygıyla eğildi.", i: "Hz. Yusuf'un rüyasını hatırla.", c: "Yıldız", e: "⭐", din: true },
+  { l: 2, s: "Kardeşine gülümsersen ben olurum, yoldaki taşı kaldırırsan yine ben olurum.", i: "Sadece parayla verilmem.", c: "Sadaka", e: "🤲", din: true, info: "Peygamberimiz (s.a.v.) kardeşine gülümsemenin de sadaka olduğunu söyledi. (Tirmizî)" },
+  { l: 2, s: "Hep birlikte uçarız, gökyüzüne V harfi çizeriz; öndeki yorulunca arkaya geçer, birbirimize destek oluruz.", i: "Kuşların Yolculuğu'nun Tevhid Vadisi'nde de vardık.", c: "Yaban kazları", e: "🪿" }
+];
+
+/* ===== Kıssa Sıralama (grup oyunu) =====
+   o: olaylar doğru sırada yazılır; oyunda karıştırılır. l: 0 en küçükler için de uygun. */
+const SIRALAMA = [
+  { l: 0, ad: "Yemek adabı", e: "🍽️", o: ["Ellerimizi yıkarız", "“Bismillah” deriz", "Sağ elimizle yeriz", "“Elhamdülillah” deriz"] },
+  { l: 0, ad: "Sabah namazına hazırlık", e: "🌅", o: ["Uyanınca dua ederiz", "Abdest alırız", "Sabah namazını kılarız"] },
+  { l: 0, ad: "Tohumdan ağaca", e: "🌱", o: ["Tohumu toprağa ekeriz", "Sularız, filiz çıkar", "Fidan büyür", "Ağaç meyve verir"] },
+  { l: 1, ad: "Hz. Nuh'un gemisi", e: "⛵", din: true, o: ["Hz. Nuh, Allah'ın emriyle gemiyi yaptı", "Hayvanlar çift çift gemiye bindi", "Tufan başladı, sular yükseldi", "Gemi Cûdî Dağı'na oturdu"], ref: "Hûd Suresi, 37-44" },
+  { l: 1, ad: "Fil olayı", e: "🐘", din: true, o: ["Ebrehe ordusu ve filleriyle Kâbe'ye yürüdü", "Allah kuş sürüleri gönderdi", "Kuşlar ordunun üzerine taş attı", "Ordu yenildi, Kâbe korundu"], ref: "Fil Suresi" },
+  { l: 1, ad: "Bebek Musa", e: "🧺", din: true, o: ["Annesi onu bir sandığa koyup nehre bıraktı", "Sandık Firavun'un sarayına ulaştı", "Bebek başka sütannelerin sütünü emmedi", "Allah onu annesine geri kavuşturdu"], ref: "Kasas Suresi, 7-13" },
+  { l: 2, ad: "Hz. Yunus", e: "🐋", din: true, o: ["Hz. Yunus bir gemiye bindi", "Büyük bir balık onu yuttu", "Balığın karnında Allah'a dua etti", "Balık onu sahile bıraktı"], ref: "Sâffât Suresi, 139-145; Enbiyâ Suresi, 87" },
+  { l: 2, ad: "Hz. Yusuf", e: "⭐", din: true, o: ["Hz. Yusuf rüyasında yıldızları gördü", "Kardeşleri onu kuyuya attı", "Bir kervan onu kuyudan çıkardı", "Mısır'da kardeşleriyle yeniden buluştu"], ref: "Yûsuf Suresi" },
+  { l: 2, ad: "Hz. İbrahim ve ateş", e: "🔥", din: true, o: ["Hz. İbrahim kavmine tek Allah'a inanmayı anlattı", "Kavmi onu ateşe attı", "Allah'ın emriyle ateş serin ve esenlik oldu"], ref: "Enbiyâ Suresi, 51-69" },
+  { l: 2, ad: "Hicret", e: "🐪", din: true, o: ["Peygamberimiz (s.a.v.) ve Hz. Ebû Bekir Mekke'den yola çıktı", "Sevr Mağarası'nda saklandılar", "Yollarına devam edip Medine'ye vardılar", "Medine'de Mescid-i Nebevî yapıldı"], ref: "Siyer" }
+];
+
+/* ===== Hangisi Farklı? (grup oyunu) =====
+   o: dört seçenek [metin, resim]; ilk seçenek farklı olandır (oyunda karıştırılır). Kutsal isimlerde resim yoktur. */
+const FARKLI = [
+  { l: 0, o: [["Ev", "🏠"], ["Yağmur", "🌧️"], ["Kar", "❄️"], ["Dolu", "🧊"]], n: "Yağmur, kar ve dolu gökten yağar; ev yağmaz." },
+  { l: 0, o: [["Elma", "🍎"], ["Ay", "🌙"], ["Yıldız", "⭐"], ["Güneş", "☀️"]], n: "Ay, yıldız ve güneş gökyüzündedir; elma ağaçta yetişir." },
+  { l: 0, o: [["Balık", "🐟"], ["Horoz", "🐓"], ["Kartal", "🦅"], ["Hüdhüd", "🐦"]], n: "Horoz, kartal ve hüdhüd kanatlı kuşlardır; balığın kanadı yoktur, yüzgeci vardır." },
+  { l: 0, o: [["Top", "⚽"], ["Tespih", "📿"], ["Abdest suyu", "💧"], ["Cami", "🕌"]], n: "Tespih, abdest suyu ve cami ibadetle ilgilidir; top oyun içindir.", din: true },
+  { l: 1, o: [["Penguen", "🐧"], ["Karınca", "🐜"], ["Arı", "🐝"], ["Örümcek", "🕷️"]], n: "Karınca (Neml), arı (Nahl) ve örümcek (Ankebût) Kur'an'da birer surenin adıdır; penguenin adıyla bir sure yoktur.", din: true },
+  { l: 1, o: [["Pikniğe gitmek", "🧺"], ["Namaz kılmak", "🕌"], ["Oruç tutmak", "🌙"], ["Zekât vermek", "🤲"]], n: "Namaz, oruç ve zekât İslam'ın şartlarındandır; piknik güzel bir aile etkinliğidir ama ibadet değildir.", din: true },
+  { l: 1, o: [["Günaydın", ""], ["Bismillah", ""], ["Elhamdülillah", ""], ["Maşallah", ""]], n: "Bismillah, Elhamdülillah ve Maşallah, Allah'ı anan güzel sözlerdir; Günaydın bir selamlaşma sözüdür.", din: true },
+  { l: 2, o: [["Tevrat", ""], ["Fâtiha", ""], ["İhlâs", ""], ["Kevser", ""]], n: "Fâtiha, İhlâs ve Kevser Kur'an'daki surelerdir; Tevrat, Hz. Musa'ya indirilen kitaptır.", din: true },
+  { l: 2, o: [["Hz. Bilâl", ""], ["Hz. Musa", ""], ["Hz. Nuh", ""], ["Hz. İsa", ""]], n: "Hz. Musa, Hz. Nuh ve Hz. İsa peygamberdir; Hz. Bilâl ise ilk ezanı okuyan sahabidir.", din: true },
+  { l: 2, o: [["Paris", ""], ["Mekke", ""], ["Medine", ""], ["Kudüs", ""]], n: "Mekke'de Kâbe, Medine'de Mescid-i Nebevî, Kudüs'te Mescid-i Aksâ vardır; bu üç mescid müslümanlar için özeldir. Paris'te böyle bir mescid yoktur.", din: true },
+  { l: 2, o: [["Dinozor", "🦖"], ["Fil", "🐘"], ["Deve", "🐫"], ["İnek", "🐄"]], n: "Fil, deve ve inek Kur'an'da adı geçen hayvanlardır; dinozor geçmez.", din: true }
+];

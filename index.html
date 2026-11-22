@@ -910,7 +910,7 @@ async function sayAI(segs, id) {
    Yeni bir say(...) parçası eklediğinizde buraya da ekleyin; testler eksik parçaları raporlar. */
 function allSpeechLines() {
   const out = new Map();
-  const add = (pack, ...ts) => ts.flat().forEach(t => { if (!t) return; const key = sesKey(t); if (!out.has(key)) out.set(key, { key, pack, text: speechText(t) }); });
+  const add = (pack, ...ts) => ts.flat(Infinity).forEach(t => { if (!t) return; const key = sesKey(t); if (!out.has(key)) out.set(key, { key, pack, text: speechText(t) }); });
   add("genel", SAMPLE_LINE, "Sesli anlatım açık.", "Açılış Töreni zamanı geldi! Gizli dostlarınızı merak ediyorum.", "İyilik Haftası devam ediyor!", IPUCLARI,
     "Bu gece hangi tema?", "Sıra sende! Çarkı çevir!", "Telefonu sırası gelene verin, diğerleri bakmasın!", Object.values(GROUP_LINES),
     Object.values(GAMES).map(g => `${g.name}! ${g.short}`),
@@ -922,6 +922,9 @@ function allSpeechLines() {
     "Aferin! Hocamız da çok güzel sordu.", "Hocamız kazandı!",
     "Bu gece bahçemize fidanlar diktik! Şimdi telefonu bırakıp biraz sohbet edelim.", "Maşallah, ne güzel bir geceydi!",
     TANITIM.map(t => t.s), "Görüşleriniz oyunu daha güzel yapacak. Birkaç dakika yeter!");
+  add("oyunlar", "Bilmecem bilmece!", "İpucu:", "Cevap:", "Maşallah! Bilmeceyi bildiniz.", "Olsun! Bir dahaki bilmeceyi bileceğinize eminim.",
+    BILMECELER.map(b => [b.s, b.i, b.c, b.info]), "Olayları doğru sıraya dizin!", "Maşallah! Hepsi doğru sırada. Ailece iki fidan kazandınız.", "Olsun! Doğru sıra şöyle:",
+    SIRALAMA.map(x => x.o), "Hangisi diğerlerinden farklı?", "Maşallah, buldunuz!", "Olsun!", FARKLI.map(f => [f.o.map(o => o[0]), f.n]));
   Object.values(THEMES).forEach(t => add("tema", `Bu gece ${t.name}! Hazır mısınız?`, t.ayet.text, "Peygamberimiz s.a.v. buyurdu: " + t.hadis.text, t.soru, t.gorev));
   add("gizli", DEAL_LINE, "Telefonu sırası gelene verin. Kimse bakmasın!", "Zarflar mühürlendi! Bir hafta boyunca gizli dostunuza iyilik yapın. Yedinci gün Açılış Töreni var.",
     "Telefonu kartın sahibine verin. Sadece o baksın!", CER_LINE, "Bu hafta sana kim gizli iyilik yaptı?", "Önce fark ettiğin iyilikleri anlat, sonra tahminini seç!",
@@ -1427,9 +1430,9 @@ function screenThemes() {
 }
 
 /* ============ OYUN AKIŞI ============ */
-const WHEEL_BASE = ["pandomim", "bilgi", "ses", "senolsan", "hoca", "saskin"];
+const WHEEL_BASE = ["pandomim", "bilgi", "ses", "bilmece", "senolsan", "hoca", "saskin"];
 const wheelList = () => G && S2.isVadi(G.theme) ? [...WHEEL_BASE, "bahane"] : WHEEL_BASE;
-const GROUPS = ["hayvan", "kalkotur", "hizli"];
+const GROUPS = ["hayvan", "sirala", "kalkotur", "farkli", "hizli"];
 function startGame(themeKey) {
   if (themeKey === "random") themeKey = rnd(DURAKLAR.filter(d => landUnlocked(d.tema)).map(d => d.tema));
   const players = family.map(p => ({ ...p })), n = players.length;
@@ -1456,7 +1459,7 @@ function startGame(themeKey) {
 function chooseType(player) {
   const adult = player.age === "y", lvl = ageOf(player.age).lvl;
   const hasKid = G.players.some(p => p.age !== "y");
-  const w = { pandomim: 3, ses: 2.2, bilgi: 1.8, senolsan: lvl === 0 ? .6 : 1.1 };
+  const w = { pandomim: 3, ses: 2.2, bilgi: 1.8, bilmece: 2, senolsan: lvl === 0 ? .6 : 1.1 };
   if (!adult && lvl >= 1 && G.players.length > 1) w.hoca = 1.4;
   if (adult && hasKid && G.saskinCount < 2) w.saskin = 1.8;
   if (S2.isVadi(G.theme) && G.players.length > 1) w.bahane = 3.2;
@@ -1521,7 +1524,9 @@ function landed(t) {
 const GROUP_LINES = {
   hayvan: "Herkes ayağa kalksın! Hayvan gibi yürüyeceğiz. Ben DUR deyince heykel olun!",
   kalkotur: "Herkes ayağa kalksın! Cümle doğruysa zıplayın, yanlışsa yere çömelin!",
-  hizli: "Hızlı tur! Otuz saniyede hep birlikte bağırarak sayacağız!"
+  hizli: "Hızlı tur! Otuz saniyede hep birlikte bağırarak sayacağız!",
+  sirala: "Kıssa sıralama! Olaylar karışık geldi. Hep birlikte doğru sıraya dizeceğiz!",
+  farkli: "Hangisi farklı? Dört şeyden biri gruba uymuyor. Hep birlikte bulacağız!"
 };
 const DEAL_LINE = "Şimdi herkes gizli bir dost alacak. Bir hafta boyunca ona kimseye belli etmeden iyilik yapacaksınız! Bu iyilikleri Allah rızası için yapıyoruz.";
 const CER_LINE = "Açılış Töreni başlıyor! Bu hafta kim kime gizli iyilik yaptı, şimdi öğreneceğiz.";
@@ -1538,7 +1543,7 @@ function screenGroupIntro(t) {
 }
 function play() {
   const t = G.plan[G.i]; G.lastType = t.type;
-  ({ pandomim: playPandomim, ses: playSes, bilgi: playBilgi, senolsan: playSenOlsan, hizli: playHizli, saskin: playSaskin, kalkotur: playKalkOtur, hoca: playHoca, hayvan: playHayvan, bahane: S2.playBahane })[t.type](t);
+  ({ pandomim: playPandomim, ses: playSes, bilgi: playBilgi, senolsan: playSenOlsan, hizli: playHizli, saskin: playSaskin, kalkotur: playKalkOtur, hoca: playHoca, hayvan: playHayvan, bahane: S2.playBahane, bilmece: playBilmece, sirala: playSirala, farkli: playFarkli })[t.type](t);
 }
 function nextTurn() { G.i++; if (G.i >= G.plan.length) screenDeep(0); else screenTurn(); }
 function runTimer(sec, onEnd) {
@@ -1619,6 +1624,112 @@ function answer(i) {
   const msg = (ok ? `Maşallah, doğru! ${x.info || ""}` : `Olsun! Doğru cevap: ${right}. ${x.info || ""}`).trim();
   document.getElementById("after").innerHTML = `${guide(msg)}${doneBtn()}`;
   later(() => say(ok ? ["Maşallah, doğru!", x.info] : ["Olsun! Doğru cevap:", right, x.info]), 300);
+}
+
+/* ---- Bilmece ---- */
+function playBilmece(t) {
+  const lvl = ageOf(t.player.age).lvl;
+  const havuz = BILMECELER.filter(b => lvl === 0 ? b.l === 0 : lvl === 1 ? b.l <= 1 : b.l >= 1);
+  const x = pick(havuz, "bilmece" + Math.min(lvl, 2));
+  G.cur = { x, ipucu: false };
+  render(card("bilmece", `
+    <span class="ak-label" style="text-align:center">${t.player.av} ${esc(t.player.name)} · ${ageOf(t.player.age).label}</span>
+    <span class="mega wiggle">❓</span>
+    <p class="q-text">${esc(x.s)}</p>
+    <span class="ak-chip" style="align-self:center">Önce ${esc(t.player.name)} tahmin etsin, sonra herkes!</span>
+    <div id="after" class="stack center" style="width:100%">
+      <div class="btn-row" style="width:100%">
+        <button class="ak-btn ak-btn--ghost" data-act="bil-ipucu">💡 İpucu</button>
+        <button class="ak-btn" data-act="bil-cevap">Cevabı göster</button>
+      </div>
+    </div>`), { text: `Bilmecem bilmece! ${x.s}`, ai: ["Bilmecem bilmece!", x.s] });
+}
+function bilIpucu() {
+  const { x } = G.cur; if (G.cur.ipucu) return; G.cur.ipucu = true; sfx.pop();
+  const btn = document.querySelector('[data-act="bil-ipucu"]');
+  if (btn) btn.outerHTML = `<p class="small bold" style="margin:0;text-align:center;flex-basis:100%">💡 ${esc(x.i)}</p>`;
+  say({ text: "İpucu: " + x.i, ai: ["İpucu:", x.i] });
+}
+function bilCevap() {
+  const { x } = G.cur; sfx.flip();
+  const pic = x.e && !KUTSAL.test(x.c) ? `<span class="mega bounce">${x.e}</span>` : "";
+  document.getElementById("after").innerHTML = `
+    ${pic}<h2 style="font:700 30px/34px var(--font-display);margin:0">${esc(x.c)}</h2>
+    ${x.info ? `<p class="small bold muted" style="margin:0;text-align:center">${esc(x.info)}</p>` : ""}
+    <h3 style="font:600 19px/1.2 var(--font-display);margin:6px 0 0">Bildiniz mi?</h3>
+    <div class="btn-row" style="width:100%"><button class="ak-btn ak-btn--ghost" data-act="bil-son" data-arg="0">Bu sefer bilemedik</button><button class="ak-btn ak-btn--kandil" data-act="bil-son" data-arg="1">Bildik!</button></div>`;
+  say({ text: `Cevap: ${x.c}. ${x.info || ""}`, ai: ["Cevap:", x.c, x.info] });
+}
+function bilSon(ok) {
+  if (ok) { grow(1); confetti(14); bump1("bilmece"); }
+  document.getElementById("after").innerHTML = `${guide(ok ? "Maşallah! Bilmeceyi bildiniz." : "Olsun! Bir dahaki bilmeceyi bileceğinize eminim.")}${doneBtn()}`;
+  later(() => say(ok ? "Maşallah! Bilmeceyi bildiniz." : "Olsun! Bir dahaki bilmeceyi bileceğinize eminim."), 200);
+}
+
+/* ---- Kıssa Sıralama (grup) ---- */
+const youngestLvl = () => Math.min(...G.players.map(p => ageOf(p.age).lvl));
+function playSirala() {
+  const yl = youngestLvl();
+  const havuz = SIRALAMA.filter(s => yl === 0 ? s.l === 0 : yl === 1 ? s.l <= 1 : true);
+  const x = pick(havuz, "sirala"), karisik = shuffle(x.o.map((o, i) => ({ o, i })));
+  if (karisik.every((k, j) => k.i === j)) karisik.push(karisik.shift());
+  G.cur = { x, karisik, secim: [] };
+  render(card("sirala", `
+    <span class="mega bounce">${x.e}</span>
+    <h2 style="font:700 24px/28px var(--font-display);margin:0;text-align:center">${esc(x.ad)}</h2>
+    <p class="small bold muted" style="margin:0;text-align:center">Hep birlikte konuşun, sonra olaylara sırayla dokunun: önce ilk olan.</p>
+    <div class="ak-options" id="sira">${karisik.map((k, j) => `<button class="ak-option" data-act="sira-sec" data-arg="${j}"><span class="ak-option__key" id="sira-no-${j}">·</span>${esc(k.o)}</button>`).join("")}</div>
+    <div id="after" class="stack center" style="width:100%"><button class="link" data-act="sira-sifirla">Baştan diz</button></div>`),
+    { text: `Kıssa sıralama: ${x.ad}. Olaylar karışık: ${karisik.map(k => k.o).join(". ")}.`, ai: ["Olayları doğru sıraya dizin!", ...karisik.map(k => k.o)] });
+}
+function siraSec(j) {
+  const c = G.cur; if (c.bitti || c.secim.includes(j)) return;
+  c.secim.push(j); sfx.pop();
+  document.getElementById("sira-no-" + j).textContent = c.secim.length;
+  document.querySelectorAll("#sira .ak-option")[j].setAttribute("aria-pressed", "true");
+  if (c.secim.length < c.karisik.length) return;
+  c.bitti = true;
+  const ok = c.secim.every((jj, n) => c.karisik[jj].i === n);
+  document.querySelectorAll("#sira .ak-option").forEach((b, jj) => { b.disabled = true; const dogruYer = c.secim.indexOf(jj) === c.karisik[jj].i; b.classList.add(ok || dogruYer ? "is-correct" : "is-wrong"); });
+  if (ok) { grow(2); confetti(20); }
+  else sfx.no();
+  const dogru = c.x.o.map((o, n) => `<li>${esc(o)}</li>`).join("");
+  document.getElementById("after").innerHTML = `${guide(ok ? "Maşallah! Hepsi doğru sırada. Ailece iki fidan kazandınız." : "Olsun! Doğru sıra şöyle:", { noSpeak: true })}
+    ${ok ? "" : `<ol class="small bold" style="text-align:left;margin:0;padding-left:1.4em;display:grid;gap:4px;width:100%">${dogru}</ol>`}
+    ${c.x.ref ? `<p class="small muted bold" style="margin:0">${esc(c.x.ref)}</p>` : ""}${doneBtn()}`;
+  later(() => say(ok ? "Maşallah! Hepsi doğru sırada. Ailece iki fidan kazandınız." : ["Olsun! Doğru sıra şöyle:", ...c.x.o]), 300);
+}
+function siraSifirla() {
+  const c = G.cur; if (c.bitti) return; c.secim = [];
+  c.karisik.forEach((_, j) => { document.getElementById("sira-no-" + j).textContent = "·"; document.querySelectorAll("#sira .ak-option")[j].removeAttribute("aria-pressed"); });
+}
+
+/* ---- Hangisi Farklı? (grup) ---- */
+function playFarkli() {
+  const yl = youngestLvl();
+  const havuz = FARKLI.filter(f => yl === 0 ? f.l === 0 : yl === 1 ? f.l <= 1 : true);
+  const x = pick(havuz, "farkli"), opts = shuffle(x.o.map((o, i) => ({ o, ok: i === 0 })));
+  const pics = opts.every(it => it.o[1]);
+  G.cur = { x, opts };
+  render(card("farkli", `
+    <p class="q-text">Hangisi diğerlerinden farklı?</p>
+    <p class="small bold muted" style="margin:0;text-align:center">Hep birlikte düşünün; karar verince dokunun.</p>
+    <div class="ak-options ${pics ? "ak-options--pics" : ""}" id="opts" ${pics ? 'style="grid-template-columns:repeat(2,minmax(0,1fr))"' : ""}>
+      ${opts.map((it, i) => pics
+        ? `<button class="ak-option" data-act="farkli-sec" data-arg="${i}"><span class="ak-option__pic">${KUTSAL.test(it.o[0]) ? "" : it.o[1]}</span>${esc(it.o[0])}<span class="ak-option__mark"></span></button>`
+        : `<button class="ak-option" data-act="farkli-sec" data-arg="${i}"><span class="ak-option__key">${"ABCD"[i]}</span>${esc(it.o[0])}<span class="ak-option__mark"></span></button>`).join("")}
+    </div>
+    <div id="after" class="stack"></div>`), { text: `Hangisi farklı? ${opts.map(it => it.o[0]).join(", ")}.`, ai: ["Hangisi diğerlerinden farklı?", ...opts.map(it => it.o[0])] });
+}
+function farkliSec(i) {
+  const { x, opts } = G.cur, btns = document.querySelectorAll("#opts .ak-option");
+  if (btns[0].disabled) return;
+  btns.forEach((b, j) => { b.disabled = true; if (opts[j].ok) { b.classList.add("is-correct"); b.querySelector(".ak-option__mark").textContent = "✓ Farklı olan"; } else if (j !== i) b.classList.add("is-dim"); });
+  const ok = opts[i].ok;
+  if (ok) { grow(1); confetti(14); } else { btns[i].classList.add("is-wrong"); btns[i].querySelector(".ak-option__mark").textContent = "✗"; sfx.no(); }
+  const msg = (ok ? "Maşallah, buldunuz! " : "Olsun! ") + x.n;
+  document.getElementById("after").innerHTML = `${guide(msg, { noSpeak: true })}${doneBtn()}`;
+  later(() => say({ text: msg, ai: [ok ? "Maşallah, buldunuz!" : "Olsun!", x.n] }), 300);
 }
 
 /* ---- Sen Olsan? ---- */
@@ -2278,6 +2389,8 @@ const actions = {
   flip: flipCard, "act-go": actGo, "act-done": a => actDone(a === "1"),
   answer: a => answer(+a), best: a => best(+a), "count-up": countUp,
   "kalk-show": () => kalkStep(true), "kalk-next": a => kalkNext(a === "1"),
+  "bil-ipucu": bilIpucu, "bil-cevap": bilCevap, "bil-son": a => bilSon(a === "1"),
+  "sira-sec": a => siraSec(+a), "sira-sifirla": siraSifirla, "farkli-sec": a => farkliSec(+a),
   "hay-go": hayGo, "hay-next": hayNext,
   "sas-go": sasGo, caught, "sas-done": sasDone, hoca: a => hoca(a === "1"),
   deep: a => screenDeep(+a), end: screenEnd,

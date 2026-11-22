@@ -22,13 +22,16 @@ Hüdhüd'ün sesi varsayılan olarak tatlı bir **küçük kız** tonundadır. U
 |---|---|
 | 🎭 Kıssa Pandomimi | Kart çevrilir, kıssalardaki hayvanlar, nesneler ve davranışlar canlandırılır (60 sn). Peygamberler ve sahabeler canlandırılmaz. |
 | 🔊 Ses Taklidi | Herkes gözünü kapatır, oynayan sadece ses çıkarır: horoz, gök gürültüsü, deniz dalgaları… (45 sn) |
-| 🐾 Hayvan Yürüyüşü | Grup oyunu: davul çalarken herkes Kur'an'da geçen bir hayvan gibi yürür, Hüdhüd “DUR!” deyince heykel olunur. Hakem en küçük çocuktur. |
+| 🐾 Hayvan Yürüyüşü | Grup oyunu: ritim çalarken herkes Kur'an'da geçen bir hayvan gibi yürür, Hüdhüd “DUR!” deyince heykel olunur. Hakem en küçük çocuktur. Varsayılan ritim ayak sesidir; davul Ayarlar'dan açılır. |
 | 💡 Bil Bakalım | Yaşa göre 4 seviyede soru. Küçükler için resimli. |
 | 🤔 Sen Olsan? | Komik ama düşündüren durumlar. Hakem en küçük çocuktur, en güzel cevabı o seçer. |
 | ⚡ Hızlı Tur | Herkes birlikte, 30 saniyede hedef sayıya ulaşmaya çalışır. |
 | 🙃 Şaşkın Ebeveyn | Yetişkin bilerek hata yapar (abdest, sofra adabı…), çocuklar yakalar. |
 | 🧑‍🏫 Küçük Hoca | Çocuk öğretmen olur ve büyüklere soru sorar. Cevap sadece çocukta. Büyükler bilemezse hoca kazanır. |
 | 🙋 Kalk-Otur | Herkes ayakta: cümle doğruysa zıplanır, yanlışsa çömelinir. 5 cümlelik hareketli grup turu. |
+| ❓ Bilmece | Hüdhüd bir bilmece okur; önce sırası gelen, sonra herkes tahmin eder. İpucu ve cevap düğmesi var. Yaşa göre 36 bilmece; cevaplar nesne, hayvan, ibadet ve davranıştır (Allah, peygamberler ve sahabeler asla bilmece cevabı olmaz). |
+| 🔢 Kıssa Sıralama | Grup oyunu: bir kıssanın ya da güzel bir alışkanlığın olayları karışık gelir, aile doğru sıraya dizer (10 sıralama). |
+| 🔍 Hangisi Farklı? | Grup oyunu: dört şeyden gruba uymayanı bulun; cevaptan sonra nedeni anlatılır (11 grup). |
 
 ## Yolculuk ve koleksiyon
 

@@ -216,6 +216,42 @@
   "komut": "Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, a single long feather crossing a small question bubble, centered inside a mihrab arch shaped badge filled with cobalt blue #2747B5 and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people"
  },
  {
+  "dosya": "ikon-bilmece",
+  "anahtar": "oyun:bilmece",
+  "grup": "Oyun ikonları",
+  "ad": "Bilmece",
+  "boyut": [
+   512,
+   512
+  ],
+  "kullanim": "Oyun kartlarının başlığı ve çark",
+  "komut": "Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, a single a single curled scroll with a small question mark shape made of a crescent and a dot, centered inside a mihrab arch shaped badge filled with tulip purple #7340BD and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people"
+ },
+ {
+  "dosya": "ikon-sirala",
+  "anahtar": "oyun:sirala",
+  "grup": "Oyun ikonları",
+  "ad": "Kıssa Sıralama",
+  "boyut": [
+   512,
+   512
+  ],
+  "kullanim": "Oyun kartlarının başlığı ve çark",
+  "komut": "Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, a single three small rounded cards in a row with one, two and three dots, centered inside a mihrab arch shaped badge filled with turquoise #0B7A77 and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people"
+ },
+ {
+  "dosya": "ikon-farkli",
+  "anahtar": "oyun:farkli",
+  "grup": "Oyun ikonları",
+  "ad": "Hangisi Farklı?",
+  "boyut": [
+   512,
+   512
+  ],
+  "kullanim": "Oyun kartlarının başlığı ve çark",
+  "komut": "Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Game icon, a single four small circles where one is a different shape, a star, centered inside a mihrab arch shaped badge filled with pomegranate red #C4362E and a faint eight-pointed star tile pattern, simple bold shapes readable at 48 pixels, no text, no letters, no people"
+ },
+ {
   "dosya": "durak-sukur",
   "anahtar": "durak:sukur",
   "grup": "Durak sahneleri",
