@@ -1,5 +1,5 @@
 /* Sürüm etiketi: node surum.mjs ile güncellenir; index.html ile aynı olmalı. */
-const KAINAT_SURUM = "20261122-1804";
+const KAINAT_SURUM = "20261122-1901";
 /* ============ HAFTALIK ETKİNLİK: KÂİNAT KİTABI ============
    Aile her hafta doğadan bir "sayfa" okur: üç gözlem görevi, oyun gecesinde Kâinat Anı, sonra sayfa ailenin kitabına girer.
    İlkeler: Kâinat Allah'ı temsil etmez, O'nun eseridir; Allah hiçbir şeye benzemez (Şûrâ, 11).

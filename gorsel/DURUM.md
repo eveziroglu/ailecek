@@ -330,7 +330,7 @@ Flat vector children's book illustration inspired by 16th-century Iznik tiles an
 
 </details>
 
-## Kıssa Kartları (0/52)
+## Hazine Kartları (0/52)
 
 Kart albümü, pandomim, ses ve hayvan kartları.
 

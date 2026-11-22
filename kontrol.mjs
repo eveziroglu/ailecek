@@ -128,7 +128,7 @@ if (fs.existsSync(path.join(kok, "icerik-kuslar.js"))) {
   const INSAN = /[\u{1F9CD}\u{1F9CE}\u{1F3C3}\u{1F6B6}\u{1F938}\u{1F483}\u{1F57A}\u{1F64B}\u{1F647}\u{1F646}\u{1F645}\u{1F937}\u{1F926}\u{1F476}\u{1F466}\u{1F467}\u{1F9D2}\u{1F468}\u{1F469}\u{1F9D1}\u{1F474}\u{1F475}\u{1F9D3}\u{1F46E}\u{1F477}\u{1F482}\u{1F575}\u{1F9D5}\u{1F473}\u{1F472}\u{1F9D4}\u{1F471}\u{1F5E3}\u{1F464}\u{1F465}\u{1F930}\u{1FAC3}\u{1F9D8}\u{1F3CA}\u{1F6B4}\u{26F9}\u{1F93E}\u{1F3CB}\u{1F93C}\u{1F64D}\u{1F64E}\u{1F481}\u{1FAC5}\u{1F47C}\u{1F385}\u{1F936}\u{1F9B8}\u{1F9B9}\u{1F9D9}-\u{1F9DF}\u{1F46F}\u{1F9D6}\u{1F9D7}\u{1F3C4}\u{1F93D}\u{1F6A3}\u{1F3C7}\u{26F7}\u{1F3C2}\u{1F3CC}\u{1F93A}\u{1F46A}\u{1F48F}\u{1F491}\u{1FAC2}\u{1F977}\u{1F934}\u{1F478}\u{1F9CC}]/u;
   ["icerik.js", "icerik-kuslar.js", "kuslar.js", "kalp.js", "kainat.js", "index.html", "hakkinda.html"].forEach(f => {
     const yol = path.join(kok, f); if (!fs.existsSync(yol)) return;
-    fs.readFileSync(yol, "utf8").split("\n").forEach((l, i) => { const m = l.match(INSAN); if (m) ekle(hatalar, 8, `${f}:${i + 1}`, `İnsan emojisi ${m[0]}`); });
+    fs.readFileSync(yol, "utf8").split("\n").forEach((l, i) => { const m = l.match(INSAN); if (m) ekle(hatalar, 8, `${f}:${i + 1}`, `İnsan emojisi ${m[0]}`); if (l.includes("🌷")) ekle(hatalar, 1, `${f}:${i + 1}`, "Lale (🌷) Osmanlı sanatında Allah lafzını çağrıştırdığı için kullanılmaz"); });
   });
 }
 

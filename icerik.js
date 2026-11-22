@@ -1,5 +1,5 @@
 /* Sürüm etiketi: node surum.mjs ile güncellenir; index.html ile aynı olmalı. */
-const ICERIK_SURUM = "20261122-1804";
+const ICERIK_SURUM = "20261122-1901";
 /* Ailecek oyun içeriği.
    Yeni kart eklemek için ilgili listeye bir satır eklemeniz yeterli.
    Bil Bakalım'da ilk seçenek doğru cevaptır (oyunda karıştırılır).
@@ -550,7 +550,7 @@ const ROZETLER = [
   { id: "gizli-dost", e: "💌", ad: "Gizli Dostlar", nasil: "On gizli iyilik yapın.", olcut: "deeds", hedef: 10 },
   { id: "nar", e: "🍎", ad: "Nar Bahçesi", nasil: "Nar ağacında 25 nar biriktirin.", olcut: "deeds", hedef: 25 },
   { id: "orman", e: "🌳", ad: "Fidan Ormanı", nasil: "Bahçeye 100 fidan dikin.", olcut: "garden", hedef: 100 },
-  { id: "koleksiyon", e: "🃏", ad: "Koleksiyoncu", nasil: "Albümde 25 Kıssa Kartı toplayın.", olcut: "cards", hedef: 25 },
+  { id: "koleksiyon", e: "🃏", ad: "Koleksiyoncu", nasil: "Albümde 25 Hazine Kartı toplayın.", olcut: "cards", hedef: 25 },
   { id: "yolcu", e: "🧭", ad: "Yolcu", nasil: "Haritada üç durağı tamamlayın.", olcut: "lands", hedef: 3 },
   { id: "kandil", e: "🏆", ad: "Kandil Gecesi", nasil: "Yolculuğun tüm duraklarını tamamlayın.", olcut: "lands", hedef: 7 }
 ];
@@ -561,8 +561,8 @@ const YOLCULUK_SOZ = {
   kilitli: "Bu durak henüz kilitli. Önceki durağı tamamlayınca açılacak!",
   durakAcildi: "Yeni bir durak açıldı!",
   rozet: "Yeni bir rozet kazandınız!",
-  kart: "Yeni bir Kıssa Kartı albüme eklendi!",
-  albüm: "Kıssa Kartları albümümüz. Her kart bir kıssa anlatıyor!",
+  kart: "Yeni bir Hazine Kartı albüme eklendi!",
+  albüm: "Hazine Kartları albümümüz. Her kartın arkasında Kur'an'dan ya da sünnetten bir bilgi saklı!",
   rozetler: "Ailemizin rozetleri. Hangisini sıradaki hedefimiz yapalım?",
   final: "Tebrikler! Ailecek yolculuğunun bütün duraklarını tamamladınız. Allah hepinizden razı olsun!"
 };
