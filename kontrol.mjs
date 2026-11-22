@@ -69,6 +69,21 @@ C.HIKMETLI.forEach(x => {
   if (KORKU.test(x.h + x.c)) ekle(hatalar, 6, `Hikâye "${x.ad}"`, "Korkutma dili");
 });
 
+// Kalp Bahçesi sezonu (kalp.js)
+if (fs.existsSync(path.join(kok, "kalp.js"))) {
+  const KB = new Function(["icerik.js", "kalp.js"].map(f => fs.readFileSync(path.join(kok, f), "utf8")).join("\n") + ";return {KALP_ICERIK,KALP_SOZ,KALP_KOSELER}")();
+  KB.KALP_KOSELER.forEach(k => { if (!KB.KALP_ICERIK[k.id]) ekle(hatalar, 6, `Köşe ${k.id}`, "Kalp Bahçesi içeriği yok"); });
+  Object.entries(KB.KALP_ICERIK).forEach(([id, x]) => {
+    if (!koseler.has(id)) ekle(hatalar, 6, `Kalp Bahçesi ${id}`, "Bilinmeyen köşe");
+    if (!x.ayet.ref || !x.hadis.ref) ekle(hatalar, 6, `Kalp Bahçesi ${id}`, "Ayet ya da hadisin kaynağı yok");
+    if (x.gorevler.length !== 3 || x.senolsan.length < 3) ekle(uyarilar, 6, `Kalp Bahçesi ${id}`, "3 bakım görevi ve en az 3 Sen Olsan kartı olmalı");
+    const tum = [x.giris, x.muhasebe, x.dua, x.bakim, x.gorevler, x.senolsan.map(c => c.s + c.i)].flat().join(" ");
+    if (KORKU.test(tum)) ekle(hatalar, 6, `Kalp Bahçesi ${id}`, "Korkutma dili");
+    x.senolsan.forEach(c => { if (KUTSAL.test(c.s) && c.e) ekle(uyarilar, 1, `Kalp Bahçesi ${id} Sen Olsan`, `"${c.s.slice(0, 40)}…" resimle birlikte kutsal isim içeriyor`); });
+  });
+  if (KORKU.test(Object.values(KB.KALP_SOZ).join(" "))) ekle(hatalar, 6, "Kalp Bahçesi sözleri", "Korkutma dili");
+}
+
 // Kuşların Yolculuğu
 if (fs.existsSync(path.join(kok, "icerik-kuslar.js"))) {
   const K = new Function(["icerik.js", "icerik-kuslar.js"].map(f => fs.readFileSync(path.join(kok, f), "utf8")).join("\n") + ";return {VADI_HIKAYELERI,KUSLAR,BAHANE_KARTLARI,VADILER}")();

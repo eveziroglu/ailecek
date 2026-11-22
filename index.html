@@ -19,7 +19,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Ailecek">
-<link rel="stylesheet" href="yazi/yazi.css?v=20261122-1247">
+<link rel="stylesheet" href="yazi/yazi.css?v=20261122-1316">
 <style>
 /* Ailecek tasarım sistemi: tasarim/project/ altındaki tokens.json ve bundle.css'ten üretilir (python3 tasarim/esitle.py). Elle düzenlemeyin. */
 /* @tokenlar:başla */
@@ -384,6 +384,27 @@ blockquote cite { display: block; margin-top: 8px; font: 600 13px/18px var(--fon
 .days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
 .days i { height: 8px; border-radius: 4px; background: color-mix(in srgb, var(--on-gece) 18%, transparent); }
 .days i.on { background: var(--yildiz); }
+/* Kalp Bahçesi */
+.kb-week { background: var(--ak-stars), color-mix(in srgb, var(--zumrut) 55%, var(--gece)); }
+.kb-mini { display: flex; justify-content: space-between; gap: 4px; font-size: 26px; }
+.kb-mini span { flex: 1; text-align: center; padding: 6px 0; border-radius: 12px; background: color-mix(in srgb, var(--on-gece) 10%, transparent); filter: saturate(.6); }
+.kb-mini span.on { background: color-mix(in srgb, var(--yildiz) 28%, transparent); filter: none; }
+.kb-bahce { gap: 14px; background: color-mix(in srgb, var(--zumrut) 10%, var(--surface-100, var(--card, #fff))); }
+.kb-havuz { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 16px; border-radius: 50% / 45%; font-weight: 700; color: var(--on-gece);
+  background: linear-gradient(color-mix(in srgb, var(--sky, #8fc6e8) calc(var(--berrak) * 70%), #7a6a4f), color-mix(in srgb, var(--firuze) calc(var(--berrak) * 80%), #5b4d38)); }
+.kb-havuz span { font-size: 30px; }
+.kb-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.kb-kose { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 12px 8px; border-radius: 18px; border: 2px solid var(--line, #d3dcec); background: var(--surface-100, #fff); color: inherit; font: inherit; text-align: center; cursor: pointer; }
+.kb-kose b { font: 700 17px/1.15 var(--font-display); }
+.kb-kose small { font-size: 13px; opacity: .75; font-weight: 600; }
+.kb-kose__ico { font-size: 38px; line-height: 1.1; }
+.kb-kose__durum { margin-top: 4px; font-size: 12px; font-weight: 800; color: var(--zumrut); }
+.kb-kose.is-acik { border-color: var(--zumrut); background: color-mix(in srgb, var(--zumrut) 12%, var(--surface-100, #fff)); }
+.kb-kose.is-current { border-color: var(--kandil); box-shadow: 0 0 0 3px color-mix(in srgb, var(--kandil) 35%, transparent); }
+.kb-kose.is-locked { opacity: .55; }
+.kb-kose--final { grid-column: 1 / -1; }
+#k3-gorevler .ak-option[aria-pressed="true"] { border-color: var(--zumrut); background: color-mix(in srgb, var(--zumrut) 14%, var(--surface-100, #fff)); box-shadow: 0 0 0 3px color-mix(in srgb, var(--zumrut) 30%, transparent); }
+#k3-gorevler .ak-option[aria-pressed="true"] .ak-option__key::after { content: " ✓"; }
 .members { display: flex; flex-wrap: wrap; gap: 10px; }
 .members .ak-avatar__badge { box-shadow: 0 0 0 3px var(--gece); }
 .member-list { display: flex; flex-direction: column; gap: 10px; }
@@ -616,16 +637,17 @@ blockquote cite { display: block; margin-top: 8px; font: 600 13px/18px var(--fon
 </div>
 <div id="sheet-root"></div>
 
-<script src="icerik.js?v=20261122-1247"></script>
-<script src="icerik-kuslar.js?v=20261122-1247"></script>
-<script src="kuslar.js?v=20261122-1247"></script>
+<script src="icerik.js?v=20261122-1316"></script>
+<script src="icerik-kuslar.js?v=20261122-1316"></script>
+<script src="kuslar.js?v=20261122-1316"></script>
+<script src="kalp.js?v=20261122-1316"></script>
 <script>
 /* ---- Sürüm ve hata koruması ----
    Telefon yeni sayfayla eski önbellekteki bir dosyayı birlikte yüklerse oyun sessizce takılabilir.
    Sürümler uyuşmazsa önbellek temizlenip sayfa bir kez yeniden yüklenir. Bir düğme hata verirse uyarı çıkar. */
-const OYUN_SURUM = "20261122-1247";
+const OYUN_SURUM = "20261122-1316";
 (() => {
-  const uyumlu = typeof ICERIK_SURUM !== "undefined" && ICERIK_SURUM === OYUN_SURUM && typeof KUSLAR_SURUM !== "undefined" && KUSLAR_SURUM === OYUN_SURUM;
+  const uyumlu = typeof ICERIK_SURUM !== "undefined" && ICERIK_SURUM === OYUN_SURUM && typeof KUSLAR_SURUM !== "undefined" && KUSLAR_SURUM === OYUN_SURUM && typeof KALP_SURUM !== "undefined" && KALP_SURUM === OYUN_SURUM;
   if (uyumlu) return;
   let denendi = false;
   try { denendi = sessionStorage.getItem("ailecek:onarim") === OYUN_SURUM; sessionStorage.setItem("ailecek:onarim", OYUN_SURUM); } catch (e) {}
@@ -656,9 +678,9 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;"
 const rnd = arr => arr[Math.floor(Math.random() * arr.length)];
 const shuffle = arr => { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const optText = o => Array.isArray(o) ? o[0] : o;
-/* Tema: birinci sezon temaları THEMES'te, ikinci sezon vadileri S2'de (kuslar.js) */
-const TH = k => THEMES[k] || S2.theme(k);
-const POOL = k => S2.pool(k);
+/* Tema: birinci sezon temaları THEMES'te, ikinci sezon vadileri S2'de (kuslar.js), üçüncü sezon köşeleri S3'te (kalp.js) */
+const TH = k => THEMES[k] || S2.theme(k) || S3.theme(k);
+const POOL = k => S3.isKose(k) ? S3.pool(k) : S2.pool(k);
 /* Ehl-i Sünnet ölçüsü: Allah hiçbir şeye ve sembole benzemez. Allah'ın isimleri, peygamberler ve kutsal
    kavramlar hiçbir resim, emoji veya sembolle eşleştirilmez (bkz. kontrol.mjs). */
 const KUTSAL = /Allah|Rab|Rahmân|Rahîm|Esmâ|Peygamber|Resûl|Hz\.|melek|Cebrail/i;
@@ -962,6 +984,7 @@ function allSpeechLines() {
     "Tören bitti! Nar ağacımız büyüdü. Allah hepinizden razı olsun!", "Nar ağacımızdaki her nar, gizlice yapılmış bir iyilik!", EMPTY_DEFTER);
   add("genel", Object.values(YOLCULUK_SOZ));
   add("kuslar", S2.lines());
+  add("kalp", S3.lines());
   add("kart", PANDOMIM.concat(SESLER).map(x => `${x.w}. ${x.info}`), HAYVANLAR.map(x => `Hepimiz ${x.w} olduk! ${x.m}`), allCards().map(c => `${c.w}. ${c.info}`));
   [0, 1, 2, 3].forEach(l => BILGI[l].forEach(x => add("bilgi", x.q, x.o.map(optText), x.info)));
   Object.values(SENOLSAN).flat().forEach(x => add("durum", x.s, x.i));
@@ -1210,7 +1233,7 @@ function gainCard(w) {
   P.cards.push(w); P.newCards.push(w); if (G) (G.newCards ||= []).push(w); saveP(); return true;
 }
 function badgeValue(b) {
-  return { streak: streak(), deeds: fruitTotal(), garden: gardenTotal, cards: P.cards.length, lands: landsDone() }[b.olcut] ?? S2.badgeValue(b.olcut) ?? P[b.olcut] ?? 0;
+  return { streak: streak(), deeds: fruitTotal(), garden: gardenTotal, cards: P.cards.length, lands: landsDone() }[b.olcut] ?? S2.badgeValue(b.olcut) ?? S3.badgeValue(b.olcut) ?? P[b.olcut] ?? 0;
 }
 function checkBadges() {
   const fresh = ROZETLER.filter(b => !P.badges[b.id] && badgeValue(b) >= b.hedef);
@@ -1228,7 +1251,7 @@ function toast(e, eyebrow, title) {
 const bump1 = key => { P[key] = (P[key] || 0) + 1; saveP(); checkBadges(); };
 
 function journeyHome() {
-  return S2.homeCard() + journeyHome1();
+  return S2.homeCard() + S3.homeCard() + journeyHome1();
 }
 function journeyHome1() {
   const cur = currentLand(), done = landsDone(), total = DURAKLAR.length;
@@ -1309,6 +1332,7 @@ function screenCert() {
       <div class="ak-chips"><span class="ak-chip" style="background:var(--surface-200)">⭐ ${stars}/21 yıldız</span><span class="ak-chip" style="background:var(--surface-200)">🃏 ${P.cards.length} kart</span><span class="ak-chip" style="background:var(--surface-200)">🍎 ${fruitTotal()} gizli iyilik</span></div>
       <p class="ak-deed__quote">${new Date().toLocaleDateString("tr-TR", { day: "numeric", month: "long", year: "numeric" })}</p>
       ${S2.certButton()}
+      ${S3.certButton()}
       <button class="ak-btn ak-btn--kandil ak-btn--lg" data-act="map">Haritaya dön</button>
     </section>`, YOLCULUK_SOZ.final);
   confetti(40); sfx.win();
@@ -1356,6 +1380,10 @@ function nightRewards() {
   if (!G || G.counted) return null;
   G.counted = true;
   const turns = G.plan.length, stars = G.fidan >= turns * 1.2 ? 3 : G.fidan >= turns * .7 ? 2 : 1;
+  if (S3.isKose(G.theme)) {
+    P.nights++; const wk3 = weekKey(Date.now()); if (!P.weeks.includes(wk3)) P.weeks.push(wk3); saveP();
+    const r3 = S3.reward(G.theme, stars); checkBadges(); return r3;
+  }
   if (S2.isVadi(G.theme)) {
     P.nights++; const wk2 = weekKey(Date.now()); if (!P.weeks.includes(wk2)) P.weeks.push(wk2); saveP();
     const r2 = S2.reward(G.theme, stars); checkBadges(); return r2;
@@ -1474,14 +1502,15 @@ function startGame(themeKey) {
     else plan.push({ player: players[p++ % n] });
   }
   G = { theme: themeKey, players, plan, i: 0, fidan: 0, used: {}, lastType: null, saskinCount: 0, newCards: [], newBadges: [] };
+  S3.planla(G);
   try { navigator.wakeLock && navigator.wakeLock.request("screen").catch(() => {}); } catch (e) {}
-  const t = TH(themeKey), line = S2.isVadi(themeKey) ? S2.intro(themeKey) : `Bu gece ${t.name}! Hazır mısınız?`, durak = DURAKLAR.find(d => d.tema === themeKey);
+  const t = TH(themeKey), line = S2.isVadi(themeKey) ? S2.intro(themeKey) : S3.isKose(themeKey) ? S3.intro(themeKey) : `Bu gece ${t.name}! Hazır mısınız?`, durak = DURAKLAR.find(d => d.tema === themeKey);
   render(`
     <section class="ak-card ak-card--game ${onFor(t.color)}" style="--c:var(${t.color})">
       <header class="ak-card__head"><span class="ak-card__title"><span class="ak-card__ico">${t.ico}</span>${t.name}</span></header>
-      ${S2.isVadi(themeKey) ? `<span class="ak-label" style="text-align:center">${esc(S2.label(themeKey))}</span>` : ""}
+      ${S2.isVadi(themeKey) || S3.isKose(themeKey) ? `<span class="ak-label" style="text-align:center">${esc(S2.label(themeKey) || S3.label(themeKey))}</span>` : ""}
       ${durak ? `<span class="ak-label" style="text-align:center">Durak ${landIndex(themeKey) + 1} · ${esc(durak.ad)}${P.lands[themeKey] ? " · " + "★".repeat(P.lands[themeKey]) : ""}</span>` : ""}
-      ${sahne(S2.isVadi(themeKey) ? "vadi:" + themeKey.slice(2) : "durak:" + themeKey) || `<span class="mega bounce">${t.ico}</span>`}
+      ${sahne(S2.isVadi(themeKey) ? "vadi:" + themeKey.slice(2) : S3.isKose(themeKey) ? "ot:" + themeKey.slice(2) : "durak:" + themeKey) || `<span class="mega bounce">${t.ico}</span>`}
       <p class="q-text">${esc(t.desc)}</p>
       ${guide(line, { noSpeak: true })}
       <button class="ak-btn ak-btn--kandil ak-btn--lg ak-btn--pulse" data-act="turn">Başlayalım</button>
@@ -1770,7 +1799,8 @@ function playKalpDoktoru() {
   const yl = youngestLvl();
   const cocuk = KALP_DOKTORU.filter(x => !x.y && (yl === 0 ? x.l === 0 : yl === 1 ? x.l <= 1 : true));
   const yetiskin = KALP_DOKTORU.filter(x => x.y);
-  const x = yetiskin.length && Math.random() < .25 ? pick(yetiskin, "kalpY") : pick(cocuk, "kalp");
+  const tercih = S3.koseOf(G.theme), koseKart = tercih && !G.used.kalpKose ? cocuk.filter(x => x.k === tercih) : [];
+  const x = koseKart.length ? (G.used.kalpKose = 1, rnd(koseKart)) : yetiskin.length && Math.random() < .25 ? pick(yetiskin, "kalpY") : pick(cocuk, "kalp");
   const kose = KALP_KOSELER.find(k => k.id === x.k);
   const diger = shuffle(KALP_KOSELER.filter(k => k.id !== x.k && !(yl === 0 && k.id === "riya"))).slice(0, 2);
   const opts = shuffle([kose, ...diger]);
@@ -1809,7 +1839,8 @@ function kalpOneri() {
 
 /* ---- Hikmetli Hikâye ---- */
 function playHikaye(t) {
-  const x = pick(HIKMETLI, "hikaye");
+  const koseH = G.koseHikaye && HIKMETLI.find(h => h.k === G.koseHikaye);
+  const x = koseH ? koseH : pick(HIKMETLI, "hikaye"); G.koseHikaye = null;
   G.cur = { x, kim: t.player };
   render(card("hikaye", `
     <span class="mega bounce">${x.e}</span>
@@ -1982,7 +2013,7 @@ function hoca(ok) {
 function screenDeep(step) {
   if (!G) return screenHome();
   const t = TH(G.theme);
-  const slides = S2.isVadi(G.theme) ? S2.slides(G.theme) : [
+  const slides = S2.isVadi(G.theme) ? S2.slides(G.theme) : S3.isKose(G.theme) ? S3.slides(G.theme) : [
     { ico: "📖", title: "Kur'an'dan", body: `<blockquote>“${esc(t.ayet.text)}”<cite>${esc(t.ayet.ref)}</cite></blockquote>`, say: t.ayet.text },
     { ico: "🌙", title: "Peygamberimiz (s.a.v.) buyurdu", body: `<blockquote>“${esc(t.hadis.text)}”<cite>${esc(t.hadis.ref)}</cite></blockquote>`, say: "Peygamberimiz s.a.v. buyurdu: " + t.hadis.text },
     { ico: "💬", title: "Hadi konuşalım", body: `<p class="q-text">${esc(t.soru)}</p>`, say: t.soru },
@@ -2275,12 +2306,13 @@ function screenDefter() {
 
 function screenEnd() {
   const f = G ? G.fidan : 0, msg = `Maşallah, ne güzel bir geceydi! Bu gece ${f} fidan diktiniz.`;
-  const R = nightRewards(), durak = G && (DURAKLAR.find(d => d.tema === G.theme) || (S2.isVadi(G.theme) && { ad: TH(G.theme).name }));
+  const R = nightRewards(), durak = G && (DURAKLAR.find(d => d.tema === G.theme) || ((S2.isVadi(G.theme) || S3.isKose(G.theme)) && { ad: TH(G.theme).name }));
   const cards = (G && G.newCards || []).map(w => allCards().find(c => c.w === w)).filter(Boolean);
   const badges = G && G.newBadges || [];
   const rewards = [
-    R && R.unlocked ? `<div class="reward"><i>${R.unlocked.ico}</i><div><b>${R.unlocked.s2 ? "Yeni vadi açıldı" : "Yeni durak açıldı"}: ${esc(R.unlocked.ad)}</b><small>Haritada sizi bekliyor</small></div></div>` : "",
+    R && R.unlocked ? `<div class="reward"><i>${R.unlocked.ico}</i><div><b>${R.unlocked.etiket || (R.unlocked.s2 ? "Yeni vadi açıldı" : "Yeni durak açıldı")}: ${esc(R.unlocked.ad)}</b><small>Haritada sizi bekliyor</small></div></div>` : "",
     R && R.finalOpen ? `<div class="reward"><i>${R.finalIco}</i><div><b>${R.finalName} açıldı!</b><small>${R.finalName === "Kaf Dağı" ? "Yolculuğun finali sizi bekliyor" : "Yolculuk belgenizi alın"}</small></div></div>` : "",
+    ...(R && R.extra || []).map(x => `<div class="reward"><i>${x.i}</i><div><b>${esc(x.b)}</b><small>${esc(x.s)}</small></div></div>`),
     cards.length ? `<div class="reward" style="animation-delay:.15s"><i>🃏</i><div><b>${cards.length} yeni Kıssa Kartı</b><small>${cards.map(c => c.e + " " + esc(c.w)).join(", ")}</small></div></div>` : "",
     ...badges.map((b, i) => `<div class="reward" style="animation-delay:${.3 + i * .15}s"><i>${b.e}</i><div><b>Rozet: ${esc(b.ad)}</b><small>${esc(b.nasil)}</small></div></div>`)
   ].join("");
@@ -2290,7 +2322,7 @@ function screenEnd() {
       <h2 style="font:700 30px/34px var(--font-display)">Ne güzel bir geceydi!</h2>
       ${guide(msg, { noSpeak: true, soft: true })}
       ${rewards ? `<div class="reward-list">${rewards}</div>` : ""}
-      ${R && R.unlocked || R && R.finalOpen ? `<button class="ak-btn ak-btn--kandil ak-btn--lg" data-act="${G && S2.isVadi(G.theme) ? "s2-map" : "map"}">Haritayı Aç</button>` : ""}
+      ${R && R.harita ? `<button class="ak-btn ak-btn--kandil ak-btn--lg" data-act="${R.harita}">Bahçeye Git</button>` : R && R.unlocked || R && R.finalOpen ? `<button class="ak-btn ak-btn--kandil ak-btn--lg" data-act="${G && S2.isVadi(G.theme) ? "s2-map" : "map"}">Haritayı Aç</button>` : ""}
       ${week ? `<p class="small bold muted">İyilik Haftası ana sayfada sizi bekliyor. Yaptığınız iyilikleri oradan işaretleyin.</p>` : ""}
       <button class="ak-btn ak-btn--lg" data-act="home">Ana sayfa</button>
       <button class="link" data-act="feedback">Bu geceyi nasıl buldunuz? Görüşünüzü yazın</button>
@@ -2320,6 +2352,7 @@ function screenKaynaklar() {
     ${blok("Tema geceleri", "Her oyun gecesinin Derinlik Anı'nda okunur.", temalar)}
     ${blok("Gizli İyilik Haftası", "", gizli)}
     ${blok("Kuşların Yolculuğu", "Her vadi gecesinde okunur. Hikâyeler Ferîdüddîn-i Attâr'ın Mantıku't-Tayr eserinden esinlenmiştir.", vadiler)}
+    ${blok("Kalp Bahçesi", "Her köşe gecesinin Derinlik Anı'nda okunur. Sezon İmam Gazâlî'nin İhyâu Ulûmi'd-Dîn ve Kimyâ-yı Saâdet eserlerinden esinlenmiştir; Gazâlî'den alıntı yapılmamış, fikirler sadeleştirilerek anlatılmıştır.", [...KALP_KOSELER.flatMap(k => { const x = KALP_ICERIK[k.id]; return [nas("Ayet", x.ayet.text, x.ayet.ref, `${k.ot} ➜ ${k.cicek}`), nas("Hadis", x.hadis.text, x.hadis.ref)]; }), nas("Ayet", KALP_FINAL_AYET.text, KALP_FINAL_AYET.ref, "Final: Kalb-i selîm"), nas("Hadis", KALP_FINAL_HADIS.text, KALP_FINAL_HADIS.ref), nas("Ayet", KALP_FINAL_DUA.text, KALP_FINAL_DUA.ref)])}
     ${blok("Hikmetli Hikâye", "Hikâyeler özgün temsil ya da kaynağı belli olmayan halk hikâyesidir; Gazâlî'ye veya hadise dayandırılmaz. Hikmet bölümünde geçen hadislerin kaynakları:", HIKMETLI.filter(x => x.r).map(x => `<div><b>${esc(x.ad)}</b><p class="small" style="margin:2px 0 0;font-weight:600">${esc(x.c)} (${esc(x.r)})</p></div>`))}
     ${blok("Kıssa Kartları", "Kartların arkasında kaynağıyla verilen bilgiler.", kartlar)}`);
   try { history.replaceState(null, "", "#kaynaklar"); } catch (e) {}
@@ -2504,6 +2537,7 @@ const actions = {
   "cer-intro": cerIntro, "cer-guess": cerGuess, "cer-pick": (a, el) => cerPick(a, el), "cer-reveal": cerReveal, "cer-thank": a => cerThank(+a), "cer-next": cerNext,
   defter: screenDefter,
   ...S2.actions,
+  ...S3.actions,
   ...fbActions,
   ...tourActions,
   install: doInstall,
