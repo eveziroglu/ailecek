@@ -19,7 +19,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Ailecek">
-<link rel="stylesheet" href="yazi/yazi.css?v=20261122-1316">
+<link rel="stylesheet" href="yazi/yazi.css?v=20261122-1351">
 <style>
 /* Ailecek tasarım sistemi: tasarim/project/ altındaki tokens.json ve bundle.css'ten üretilir (python3 tasarim/esitle.py). Elle düzenlemeyin. */
 /* @tokenlar:başla */
@@ -331,6 +331,17 @@ button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
 @keyframes bump { 40% { transform: scale(1.25); } }
 .icon-btn { width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--surface-200); box-shadow: 0 3px 0 var(--line); display: grid; place-items: center; color: var(--ink); }
 .icon-btn svg { width: 22px; height: 22px; }
+/* Küçük telefonlar (360 px ve altı): üst çubuk taşmasın */
+@media (max-width: 360px) {
+  .bar { gap: 6px; }
+  .brand { font-size: 23px; gap: 6px; }
+  .brand svg { width: 30px; height: 30px; }
+  .bar-right { gap: 5px; }
+  .stat { height: 36px; padding: 0 8px; gap: 4px; font-size: 15px; }
+  .icon-btn { width: 38px; height: 38px; }
+  .fb-faces { gap: 4px; }
+  .fb-faces button { font-size: 26px; }
+}
 
 .screen { display: flex; flex-direction: column; gap: 16px; animation: enter .45s cubic-bezier(.2, 1.3, .4, 1); }
 @keyframes enter { from { transform: translateY(16px); } }
@@ -424,7 +435,7 @@ blockquote cite { display: block; margin-top: 8px; font: 600 13px/18px var(--fon
 .fb-q > b { font: 700 18px/1.2 var(--font-display); }
 .fb-q textarea { width: 100%; min-height: 84px; padding: 12px 14px; border-radius: var(--radius-md); border: 2px solid var(--line); background: var(--surface-200); color: var(--ink); font: 600 16px/1.4 var(--font-body); resize: vertical; }
 .fb-faces { display: flex; gap: 8px; justify-content: space-between; }
-.fb-faces button { flex: 1; aspect-ratio: 1; max-width: 64px; border-radius: 50%; border: 2px solid var(--line); background: var(--surface-200); font-size: 30px; cursor: pointer; }
+.fb-faces button { flex: 1; min-width: 0; padding: 0; aspect-ratio: 1; max-width: 64px; border-radius: 50%; border: 2px solid var(--line); background: var(--surface-200); font-size: 30px; cursor: pointer; }
 .fb-faces button[aria-pressed="true"] { border-color: var(--cini); background: color-mix(in srgb, var(--cini) 14%, var(--surface-200)); transform: scale(1.08); }
 .fb-send { display: grid; gap: 10px; }
 .own { width: 100%; min-height: 88px; padding: 12px 14px; border-radius: var(--radius-md); border: 2px dashed color-mix(in srgb, var(--on-gece) 35%, transparent); background: transparent; color: var(--on-gece); font: 600 16px/1.4 var(--font-body); resize: vertical; }
@@ -637,15 +648,15 @@ blockquote cite { display: block; margin-top: 8px; font: 600 13px/18px var(--fon
 </div>
 <div id="sheet-root"></div>
 
-<script src="icerik.js?v=20261122-1316"></script>
-<script src="icerik-kuslar.js?v=20261122-1316"></script>
-<script src="kuslar.js?v=20261122-1316"></script>
-<script src="kalp.js?v=20261122-1316"></script>
+<script src="icerik.js?v=20261122-1351"></script>
+<script src="icerik-kuslar.js?v=20261122-1351"></script>
+<script src="kuslar.js?v=20261122-1351"></script>
+<script src="kalp.js?v=20261122-1351"></script>
 <script>
 /* ---- Sürüm ve hata koruması ----
    Telefon yeni sayfayla eski önbellekteki bir dosyayı birlikte yüklerse oyun sessizce takılabilir.
    Sürümler uyuşmazsa önbellek temizlenip sayfa bir kez yeniden yüklenir. Bir düğme hata verirse uyarı çıkar. */
-const OYUN_SURUM = "20261122-1316";
+const OYUN_SURUM = "20261122-1351";
 (() => {
   const uyumlu = typeof ICERIK_SURUM !== "undefined" && ICERIK_SURUM === OYUN_SURUM && typeof KUSLAR_SURUM !== "undefined" && KUSLAR_SURUM === OYUN_SURUM && typeof KALP_SURUM !== "undefined" && KALP_SURUM === OYUN_SURUM;
   if (uyumlu) return;
@@ -731,11 +742,23 @@ const saveP = () => store.set("ilerleme", P);
 const later = (fn, ms) => { const id = setTimeout(fn, ms); timers.push(id); return id; };
 const every = (fn, ms) => { const id = setInterval(fn, ms); timers.push(id); return id; };
 function clearTimers() { timers.forEach(id => { clearTimeout(id); clearInterval(id); }); timers = []; stopDrum(); }
+/* Soru seçimi: aynı gecede aynı soru gelmez. Geceler arasında da bir havuzdaki bütün sorular
+   görülmeden aynı soru tekrar gelmez (görülenler cihazda "gorulen" anahtarında tutulur). */
+let gorulen = store.get("gorulen", {}) || {};
+const kimlik = x => String(x.q || x.w || x.s || x.p || x.ad || x.n || x.c || x.d || JSON.stringify(x)).slice(0, 90);
+function isaretle(x, key) {
+  (G.used[key] || (G.used[key] = new Set())).add(x);
+  const id = kimlik(x), g = (gorulen[key] ||= []);
+  if (!g.includes(id)) { g.push(id); store.set("gorulen", gorulen); }
+}
 function pick(pool, key) {
   const used = G.used[key] || (G.used[key] = new Set());
   let avail = pool.filter(x => !used.has(x));
-  if (!avail.length) { used.clear(); avail = pool; }
-  const x = rnd(avail); used.add(x); return x;
+  if (!avail.length) { used.clear(); avail = pool.slice(); }
+  const g = new Set(gorulen[key] || []);
+  let taze = avail.filter(x => !g.has(kimlik(x)));
+  if (!taze.length) { const ids = new Set(pool.map(kimlik)); gorulen[key] = (gorulen[key] || []).filter(id => !ids.has(id)); taze = avail; }
+  const x = rnd(taze); isaretle(x, key); return x;
 }
 const saveWeek = () => store.set("week", week);
 const fruitTotal = () => defter.reduce((a, w) => a + w.cards.filter(c => c.done).length, 0) + (week ? week.cards.filter(c => c.done).length : 0);
@@ -1620,7 +1643,9 @@ const playPandomim = t => actGame(t, "pandomim");
 const playSes = t => actGame(t, "ses");
 function actGame(t, type) {
   const lvl = ageOf(t.player.age).lvl, src = type === "ses" ? SESLER : PANDOMIM;
-  const x = pick(lvl === 0 ? src.filter(s => s.kolay) : src, type);
+  /* Pandomim ve Ses Taklidi'nde ortak kelimeler var (Fil, Deve…): aynı gece ikisinde aynı kelime gelmesin */
+  const kel = G.kelime || (G.kelime = new Set()), taban = lvl === 0 ? src.filter(s => s.kolay) : src;
+  const x = pick(taban.some(s => !kel.has(s.w)) ? taban.filter(s => !kel.has(s.w)) : taban, type); kel.add(x.w);
   const g = GAMES[type];
   G.cur = { x, type };
   const rules = type === "ses" ? `<span class="ak-chip">🙈 Herkes gözünü kapatsın</span><span class="ak-chip">🔊 Sadece ses</span>` : `<span class="ak-chip">🤐 Konuşmak yok</span><span class="ak-chip">🔊 Ses çıkarmak serbest</span>`;
@@ -1691,7 +1716,7 @@ function answer(i) {
 function playBilmece(t) {
   const lvl = ageOf(t.player.age).lvl;
   const havuz = BILMECELER.filter(b => lvl === 0 ? b.l === 0 : lvl === 1 ? b.l <= 1 : b.l >= 1);
-  const x = pick(havuz, "bilmece" + Math.min(lvl, 2));
+  const x = pick(havuz, "bilmece");
   G.cur = { x, ipucu: false };
   render(card("bilmece", `
     <span class="ak-label" style="text-align:center">${t.player.av} ${esc(t.player.name)} · ${ageOf(t.player.age).label}</span>
@@ -1799,8 +1824,8 @@ function playKalpDoktoru() {
   const yl = youngestLvl();
   const cocuk = KALP_DOKTORU.filter(x => !x.y && (yl === 0 ? x.l === 0 : yl === 1 ? x.l <= 1 : true));
   const yetiskin = KALP_DOKTORU.filter(x => x.y);
-  const tercih = S3.koseOf(G.theme), koseKart = tercih && !G.used.kalpKose ? cocuk.filter(x => x.k === tercih) : [];
-  const x = koseKart.length ? (G.used.kalpKose = 1, rnd(koseKart)) : yetiskin.length && Math.random() < .25 ? pick(yetiskin, "kalpY") : pick(cocuk, "kalp");
+  const tercih = S3.koseOf(G.theme), koseKart = tercih && !G.kalpKose ? cocuk.filter(x => x.k === tercih && !(G.used.kalp && G.used.kalp.has(x))) : [];
+  const x = koseKart.length ? (G.kalpKose = 1, pick(koseKart, "kalp")) : yetiskin.length && Math.random() < .25 ? pick(yetiskin, "kalpY") : pick(cocuk, "kalp");
   const kose = KALP_KOSELER.find(k => k.id === x.k);
   const diger = shuffle(KALP_KOSELER.filter(k => k.id !== x.k && !(yl === 0 && k.id === "riya"))).slice(0, 2);
   const opts = shuffle([kose, ...diger]);
@@ -1840,7 +1865,7 @@ function kalpOneri() {
 /* ---- Hikmetli Hikâye ---- */
 function playHikaye(t) {
   const koseH = G.koseHikaye && HIKMETLI.find(h => h.k === G.koseHikaye);
-  const x = koseH ? koseH : pick(HIKMETLI, "hikaye"); G.koseHikaye = null;
+  const x = koseH && !(G.used.hikaye && G.used.hikaye.has(koseH)) ? (isaretle(koseH, "hikaye"), koseH) : pick(HIKMETLI, "hikaye"); G.koseHikaye = null;
   G.cur = { x, kim: t.player };
   render(card("hikaye", `
     <span class="mega bounce">${x.e}</span>
@@ -1868,7 +1893,9 @@ function hikHikmet() {
 /* ---- Sen Olsan? ---- */
 function youngestKid() { const k = G.players.filter(p => p.age !== "y"); return k.length ? k.reduce((a, b) => ageOf(b.age).lvl < ageOf(a.age).lvl ? b : a) : null; }
 function playSenOlsan(t) {
-  const x = pick(SENOLSAN[POOL(G.theme)], "sen"), judge = youngestKid();
+  /* Kalp Bahçesi köşelerinin kendi kartları bitince ilgili birinci sezon temasının kartları gelir */
+  const ana = SENOLSAN[POOL(G.theme)], ek = S3.kaynak(G.theme), anaTaze = ana.filter(c => !(G.used.sen && G.used.sen.has(c)));
+  const x = !anaTaze.length && ek ? pick(SENOLSAN[ek], "sen") : pick(ana, "sen"), judge = youngestKid();
   G.cur = x;
   render(card("senolsan", `
     <span class="mega wiggle">${x.e}</span>
@@ -2510,7 +2537,7 @@ const actions = {
   vstyle(k) { voiceStyle = k; store.set("voiceStyle", k); openSettings(false); voiceOn = true; store.set("voice", true); say(SAMPLE_LINE); },
   voice() { voiceOn = !voiceOn; store.set("voice", voiceOn); if (!voiceOn) hush(); else say("Sesli anlatım açık."); openSettings(false); },
   "reset-ask": () => openSettings(true),
-  reset() { ["family", "garden", "week", "defter", "secrets", "ilerleme", "geriBildirim"].forEach(k => store.set(k, null)); P = { nights: 0, correct: 0, pandomim: 0, ses: 0, hayvan: 0, hocaWins: 0, detective: 0, lands: {}, cards: [], newCards: [], badges: {}, weeks: [], freeAll: false }; family = DEFAULT_FAMILY.map(p => ({ ...p })); gardenTotal = 0; week = null; defter = []; lastPlantCount = 0; lastFruitCount = 0; fb = { yuz: -1, sevilen: [], takildi: "", dini: "", oneri: "" }; closeSheet(); screenHome(); },
+  reset() { ["family", "garden", "week", "defter", "secrets", "ilerleme", "geriBildirim", "gorulen"].forEach(k => store.set(k, null)); gorulen = {}; P = { nights: 0, correct: 0, pandomim: 0, ses: 0, hayvan: 0, hocaWins: 0, detective: 0, lands: {}, cards: [], newCards: [], badges: {}, weeks: [], freeAll: false }; family = DEFAULT_FAMILY.map(p => ({ ...p })); gardenTotal = 0; week = null; defter = []; lastPlantCount = 0; lastFruitCount = 0; fb = { yuz: -1, sevilen: [], takildi: "", dini: "", oneri: "" }; closeSheet(); screenHome(); },
   "m-add"() { if (family.length >= 8) return; const used = new Set(family.map(p => p.av)); family.push({ name: "", age: "c", av: AVATARS.find(a => !used.has(a)) || AVATARS[0] }); store.set("family", family); sfx.pop(); setupConfirm = -1; screenSetup(); later(() => { const el = document.getElementById("name-" + (family.length - 1)); el && el.focus(); }, 60); },
   "m-out-ask"(i) { setupConfirm = +i; screenSetup(); },
   "m-back"() { screenSetup(); },

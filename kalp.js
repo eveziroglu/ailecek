@@ -1,5 +1,5 @@
 /* Sürüm etiketi: node surum.mjs ile güncellenir; index.html ile aynı olmalı. */
-const KALP_SURUM = "20261122-1316";
+const KALP_SURUM = "20261122-1351";
 /* ============ ÜÇÜNCÜ SEZON: KALP BAHÇESİ ============
    İlham: İmam Gazâlî, İhyâu Ulûmi'd-Dîn (Mühlikât ve Münciyât bölümleri) ve Kimyâ-yı Saâdet.
    Kalp bir bahçedir: her köşede bir yabani ot (kalp hastalığı) biter, aile onun yerine bir çiçek (ilacı) diker.
@@ -34,7 +34,7 @@ const KALP_FINAL_DUA = { text: "Rabbimiz! Bizi doğru yola ilettikten sonra kalp
    bakim: bir sonraki gecenin bakım sohbeti; senolsan ve hizli: o köşenin gecesinde çıkan kartlar. */
 const KALP_ICERIK = {
   kibir: {
-    color: "--cini", desc: "Kibirden tevazuya",
+    kaynak: "merhamet", color: "--cini", desc: "Kibirden tevazuya",
     giris: [
       "Bahçemizin bu köşesinde bir diken bitmiş. Bakın, ne kadar dik duruyor! Kimseyi yanına yaklaştırmıyor.",
       "Ormanda bir kuş vardı. Herkesten hızlı uçtuğunu düşünürdü. Yavaş uçan kuşları beklemez, onlarla oyun oynamazdı. “Ben sizden iyiyim” derdi. Bir gün kanadı incindi… Ona yemek getiren, yuvasını ısıtan kimdi dersiniz? Hep yavaş diye beğenmediği kuşlar.",
@@ -55,7 +55,7 @@ const KALP_ICERIK = {
     hizli: [{ p: "Evde birine yapabileceğimiz yardımları sayın!", t: 8 }, { p: "Ailemizde herkesin bizden iyi yaptığı bir şeyi sayın!", t: 6 }]
   },
   dil: {
-    color: "--nar", desc: "Kırıcı sözden güzel söze",
+    kaynak: "dogruluk", color: "--nar", desc: "Kırıcı sözden güzel söze",
     giris: [
       "Bu köşede pıtraklar bitmiş. Pıtrak küçük, dikenli bir toptur; çorabınıza, kazağınıza yapışır, çıkarılması çok zordur.",
       "Bir gün küçük bir tavşan, arkadaşı sincap için “O hep beceriksiz zaten” dedi. Söz ağzından çıktı ve ormanda dolaşmaya başladı. Kirpiye, kuşa, kurbağaya yapıştı… Sonunda sincabın kulağına geldi. Tavşan çok pişman oldu ama sözünü geri toplayamadı.",
@@ -76,7 +76,7 @@ const KALP_ICERIK = {
     hizli: [{ p: "Birini sevindiren güzel sözleri sayın!", t: 10 }, { p: "Teşekkür etmenin farklı yollarını sayın!", t: 6 }]
   },
   ofke: {
-    color: "--lale", desc: "Öfkeden sabra",
+    kaynak: "sabir", color: "--lale", desc: "Öfkeden sabra",
     giris: [
       "Dikkat, bu köşede ısırgan bitmiş! Isırgana dokunanın eli yanar, kızarır. Ama ısırganın kendisi de kimseyle oynayamaz.",
       "Bir yuvada iki yavru kuş vardı. Biri yanlışlıkla ötekinin tüyüne bastı. Öteki hemen öfkelendi, kanatlarını çırptı, bağırdı, yuvanın dallarını döktü. Öfkesi geçince baktı: yuva dağılmış, kardeşi ağlıyordu. Oysa her şey küçük bir tüy yüzünden başlamıştı.",
@@ -97,7 +97,7 @@ const KALP_ICERIK = {
     hizli: [{ p: "Sakinleşmek için yapabileceğimiz şeyleri sayın!", t: 8 }, { p: "Bizi gülümseten şeyleri sayın!", t: 10 }]
   },
   haset: {
-    color: "--kandil", desc: "Hasetten sevinmeye",
+    kaynak: "merhamet", color: "--kandil", desc: "Hasetten sevinmeye",
     giris: [
       "Bu köşede bir sarmaşık büyümüş. Sarmaşık yanındaki bitkiye dolanır, onun üstüne çıkmak ister. Sonunda ne yanındaki bitki güneş görebilir ne de sarmaşık çiçek açabilir.",
       "Yan yana iki bahçe vardı. Bir bahar sabahı birinci bahçede güller açtı. İkinci bahçenin sahibi bunu görünce içi sıkıldı: “Neden onun gülleri açtı da benimkiler açmadı?” Bütün gününü komşu bahçeye bakarak geçirdi, kendi bahçesini sulamayı unuttu. Gözü komşu bahçede olan, kendi bahçesini unutur.",
@@ -118,7 +118,7 @@ const KALP_ICERIK = {
     hizli: [{ p: "Ailemizdeki herkesin güzel bir yönünü sayın!", t: 6 }, { p: "Birini tebrik ederken söylenebilecek sözleri sayın!", t: 6 }]
   },
   cimrilik: {
-    color: "--zumrut", desc: "Cimrilikten cömertliğe",
+    kaynak: "paylasmak", color: "--zumrut", desc: "Cimrilikten cömertliğe",
     giris: [
       "Bu köşede yaprak yok, çiçek yok; yalnızca kuru bir dal duruyor. Kuru dal kimseye gölge vermez, meyve vermez. Kuşlar bile üstüne konmaz.",
       "Bir sincap kış için çuval çuval fındık topladı. Yuvası tepeleme doldu. Bir gün kapısına üşümüş bir kuş geldi: “Bir tane fındık verir misin?” Sincap “Yok, hepsi benim!” dedi ve kapıyı kapattı. Bahar geldiğinde fındıkların yarısı bozulmuştu. Hem bozuldu hem de kimseyi sevindirmedi.",
@@ -136,10 +136,10 @@ const KALP_ICERIK = {
       { e: "🧸", s: "Misafirliğe gelen küçük bir çocuk, en sevdiğin oyuncağınla oynamak istiyor. Ne yaparsın?", i: "Sevdiğinden paylaşmak gerçek cömertliktir; birlikte oynamak daha da güzeldir." },
       { e: "🌻", s: "Dedenin bahçedeki işe yardıma ihtiyacı var, sen de tam çizgi film izliyorsun. Ne yaparsın?", i: "Vaktini paylaşmak da cömertliktir. Dedeye yardım etmek kuru dalı nar fidanına çevirir." }
     ],
-    hizli: [{ p: "Paylaşabileceğimiz şeyleri sayın!", t: 10 }, { p: "Para harcamadan yapılabilecek iyilikleri sayın!", t: 8 }]
+    hizli: [{ p: "Bir arkadaşımızla paylaşabileceğimiz şeyleri sayın!", t: 10 }, { p: "Para harcamadan yapılabilecek iyilikleri sayın!", t: 8 }]
   },
   hirs: {
-    color: "--firuze", desc: "Hırstan kanaate",
+    kaynak: "sukur", color: "--firuze", desc: "Hırstan kanaate",
     giris: [
       "Bu köşeyi ayrık otu sarmış. Ayrık otu hiç doymaz: köklerini her yere uzatır, bütün toprağı kendine almak ister. Başka hiçbir bitkiye yer bırakmaz.",
       "Bir karga parlak bir boncuk buldu, çok sevindi. Sonra bir tane daha istedi. Sonra bir tane daha… Yuvası boncukla doldu ama karga hiç mutlu olamadı, çünkü hep bir sonrakini düşünüyordu. Bir gün yuvası ağırlıktan dalın üstünde eğildi; karga o zaman anladı: elindekilerin tadına hiç varamamıştı.",
@@ -160,7 +160,7 @@ const KALP_ICERIK = {
     hizli: [{ p: "Bugün sahip olduğumuz nimetleri sayın!", t: 12 }, { p: "Evdeki eski ama hâlâ sevdiğimiz eşyaları sayın!", t: 8 }]
   },
   riya: {
-    color: "--cini", desc: "Gösterişten ihlasa", sessiz: true,
+    kaynak: "dogruluk", color: "--cini", desc: "Gösterişten ihlasa", sessiz: true,
     giris: [
       "Bu köşede çok parlak bir çiçek var. Yaldızlı, pırıl pırıl! Ama yaklaşın, koklayın… Hiç kokusu yok. Bu bir yapma çiçek. Arılar da ona hiç konmuyor, çünkü içinde bal yok.",
       "Bir tavus kuşu, ormandaki yaşlı kaplumbağanın yuvasına su taşıdı. Ama yalnızca herkes bakarken taşıdı; kimse yokken hiç uğramadı. Her seferinde de tüylerini açıp “Gördünüz mü ne kadar iyiyim?” diye sordu. Bir gün ormanda kimse kalmadığında kaplumbağa susuz kaldı.",
@@ -225,6 +225,7 @@ const S3 = (() => {
   /* ---------- index.html'in kullandığı bağlantılar ---------- */
   const theme = k => { const id = koseOf(k); if (!id) return undefined; const c = kose(id); return { name: `${c.ot} Köşesi`, ico: c.otE, color: ic(id).color, desc: ic(id).desc, kose: true }; };
   const pool = k => k;
+  const kaynak = k => { const id = koseOf(k); return id ? ic(id).kaynak : null; };
   const intro = k => ic(koseOf(k)).giris[0];
   const label = k => { const id = koseOf(k); if (!id) return ""; const c = kose(id); return `Kalp Bahçesi · Köşe ${kIndex(id) + 1} · ${c.cicekE} ${c.cicek}${durum(id) ? " · " + "★".repeat(durum(id).stars) : ""}`; };
   const badgeValue = olcut => olcut === "s3final" ? st().finalDone : olcut === "s3cicek" ? acikSay() : undefined;
@@ -425,5 +426,5 @@ const S3 = (() => {
     "k3-final": a => { const [s, m] = a.split(":"); final(+s, +m); }
   };
 
-  return { isKose, koseOf, theme, pool, intro, label, reward, slides, planla, homeCard, certButton, badgeValue, lines, actions, unlocked, st };
+  return { isKose, koseOf, kaynak, theme, pool, intro, label, reward, slides, planla, homeCard, certButton, badgeValue, lines, actions, unlocked, st };
 })();
