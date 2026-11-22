@@ -1,5 +1,5 @@
 /* Sürüm etiketi: node surum.mjs ile güncellenir; index.html ile aynı olmalı. */
-const ICERIK_SURUM = "20261122-1443";
+const ICERIK_SURUM = "20261122-1449";
 /* Ailecek oyun içeriği.
    Yeni kart eklemek için ilgili listeye bir satır eklemeniz yeterli.
    Bil Bakalım'da ilk seçenek doğru cevaptır (oyunda karıştırılır).
@@ -145,7 +145,22 @@ const BILGI = {
     { q: "Bayramda büyüklerimizin neyini öperiz?", o: [["Elini","✋"],["Ayağını","🦶"],["Kulağını","👂"]] },
     { q: "Yerde çöp görürsek ne yaparız?", o: [["Çöp kutusuna atarız","🗑️"],["Tekmeleriz","⚽"],["Üstüne basarız","👟"]] },
     { q: "Hz. Yunus'u kim yuttu?", o: [["Büyük balık","🐋"],["Kedi","🐱"],["Kuş","🐦"]] },
-    { q: "Bal yapan hayvan hangisi? Kur'an'da onun adını taşıyan bir sure var!", o: [["Arı","🐝"],["Kelebek","🦋"],["Uğur böceği","🐞"]] }
+    { q: "Bal yapan hayvan hangisi? Kur'an'da onun adını taşıyan bir sure var!", o: [["Arı","🐝"],["Kelebek","🦋"],["Uğur böceği","🐞"]] },
+    { q: "Uyumadan önce ne yaparız?", o: [["Dua ederiz","🤲"],["Zıplarız","🤸"],["Bağırırız","📢"]] },
+    { q: "Biri bize hediye verince ne deriz?", o: [["Teşekkür ederim","🎁"],["Bana ne","🙄"],["Hiçbir şey","😶"]] },
+    { q: "Dişlerimizi neyle temizleriz?", o: [["Misvak ya da diş fırçası","🪥"],["Tarak","🪮"],["Kaşık","🥄"]] },
+    { q: "Sabah uyanınca ne deriz?", o: [["Elhamdülillah","🌅"],["Of, yine mi sabah","😫"],["Hoşça kal","👋"]] },
+    { q: "Müezzin ezanı nerede okur?", o: [["Camide","🕌"],["Uçakta","✈️"],["Gemide","🚢"]] },
+    { q: "Su içerken nasıl içeriz?", o: [["Oturarak, Bismillah diyerek","🥛"],["Koşarken","🏃"],["Baş aşağı","🙃"]] },
+    { q: "Hangi elimizle yemek yeriz?", o: [["Sağ elimizle","🫱"],["Ayağımızla","🦶"],["Dirseğimizle","💪"]] },
+    { q: "Misafir gelince ne yaparız?", o: [["İkram ederiz","🍵"],["Saklanırız","🙈"],["Kapıyı kapatırız","🚪"]] },
+    { q: "Annemiz yorulunca ne yaparız?", o: [["Yardım ederiz","🧺"],["Daha çok dağıtırız","🧸"],["Ağlarız","😭"]] },
+    { q: "Bir şeyi kırınca ne yaparız?", o: [["Doğruyu söyleriz","🗣️"],["Saklarız","🫣"],["Kardeşimizi suçlarız","👉"]] },
+    { q: "Yuvasına yiyecek taşıyan, Kur'an'da adını taşıyan bir sure olan küçük hayvan hangisi?", o: [["Karınca","🐜"],["Penguen","🐧"],["Dinozor","🦖"]], info: "Neml, yani Karınca Suresi." },
+    { q: "Oruçlu biri akşam ezanı okununca ne yapar?", o: [["İftar yapar","🍲"],["Uyur","😴"],["Okula gider","🎒"]] },
+    { q: "Kurban Bayramı'nda hangi hayvan kurban edilir?", o: [["Koyun","🐑"],["Kedi","🐈"],["Tavuk","🐔"]], info: "Koyun, keçi, sığır ve deve kurban edilir." },
+    { q: "Arkadaşımız düşünce ne yaparız?", o: [["Kalkmasına yardım ederiz","🤝"],["Güleriz","😂"],["Bakmayız","🙈"]] },
+    { q: "Ezan okunurken ne yaparız?", o: [["Sessizce dinleriz","👂"],["Bağırırız","📢"],["Müziği açarız","🎵"]] }
   ],
   1: [
     { q: "Günde kaç vakit namaz kılınır?", o: ["5","3","7"] },
@@ -162,7 +177,22 @@ const BILGI = {
     { q: "Peygamberimize (s.a.v.) indirilen kitap hangisidir?", o: ["Kur'an-ı Kerim","Tevrat","Zebur"] },
     { q: "Oruçlu biri iftarı ne zaman açar?", o: ["Akşam ezanı okununca","Öğle vakti","Sabah kalkınca"] },
     { q: "Peygamberimizin (s.a.v.) kızlarından biri kimdir?", o: ["Hz. Fâtıma","Hz. Meryem","Hz. Havva"] },
-    { q: "Hangi hayvanın adı bir sureye verilmiştir?", o: ["Arı (Nahl)","Aslan","Kaplan"] }
+    { q: "Hangi hayvanın adı bir sureye verilmiştir?", o: ["Arı (Nahl)","Aslan","Kaplan"] },
+    { q: "Namazda yüzümüzü hangi yöne döneriz?", o: ["Kâbe'ye, yani kıbleye","Güneşe","Pencereye"] },
+    { q: "Cuma namazı hangi gün kılınır?", o: ["Cuma","Pazartesi","Pazar"] },
+    { q: "Ramazan ayında tutulan ibadet hangisidir?", o: ["Oruç","Hac","Kurban"] },
+    { q: "Oruç tutacağımız gün, sabah ezanından önce yenen yemeğe ne denir?", o: ["Sahur","İftar","Kuşluk"] },
+    { q: "Kur'an-ı Kerim Peygamberimize (s.a.v.) hangi melek aracılığıyla indirildi?", o: ["Cebrail","İsrafil","Mikail"] },
+    { q: "Hz. Musa asasını denize vurunca ne oldu?", o: ["Deniz yarıldı, yol açıldı","Deniz buz tuttu","Yağmur yağdı"], info: "Şuarâ Suresi, 63. ayet." },
+    { q: "Hz. Yusuf'un babası kimdir?", o: ["Hz. Yakup","Hz. İbrahim","Hz. Nuh"] },
+    { q: "Kâbe'nin etrafında dönerek yapılan ibadete ne denir?", o: ["Tavaf","Secde","Rükû"] },
+    { q: "Namazda alnımızı yere koymaya ne denir?", o: ["Secde","Kıyam","Selam"] },
+    { q: "Peygamberimizin (s.a.v.) adı nedir?", o: ["Hz. Muhammed","Hz. Musa","Hz. İsa"] },
+    { q: "Zekât kime verilir?", o: ["İhtiyacı olanlara","Zenginlere","Hiç kimseye"] },
+    { q: "İslam'ın şartı kaçtır?", o: ["5","3","10"] },
+    { q: "İmanın şartı kaçtır?", o: ["6","4","9"] },
+    { q: "Gücü yeten kişinin ömründe bir kez yapması farz olan ibadet hangisidir?", o: ["Hac","Namaz","Oruç"] },
+    { q: "Kurban Bayramı kaç gün sürer?", o: ["4","1","10"] }
   ],
   2: [
     { q: "Peygamberimizin (s.a.v.) annesinin adı nedir?", o: ["Hz. Âmine","Hz. Hatice","Hz. Fâtıma"] },
@@ -179,7 +209,22 @@ const BILGI = {
     { q: "Peygamberimizin (s.a.v.) ilk eşi kimdir?", o: ["Hz. Hatice","Hz. Âişe","Hz. Fâtıma"] },
     { q: "Ezanı ilk okuyan sahabi kimdir?", o: ["Hz. Bilâl","Hz. Ömer","Hz. Ali"] },
     { q: "Kur'an'ın indirilmeye başladığı mübarek gece hangisidir?", o: ["Kadir Gecesi","Berat Kandili","Mevlid Kandili"] },
-    { q: "Hac ibadeti hangi şehirde yapılır?", o: ["Mekke","Medine","Kudüs"] }
+    { q: "Hac ibadeti hangi şehirde yapılır?", o: ["Mekke","Medine","Kudüs"] },
+    { q: "Hicret yolculuğunda yapılan ilk mescid hangisidir?", o: ["Kuba Mescidi","Mescid-i Aksâ","Mescid-i Haram"] },
+    { q: "Annesinin vefatından sonra Peygamberimizi (s.a.v.) yanına alan dedesi kimdir?", o: ["Abdülmuttalib","Ebû Tâlib","Hz. Hamza"] },
+    { q: "Hz. Nuh'un gemisi tufandan sonra hangi dağın üzerine oturdu?", o: ["Cûdî","Uhud","Tûr"], info: "Hûd Suresi, 44. ayet." },
+    { q: "Hz. Musa'nın Allah ile konuştuğu dağın adı nedir?", o: ["Tûr Dağı","Cûdî Dağı","Uhud Dağı"] },
+    { q: "Peygamberimiz (s.a.v.) ve Hz. Ebû Bekir hicret sırasında hangi mağarada saklandı?", o: ["Sevr","Hira","Kehf"] },
+    { q: "Farz namaz başlamadan hemen önce okunan çağrıya ne denir?", o: ["Kâmet","Ezan","Hutbe"] },
+    { q: "Ramazan, hicri takvimin kaçıncı ayıdır?", o: ["9.","1.","12."] },
+    { q: "Kurban Bayramı hangi ibadetle aynı günlere denk gelir?", o: ["Hac","Oruç","Teravih"] },
+    { q: "Teravih namazı hangi ayda kılınır?", o: ["Ramazan","Şevval","Muharrem"] },
+    { q: "Neml Suresi'ne göre Hz. Süleyman hangi canlıların sözünü anlardı?", o: ["Kuşların ve karıncaların","Balıkların","Atların"], info: "Neml Suresi, 16-19. ayetler." },
+    { q: "Kur'an-ı Kerim kaç yılda indirildi?", o: ["Yaklaşık 23 yılda","Bir günde","100 yılda"] },
+    { q: "Peygamberimizin (s.a.v.) Mekke'den Medine'ye göçüne ne denir?", o: ["Hicret","Hac","Mirac"] },
+    { q: "Hangisi Kur'an'daki bir surenin adı DEĞİLDİR?", o: ["Zebur","Yâsîn","Mülk"], info: "Zebur, Hz. Davud'a indirilen kitaptır." },
+    { q: "Peygamberimize (s.a.v.) göre bir müslüman kardeşine en fazla ne kadar küs durabilir?", o: ["Üç günden fazla küs durmamalı","Bir ay","Hiç barışmasa da olur"], info: "Peygamberimiz (s.a.v.) bir müslümanın kardeşine üç günden fazla küs durmasının helal olmadığını bildirdi. (Buhârî ve Müslim)" },
+    { q: "Peygamberimizin (s.a.v.) gece yolculuğu (İsrâ) hangi surede anlatılır?", o: ["İsrâ","Fil","Kevser"], info: "İsrâ Suresi, 1. ayet." }
   ],
   3: [
     { q: "Hz. İbrahim, Kâbe'yi hangi oğluyla birlikte inşa etti?", o: ["Hz. İsmail","Hz. İshak","Hz. Yakup"], info: "Bakara Suresi, 127. ayet." },
@@ -196,7 +241,22 @@ const BILGI = {
     { q: "Hz. Musa çocukken kimin sarayında büyüdü?", o: ["Firavun'un","Nemrut'un","Ebrehe'nin"] },
     { q: "İlk dört halifeden ikincisi kimdir?", o: ["Hz. Ömer","Hz. Osman","Hz. Ali"] },
     { q: "Peygamberimiz (s.a.v.) hangi şehirde vefat etti?", o: ["Medine","Mekke","Tâif"] },
-    { q: "Peygamberimize (s.a.v.) peygamberlikten önce de verilen “güvenilir” anlamındaki lakap nedir?", o: ["el-Emîn","el-Fârûk","es-Sıddîk"] }
+    { q: "Peygamberimize (s.a.v.) peygamberlikten önce de verilen “güvenilir” anlamındaki lakap nedir?", o: ["el-Emîn","el-Fârûk","es-Sıddîk"] },
+    { q: "Ashâb-ı Kehf ile birlikte mağarada bekleyen hayvan hangisidir?", o: ["Köpek","Kedi","At"], info: "Kehf Suresi, 18. ayet." },
+    { q: "Hz. Yusuf hangi ülkede hazinelerden sorumlu oldu?", o: ["Mısır","Yemen","Şam"] },
+    { q: "Bedir Savaşı hicretin kaçıncı yılında oldu?", o: ["2.","5.","8."] },
+    { q: "Mekke'nin fethi hicretin kaçıncı yılında oldu?", o: ["8.","2.","11."] },
+    { q: "“Ey iman edenler! Oruç size farz kılındı” ayeti hangi surededir?", o: ["Bakara","Âl-i İmrân","Mâide"], info: "Bakara Suresi, 183. ayet." },
+    { q: "Lokmân Suresi'nde Lokmân oğluna ilk olarak ne öğüt verir?", o: ["Allah'a ortak koşmamasını","Zengin olmasını","Ünlü olmasını"], info: "Lokmân Suresi, 13. ayet." },
+    { q: "Peygamberimiz (s.a.v.) Vedâ Hutbesi'ni nerede okudu?", o: ["Arafat'ta","Bedir'de","Tâif'te"] },
+    { q: "Hz. Ebû Bekir'in lakabı nedir?", o: ["es-Sıddîk","el-Fârûk","Seyfullah"] },
+    { q: "Hz. Ömer'in lakabı nedir?", o: ["el-Fârûk","es-Sıddîk","Zinnûreyn"] },
+    { q: "Kur'an-ı Kerim'i ilk kez bir mushaf hâlinde toplatan halife kimdir?", o: ["Hz. Ebû Bekir","Hz. Osman","Hz. Ali"], info: "Hz. Osman döneminde ise mushaf çoğaltılıp merkezlere gönderildi." },
+    { q: "“Şüphesiz zorlukla beraber bir kolaylık vardır” ayeti hangi surededir?", o: ["İnşirâh","Duhâ","Fil"], info: "İnşirâh Suresi, 5-6. ayetler." },
+    { q: "Hz. Musa'nın sabrı öğrendiği yolculuğun kıssası hangi surededir?", o: ["Kehf","Tâhâ","Kasas"], info: "Kehf Suresi, 60-82. ayetler." },
+    { q: "“Sübhâne Rabbiye'l-azîm” namazın hangi hâlinde okunur?", o: ["Rükûda","Secdede","Oturuşta"], info: "Secdede “Sübhâne Rabbiye'l-a'lâ” okunur." },
+    { q: "Hicri takvimin ilk ayı hangisidir?", o: ["Muharrem","Ramazan","Zilhicce"] },
+    { q: "Medine'de Muhacirler ile Ensar arasında kurulan kardeşliğe ne ad verilir?", o: ["Muâhât","Hilfü'l-fudûl","Bey'at"] }
   ]
 };
 
@@ -209,7 +269,10 @@ const SENOLSAN = {
     { e: "📱", s: "Arkadaşının yepyeni bir telefonu var, seninki eski ve çizik. İçinden ne geçer?", i: "Peygamberimiz (s.a.v.) “Sizden aşağıda olana bakın, üstünüzde olana bakmayın. Bu, Allah'ın nimetlerini küçümsememeniz için daha uygundur” buyurdu. (Müslim)" },
     { e: "🏃", s: "Sabah uyandın: gözlerin görüyor, kulakların duyuyor, bacakların koşuyor. Bunlardan hangisi olmasa en çok zorlanırdın?", i: "Her sabah uyandığımızda “Elhamdülillah” demek, bu nimetleri hatırlamanın en güzel yoludur." },
     { e: "🕯️", s: "Elektrikler kesildi; tablet yok, televizyon yok, mum ışığında oturuyorsunuz. Ne yaparsınız?", i: "Bazen bir nimetin değerini o nimet gidince anlarız. Bu, ailece sohbet etmek için güzel bir fırsat olabilir." },
-    { e: "🧶", s: "Ninen sana kendi ördüğü kocaman, rengârenk bir kazak gönderdi. Biraz kaşındırıyor! Ninene ne dersin?", i: "Emeğe teşekkür etmek çok kıymetlidir. Hediyenin arkasındaki sevgiyi görmek de şükürdür." }
+    { e: "🧶", s: "Ninen sana kendi ördüğü kocaman, rengârenk bir kazak gönderdi. Biraz kaşındırıyor! Ninene ne dersin?", i: "Emeğe teşekkür etmek çok kıymetlidir. Hediyenin arkasındaki sevgiyi görmek de şükürdür." },
+    { e: "🍞", s: "Kahvaltıda en sevmediğin peynir var, en sevdiğin reçel de bitmiş. Ne dersin?", i: "Sofradaki nimetleri görüp “Elhamdülillah” demek. Peygamberimiz (s.a.v.) hiçbir yemeği ayıplamazdı (Buhârî, Et'ime 21)." },
+    { e: "💧", s: "Dünyada birçok çocuğun temiz suya ulaşmak için kilometrelerce yürüdüğünü öğrendin. Musluğu açınca ne düşünürsün?", i: "Kolayca ulaştığımız suyun büyük bir nimet olduğunu fark edip şükretmek ve israf etmemek." },
+    { e: "🏠", s: "Yeni taşındığınız ev eskisinden küçük; odanı kardeşinle paylaşacaksın. Ne dersin?", i: "Sıcak bir evimiz ve ailemiz olduğu için şükretmek. Kardeşle oda paylaşmak da güzel anılar demektir." }
   ],
   sabir: [
     { e: "🧱", s: "Kardeşin, saatlerce yaptığın legodan kuleyi bir tekmede yıktı! Ne yaparsın?", i: "Asıl pehlivan, öfkelendiği zaman kendine hâkim olandır. (Buhârî, Müslim)" },
@@ -218,7 +281,10 @@ const SENOLSAN = {
     { e: "🎲", s: "Oyunda üst üste kaybediyorsun ve kardeşin seninle dalga geçiyor. Ne yaparsın?", i: "Kaybetmek de oyunun bir parçasıdır. Öfkelenince sakinleşmek için Peygamberimiz (s.a.v.) ayaktaysak oturmayı tavsiye etti. (Ebû Dâvûd)" },
     { e: "⏳", s: "Doktorda sıra çok uzun, bir saat bekleyeceksiniz. Zamanı nasıl değerlendirirsin?", i: "Beklerken zikir yapmak, hikâye anlatmak ya da sohbet etmek zamanı bereketlendirir." },
     { e: "🌧️", s: "Bütün gün yağmur yağdı ve dışarı çıkamıyorsun. Çok sıkıldın! Ne yaparsın?", i: "Sabır, sıkıldığımızda bile güzel bir şeyler bulabilmektir." },
-    { e: "🚗", s: "Uzun bir araba yolculuğundasınız ve kardeşin 30 saniyede bir “Geldik mi?” diye soruyor. Ne yaparsın?", i: "Kardeşine sabır göstermek, ona bir oyun önermek ya da ilahi söylemek yolculuğu güzelleştirir." }
+    { e: "🚗", s: "Uzun bir araba yolculuğundasınız ve kardeşin 30 saniyede bir “Geldik mi?” diye soruyor. Ne yaparsın?", i: "Kardeşine sabır göstermek, ona bir oyun önermek ya da ilahi söylemek yolculuğu güzelleştirir." },
+    { e: "🧩", s: "Bin parçalık yapbozun yarısındasın ve bir parça kayıp. Ne yaparsın?", i: "Pes etmeden aramak ya da biraz ara verip sonra devam etmek sabırdır." },
+    { e: "🤒", s: "Hastalandın, bir hafta dışarı çıkamayacaksın. Ne yaparsın?", i: "Hastalıkta sabretmek, dua etmek ve “Geçmiş olsun” diyenlere teşekkür etmek güzeldir." },
+    { e: "🌱", s: "Ektiğin tohum bir haftadır filiz vermedi. Ne yaparsın?", i: "Her şeyin bir vakti var. Sulamaya devam etmek sabırdır." }
   ],
   merhamet: [
     { e: "🧍", s: "Sınıfa yeni gelen bir öğrenci teneffüste tek başına duruyor. Ne yaparsın?", i: "Güler yüz göstermek bile sadakadır. (Tirmizî)" },
@@ -227,7 +293,10 @@ const SENOLSAN = {
     { e: "😢", s: "Arkadaşın sınavdan düşük aldı ve ağlıyor, bazıları da ona gülüyor. Ne yaparsın?", i: "Müslüman, müslümanın kardeşidir. Onu yalnız bırakmaz. (Buhârî, Müslim)" },
     { e: "👴", s: "Deden telefonda aynı şeyi sana beşinci kez soruyor. Ne yaparsın?", i: "Peygamberimiz (s.a.v.) “Küçüklerimize merhamet etmeyen, büyüklerimize saygı göstermeyen bizden değildir” buyurdu. (Tirmizî)" },
     { e: "🐦", s: "Bahçede kanadı kırık bir kuş buldun. Ne yaparsın?", i: "Peygamberimiz (s.a.v.) yavrusu alınan bir kuşun telaşını görünce “Yavrusunu ona geri verin” buyurdu. (Ebû Dâvûd)" },
-    { e: "🛍️", s: "Mahallede yaşlı bir teyze ağır alışveriş poşetleriyle yürüyor. Ne yaparsın?", i: "Büyüklere yardım etmek, merhametin en güzel hâllerinden biridir." }
+    { e: "🛍️", s: "Mahallede yaşlı bir teyze ağır alışveriş poşetleriyle yürüyor. Ne yaparsın?", i: "Büyüklere yardım etmek, merhametin en güzel hâllerinden biridir." },
+    { e: "🧓", s: "Komşunuz yaşlı amca hasta ve evden çıkamıyor. Ne yaparsın?", i: "Ona yemek götürmek ve hâlini sormak merhamettir. Hasta ziyareti çok sevaplı bir iştir." },
+    { e: "🚌", s: "Otobüste yaşlı bir teyze ayakta kaldı, sen oturuyorsun. Ne yaparsın?", i: "Yerini vermek merhametin ve saygının güzel bir örneğidir." },
+    { e: "🐶", s: "Arkadaşların bir köpeğe taş atıyor. Ne yaparsın?", i: "Onları nazikçe durdurmak. Hayvanlara eziyet etmek günahtır, onlara iyilik etmek sevaptır." }
   ],
   dogruluk: [
     { e: "🏺", s: "Topla oynarken vazoyu kırdın ve kimse görmedi. Annen “Bunu kim kırdı?” diye soruyor. Ne dersin?", i: "Doğruluk iyiliğe, iyilik de cennete götürür. (Buhârî, Müslim) Hatanı söylemek cesaret ister!" },
@@ -235,7 +304,10 @@ const SENOLSAN = {
     { e: "🎨", s: "Arkadaşın yaptığı resmi gösterip “Güzel mi?” diye soruyor. Pek beğenmedin. Ne dersin?", i: "Doğruyu söylemek kırıcı olmayı gerektirmez. Beğendiğin bir yanını güzel bir dille söyleyebilirsin." },
     { e: "🐶📄", s: "Ödevini yapmadın. Öğretmen sorunca “Köpeğim yedi!” demek aklına geldi. Ne yaparsın?", i: "Peygamberimiz (s.a.v.) şaka yapardı, ama şakasında bile doğrudan başka bir şey söylemezdi. (Tirmizî)" },
     { e: "🎮", s: "Oyunda kimse görmeden puanını biraz artırabilirsin. Ne yaparsın?", i: "Allah her şeyi görür. Kimse görmese de dürüst olmak gerçek doğruluktur." },
-    { e: "🤐", s: "Kardeşin bir şeyi kırdı ve senden “Söyleme ne olur!” diye rica ediyor. Ne yaparsın?", i: "Kardeşini gizlice suçlamak yerine, onu doğruyu kendisinin söylemesi için cesaretlendirebilirsin." }
+    { e: "🤐", s: "Kardeşin bir şeyi kırdı ve senden “Söyleme ne olur!” diye rica ediyor. Ne yaparsın?", i: "Kardeşini gizlice suçlamak yerine, onu doğruyu kendisinin söylemesi için cesaretlendirebilirsin." },
+    { e: "📝", s: "Öğretmen sınavını yanlışlıkla fazla puanla okumuş. Ne yaparsın?", i: "Öğretmene söylemek. Doğruluk iyiliğe götürür." },
+    { e: "🎮", s: "Arkadaşın “Annene oyun oynadığımızı söyleme” diyor. Ne yaparsın?", i: "Anne babaya karşı dürüst olmak. Gizli kapaklı işler kalbi huzursuz eder." },
+    { e: "⏰", s: "Okula geç kaldın; öğretmen sebebini soruyor ama aslında uyuya kaldın. Ne dersin?", i: "Doğruyu söyleyip özür dilemek. Bahane uydurmak yalan olur." }
   ],
   paylasmak: [
     { e: "🍫", s: "Elinde tek bir çikolata var ve kardeşin de çok istiyor. Ne yaparsın?", i: "Kendin için istediğini kardeşin için de istemek imanın güzelliğidir. (Buhârî, Müslim)" },
@@ -243,7 +315,10 @@ const SENOLSAN = {
     { e: "🪙", s: "Harçlığını oyuncak almak için biriktiriyordun. Camide ihtiyaç sahipleri için yardım toplanıyor. Ne yaparsın?", i: "Peygamberimiz (s.a.v.) “Yarım hurma ile de olsa ateşten korunun” buyurdu. (Buhârî, Müslim) Az da olsa vermek değerlidir." },
     { e: "🧸", s: "Misafir çocuk senin en sevdiğin oyuncakla oynamak istiyor. Ne yaparsın?", i: "Misafire ikram sadece yemekle olmaz; oyuncağımızı paylaşmak da bir ikramdır." },
     { e: "🥪", s: "Okulda beslenmesini unutan bir arkadaşın var ve aç. Ne yaparsın?", i: "Peygamberimiz (s.a.v.) “İki kişilik yemek üç kişiye, üç kişilik yemek dört kişiye yeter” buyurdu. (Buhârî, Müslim)" },
-    { e: "🍕", s: "Pizzadan son dilim kaldı ve herkes ona bakıyor! Ne yaparsın?", i: "Başkasını kendine tercih etmeye “îsâr” denir. Kur'an'da Medineli Ensar bu güzel ahlakla övülür. (Haşr, 9)" }
+    { e: "🍕", s: "Pizzadan son dilim kaldı ve herkes ona bakıyor! Ne yaparsın?", i: "Başkasını kendine tercih etmeye “îsâr” denir. Kur'an'da Medineli Ensar bu güzel ahlakla övülür. (Haşr, 9)" },
+    { e: "📚", s: "Arkadaşın dersi anlamadı, sen anladın. Ne yaparsın?", i: "Bildiğini öğretmek de bir paylaşmaktır." },
+    { e: "🧸", s: "Kullanmadığın oyuncaklar dolapta yıllardır duruyor. Ne yaparsın?", i: "İhtiyacı olan çocuklarla paylaşmak oyuncaklara yeniden hayat verir." },
+    { e: "🍎", s: "Bahçenizdeki ağaç bu yıl çok meyve verdi. Ne yaparsınız?", i: "Komşulara ve akrabalara ikram etmek. Paylaşılan nimet bereketlenir." }
   ],
   annebaba: [
     { e: "🍽️", s: "Annen yorgun gelmiş, sen de çizgi film izliyorsun. Seni sofrayı kurmaya çağırıyor. Ne yaparsın?", i: "Kur'an, anne babaya “öf” bile denmemesini öğütler. (İsrâ, 23)" },
@@ -251,7 +326,10 @@ const SENOLSAN = {
     { e: "🙈", s: "Yetişkinler cevaplasın! Çocuğun bir hata yaptı ve gelip sana itiraf etti. Ne yaparsın?", i: "Hz. Enes, Peygamberimize (s.a.v.) on yıl hizmet ettiğini ve ondan bir kez bile “öf” duymadığını anlatır. (Buhârî, Müslim)" },
     { e: "🎂", s: "Annenin doğum günü yarın ve hiç paran yok. Ne yaparsın?", i: "En güzel hediye bir dua, sıcak bir sarılma ya da senin emek verdiğin bir iştir." },
     { e: "📞", s: "Dedenle ninen telefonla arıyor, sen de oyunun en heyecanlı yerindesin. Ne yaparsın?", i: "Peygamberimiz (s.a.v.) rızkının bol ve ömrünün bereketli olmasını isteyenin akrabasını gözetmesini öğütledi. (Buhârî, Müslim)" },
-    { e: "📱", s: "Yetişkinler cevaplasın! Çocuğun sana en sevdiği oyunu anlatmak istiyor ama sen telefonla meşgulsün. Ne yaparsın?", i: "Peygamberimiz (s.a.v.) çocuklarla ilgilenir, torunlarını sırtına alıp onlarla oynardı." }
+    { e: "📱", s: "Yetişkinler cevaplasın! Çocuğun sana en sevdiği oyunu anlatmak istiyor ama sen telefonla meşgulsün. Ne yaparsın?", i: "Peygamberimiz (s.a.v.) çocuklarla ilgilenir, torunlarını sırtına alıp onlarla oynardı." },
+    { e: "📵", s: "Baban seninle konuşurken sen tabletle oynuyorsun. Ne yaparsın?", i: "Tableti bırakıp yüzüne bakarak dinlemek anne babaya saygıdır." },
+    { e: "🧹", s: "Annen “Odanı toplar mısın?” dedi, sen de “Sonra” dedin. Şimdi ne yaparsın?", i: "Hemen “Peki” deyip yardım etmek. Kur'an anne babaya “öf” bile denmemesini öğütler (İsrâ, 23)." },
+    { e: "🫖", s: "Annen ve baban misafirle konuşuyor, sen sürekli araya giriyorsun. Ne yaparsın?", i: "Sözlerinin bitmesini bekleyip sonra konuşmak. Büyükleri dinlemek saygıdır." }
   ],
   temizlik: [
     { e: "🍔", s: "Parkta oynadın, ellerin çamur içinde ve çok acıktın. Ne yaparsın?", i: "Yemekten önce ve sonra elleri yıkamak hem sağlık hem de güzel bir adaptır." },
@@ -259,7 +337,10 @@ const SENOLSAN = {
     { e: "🧺", s: "Piknik bitti ve diğerleri çöplerini çimlere bırakıp gidiyor. Ne yaparsın?", i: "Peygamberimiz (s.a.v.) yoldan insanlara eziyet veren bir şeyi kaldırmanın sadaka olduğunu söyledi. (Buhârî, Müslim)" },
     { e: "🪥", s: "Sabah çok uykulusun ve dişlerini fırçalamadan çıkmak istiyorsun. Ne yaparsın?", i: "Peygamberimiz (s.a.v.) misvakı çok sever ve sık sık kullanırdı. (Buhârî)" },
     { e: "🚿", s: "Kardeşin abdest alırken musluğu sonuna kadar açmış, su şırıl şırıl akıyor. Ne dersin?", i: "Peygamberimiz (s.a.v.) çok az bir suyla abdest alırdı. (Buhârî, Müslim) Suyu israf etmemek de temizliğin parçasıdır." },
-    { e: "🚻", s: "Okulda tuvaletler çok kirli ve kimse bir şey yapmıyor. Ne yaparsın?", i: "Ortak alanları temiz tutmak hepimizin görevidir. Öğretmene güzel bir dille haber vermek de bir çözümdür." }
+    { e: "🚻", s: "Okulda tuvaletler çok kirli ve kimse bir şey yapmıyor. Ne yaparsın?", i: "Ortak alanları temiz tutmak hepimizin görevidir. Öğretmene güzel bir dille haber vermek de bir çözümdür." },
+    { e: "🍫", s: "Parkta çikolatanı yedin ama etrafta çöp kutusu yok. Ne yaparsın?", i: "Ambalajı cebine koyup çöp kutusu bulunca atmak temizliktir." },
+    { e: "⚽", s: "Futboldan ter içinde geldin, hemen yemeğe oturmak istiyorsun. Ne yaparsın?", i: "Önce ellerini yıkayıp temizlenmek hem sağlık hem güzel bir adaptır." },
+    { e: "👕", s: "Kıyafetlerini yere attın, annen topluyor. Ne yaparsın?", i: "Kirlileri sepete, temizleri dolaba koymak hem temizlik hem de anneye yardımdır." }
   ]
 };
 
