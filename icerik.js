@@ -1,5 +1,5 @@
 /* Sürüm etiketi: node surum.mjs ile güncellenir; index.html ile aynı olmalı. */
-const ICERIK_SURUM = "20261122-1526";
+const ICERIK_SURUM = "20261122-1707";
 /* Ailecek oyun içeriği.
    Yeni kart eklemek için ilgili listeye bir satır eklemeniz yeterli.
    Bil Bakalım'da ilk seçenek doğru cevaptır (oyunda karıştırılır).
@@ -796,7 +796,7 @@ const OZEL_GUNLER = [
     oneri: "Bu akşam bir vakit namazı ailece birlikte kılın; küçükler de yanınızda dursun." },
   { id: "berat", e: "🌙", ad: "Berat Kandili", ay: 8, gun: 14, gece: true,
     bilgi: "Şaban ayının on beşinci gecesidir. Müslümanlar bu geceyi dua, tövbe ve ibadetle geçirmeye çalışır.",
-    sorular: ["Bugüne kadar yaptığımız bir hatadan dolayı kimden helallik isteyelim?", "Önümüzdeki yıl için ailece hangi iyiliğe niyet edelim?", "Ramazan'a bir ay kaldı. Ramazan'a nasıl hazırlanalım?"],
+    sorular: ["Bugüne kadar yaptığımız bir hatadan dolayı kimden helallik isteyelim?", "Önümüzdeki yıl için ailece hangi iyiliğe niyet edelim?", "Ramazan'a yaklaşık iki hafta kaldı. Ramazan'a nasıl hazırlanalım?"],
     oneri: "Aile içinde birbirinizden helallik isteyin ve küslükleri bu gece bitirin." },
   { id: "kadir", e: "✨", ad: "Kadir Gecesi", ay: 9, gun: 26, gece: true,
     bilgi: "Kur'an'ın indirilmeye başlandığı gecedir. Kadir Suresi'nde bin aydan daha hayırlı olduğu bildirilir (Kadir, 1-3).",
@@ -823,7 +823,7 @@ const OZEL_GUNLER = [
     sorular: ["Hicret ne demektir, neden önemlidir?", "Yeni yılda ailece hangi güzel alışkanlığa başlayalım?", "Medineliler (Ensar) muhacirlere nasıl yardım etti?"],
     oneri: "Yeni yıl için ailece bir iyilik niyeti yazın ve görünür bir yere asın." },
   { id: "asure", e: "🍲", ad: "Aşure Günü", ay: 1, gun: 10,
-    bilgi: "Muharrem ayının onuncu günüdür. Bu gün oruç tutmak sünnettir; komşulara aşure ikram etmek güzel bir gelenektir.",
+    bilgi: "Muharrem ayının onuncu günüdür. Bu günde, bir gün öncesi ya da sonrasıyla birlikte oruç tutmak sünnettir; komşulara aşure ikram etmek güzel bir gelenektir.",
     sorular: ["Aşurenin içinde neler var? Her biri bir nimet!", "Bu gün hangi komşumuza ikram götürelim?", "Hz. Nuh'un gemisi kıssasını hatırlıyor musun?"],
     oneri: "Ailece aşure pişirin ya da bir tatlı yapıp komşulara dağıtın." }
 ];
