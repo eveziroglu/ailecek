@@ -82,14 +82,14 @@ const S2 = (() => {
 
   function slides(k) {
     const v = vadi(VID(k)), h = VADI_HIKAYELERI.find(x => x.vadi === v.id);
-    const nasSay = (v.nas.tur === "hadis" ? "Peygamberimiz buyurdu: " : "") + v.nas.text;
+    const nasSay = (v.nas.tur === "hadis" ? "Peygamberimiz s.a.v. buyurdu: " : "") + v.nas.text;
     const gorevList = family.map(p => { const b = birdOf(p.name); return b ? `<li><span>${b.e}</span><span><b>${esc(p.name)}</b> · ${esc(b.gorev)}</span></li>` : ""; }).join("");
     return [
       { ico: h.e, title: h.baslik, body: `${sahne("vadi:" + v.id)}<div class="story">${h.paragraflar.map(x => `<p>${esc(x)}</p>`).join("")}</div>
           <div class="tip" style="text-align:left"><b>Hüdhüd'ün sözü</b>${esc(h.soz)}</div>
           <p class="small muted bold">Küçükler için: ${esc(h.kucukler)}</p>`,
         say: [...h.paragraflar, h.soz] },
-      { ico: v.nas.tur === "hadis" ? "🌙" : "📖", title: v.nas.tur === "hadis" ? "Peygamberimiz buyurdu" : "Kur'an'dan",
+      { ico: v.nas.tur === "hadis" ? "🌙" : "📖", title: v.nas.tur === "hadis" ? "Peygamberimiz (s.a.v.) buyurdu" : "Kur'an'dan",
         body: `<blockquote>“${esc(v.nas.text)}”<cite>${esc(v.nas.ref)}</cite></blockquote>`, say: nasSay },
       { ico: "💬", title: "Hadi konuşalım", body: `<p class="q-text">${esc(h.soru)}</p>`, say: h.soru },
       { ico: "🪶", title: "Bu haftanın bahane görevleri",
@@ -401,7 +401,7 @@ const S2 = (() => {
     const L = [];
     const add = (...ts) => ts.flat(Infinity).forEach(t => t && L.push(t));
     add(Object.values(S2_SOZ), KUSLAR.map(k => [`${k.ad}!`, k.bahane]), Object.values(KUS_DEGISIM).map(d => [d.once, d.simdi]));
-    VADILER.forEach(v => add(v.giris, (v.nas.tur === "hadis" ? "Peygamberimiz buyurdu: " : "") + v.nas.text));
+    VADILER.forEach(v => add(v.giris, (v.nas.tur === "hadis" ? "Peygamberimiz s.a.v. buyurdu: " : "") + v.nas.text));
     VADI_HIKAYELERI.forEach(h => add(h.paragraflar, h.soz, h.soru));
     BAHANE_KARTLARI.forEach(c => add(c.c));
     return L;

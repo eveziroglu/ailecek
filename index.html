@@ -660,6 +660,7 @@ const DEFAULT_FAMILY = [
 let family = store.get("family", DEFAULT_FAMILY);
 let gardenTotal = store.get("garden", 0);
 let soundOn = store.get("sound", true);
+let drumOn = store.get("drum", false);
 let voiceOn = store.get("voice", true);
 let week = store.get("week", null);
 let defter = store.get("defter", []);
@@ -760,7 +761,8 @@ const sfx = {
   roll() { for (let i = 0; i < 14; i++) thump(i * .07, 120 + i * 4, .25); thump(1.05, 80, .7); bell(1046.5, 1.08, .8, .08); }
 };
 let drumId = null;
-function startDrum() { stopDrum(); let n = 0; drumId = setInterval(() => { thump(0, n % 2 ? 90 : 130, n % 2 ? .3 : .55); n++; }, 380); }
+/* Hayvan Yürüyüşü ritmi: davul ayarı açıksa davul, kapalıysa (varsayılan) yumuşak ayak sesi */
+function startDrum() { stopDrum(); let n = 0; drumId = setInterval(() => { if (drumOn) thump(0, n % 2 ? 90 : 130, n % 2 ? .3 : .55); else noise(0, .07, "lowpass", n % 2 ? 420 : 520, 160, .32, .7); n++; }, 380); }
 function stopDrum() { if (drumId) { clearInterval(drumId); drumId = null; } }
 
 /* Sesli anlatım: cihazdaki en doğal Türkçe kadın sesini seçer, tonu "küçük kız"a ayarlar,
@@ -795,7 +797,8 @@ function pickVoice() {
 if (tts.ok) { pickVoice(); try { speechSynthesis.onvoiceschanged = pickVoice; } catch (e) {} }
 /* Okunacak metni doğallaştır: kısaltmaları aç, parantez içindeki kaynakları okuma */
 const SOURCE_PAREN = /\s*\((?:[^()]*?(?:Buhârî|Müslim|Tirmizî|Ebû Dâvûd|Ahmed|Mâce|Nesâî|Edeb)[^()]*|[A-ZÂÎÛÇŞÖÜİ][^()]*?,\s*\d+(?:-\d+)?)\)/g;
-const speechText = t => plain(String(t).replace(SOURCE_PAREN, ""))
+/* Ekrandaki "(s.a.v.)" her seferinde okunmaz; salavat hadis girişlerinde ("Peygamberimiz s.a.v. buyurdu") söylenir. */
+const speechText = t => plain(String(t).replace(SOURCE_PAREN, "").replace(/\s*\(s\.a\.v\.\)/g, ""))
   .replace(/\bHz\./g, "Hazreti").replace(/\bs\.a\.v\.?/gi, "sallallahu aleyhi ve sellem")
   .replace(/…/g, ".").replace(/\s*·\s*/g, ", ").replace(/\s+/g, " ").trim();
 const sentences = t => t.split(/(?<=[!?])\s+|(?<=[^\d\s]\.)\s+/).map(s => s.trim()).filter(Boolean);
@@ -919,7 +922,7 @@ function allSpeechLines() {
     "Aferin! Hocamız da çok güzel sordu.", "Hocamız kazandı!",
     "Bu gece bahçemize fidanlar diktik! Şimdi telefonu bırakıp biraz sohbet edelim.", "Maşallah, ne güzel bir geceydi!",
     TANITIM.map(t => t.s), "Görüşleriniz oyunu daha güzel yapacak. Birkaç dakika yeter!");
-  Object.values(THEMES).forEach(t => add("tema", `Bu gece ${t.name}! Hazır mısınız?`, t.ayet.text, "Peygamberimiz buyurdu: " + t.hadis.text, t.soru, t.gorev));
+  Object.values(THEMES).forEach(t => add("tema", `Bu gece ${t.name}! Hazır mısınız?`, t.ayet.text, "Peygamberimiz s.a.v. buyurdu: " + t.hadis.text, t.soru, t.gorev));
   add("gizli", DEAL_LINE, "Telefonu sırası gelene verin. Kimse bakmasın!", "Zarflar mühürlendi! Bir hafta boyunca gizli dostunuza iyilik yapın. Yedinci gün Açılış Töreni var.",
     "Telefonu kartın sahibine verin. Sadece o baksın!", CER_LINE, "Bu hafta sana kim gizli iyilik yaptı?", "Önce fark ettiğin iyilikleri anlat, sonra tahminini seç!",
     "Tebrikler dedektif! Doğru bildin!", "Çok gizliymiş! Gizli dost ustaca saklanmış!", "Şimdi teşekkürünü seç.", TESEKKUR.map(t => t.s),
@@ -1091,7 +1094,8 @@ function openSettings(confirmReset) {
       <h3 class="set-h">Ses</h3>
       <div class="setting"><div><b>Sesli anlatım</b><small>Hüdhüd soruları ve durumları yüksek sesle okur.</small></div><button class="switch" role="switch" aria-checked="${voiceOn}" aria-label="Sesli anlatım" data-act="voice"></button></div>
       ${voiceSettings()}
-      <div class="setting"><div><b>Efekt sesleri</b><small>Tık, mühür ve davul sesleri; destekleyen telefonlarda titreşim.</small></div><button class="switch" role="switch" aria-checked="${soundOn}" aria-label="Efekt sesleri" data-act="sound"></button></div>
+      <div class="setting"><div><b>Efekt sesleri</b><small>Tık, mühür ve kutlama sesleri; destekleyen telefonlarda titreşim.</small></div><button class="switch" role="switch" aria-checked="${soundOn}" aria-label="Efekt sesleri" data-act="sound"></button></div>
+      <div class="setting"><div><b>Davul ritmi</b><small>Hayvan Yürüyüşü'nde davul çalar. Kapalıyken ayak sesi duyulur.</small></div><button class="switch" role="switch" aria-checked="${drumOn}" aria-label="Davul ritmi" data-act="drum"></button></div>
       <h3 class="set-h">Yolculuk</h3>
       <div class="setting"><div><b>Tüm durakları aç</b><small>Büyükler için: birinci sezonun bütün duraklarını ve Kuşların Yolculuğu'nun vadilerini sırayı beklemeden açar.</small></div><button class="switch" role="switch" aria-checked="${P.freeAll}" aria-label="Tüm durakları aç" data-act="freeall"></button></div>
       <div class="setting"><div><b>İyilik Defteri</b><small>${defter.length} hafta, ${fruitTotal()} gizli iyilik</small></div><button class="mini gold" data-act="defter">Aç</button></div>
@@ -1519,7 +1523,7 @@ const GROUP_LINES = {
   kalkotur: "Herkes ayağa kalksın! Cümle doğruysa zıplayın, yanlışsa yere çömelin!",
   hizli: "Hızlı tur! Otuz saniyede hep birlikte bağırarak sayacağız!"
 };
-const DEAL_LINE = "Şimdi herkes gizli bir dost alacak. Bir hafta boyunca ona kimseye belli etmeden iyilik yapacaksınız!";
+const DEAL_LINE = "Şimdi herkes gizli bir dost alacak. Bir hafta boyunca ona kimseye belli etmeden iyilik yapacaksınız! Bu iyilikleri Allah rızası için yapıyoruz.";
 const CER_LINE = "Açılış Töreni başlıyor! Bu hafta kim kime gizli iyilik yaptı, şimdi öğreneceğiz.";
 const EMPTY_DEFTER = "Defter henüz boş. İlk gizli iyilik haftası oyun gecesinin sonunda başlar.";
 function screenGroupIntro(t) {
@@ -1767,7 +1771,7 @@ function screenDeep(step) {
   const t = TH(G.theme);
   const slides = S2.isVadi(G.theme) ? S2.slides(G.theme) : [
     { ico: "📖", title: "Kur'an'dan", body: `<blockquote>“${esc(t.ayet.text)}”<cite>${esc(t.ayet.ref)}</cite></blockquote>`, say: t.ayet.text },
-    { ico: "🌙", title: "Peygamberimiz buyurdu", body: `<blockquote>“${esc(t.hadis.text)}”<cite>${esc(t.hadis.ref)}</cite></blockquote>`, say: "Peygamberimiz buyurdu: " + t.hadis.text },
+    { ico: "🌙", title: "Peygamberimiz (s.a.v.) buyurdu", body: `<blockquote>“${esc(t.hadis.text)}”<cite>${esc(t.hadis.ref)}</cite></blockquote>`, say: "Peygamberimiz s.a.v. buyurdu: " + t.hadis.text },
     { ico: "💬", title: "Hadi konuşalım", body: `<p class="q-text">${esc(t.soru)}</p>`, say: t.soru },
     { ico: "🎯", title: "Bu haftanın aile görevi", body: `<p class="q-text">${esc(t.gorev)}</p>`, say: t.gorev }
   ];
@@ -1806,6 +1810,7 @@ function dealIntro() {
       <span class="mega hover" style="font-size:72px">💌</span>
       <h2 style="font:700 30px/34px var(--font-display)">Zarflar hazır!</h2>
       <p class="ak-deed__text" style="font-size:19px">Herkes sırayla zarfını açacak, gizli dostunu görecek ve ona yapacağı iyiliği seçecek.</p>
+      <p class="ak-deed__quote" style="opacity:1">Bu iyilikleri Allah rızası için, kimse görmeden yapıyoruz.</p>
       <blockquote style="font-size:17px;line-height:25px">“${esc(GIZLI_HADIS.text)}”<cite>${esc(GIZLI_HADIS.ref)}</cite></blockquote>
       <button class="ak-btn ak-btn--kandil ak-btn--lg" data-act="deal-hand" data-arg="0">Zarfları Dağıt</button>
     </section>`, line);
@@ -2249,6 +2254,7 @@ const actions = {
   settings: () => openSettings(false),
   "close-sheet": closeSheet,
   say: t => say(lastSay || t),
+  drum() { drumOn = !drumOn; store.set("drum", drumOn); openSettings(false); },
   sound() { soundOn = !soundOn; store.set("sound", soundOn); if (!soundOn) stopDrum(); openSettings(false); },
   vsource(k) { voiceSource = k; store.set("voiceSource", k); voiceOn = true; store.set("voice", true); openSettings(false); say(SAMPLE_LINE); },
   aivoice(k) { aiVoiceId = k; store.set("aiVoice", k); openSettings(false); say(SAMPLE_LINE); },
