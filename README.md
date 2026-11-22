@@ -110,6 +110,15 @@ node gorsel/hazirla.mjs
 
 Betik görselleri küçültüp WebP'ye çevirir, oyunun okuduğu `gorsel/gorsel.json` dosyasını yazar ve `gorsel/DURUM.md` dosyasına hangi görsellerin hazır, hangilerinin eksik olduğunu eksiklerin tam komutlarıyla birlikte yazar. Listede 101 görsel vardır: 8 kuş avatarı, 10 oyun ikonu, 8 durak sahnesi ve harita zemini, 7 vadi sahnesi ve Kaf Dağı, 52 Kıssa Kartı, 6 Hüdhüd hâli, 8 arayüz ikonu. Hüdhüd hâlleri ve arayüz ikonları şimdilik kullanılmaz. `ffmpeg` gerekir.
 
+## Geri bildirim ve tanıtım
+
+- **İlk açılış:** Oyunu ilk kez açan aileye Hüdhüd oyunu dört adımda anlatır (Ayarlar › Nasıl oynanır? ile yeniden izlenir).
+- **Geri bildirim:** Ana sayfa, Ayarlar ve gece sonu ekranındaki form; puan, sevilen bölümler ve üç açık soru. Cevaplar isimsiz bir mesaja çevrilip WhatsApp, paylaşma menüsü ya da kopyalama ile gönderilir. Linkle deneyen aileler giriş yapmadan oynadığı için cevaplar bir sunucuda toplanmaz.
+
+## Telefona yükleme ve çevrimdışı
+
+Oyun kendi adresinde yayınlandığında (ör. GitHub Pages) telefona uygulama gibi yüklenir ve bir kez açıldıktan sonra internetsiz çalışır: `manifest.webmanifest`, `sw.js` ve `ikon/`. Ayarlar'da **Telefona yükle** düğmesi çıkar (iPhone'da Safari › Paylaş › Ana Ekrana Ekle talimatı gösterilir). claude.ai önizlemesinde bu özellik kapalıdır. Yeni sürüm yayınlarken `sw.js` içindeki `SURUM` değerini değiştirin.
+
 ## Çalıştırma
 
 Kurulum gerektirmeyen bir web uygulamasıdır: `index.html` dosyasını tarayıcıda açmak yeterli. Oyun kartları ve temalar `icerik.js` dosyasındadır. Aile bilgisi, bahçe, iyilik haftası ve İyilik Defteri cihazın tarayıcısında saklanır; ayarlardan sıfırlanabilir.

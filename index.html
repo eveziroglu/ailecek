@@ -2,6 +2,13 @@
 <title>Ailecek Oyun Gecesi</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Ailece oynanan, gülerek İslami değerler öğreten oyun gecesi.">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#2747B5">
+<link rel="icon" href="ikon/ikon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="ikon/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Ailecek">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Figtree:wght@500;600;700;800&display=swap">
@@ -1017,6 +1024,7 @@ function openSettings(confirmReset) {
       <div class="setting"><div><b>Tüm durakları aç</b><small>Büyükler için: birinci sezonun bütün duraklarını ve Kuşların Yolculuğu'nun vadilerini sırayı beklemeden açar.</small></div><button class="switch" role="switch" aria-checked="${P.freeAll}" aria-label="Tüm durakları aç" data-act="freeall"></button></div>
       <div class="setting"><div><b>İyilik Defteri</b><small>${defter.length} hafta, ${fruitTotal()} gizli iyilik</small></div><button class="mini gold" data-act="defter">Aç</button></div>
       <h3 class="set-h">Yardım ve geri bildirim</h3>
+      ${installSetting()}
       <div class="setting"><div><b>Nasıl oynanır?</b><small>Hüdhüd oyunu dört adımda anlatır.</small></div><button class="mini gold" data-act="tour-again">İzle</button></div>
       <div class="setting"><div><b>Görüşünüzü gönderin</b><small>Kısa bir form; cevaplar WhatsApp ya da paylaşma ile gönderilir.</small></div><button class="mini gold" data-act="feedback">Aç</button></div>
       <h3 class="set-h">Veriler</h3>
@@ -1999,6 +2007,36 @@ function screenEnd() {
   G = null;
 }
 
+/* ============ TELEFONA YÜKLEME VE ÇEVRİMDIŞI ============
+   Yalnızca oyun kendi adresinde açıldığında çalışır (ör. GitHub Pages). claude.ai içindeki
+   önizlemede (iframe) devre dışıdır; orada oyun her zamanki gibi açılır. */
+const KENDI_ADRES = window.top === window && /^https?:$/.test(location.protocol);
+const YUKLU = matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+const IOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
+let installEvt = null;
+if (KENDI_ADRES && "serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
+addEventListener("beforeinstallprompt", e => { e.preventDefault(); installEvt = e; });
+addEventListener("appinstalled", () => { installEvt = null; toast("📲", "Ailecek", "Ana ekrana eklendi"); });
+function installSetting() {
+  if (YUKLU) return `<div class="setting"><div><b>Telefona yüklendi</b><small>Oyun ana ekranınızda; internet olmadan da açılır.</small></div></div>`;
+  if (!KENDI_ADRES) return "";
+  return `<div class="setting"><div><b>Telefona yükle</b><small>Ana ekrana uygulama gibi eklenir, internet olmadan da açılır.</small></div><button class="mini gold" data-act="install">Yükle</button></div>`;
+}
+function doInstall() {
+  if (installEvt) { installEvt.prompt(); installEvt.userChoice.finally(() => { installEvt = null; openSettings(false); }); return; }
+  document.getElementById("sheet-root").innerHTML = `
+  <div class="sheet-bg" data-act="close-sheet">
+    <div class="sheet ak" role="dialog" aria-modal="true" aria-label="Telefona yükle">
+      <div style="display:flex;justify-content:space-between;align-items:center"><h2>Telefona yükle</h2><button class="icon-btn" data-act="close-sheet" aria-label="Kapat">✕</button></div>
+      <ol class="small" style="display:grid;gap:10px;padding-left:1.2em;font-weight:600">
+        ${IOS ? `<li>Safari'de alttaki <b>Paylaş</b> düğmesine dokunun (yukarı ok olan kare).</li><li><b>Ana Ekrana Ekle</b>'yi seçin.</li><li>Sağ üstteki <b>Ekle</b>'ye dokunun.</li>`
+              : `<li>Tarayıcının menüsünü açın (sağ üstteki üç nokta).</li><li><b>Ana ekrana ekle</b> ya da <b>Uygulamayı yükle</b>'yi seçin.</li><li>Onaylayın.</li>`}
+      </ol>
+      <p class="small bold muted">Yükledikten sonra oyunu bir kez internetle açın; sonra internet olmadan da çalışır.</p>
+    </div>
+  </div>`;
+}
+
 /* ============ İLK AÇILIŞ TANITIMI ============ */
 const TANITIM = [
   { e: "📱", t: "Masaya tek telefon", s: "Selâmün aleyküm! Ben Hüdhüd. Telefonu masanın ortasına koyun. Ben soruları sesli okurum, siz de ekrana değil birbirinize bakarsınız." },
@@ -2123,6 +2161,7 @@ const actions = {
   ...S2.actions,
   ...fbActions,
   ...tourActions,
+  install: doInstall,
   map: screenMap, land: openLand, album: a => screenAlbum(a || null), card: screenCard, badges: screenBadges,
   freeall() { P.freeAll = !P.freeAll; saveP(); openSettings(false); }
 };
