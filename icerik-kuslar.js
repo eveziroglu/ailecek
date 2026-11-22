@@ -225,14 +225,14 @@ Object.assign(SENOLSAN, {
     { e: "🤔", s: "Öğretmen bir konu anlattı ama hiç anlamadın. Sınıfta herkes anlamış gibi görünüyor. Ne yaparsın?", i: "Sormak ayıp değil, öğrenmenin kapısıdır. Bilmediğini soran, bilgisini büyütür." },
     { e: "📚", s: "Dedenin eski bir kitabı var ama eski harflerle yazılmış, hiçbir şey anlamıyorsun. Ne yaparsın?", i: "Merak edip soran, büyüklerin hazinesine ulaşır. Dedene sormak onu da çok sevindirir." },
     { e: "🐌", s: "Bahçede bir salyangoz gördün ve kabuğunun nasıl büyüdüğünü merak ettin. Ne yaparsın?", i: "Merak, öğrenmenin tohumudur. Kitaplara bakmak, gözlem yapmak ve not almak da sormanın bir yoludur." },
-    { e: "🙋", s: "Kardeşin sana durmadan “Neden?” diye soruyor ve sen biraz sıkıldın. Ne yaparsın?", i: "Soru soran kalbi kırmamak gerekir. Bilmiyorsan “Birlikte öğrenelim” demek en güzel cevaptır." },
+    { e: "❓", s: "Kardeşin sana durmadan “Neden?” diye soruyor ve sen biraz sıkıldın. Ne yaparsın?", i: "Soru soran kalbi kırmamak gerekir. Bilmiyorsan “Birlikte öğrenelim” demek en güzel cevaptır." },
     { e: "✋", s: "Arkadaşın bilmediği bir şeyi biliyormuş gibi anlatıyor ve yanlış söylüyor. Ne yaparsın?", i: "Yanlışı nazikçe düzeltmek ve gerektiğinde “Bilmiyorum” diyebilmek de doğruluktur." },
     { e: "🌱", s: "Bu hafta yeni bir şey öğrenme şansın var: yüzme, bir sure ya da bir el işi. Hangisini seçersin, neden?", i: "“Rabbim, ilmimi artır” duası, öğrenmeyi dua ile istemeyi öğretir. (Tâhâ, 114)" }
   ],
   "v-ask": [
     { e: "🎂", s: "Annenin doğum günü için resim yapmaya başladın ama çok uzun sürüyor ve sıkıldın. Ne yaparsın?", i: "Sevdiğin için verdiğin emek, hediyenin en kıymetli yanıdır." },
     { e: "🐱", s: "Komşunuz birkaç günlüğüne gidiyor ve kedisine bakacak kimse yok. Senden yardım istediler. Ne yaparsın?", i: "Sevgi sadece insanlara değil, bütün canlılara gösterilir." },
-    { e: "👵", s: "Ninen telefonda seni çok özlediğini söyledi ama sen oyunun ortasındasın. Ne yaparsın?", i: "Sevdiklerimize vakit ayırmak, sevginin en güzel dilidir." },
+    { e: "☎️", s: "Ninen telefonda seni çok özlediğini söyledi ama sen oyunun ortasındasın. Ne yaparsın?", i: "Sevdiklerimize vakit ayırmak, sevginin en güzel dilidir." },
     { e: "🧸", s: "Kardeşin en sevdiğin oyuncağı yanlışlıkla kırdı ve çok üzgün, ağlıyor. Ne yaparsın?", i: "Sevgi, kızgınken bile kalbi yumuşak tutabilmektir." },
     { e: "🍳", s: "Kahvaltıyı hep annen ya da baban hazırlıyor. Bir sabah herkesten erken uyandın. Ne yaparsın?", i: "Sevdiklerimizin yükünü hafifletmek, sevgiyi göstermenin en güzel yoludur." },
     { e: "💌", s: "Sınıfa yeni gelen çocukla kimse ilgilenmiyor. Ne yaparsın?", i: "Peygamberimiz (s.a.v.) “Birbirinizi sevmedikçe iman etmiş olmazsınız” buyurdu. (Müslim)" }
@@ -265,17 +265,17 @@ Object.assign(SENOLSAN, {
     { e: "🌌", s: "Gece balkona çıktın ve gökyüzü yıldızlarla dolu. Sence kaç yıldız var? Ne düşünürsün?", i: "Göklerin ve yerin yaratılışında akıl sahipleri için ibretler vardır. (Âl-i İmrân, 190)" },
     { e: "🐜", s: "Bir karınca ordusunun yiyecek taşıdığını izliyorsun. Bu düzeni görünce ne düşünürsün?", i: "Küçücük bir karıncada bile büyük bir düzen vardır; bunu düşünmek tefekkürdür." },
     { e: "🌸", s: "Bir çiçeğin içine yakından baktın: renkleri, desenleri, kokusu... Ne hissedersin?", i: "Her çiçek, yaratılıştaki güzelliğin küçük bir işaretidir. Durup bakan hayran kalır." },
-    { e: "👶", s: "Yeni doğan bir bebeğin minicik ellerine baktın. Aklına neler gelir?", i: "Hayat başlı başına bir hayret sebebidir. Bunu düşünmek insanı şükre götürür." },
+    { e: "🍼", s: "Yeni doğan bir bebeğin minicik ellerine baktın. Aklına neler gelir?", i: "Hayat başlı başına bir hayret sebebidir. Bunu düşünmek insanı şükre götürür." },
     { e: "🌊", s: "Deniz kenarında dalgaları izliyorsun. Dalgalar hiç durmuyor. Ne düşünürsün?", i: "Durup dinlemek ve düşünmek, kalbi Allah'ı anmaya yöneltir." },
     { e: "🍎", s: "Bir elmayı ikiye kestin ve çekirdeklerini gördün. Bu küçük çekirdekten ne çıkabilir?", i: "Minicik bir çekirdekten koca bir ağaç çıkar. Bu, düşünenler için büyük bir işarettir." }
   ],
   "v-fakr": [
     { e: "🏅", s: "Bir yarışmayı kazandın ve herkes seni övüyor. Kaybeden arkadaşın da orada. Ne yaparsın?", i: "Peygamberimiz (s.a.v.) “Allah için tevazu göstereni Allah yüceltir” buyurdu. (Müslim)" },
-    { e: "🙇", s: "Bir hata yaptın ve özür dilemen gerekiyor ama utanıyorsun. Ne yaparsın?", i: "Özür dileyebilmek, alçakgönüllü bir kalbin işaretidir." },
+    { e: "🫣", s: "Bir hata yaptın ve özür dilemen gerekiyor ama utanıyorsun. Ne yaparsın?", i: "Özür dileyebilmek, alçakgönüllü bir kalbin işaretidir." },
     { e: "🎨", s: "Yaptığın resim çok beğenildi, ama fikir aslında kardeşindi. Ne dersin?", i: "Hakkı sahibine vermek ve “Biz yaptık” diyebilmek tevazudur." },
     { e: "👟", s: "Okulda bir çocukla eski ayakkabıları yüzünden dalga geçiliyor. Ne yaparsın?", i: "Kimseyi küçük görmemek gerekir; insanın değeri eşyasında değil, kalbindedir." },
     { e: "🧽", s: "Sınıfta temizlik sırası sana geldi ve herkes bakıyor. Ne yaparsın?", i: "Kur'an “Rahmân'ın kulları yeryüzünde vakar ve tevazu ile yürürler” buyurur. (Furkân, 63) İşin küçüğü yoktur." },
-    { e: "🗣️", s: "Bir oyunun kurallarını en iyi sen biliyorsun ama küçük kardeşin anlatmak istiyor. Ne yaparsın?", i: "Söz hakkını başkasına bırakmak, “ben” yerine “biz” demektir." }
+    { e: "🎲", s: "Bir oyunun kurallarını en iyi sen biliyorsun ama küçük kardeşin anlatmak istiyor. Ne yaparsın?", i: "Söz hakkını başkasına bırakmak, “ben” yerine “biz” demektir." }
   ]
 });
 Object.assign(HIZLI, {

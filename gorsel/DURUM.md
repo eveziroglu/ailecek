@@ -367,7 +367,7 @@ Kart albümü, pandomim, ses ve hayvan kartları.
 | ✗ | `kart-ruzgar` | Esen rüzgâr | 768 × 1024 |
 | ✗ | `kart-misvak` | Misvakla diş fırçalamak | 768 × 1024 |
 | ✗ | `kart-fidan` | Fidan dikmek | 768 × 1024 |
-| ✗ | `kart-bayram` | Bayramda el öpmek | 768 × 1024 |
+| ✗ | `kart-bayram` | Bayramda el öpüp şeker almak | 768 × 1024 |
 | ✗ | `kart-yoldaki-tas` | Yoldaki taşı kaldırmak | 768 × 1024 |
 | ✗ | `kart-horoz` | Horoz | 768 × 1024 |
 | ✗ | `kart-esek` | Eşek | 768 × 1024 |
@@ -577,7 +577,7 @@ Flat vector children's book illustration inspired by 16th-century Iznik tiles an
 Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Collectible card illustration, hands planting a small sapling in rich soil, centered, soft pale pomegranate red background with a faint eight-pointed star pattern, gentle and cute, no people, no faces of humans, no text, no letters --ar 3:4 --sref <Hüdhüd karakter sayfası>
 ```
 
-**kart-bayram** · Bayramda el öpmek
+**kart-bayram** · Bayramda el öpüp şeker almak
 
 ```text
 Flat vector children's book illustration inspired by 16th-century Iznik tiles and Ottoman miniature painting, soft rounded shapes, limited palette of cobalt blue #2747B5, turquoise #0B7A77, emerald #1C7A4C, pomegranate red #C4362E, saffron gold #EAA214, tulip purple #7340BD, deep ink #18204A on tile white #F4F6FB, subtle paper grain texture, light from top left, flat miniature perspective, warm, gentle, joyful, Collectible card illustration, a bowl of colorful bayram candies and a pair of slippers at the door, centered, soft pale pomegranate red background with a faint eight-pointed star pattern, gentle and cute, no people, no faces of humans, no text, no letters --ar 3:4 --sref <Hüdhüd karakter sayfası>

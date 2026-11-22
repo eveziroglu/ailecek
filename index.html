@@ -19,7 +19,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Ailecek">
-<link rel="stylesheet" href="yazi/yazi.css?v=20261122-1741">
+<link rel="stylesheet" href="yazi/yazi.css?v=20261122-1804">
 <style>
 /* Ailecek tasarım sistemi: tasarim/project/ altındaki tokens.json ve bundle.css'ten üretilir (python3 tasarim/esitle.py). Elle düzenlemeyin. */
 /* @tokenlar:başla */
@@ -685,16 +685,16 @@ blockquote cite { display: block; margin-top: 8px; font: 600 13px/18px var(--fon
 </div>
 <div id="sheet-root"></div>
 
-<script src="icerik.js?v=20261122-1741"></script>
-<script src="icerik-kuslar.js?v=20261122-1741"></script>
-<script src="kuslar.js?v=20261122-1741"></script>
-<script src="kalp.js?v=20261122-1741"></script>
-<script src="kainat.js?v=20261122-1741"></script>
+<script src="icerik.js?v=20261122-1804"></script>
+<script src="icerik-kuslar.js?v=20261122-1804"></script>
+<script src="kuslar.js?v=20261122-1804"></script>
+<script src="kalp.js?v=20261122-1804"></script>
+<script src="kainat.js?v=20261122-1804"></script>
 <script>
 /* ---- Sürüm ve hata koruması ----
    Telefon yeni sayfayla eski önbellekteki bir dosyayı birlikte yüklerse oyun sessizce takılabilir.
    Sürümler uyuşmazsa önbellek temizlenip sayfa bir kez yeniden yüklenir. Bir düğme hata verirse uyarı çıkar. */
-const OYUN_SURUM = "20261122-1741";
+const OYUN_SURUM = "20261122-1804";
 (() => {
   const uyumlu = typeof ICERIK_SURUM !== "undefined" && ICERIK_SURUM === OYUN_SURUM && typeof KUSLAR_SURUM !== "undefined" && KUSLAR_SURUM === OYUN_SURUM && typeof KALP_SURUM !== "undefined" && KALP_SURUM === OYUN_SURUM && typeof KAINAT_SURUM !== "undefined" && KAINAT_SURUM === OYUN_SURUM;
   if (uyumlu) return;
@@ -879,8 +879,8 @@ function stopDrum() { if (drumId) { clearInterval(drumId); drumId = null; } }
 /* Sesli anlatım: cihazdaki en doğal Türkçe kadın sesini seçer, tonu "küçük kız"a ayarlar,
    cümleleri tek tek okur. Gerçek çocuk sesi tarayıcılarda yok; ton ve hızla yaklaşılır. */
 const VOICE_STYLES = {
-  kiz: { name: "Küçük kız", e: "👧", pitch: 1.4, rate: 1.03, desc: "Tatlı ve neşeli" },
-  abla: { name: "Abla", e: "👩", pitch: 1.15, rate: 1.0, desc: "Sıcak ve sakin" },
+  kiz: { name: "Küçük kız", e: "🎀", pitch: 1.4, rate: 1.03, desc: "Tatlı ve neşeli" },
+  abla: { name: "Abla", e: "🌿", pitch: 1.15, rate: 1.0, desc: "Sıcak ve sakin" },
   masal: { name: "Masalcı", e: "📖", pitch: 1.0, rate: 0.88, desc: "Yavaş ve tane tane" }
 };
 const SAMPLE_LINE = "Selâmün aleyküm! Ben Hüdhüd. Bu akşam ailecek oynayalım mı?";
@@ -2164,7 +2164,7 @@ function kalkStep(shown) {
       ? `<span class="ak-stamp" style="--c:var(${x.d ? "--zumrut" : "--nar"})">${x.d ? "✓ DOĞRU" : "✗ YANLIŞ"}</span>
          ${x.i ? `<p class="center muted bold">${esc(x.i)}</p>` : ""}
          <div class="btn-row"><button class="ak-btn ak-btn--kandil" data-act="kalk-next" data-arg="1">Herkes bildi</button><button class="ak-btn ak-btn--ghost" data-act="kalk-next" data-arg="0">${last ? "Bitir" : "Sonraki"}</button></div>`
-      : `<div class="duo"><div><span class="mega bounce">🙌</span>Doğruysa zıpla</div><div class="ak-timer ak-timer--sm" id="timer"><b>5</b></div><div><span class="mega wiggle">🧎</span>Yanlışsa çömel</div></div>
+      : `<div class="duo"><div><span class="mega bounce">🙌</span>Doğruysa zıpla</div><div class="ak-timer ak-timer--sm" id="timer"><b>5</b></div><div><span class="mega wiggle">⬇️</span>Yanlışsa çömel</div></div>
          <button class="ak-btn ak-btn--ghost ak-btn--lg" data-act="kalk-show">Cevabı göster</button>`}`;
   if (shown) { render(card("kalkotur", body)); (x.d ? sfx.win : sfx.no)(); later(() => say([x.d ? "Doğru!" : "Yanlış!", x.i]), 250); }
   else { render(card("kalkotur", body), x.s); later(() => runTimer(5, () => kalkStep(true)), 1800); }
@@ -2174,7 +2174,7 @@ function kalkNext(ok) {
   c.k++; if (c.k < c.items.length) return kalkStep(false);
   const f = c.ok >= 4 ? 2 : c.ok >= 2 ? 1 : 0;
   const msg = f ? `${c.ok} cümlede herkes bildi! Ailece ${f} fidan kazandınız.` : "Bir dahaki turda daha dikkatli zıplayacağız!";
-  render(card("kalkotur", `<div class="stack center"><span class="mega bounce">${f === 2 ? "🏆" : "🙋"}</span>${guide(msg, { noSpeak: true })}${doneBtn()}</div>`), f ? { text: msg, ai: ["Harika! Ailece fidan kazandınız."] } : msg);
+  render(card("kalkotur", `<div class="stack center"><span class="mega bounce">${f === 2 ? "🏆" : "🦘"}</span>${guide(msg, { noSpeak: true })}${doneBtn()}</div>`), f ? { text: msg, ai: ["Harika! Ailece fidan kazandınız."] } : msg);
   if (f) { grow(f); confetti(22); } else sfx.no();
 }
 
@@ -2223,7 +2223,7 @@ function playSaskin(t) {
 }
 function sasGo() {
   render(card("saskin", `
-    <span class="mega wiggle">🕵️</span>
+    <span class="mega wiggle">🔍</span>
     <p class="q-text">Hataları yakala!</p>
     <button class="counter" style="--c:var(--lale)" data-act="caught"><b id="cn">0</b>hata yakalandı</button>
     <button class="ak-btn ak-btn--ghost ak-btn--lg" data-act="sas-done">Gösteri bitti</button>`), { text: `Çocuklar! ${G.cur.who.name} bir şeyler yapacak ama hatalar yapacak. Her hatada Yakaladım diye bağırın!`, ai: ["Çocuklar! Şimdi bazı hatalar yapılacak. Her hatada Yakaladım diye bağırın!"] });
@@ -2240,7 +2240,7 @@ function playHoca(t) {
   const lvl = Math.min(3, ageOf(t.player.age).lvl + 1), x = pick(BILGI[lvl], "bil" + lvl);
   G.cur = { x, who: t.player };
   render(card("hoca", `
-    <span class="mega hover">🧑‍🏫</span>
+    <span class="mega hover">🎓</span>
     <span class="ak-label" style="text-align:center">Öğretmen ${esc(t.player.name)} · soruyu ailene oku</span>
     <p class="q-text">${esc(x.q)}</p>
     <div class="ak-chips">${shuffle(x.o.map(optText)).map(o => `<span class="ak-chip">${esc(o)}</span>`).join("")}</div>
@@ -2464,7 +2464,7 @@ function cerGuess() {
       ${avatar({ name: c.to, av: c.tav }, "ak-avatar--lg")}
       <h2 style="font:700 26px/30px var(--font-display)">${esc(q)}</h2>
       <p class="ak-deed__quote">Önce fark ettiğin iyilikleri anlat, sonra tahminini seç!</p>
-      <div class="ak-chips" id="guess">${others.map(x => `<button class="ak-chip ak-chip--select" aria-pressed="false" data-act="cer-pick" data-arg="${esc(x.from)}">${x.fav} ${esc(x.from)}</button>`).join("")}<button class="ak-chip ak-chip--select" aria-pressed="false" data-act="cer-pick" data-arg="?">🤷 Hiç fikrim yok</button></div>
+      <div class="ak-chips" id="guess">${others.map(x => `<button class="ak-chip ak-chip--select" aria-pressed="false" data-act="cer-pick" data-arg="${esc(x.from)}">${x.fav} ${esc(x.from)}</button>`).join("")}<button class="ak-chip ak-chip--select" aria-pressed="false" data-act="cer-pick" data-arg="?">❓ Hiç fikrim yok</button></div>
       <button class="ak-btn ak-btn--kandil ak-btn--lg" id="reveal-btn" data-act="cer-reveal" disabled>Mührü Aç</button>
     </section>`, qSay);
 }
@@ -2478,7 +2478,7 @@ function cerReveal() {
   c.guessedRight = right;
   if (right) { cer.right++; P.detective++; saveP(); }
   sfx.roll();
-  const verdict = right ? `Dedektif ${c.to}! Doğru bildin. 🔍` : `Çok gizliymiş! ${c.from} ustaca saklamış. 🥷`;
+  const verdict = right ? `Dedektif ${c.to}! Doğru bildin. 🔍` : `Çok gizliymiş! ${c.from} ustaca saklamış. 🤫`;
   render(`
     <section class="ak-deed">
       <span class="ak-deed__eyebrow">${esc(ek(c.to, "in"))} gizli dostu</span>
@@ -2519,7 +2519,7 @@ function cerNext() {
       <span class="ak-label">İyilik Haftası tamamlandı</span>
       <div style="width:180px">${treeSVG(fruitTotal())}</div>
       <h2 style="font:700 28px/32px var(--font-display)">${done} / ${tot} gizli iyilik yapıldı</h2>
-      <div class="ak-chips"><span class="ak-chip ak-chip--tint" style="--c:var(--nar)">🍎 Ağaçta ${fruitTotal()} nar</span><span class="ak-chip ak-chip--tint" style="--c:var(--cini)">🔍 ${right} dedektif</span><span class="ak-chip ak-chip--tint" style="--c:var(--lale)">🥷 ${tot - right} usta gizli dost</span></div>
+      <div class="ak-chips"><span class="ak-chip ak-chip--tint" style="--c:var(--nar)">🍎 Ağaçta ${fruitTotal()} nar</span><span class="ak-chip ak-chip--tint" style="--c:var(--cini)">🔍 ${right} dedektif</span><span class="ak-chip ak-chip--tint" style="--c:var(--lale)">🤫 ${tot - right} usta gizli dost</span></div>
       ${guide("Bir sonraki oyun gecesinde yeni zarflar dağıtacağız. Allah hepinizden razı olsun!", { noSpeak: true, soft: true })}
       <div class="btn-row" style="width:100%"><button class="ak-btn ak-btn--ghost" data-act="defter">İyilik Defteri</button><button class="ak-btn ak-btn--kandil" data-act="home">Ana sayfa</button></div>
     </section>`, line);

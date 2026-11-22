@@ -1,5 +1,5 @@
 /* Sürüm etiketi: node surum.mjs ile güncellenir; index.html ile aynı olmalı. */
-const KUSLAR_SURUM = "20261122-1741";
+const KUSLAR_SURUM = "20261122-1804";
 /* Kuşların Yolculuğu: Ailecek'in ikinci sezonu.
    Veri: icerik-kuslar.js. Bu dosya index.html'deki ortak fonksiyonları (render, guide, say, P, G, family…)
    yalnızca fonksiyonların içinde kullanır; index.html'in ana betiğinden önce yüklenir. */
@@ -295,7 +295,7 @@ const S2 = (() => {
           <div class="ak-flip__face ak-flip__back"><span class="ak-flip__pic" style="font-size:64px">${k.e}</span><span class="ak-label">${esc(k.ad)}${G.cur.own ? " · senin kuşun" : ""}</span><span class="ak-flip__word" style="font-size:24px;line-height:30px">“${esc(adult ? c.y : c.b)}”</span>${adult ? `<small class="muted bold">Çocuk kartı: “${esc(c.b)}”</small>` : ""}</div>
         </div>
       </div>
-      <div class="ak-chips"><span class="ak-chip">🎭 Abartarak canlandır</span><span class="ak-chip">🗣️ Konuşmak serbest</span></div>
+      <div class="ak-chips"><span class="ak-chip">🎭 Abartarak canlandır</span><span class="ak-chip">💬 Konuşmak serbest</span></div>
       <div id="act-stage" class="stack"></div>`));
   }
   function flipB() {

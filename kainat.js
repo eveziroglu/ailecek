@@ -1,5 +1,5 @@
 /* Sürüm etiketi: node surum.mjs ile güncellenir; index.html ile aynı olmalı. */
-const KAINAT_SURUM = "20261122-1741";
+const KAINAT_SURUM = "20261122-1804";
 /* ============ HAFTALIK ETKİNLİK: KÂİNAT KİTABI ============
    Aile her hafta doğadan bir "sayfa" okur: üç gözlem görevi, oyun gecesinde Kâinat Anı, sonra sayfa ailenin kitabına girer.
    İlkeler: Kâinat Allah'ı temsil etmez, O'nun eseridir; Allah hiçbir şeye benzemez (Şûrâ, 11).
@@ -126,7 +126,7 @@ const HAYRET = [
   { k: "kuslar", e: "🪶", s: "Kuşların kemiklerinin çoğu içi boştur.", d: true, a: "İçi boş kemikler kuşu hafif tutar." },
   { k: "kuslar", e: "🐧", s: "Penguen bir kuştur.", d: true, a: "Penguen uçamaz ama kuştur; kanatlarıyla suda yüzer." },
   { k: "kuslar", e: "🦇", s: "Yarasa bir kuştur.", d: false, a: "Yarasa uçar ama kuş değildir; yavrusunu emziren bir memelidir." },
-  { k: "su", e: "🧍", s: "Vücudumuzun yarısından fazlası sudur.", d: true, a: "Bu yüzden her gün su içmemiz gerekir." },
+  { k: "su", e: "🚰", s: "Vücudumuzun yarısından fazlası sudur.", d: true, a: "Bu yüzden her gün su içmemiz gerekir." },
   { k: "su", e: "🐪", s: "Deve hörgücünde su saklar.", d: false, a: "Hörgüçte yağ saklanır; deve onunla günlerce yemeden yol alabilir." },
   { k: "su", e: "🧊", s: "Buz suyun üstünde yüzer.", d: true, a: "Bu sayede kışın göller üstten donar, balıklar altta yaşamaya devam eder." },
   { k: "renkler", e: "🌈", s: "Gökkuşağını görmek için Güneş arkamızda olmalıdır.", d: true, a: "Güneş ışığı önümüzdeki yağmur damlalarında kırılır ve renklere ayrılır." },
@@ -138,7 +138,7 @@ const HAYRET = [
   { k: "sofra", e: "🍎", s: "Elma enine kesilince içinde bir yıldız şekli görünür.", d: true, a: "Çekirdek yuvası beş köşeli bir yıldız gibi dizilmiştir." },
   { k: "sofra", e: "🍌", s: "Muz ağaçta yukarıya doğru kıvrılarak büyür.", d: true, a: "Muzlar önce aşağı sarkar, sonra uçları ışığa doğru yukarı kıvrılır." },
   { k: "sofra", e: "🥜", s: "Yer fıstığı ağaçta yetişir.", d: false, a: "Yer fıstığı, adı üstünde, toprağın altında büyür." },
-  { k: "beden", e: "👶", s: "Bebeklerin kemik sayısı yetişkinlerden fazladır.", d: true, a: "Bebekte 300'e yakın kemik vardır; büyüdükçe bazıları birleşir ve 206 olur." },
+  { k: "beden", e: "🦴", s: "Bebeklerin kemik sayısı yetişkinlerden fazladır.", d: true, a: "Bebekte 300'e yakın kemik vardır; büyüdükçe bazıları birleşir ve 206 olur." },
   { k: "beden", e: "❤️", s: "Kalbimiz bir günde yaklaşık 100 bin kez atar.", d: true, a: "Biz uyurken bile kalbimiz hiç durmadan çalışır." },
   { k: "beden", e: "🖐️", s: "İki insanın parmak izi tıpatıp aynı olabilir.", d: false, a: "Her insanın parmak izi farklıdır; ikizlerin bile." }
 ];
