@@ -127,7 +127,7 @@ Betik görselleri küçültüp WebP'ye çevirir, oyunun okuduğu `gorsel/gorsel.
 
 ## Telefona ekleme ve çevrimdışı
 
-Oyun kendi adresinde yayınlandığında (GitHub Pages: `.github/workflows/pages.yml`, main dalına her gönderimde yayınlar; bir kez Settings › Pages › Source: GitHub Actions seçilmelidir) telefona uygulama gibi yüklenir ve bir kez açıldıktan sonra internetsiz çalışır: `manifest.webmanifest`, `sw.js` ve `ikon/`. Ayarlar'daki **Telefona ekle** düğmesi yüklemeyi başlatır ya da tarayıcıya göre talimat gösterir (iPhone'da Safari › Paylaş › Ana Ekrana Ekle). claude.ai linkinde aynı düğme ana ekrana kısayol eklemeyi anlatır; çevrimdışı çalışma orada kapalıdır. Yeni sürüm yayınlarken `sw.js` içindeki `SURUM` değerini değiştirin.
+Oyun kendi adresinde yayınlandığında (GitHub Pages: `.github/workflows/pages.yml`, main dalına her gönderimde yayınlar; bir kez Settings › Pages › Source: GitHub Actions seçilmelidir) telefona uygulama gibi yüklenir ve bir kez açıldıktan sonra internetsiz çalışır: `manifest.webmanifest`, `sw.js` ve `ikon/`. Ayarlar'daki **Telefona ekle** düğmesi yüklemeyi başlatır ya da tarayıcıya göre talimat gösterir (iPhone'da Safari › Paylaş › Ana Ekrana Ekle). claude.ai linkinde aynı düğme ana ekrana kısayol eklemeyi anlatır; çevrimdışı çalışma orada kapalıdır. Yeni sürüm yayınlamadan önce `node surum.mjs` çalıştırın: sayfadaki, içerik dosyalarındaki ve `sw.js`'teki sürüm etiketlerini birlikte yeniler. Telefon yeni sayfayla eski önbellekteki bir dosyayı karıştırırsa oyun bunu fark eder, önbelleği temizleyip kendini bir kez yeniden yükler; bir düğme hata verirse ekranda “Yenile” uyarısı çıkar.
 
 ## Çalıştırma
 
