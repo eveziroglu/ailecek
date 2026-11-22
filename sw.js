@@ -1,10 +1,10 @@
 /* Ailecek çevrimdışı çalışma.
    Uygulama dosyaları ilk açılışta önbelleğe alınır; görseller, ses paketleri ve yazı tipleri
    kullanıldıkça eklenir. Yeni sürüm yayınlanınca SURUM değişir ve eski önbellek silinir. */
-const SURUM = "ailecek-20261122-1901";
-const KABUK = ["./", "index.html", "icerik.js?v=20261122-1901", "icerik-kuslar.js?v=20261122-1901", "kuslar.js?v=20261122-1901", "kalp.js?v=20261122-1901", "kainat.js?v=20261122-1901", "manifest.webmanifest",
+const SURUM = "ailecek-20261122-2309";
+const KABUK = ["./", "index.html", "icerik.js?v=20261122-2309", "icerik-kuslar.js?v=20261122-2309", "kuslar.js?v=20261122-2309", "kalp.js?v=20261122-2309", "kainat.js?v=20261122-2309", "manifest.webmanifest",
   "ikon/ikon-192.png", "ikon/ikon-512.png", "ikon/apple-touch-icon.png", "gorsel/gorsel.json", "ses/ses.json",
-  "yazi/yazi.css?v=20261122-1901", "yazi/baloo2-latin-4a324d.woff2", "yazi/baloo2-latin-ext-0d1ee7.woff2", "yazi/figtree-latin-dab710.woff2", "yazi/figtree-latin-ext-c15953.woff2",
+  "yazi/yazi.css?v=20261122-2309", "yazi/baloo2-latin-4a324d.woff2", "yazi/baloo2-latin-ext-0d1ee7.woff2", "yazi/figtree-latin-dab710.woff2", "yazi/figtree-latin-ext-c15953.woff2",
   "hakkinda.html", "gizlilik.html"];
 
 self.addEventListener("install", e => {
