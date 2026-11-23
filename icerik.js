@@ -1,5 +1,5 @@
 /* Sürüm etiketi: node surum.mjs ile güncellenir; index.html ile aynı olmalı. */
-const ICERIK_SURUM = "20261122-2309";
+const ICERIK_SURUM = "20261123-1922";
 /* Ailecek oyun içeriği.
    Yeni kart eklemek için ilgili listeye bir satır eklemeniz yeterli.
    Bil Bakalım'da ilk seçenek doğru cevaptır (oyunda karıştırılır).
@@ -404,30 +404,58 @@ const SASKIN = [
    {X} isim, {X:e} "Ali'ye", {X:in} "Ali'nin". min = en küçük yaş seviyesi (0: 3-5, 1: 6-8, 2: 9-12, 3: 13+).
    tur: yardim | sevindir | dua | hizmet | soz. Görev seçerken her türden bir tane önerilir. */
 const IYILIK = [
+  /* Her iyilik gizli yapılabilmeli: alan kişi iyiliği fark etsin ama kimden geldiğini bilmesin.
+     min: en küçük yaş seviyesi (0: 3-5, 1: 6-8, 2: 9-12, 3: 13 ve üstü); tur: seçeneklerin farklı türlerden gelmesi için;
+     yazili: alan kişinin okuması gerekir, 3-5 yaşa önerilmez. */
+  /* Dua ve niyet */
   { d: "{X} için her gün kimseye söylemeden dua et.", min: 0, tur: "dua" },
   { d: "{X} için sabah namazından ya da yatmadan önce gizlice bir dua et ve “Allah'ım onu mutlu et” de.", min: 1, tur: "dua" },
-  { d: "{X} için güzel bir resim çiz ve fark ettirmeden yastığının altına koy.", min: 0, tur: "sevindir" },
+  { d: "{X} için kısa bir dua ya da sure ezberle; haftanın sonunda onun için oku ama kimin için okuduğunu söyleme.", min: 2, tur: "dua" },
+  { d: "{X} adına bir sadaka niyet et (kumbaraya atmak yeter); sevabı ona ulaşsın diye dua et.", min: 2, tur: "dua" },
+  { d: "Bu hafta {X} her iyilik yaptığında sen de içinden onun için “Allah ondan razı olsun” de.", min: 1, tur: "dua" },
+  /* Küçük sürprizler */
+  { d: "{X} için güzel bir resim çiz ve fark ettirmeden yastığının altına koy.", min: 0, tur: "surpriz" },
+  { d: "{X:in} yastığının üstüne yere düşmüş güzel bir yaprak ya da renkli bir taş bırak.", min: 0, tur: "surpriz" },
+  { d: "Kâğıda bir kalp çiz ve {X:in} cebine ya da çantasına gizle (bir büyük yardım edebilir).", min: 0, tur: "surpriz" },
+  { d: "{X:e} güzel bir not yaz, imzasız olarak bulacağı bir yere sakla.", min: 1, tur: "surpriz" , yazili: true },
+  { d: "{X:in} ayakkabısının içine minicik bir “İyi ki varsın” notu koy.", min: 1, tur: "surpriz" , yazili: true },
+  { d: "{X:in} okuduğu kitabın arasına kendi yaptığın bir kitap ayracı koy.", min: 1, tur: "surpriz" },
+  { d: "{X:in} kapısına imzasız bir “Bugün senin günün!” kartı as.", min: 1, tur: "surpriz" , yazili: true },
+  { d: "{X} için bir bilmece yaz ve masasına bırak; cevabı kâğıdın arkasında olsun.", min: 2, tur: "surpriz" , yazili: true },
+  { d: "{X:in} sevdiği bir atıştırmalığı çantasına ya da cebine gizlice koy.", min: 2, tur: "surpriz" },
+  { d: "{X} için küçük bir hazine avı hazırla: üç ipucu notu, sonunda küçük bir sürpriz. İpuçlarını imzasız bırak.", min: 2, tur: "surpriz" , yazili: true },
+  { d: "{X} için bir “sevgi kavanozu” hazırla: her gün onu sevdiğin bir sebebi kâğıda yazıp at, haftanın sonunda kavanozu bulacağı yere bırak.", min: 2, tur: "surpriz" , yazili: true },
+  /* El emeği */
+  { d: "{X:e} el yapımı küçük bir hediye hazırla, kimden geldiğini söyleme.", min: 1, tur: "emek" },
+  { d: "{X} için kâğıttan bir çiçek ya da kuş katla ve görebileceği bir yere koy.", min: 1, tur: "emek" },
+  { d: "{X:in} bir fotoğrafına kâğıttan süslü bir çerçeve yap ve yerine bırak.", min: 2, tur: "emek" },
+  { d: "{X} ile ilgili güzel bir anıyı kâğıda yaz ve hafta sonu bulacağı bir yere bırak.", min: 3, tur: "emek" , yazili: true },
+  { d: "{X:in} sevdiği bir yemeği ya da tatlıyı hazırla (bir büyükten yardım iste, ama kimin için olduğunu söyleme).", min: 3, tur: "emek" },
+  /* Hizmet */
   { d: "{X:in} ayakkabılarını kapının önünde güzelce diz.", min: 0, tur: "hizmet" },
-  { d: "{X:e} sebepsiz yere kocaman sarıl.", min: 0, tur: "sevindir" },
   { d: "{X:in} terliklerini o kalkmadan yatağının yanına koy.", min: 0, tur: "hizmet" },
-  { d: "{X:e} gün içinde üç kez gülümse ve bir kez “Seni seviyorum” de.", min: 0, tur: "soz" },
-  { d: "{X:e} güzel bir not yaz, imzasız olarak bulacağı bir yere sakla.", min: 1, tur: "sevindir" },
-  { d: "{X:in} bir işini, o fark etmeden sen yap.", min: 1, tur: "yardim" },
+  { d: "{X:in} havlusunu düzgünce katla ya da as.", min: 0, tur: "hizmet" },
   { d: "{X:e} en sevdiği içeceği hazırla ve masasına bırak.", min: 1, tur: "hizmet" },
-  { d: "{X:in} dağınık bir köşesini gizlice topla.", min: 1, tur: "yardim" },
   { d: "{X:in} su bardağını dolu tut; boşaldıkça sessizce doldur.", min: 1, tur: "hizmet" },
-  { d: "{X:e} el yapımı küçük bir hediye hazırla, kimden geldiğini söyleme.", min: 1, tur: "sevindir" },
-  { d: "{X} hakkında başkalarına güzel bir şey söyle; ona ulaşsın ama senden geldiğini bilmesin.", min: 2, tur: "soz" },
-  { d: "{X:in} sevdiği bir atıştırmalığı çantasına ya da cebine gizlice koy.", min: 2, tur: "sevindir" },
-  { d: "{X:e} içten bir iltifat et, ama bunun görev olduğunu belli etme.", min: 2, tur: "soz" },
-  { d: "{X:in} yapması gereken sıkıcı bir işe gizlice yardım et.", min: 2, tur: "yardim" },
-  { d: "{X:in} telefonunu, tabletini ya da kitabını o fark etmeden şarj et, sil, düzenle.", min: 2, tur: "yardim" },
-  { d: "{X:in} sevdiği bir yemeği ya da tatlıyı hazırla.", min: 3, tur: "hizmet" },
-  { d: "{X} ile ilgili güzel bir anıyı kâğıda yaz ve hafta sonu bulacağı bir yere bırak.", min: 3, tur: "sevindir" },
-  { d: "{X:in} bu hafta en çok yorulduğu bir işi üstlen, ama bunu senin yaptığını söyleme.", min: 3, tur: "yardim" },
-  { d: "{X} için her gün bir iyilik niyetiyle sadaka ver (bir kumbaraya atmak yeter).", min: 2, tur: "dua" },
+  { d: "{X} uyumadan önce başucuna bir bardak su bırak.", min: 1, tur: "hizmet" },
+  { d: "Bir akşam {X:in} tabağını o kalkmadan sen kaldır.", min: 1, tur: "hizmet" },
+  { d: "{X:in} en sevdiği meyveyi yıka, dilimle ve fark ettirmeden önüne koy.", min: 2, tur: "hizmet" },
+  { d: "{X:in} ayakkabılarını sil ve parlat.", min: 2, tur: "hizmet" },
   { d: "{X:e} bir sabah kahvaltısını hazırla ya da sofrasını kur.", min: 2, tur: "hizmet" },
-  { d: "{X:e} her gün “Allah razı olsun” demek için bir sebep bul.", min: 1, tur: "soz" }
+  { d: "{X:in} ertesi gün giyeceği kıyafetleri katla ve hazırla.", min: 2, tur: "hizmet" },
+  /* Yardım */
+  { d: "{X:in} dağılmış oyuncaklarından ya da eşyalarından birkaçını topla ve yerine koy.", min: 0, tur: "yardim" },
+  { d: "{X:in} bir işini, o fark etmeden sen yap.", min: 1, tur: "yardim" },
+  { d: "{X:in} dağınık bir köşesini gizlice topla.", min: 1, tur: "yardim" },
+  { d: "{X:in} sevdiği bir eşyasını (fincan, kalem, oyuncak) sil, parlat ve yerine koy.", min: 1, tur: "yardim" },
+  { d: "{X:in} yapması gereken sıkıcı bir işe gizlice yardım et.", min: 2, tur: "yardim" },
+  { d: "{X:in} telefonunu, tabletini ya da el fenerini o fark etmeden şarj et.", min: 2, tur: "yardim" },
+  { d: "{X:in} çantasını ya da masasını ertesi güne hazırla.", min: 2, tur: "yardim" },
+  { d: "{X:in} bu hafta en çok yorulduğu bir işi üstlen, ama bunu senin yaptığını söyleme.", min: 3, tur: "yardim" },
+  { d: "{X:in} küçük bir dileğini (sohbet arasında) öğren ve hafta içinde gizlice gerçekleştir.", min: 3, tur: "yardim" },
+  /* Güzel söz: ona başkası aracılığıyla ulaşsın */
+  { d: "{X} hakkında başkalarına güzel bir şey söyle; ona ulaşsın ama senden geldiğini bilmesin.", min: 2, tur: "soz" },
+  { d: "{X:e} içten bir iltifat et, ama bunun görev olduğunu belli etme.", min: 2, tur: "soz" }
 ];
 
 /* Gizli kalma ipuçları: İyilik Haftası boyunca Hüdhüd her gün birini söyler */

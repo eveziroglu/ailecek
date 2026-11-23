@@ -126,9 +126,9 @@ Anahtarlar: `OPENAI_API_KEY` / `ELEVENLABS_API_KEY` ortam değişkenlerine. Yeni
 
 İhlası yaşayarak öğretmek için tasarlanmış, bir hafta süren gizli iyilik oyunu.
 
-1. **Zarflar:** Herkes sırayla telefonu alır, zarfını açar ve gizli dostunu görür. Yaşına uygun **üç farklı türde görev** arasından birini seçer (yardım, sevindirme, dua, hizmet, güzel söz) ya da **kendi iyiliğini yazar**. Görev mühürlenir.
+1. **Zarflar:** Kimin kime iyilik yapacağı her gece rastgele belirlenir; kimse kendine düşmez ve mümkünse geçen haftaki eşleşmeler tekrar etmez. Herkes sırayla telefonu alır, zarfını açar ve gizli dostunu görür. Yaşına uygun **üç farklı türde görev** arasından birini seçer (dua, küçük sürpriz, el emeği, hizmet, yardım, güzel söz; 43 iyilik) ya da **kendi iyiliğini yazar**. Bütün iyilikler gizli yapılabilecek şekilde seçilmiştir; okuma gerektirenler 3-5 yaşındaki birine önerilmez ve geçen hafta seçilen iyilikler tekrar önerilmez. Görev mühürlenir.
 2. **İyilik Haftası:** Hafta sürerken ana sayfada haftanın kaçıncı günü olduğu, kaç iyiliğin yapıldığı ve her gün değişen bir "gizli kalma ipucu" görünür. Herkes "Kartım" ile görevine gizlice tekrar bakabilir, iyiliğini yapınca "Yaptım" deyip nasıl hissettiğini seçer. Kimin kime iyilik yaptığı hiçbir yerde görünmez.
-3. **Açılış Töreni:** Yedinci gün (ya da istenen bir gün) her aile üyesi "Bana kim iyilik yaptı?" diye tahmin eder. Mühür açılır: doğru bilen **Dedektif**, bilinmeyen **Usta Gizli Dost** olur. Yapılamamış görevler için "Bu hafta yapabilirsin, sorun değil" denir. Sonra iyiliği alan kişi bir teşekkür seçer: sarılma, dua, yıldız ya da çiçek.
+3. **Açılış Töreni:** Yedinci gün (ya da istenen bir gün) her aile üyesi "Bana kim iyilik yaptı?" diye tahmin eder. Mühür açılır: doğru bilen **Dedektif**, bilinmeyen **Usta Gizli Dost** olur. Yapılamamış görevler için "Yeni haftada yapabilir, sorun değil" denir ve bunlar dedektif ya da usta gizli dost sayılmaz. Sonra iyiliği alan kişi bir teşekkür seçer: sarılma, dua, yıldız ya da çiçek.
 4. **Nar Ağacı ve İyilik Defteri:** Yapılan her gizli iyilik ailenin nar ağacına bir nar ekler. Geçmiş haftaların tüm iyilikleri teşekkürleriyle birlikte İyilik Defteri'nde saklanır.
 
 ## Tasarım sistemi

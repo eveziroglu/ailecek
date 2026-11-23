@@ -18,7 +18,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Ailecek">
-<link rel="stylesheet" href="yazi/yazi.css?v=20261122-2309">
+<link rel="stylesheet" href="yazi/yazi.css?v=20261123-1922">
 <style>
 /* Ailecek tasarım sistemi: tasarim/project/ altındaki tokens.json ve bundle.css'ten üretilir (python3 tasarim/esitle.py). Elle düzenlemeyin. */
 /* @tokenlar:başla */
@@ -684,16 +684,16 @@ blockquote cite { display: block; margin-top: 8px; font: 600 13px/18px var(--fon
 </div>
 <div id="sheet-root"></div>
 
-<script src="icerik.js?v=20261122-2309"></script>
-<script src="icerik-kuslar.js?v=20261122-2309"></script>
-<script src="kuslar.js?v=20261122-2309"></script>
-<script src="kalp.js?v=20261122-2309"></script>
-<script src="kainat.js?v=20261122-2309"></script>
+<script src="icerik.js?v=20261123-1922"></script>
+<script src="icerik-kuslar.js?v=20261123-1922"></script>
+<script src="kuslar.js?v=20261123-1922"></script>
+<script src="kalp.js?v=20261123-1922"></script>
+<script src="kainat.js?v=20261123-1922"></script>
 <script>
 /* ---- Sürüm ve hata koruması ----
    Telefon yeni sayfayla eski önbellekteki bir dosyayı birlikte yüklerse oyun sessizce takılabilir.
    Sürümler uyuşmazsa önbellek temizlenip sayfa bir kez yeniden yüklenir. Bir düğme hata verirse uyarı çıkar. */
-const OYUN_SURUM = "20261122-2309";
+const OYUN_SURUM = "20261123-1922";
 (() => {
   const uyumlu = typeof ICERIK_SURUM !== "undefined" && ICERIK_SURUM === OYUN_SURUM && typeof KUSLAR_SURUM !== "undefined" && KUSLAR_SURUM === OYUN_SURUM && typeof KALP_SURUM !== "undefined" && KALP_SURUM === OYUN_SURUM && typeof KAINAT_SURUM !== "undefined" && KAINAT_SURUM === OYUN_SURUM;
   if (uyumlu) return;
@@ -2283,16 +2283,28 @@ function screenDeep(step) {
 
 /* ============ GİZLİ İYİLİK: ZARF DAĞITIMI ============ */
 function derange(n) { let idx; do { idx = shuffle([...Array(n).keys()]); } while (idx.some((v, i) => v === i)); return idx; }
-function deedOptions(lvl, used) {
-  const pool = shuffle(IYILIK.filter(d => d.min <= lvl && !used.has(d.d)));
+/* Zarflar rastgele dağıtılır; kimse kendine düşmez. Mümkünse geçen haftaki "kim kime" eşleşmeleri tekrar etmez. */
+function zarfEslesme(ps) {
+  const once = new Set(((defter[0] || {}).cards || []).map(c => c.from + "→" + c.to));
+  let en = null, enTekrar = Infinity;
+  for (let k = 0; k < 60; k++) {
+    const idx = derange(ps.length), tekrar = idx.filter((v, i) => once.has(ps[i].name + "→" + ps[v].name)).length;
+    if (tekrar < enTekrar) { en = idx; enTekrar = tekrar; }
+    if (!tekrar) break;
+  }
+  return en;
+}
+function deedOptions(lvl, used, aliciLvl = 3) {
+  const uygun = IYILIK.filter(d => d.min <= lvl && !(d.yazili && aliciLvl === 0)), taze = uygun.filter(d => !used.has(d.d));
+  const pool = shuffle(taze.length >= 3 ? taze : uygun);
   const out = [], turler = new Set();
   for (const d of pool) { if (!turler.has(d.tur)) { out.push(d); turler.add(d.tur); } if (out.length === 3) break; }
   for (const d of pool) { if (out.length === 3) break; if (!out.includes(d)) out.push(d); }
   return out;
 }
 function dealIntro() {
-  const ps = G.players, to = derange(ps.length);
-  G.deal = { cards: ps.map((p, i) => ({ from: p.name, fav: p.av, fage: p.age, to: ps[to[i]].name, tav: ps[to[i]].av, deed: null, done: false, feel: null })), used: new Set() };
+  const ps = G.players, to = zarfEslesme(ps);
+  G.deal = { cards: ps.map((p, i) => ({ from: p.name, fav: p.av, fage: p.age, to: ps[to[i]].name, tav: ps[to[i]].av, deed: null, done: false, feel: null })), used: new Set(((defter[0] || {}).cards || []).flatMap(c => IYILIK.filter(d => fillDeed(d.d, c.to) === c.deed).map(d => d.d))) };
   const line = DEAL_LINE;
   render(`
     <section class="ak-deed">
@@ -2318,7 +2330,7 @@ function dealHand(i) {
 }
 function dealOpen(i) {
   const c = G.deal.cards[i], lvl = ageOf(c.fage).lvl;
-  G.deal.opts = deedOptions(lvl, G.deal.used).map(d => fillDeed(d.d, c.to));
+  G.deal.opts = deedOptions(lvl, G.deal.used, ageOf((G.players.find(p => p.name === c.to) || {}).age).lvl).map(d => fillDeed(d.d, c.to));
   G.deal.sel = null;
   sfx.flip();
   render(`
